@@ -1,47 +1,115 @@
 import streamlit as st
-from src.scraper.publications_scraper import scrape_publications
-from src.scraper.presentations_scraper import scrape_presentations
-from src.scraper.news_scraper import scrape_news
+import sys
+import os
+from datetime import datetime
+
+# Add the src directory to the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+
+from scraper.publications_scraper import scrape_publications
+from scraper.presentations_scraper import scrape_presentations
+from scraper.news_scraper import scrape_news
+from data.data_storage import DataStorage
 
 def main():
-    st.title("NIST Quantum Information Science Dashboard")
-
+    st.set_page_config(page_title="NIST Quantum Tracker", page_icon="🔬", layout="wide")
+    st.title("🔬 NIST Quantum Information Science Tracker")
+    
+    # Initialize data storage
+    storage = DataStorage()
+    
+    # Sidebar for notifications
+    st.sidebar.header("Notifications")
+    
     # Scrape data
-    publications = scrape_publications()
-    presentations = scrape_presentations()
-    news = scrape_news()
-
-    # Display Publications
-    st.header("Publications")
-    for pub in publications:
-        st.subheader(pub['document_name'])
-        st.write(f"Number: {pub['document_number']}")
-        st.write(f"Series: {pub['series']}")
-        st.write(f"Status: {pub['status']}")
-        st.write(f"Release Date: {pub['release_date']}")
-        st.write(f"Resource Type: {pub['resource_type']}")
-        st.write(f"[Link]({pub['link']})")
-        st.write("---")
-
-    # Display Presentations
-    st.header("Presentations")
-    for pres in presentations:
-        st.subheader(pres['document_name'])
-        st.write(f"Number: {pres['document_number']}")
-        st.write(f"Series: {pres['series']}")
-        st.write(f"Status: {pres['status']}")
-        st.write(f"Release Date: {pres['release_date']}")
-        st.write(f"Resource Type: {pres['resource_type']}")
-        st.write(f"[Link]({pres['link']})")
-        st.write("---")
-
-    # Display News
-    st.header("News")
-    for article in news:
-        st.subheader(article['title'])
-        st.write(f"Published on: {article['publish_date']}")
-        st.write(f"[Read more]({article['link']})")
-        st.write("---")
+    with st.spinner('Scraping NIST data...'):
+        publications = scrape_publications()
+        presentations = scrape_presentations()
+        news = scrape_news()
+    
+    # Check for new items and save data
+    new_publications = storage.get_new_items('publications', publications)
+    new_presentations = storage.get_new_items('presentations', presentations)
+    new_news = storage.get_new_items('news', news)
+    
+    # Save current data
+    storage.save_data('publications', publications)
+    storage.save_data('presentations', presentations)
+    storage.save_data('news', news)
+    
+    # Display notifications
+    notification_count = len(new_publications) + len(new_presentations) + len(new_news)
+    
+    if notification_count > 0:
+        st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
+        
+        if new_publications:
+            st.sidebar.subheader("📄 New Publications:")
+            for pub in new_publications:
+                st.sidebar.write(f"• {pub['document_name']}")
+        
+        if new_presentations:
+            st.sidebar.subheader("🎤 New Presentations:")
+            for pres in new_presentations:
+                st.sidebar.write(f"• {pres['document_name']}")
+        
+        if new_news:
+            st.sidebar.subheader("📰 New News:")
+            for article in new_news:
+                st.sidebar.write(f"• {article['title']}")
+    else:
+        st.sidebar.info("No new items found since last check.")
+    
+    # Display data sections
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        st.header("📄 Publications")
+        st.write(f"Total: {len(publications)} items")
+        if new_publications:
+            st.success(f"🆕 {len(new_publications)} new publication(s)")
+        
+        for pub in publications:
+            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
+                st.write(f"**Status:** {pub['status']}")
+                st.write(f"**Type:** {pub['resource_type']}")
+                if pub['link']:
+                    st.markdown(f"[📄 View Document]({pub['link']})")
+                st.write("---")
+    
+    with col2:
+        st.header("🎤 Presentations")
+        st.write(f"Total: {len(presentations)} items")
+        if new_presentations:
+            st.success(f"🆕 {len(new_presentations)} new presentation(s)")
+        
+        for pres in presentations:
+            with st.expander(f"{pres['series']}: {pres['document_name']}"):
+                st.write(f"**Status:** {pres['status']}")
+                st.write(f"**Type:** {pres['resource_type']}")
+                if pres['link']:
+                    st.markdown(f"[🎤 View Presentation]({pres['link']})")
+                st.write("---")
+    
+    with col3:
+        st.header("📰 News")
+        st.write(f"Total: {len(news)} items")
+        if new_news:
+            st.success(f"🆕 {len(new_news)} new news item(s)")
+        
+        for article in news:
+            with st.expander(f"{article['title']}"):
+                if article['publish_date']:
+                    st.write(f"**Published:** {article['publish_date']}")
+                if article['summary']:
+                    st.write(f"**Summary:** {article['summary']}")
+                if article['link']:
+                    st.markdown(f"[📰 Read Article]({article['link']})")
+                st.write("---")
+    
+    # Last update info
+    st.sidebar.divider()
+    st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     main()

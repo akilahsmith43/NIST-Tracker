@@ -1,24 +1,40 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrape_presentations(url):
+def scrape_presentations():
+    # URL for NIST CSRC presentations with quantum information science filter
+    url = 'https://csrc.nist.gov/search?ipp=25&sortBy=relevance&showOnly=presentations&topicsMatch=ANY&topics=27501%7cquantum+information+science'
     presentations = []
     
-    response = requests.get(url)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    
-    # Assuming presentations are listed in a specific HTML structure
-    for item in soup.select('.presentation-item'):
-        presentation = {
-            'document_name': item.select_one('.document-name').text.strip(),
-            'document_number': item.select_one('.document-number').text.strip(),
-            'series': item.select_one('.series').text.strip(),
-            'document_status': item.select_one('.status').text.strip(),
-            'document_release_date': item.select_one('.release-date').text.strip(),
-            'resource_type': item.select_one('.resource-type').text.strip(),
-            'document_link': item.select_one('a')['href']
-        }
-        presentations.append(presentation)
+    try:
+        response = requests.get(url)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        
+        # Find presentation items
+        for item in soup.select('.search-list-item'):
+            # Get the title link
+            title_link = item.select_one('a[id^="title-link-"]')
+            if not title_link:
+                continue
+                
+            # Extract presentation details
+            presentation = {
+                'document_name': title_link.get_text(strip=True),
+                'document_number': '',  # Not available in search results
+                'series': 'Presentation',
+                'status': 'Available',
+                'release_date': '',  # Not easily extractable from search results
+                'resource_type': 'Presentation',
+                'link': title_link['href'] if title_link.get('href') else ''
+            }
+            
+            # Make link absolute if needed
+            if presentation['link'] and not presentation['link'].startswith('http'):
+                presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
+            
+            presentations.append(presentation)
+    except Exception as e:
+        print(f"Error scraping presentations: {e}")
     
     return presentations
 
