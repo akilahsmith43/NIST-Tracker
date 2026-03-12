@@ -1,87 +1,128 @@
-{
-  "data": [
-    {
+[
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.782695",
+    "item": {
       "document_name": "Perfect Cheating is Impossible for Single-qubit Position Verification",
       "document_number": "",
       "series": "Other (Final)",
+      "status": "Unknown",
       "release_date": "June 28, 2024",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/other/2024/06/28/perfect-cheating-is-impossible-for-single-qubit-po/final",
       "summary": "In quantum position verification, a prover certifies her location by performing a quantum computation and returning the results (at the speed of light) to a set of trusted verifiers. One of the very first protocols for quantum position verification was proposed in (Kent, Munro, Spiller 2011): the pr..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.782896",
+    "item": {
       "document_name": "Lattice-Based Quantum Advantage from Rotated Measurements",
       "document_number": "",
       "series": "Other (Final)",
+      "status": "Unknown",
       "release_date": "October 18, 2022",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/other/2022/10/18/latticebased-quantum-advantage-from-rotated-measur/final",
       "summary": "Trapdoor claw-free functions (TCFs) are immensely valuable in cryptographic interactions between a classical client and a quantum server. Typically, a protocol has the quantum server prepare a superposition of two-bit strings of a claw and then measure it using Pauli-\\(X\\) or \\(Z\\) measurements. In..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783023",
+    "item": {
       "document_name": "The membership problem for constant-sized quantum correlations is undecidable",
       "document_number": "",
       "series": "Other (Final)",
+      "status": "Unknown",
       "release_date": "January 26, 2021",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/other/2021/01/26/problem-for-constantsized-quantum-correlations-is/final",
       "summary": "When two spatially separated parties make measurements on an unknown entangled quantum state, what correlations can they achieve? How difficult is it to determine whether a given correlation is a quantum correlation? These questions are central to problems in quantum communication and computation. P..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783187",
+    "item": {
       "document_name": "Parallel Device-Independent Quantum Key Distribution",
       "document_number": "",
       "series": "Journal Article (Final)",
+      "status": "Unknown",
       "release_date": "September 1, 2020",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/journal/2020/09/parallel-deviceindependent-quantum-key-distributio/final",
       "summary": "Journal: IEEE Transactions on Information Theory Abstract: A prominent application of quantum cryptography is the distribution of cryptographic keys that are provably secure. Such security proofs were extended by Vazirani and Vidick ( Physical Review Letters , 113, 140501, 2014) to the device-independent (DI) scenario, where the users do not need to trust t..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783317",
+    "item": {
       "document_name": "The impossibility of efficient quantum weak coin flipping",
       "document_number": "",
       "series": "Conference Paper (Final)",
+      "status": "Unknown",
       "release_date": "June 22, 2020",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/conference/2020/06/22/the-impossibility-of-efficient-quantum-weak-coin-f/final",
       "summary": "Conference: 52nd Annual ACM Symposium on Theory of Computing (STOC 2020) Abstract: How can two parties with competing interests carry out a fair coin flip across a quantum communication channel? This problem (quantum weak coin-flipping) was formalized more than 15 years ago, and, despite some phenomenal theoretical progress, practical quantum coin-flipping protocols with vanishing..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783463",
+    "item": {
       "document_name": "Evaluating the Security of CRYSTALS-Dilithium in the Quantum Random Oracle Model",
       "document_number": "",
       "series": "Conference Paper (Final)",
+      "status": "Unknown",
       "release_date": "April 29, 2024",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/conference/2024/04/29/evaluating-the-security-of-crystalsdilithium/final",
       "summary": "Conference: EUROCRYPT 2024 Abstract: In the wake of recent progress on quantum computing hardware, the National Institute of Standards and Technology (NIST) is standardizing cryptographic protocols that are resistant to attacks by quantum adversaries. The primary digital signature scheme that NIST has chosen is CRYSTALS-Dilithium. The..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783622",
+    "item": {
       "document_name": "The Mathematics of Quantum Coin-Flipping",
       "document_number": "",
       "series": "Journal Article (Final)",
+      "status": "Unknown",
       "release_date": "December 1, 2022",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/journal/2022/12/mathematics-of-quantum-coin-flipping/final",
       "summary": "Journal: Notices of the American Mathematical Society Abstract: An expository article (aimed at the general mathematics community) about quantum cryptography and the philosophy of applied mathematics. The article focuses on quantum coin-flipping, a research problem that has a particularly long history."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783782",
+    "item": {
       "document_name": "Apply Quantum Search to the Safety Check for Mono Operational Attribute Based Protection Systems",
       "document_number": "",
       "series": "Conference Paper (Final)",
+      "status": "Unknown",
       "release_date": "December 18, 2020",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/conference/2020/12/18/apply-quantum-search-to-the-safety-check/final",
       "summary": "Conference: The 13th International Conference on Security Privacy and Anonymity in Computation Communication Abstract: Interrelated computing device's system such as IoT, RFID, or edge device's systems are pervasively equipped for today's information application and service systems, protecting them from unauthorized access i.e. safety is critical, because a breach from the device may cause cascading effects resultin..."
-    },
-    {
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 11:32:26.783953",
+    "item": {
       "document_name": "Notes on Interrogating Random Quantum Circuits",
       "document_number": "",
       "series": "Other (Final)",
+      "status": "Unknown",
       "release_date": "May 29, 2020",
       "resource_type": "Publication",
       "link": "https://csrc.nist.gov/pubs/other/2020/05/29/notes-on-interrogating-random-quantum-circuits/final",
       "summary": "Consider a quantum circuit that, when fed a constant input, produces a fixed-length random bit-string in each execution. Executing it many times yields a sample of many bit-strings that contain fresh randomness inherent to the quantum evaluation. When the circuit is freshly selected from a special c..."
     }
-  ],
-  "timestamp": "2026-03-12T11:38:51.949612",
-  "count": 9
-}
+  }
+]

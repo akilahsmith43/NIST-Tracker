@@ -5,7 +5,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "March 21, 2024",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2024/cryptographic-agility-and-transition-rd-and-plans"
     },
@@ -14,7 +14,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "November 18, 2019",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2019/poster-the-worlds-fastest-coin-flip-randomness-for"
     },
@@ -23,7 +23,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "July 18, 2024",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2024/us-national-cet-standards-strategy"
     },
@@ -32,7 +32,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "November 1, 2024",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2024/1400-test-for-date-and-time-shift"
     },
@@ -41,7 +41,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "January 22, 2026",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2026/draft-nist-ir-8587"
     },
@@ -50,7 +50,7 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "October 26, 2022",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2022/entropy-sources-importance-and-testing"
     },
@@ -59,11 +59,11 @@
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "",
+      "release_date": "July 16, 2025",
       "resource_type": "Presentation",
       "link": "https://csrc.nist.gov/presentations/2025/nccoe-roadmap-and-select-project-overviews"
     }
   ],
-  "timestamp": "2026-03-05T16:45:59.496679",
+  "timestamp": "2026-03-12T11:38:51.950444",
   "count": 7
 }

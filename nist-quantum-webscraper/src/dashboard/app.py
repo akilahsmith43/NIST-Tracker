@@ -87,8 +87,9 @@ def main():
         
         for pub in publications:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
+                if pub.get('release_date'):
+                    st.write(f"**Published:** {pub['release_date']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")

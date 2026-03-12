@@ -58,7 +58,6 @@ def scrape_publications(query: str | None = None):
                 "document_name": name,
                 "document_number": "",
                 "series": series,
-                "status": "Unknown",
                 "release_date": release_date,
                 "resource_type": "Publication",
                 "link": link,

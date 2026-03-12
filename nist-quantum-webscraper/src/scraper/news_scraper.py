@@ -30,9 +30,9 @@ def scrape_news():
             if link and not link.startswith('http'):
                 link = f"https://www.nist.gov{link}"
 
-            # Try to get publish date
+            # Try to get publish date - get the text content of the time element
             date_elem = article.select_one('time')
-            date = date_elem.get('datetime', '') if date_elem else ''
+            date = date_elem.get_text(strip=True) if date_elem else ''
 
             # Try to get summary - now text is inside div.text-with-summary
             summary_elem = article.select_one('.text-with-summary')
