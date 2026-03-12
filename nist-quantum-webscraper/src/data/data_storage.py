@@ -76,15 +76,32 @@ class DataStorage:
         self.save_notifications(notifications)
     
     def get_active_notifications(self) -> List[Dict[str, Any]]:
-        """Get notifications that are less than 48 hours old"""
+        """Get notifications where items were released within the last 48 hours"""
         notifications = self.load_notifications()
         now = datetime.now()
+        active = []
         
-        # Filter to keep only active notifications (not expired)
-        active = [n for n in notifications if (now - n['timestamp']).total_seconds() < 48 * 3600]
+        for n in notifications:
+            item = n.get('item', {})
+            item_date_str = None
+            
+            # Try to get the item's release/publish date
+            if item.get('release_date_raw'):
+                item_date_str = item['release_date_raw']  # ISO format date
+            elif item.get('publish_date_raw'):
+                item_date_str = item['publish_date_raw']  # ISO format date
+            
+            if item_date_str:
+                try:
+                    # Parse the ISO date
+                    item_date = datetime.fromisoformat(item_date_str)
+                    # Keep only items from the last 48 hours
+                    if (now - item_date).total_seconds() < 48 * 3600:
+                        active.append(n)
+                except Exception:
+                    # If parsing fails, skip this notification
+                    pass
         
-        # Save cleaned notifications (removes expired ones)
-        self.save_notifications(active)
         return active
     
     def save_notifications(self, notifications: List[Dict[str, Any]]):

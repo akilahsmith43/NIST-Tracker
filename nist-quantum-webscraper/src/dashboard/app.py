@@ -33,6 +33,22 @@ def main():
         presentations = scrape_presentations()
         news = scrape_news()
     
+    # keep only publications from the last five years
+    from datetime import datetime, timedelta
+    cutoff = datetime.now() - timedelta(days=5*365)
+    recent_pubs = []
+    for pub in publications:
+        raw = pub.get('release_date_raw')
+        if raw:
+            try:
+                d = datetime.fromisoformat(raw)
+            except Exception:
+                continue
+            if d >= cutoff:
+                recent_pubs.append(pub)
+        # if we can't parse date, drop it
+    publications = recent_pubs
+
     # Sort by date - newest first
     publications = sorted(publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
     presentations = sorted(presentations, key=lambda x: x.get('release_date', ''), reverse=True)
