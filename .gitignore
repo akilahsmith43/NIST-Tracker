@@ -1,0 +1,9 @@
+# Ignore data storage JSON output files
+data_storage/*.json
+
+# Ignore virtual environment
+.venv/
+
+# Python bytecode
+__pycache__/
+*.py[cod]
