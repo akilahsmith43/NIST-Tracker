@@ -13,13 +13,13 @@ def scrape_news():
         # Find news articles
         articles = soup.select('article[class*="nist-teaser"]')
         for article in articles:
-            # Get the title link
-            title_link = article.select_one('a[href*="/news-events/news/"]')
-            if not title_link:
+            # Get the title from the h3 element
+            title_elem = article.select_one('h3.nist-teaser__title a')
+            if not title_elem:
                 continue
                 
-            title = title_link.get_text(strip=True)
-            link = title_link['href']
+            title = title_elem.get_text(strip=True)
+            link = title_elem['href']
             
             # Make link absolute if needed
             if link and not link.startswith('http'):

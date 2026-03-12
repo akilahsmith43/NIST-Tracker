@@ -49,25 +49,28 @@ def main():
     storage.save_data('news', news)
     
     # Display notifications
-    notification_count = len(new_publications) + len(new_presentations) + len(new_news)
+    notification_count = len(active_notifications)
     
     if notification_count > 0:
         st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
         
-        if new_publications:
-            st.sidebar.subheader("📄 New Publications:")
-            for pub in new_publications:
-                st.sidebar.write(f"• {pub['document_name']}")
+        # Sort notifications by timestamp (newest first)
+        active_notifications.sort(key=lambda x: x['timestamp'], reverse=True)
         
-        if new_presentations:
-            st.sidebar.subheader("🎤 New Presentations:")
-            for pres in new_presentations:
-                st.sidebar.write(f"• {pres['document_name']}")
-        
-        if new_news:
-            st.sidebar.subheader("📰 New News:")
-            for article in new_news:
-                st.sidebar.write(f"• {article['title']}")
+        for notification in active_notifications:
+            item = notification['item']
+            timestamp = notification['timestamp'].strftime("%m/%d %H:%M")
+            
+            if notification['type'] == 'publication':
+                title = item.get('document_name', 'Unknown Publication')
+                date_info = f" ({item.get('release_date', 'No date')})" if item.get('release_date') else ""
+                st.sidebar.write(f"📄 [{timestamp}] {title}{date_info}")
+            elif notification['type'] == 'presentation':
+                title = item.get('document_name', 'Unknown Presentation')
+                st.sidebar.write(f"🎤 [{timestamp}] {title}")
+            elif notification['type'] == 'news':
+                title = item.get('title', 'Unknown News')
+                st.sidebar.write(f"📰 [{timestamp}] {title}")
     else:
         st.sidebar.info("No new items found since last check.")
     
