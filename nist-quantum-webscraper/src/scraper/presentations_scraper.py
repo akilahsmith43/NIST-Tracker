@@ -18,12 +18,16 @@ def scrape_presentations():
                 continue
                 
             # Extract presentation details
+            # pull the date from the same search item if present
+            date_el = item.select_one('strong[id^="date-container"]')
+            date_text = date_el.get_text(strip=True) if date_el else ""
+
             presentation = {
                 'document_name': title_link.get_text(strip=True),
                 'document_number': '',  # Not available in search results
                 'series': 'Presentation',
                 'status': 'Available',
-                'release_date': '',  # Not easily extractable from search results
+                'release_date': date_text,
                 'resource_type': 'Presentation',
                 'link': title_link['href'] if title_link.get('href') else ''
             }
