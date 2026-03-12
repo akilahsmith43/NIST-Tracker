@@ -23,10 +23,14 @@ def scrape_presentations():
                 'document_number': '',  # Not available in search results
                 'series': 'Presentation',
                 'status': 'Available',
-                'release_date': '',  # Not easily extractable from search results
+                'release_date': '',  # will fill below if available
                 'resource_type': 'Presentation',
                 'link': title_link['href'] if title_link.get('href') else ''
             }
+            # extract date if provided
+            date_el = item.select_one('strong[id^="date-container-"]')
+            if date_el:
+                presentation['release_date'] = date_el.get_text(strip=True)
             
             # Make link absolute if needed
             if presentation['link'] and not presentation['link'].startswith('http'):

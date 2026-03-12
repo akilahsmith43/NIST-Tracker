@@ -89,9 +89,20 @@ def main():
         if new_finals:
             st.success(f"🆕 {len(new_finals)} new final publication(s)")
         for pub in finals:
-            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
+            # show first 80 characters of summary in header if available
+            header = f"{pub['series']} {pub['document_number']}: {pub['document_name']}"
+            if pub.get('summary'):
+                snippet = pub['summary'][:80].strip()
+                if len(pub['summary']) > 80:
+                    snippet += '...'
+                header += f" — {snippet}"
+            with st.expander(header):
                 st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
+                if pub.get('release_date'):
+                    st.write(f"**Published:** {pub['release_date']}")
+                if pub.get('summary'):
+                    st.write(f"**Summary:** {pub['summary']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
@@ -101,9 +112,19 @@ def main():
         if new_drafts:
             st.success(f"🆕 {len(new_drafts)} new draft publication(s)")
         for pub in drafts:
-            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
+            header = f"{pub['series']} {pub['document_number']}: {pub['document_name']}"
+            if pub.get('summary'):
+                snippet = pub['summary'][:80].strip()
+                if len(pub['summary']) > 80:
+                    snippet += '...'
+                header += f" — {snippet}"
+            with st.expander(header):
                 st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
+                if pub.get('release_date'):
+                    st.write(f"**Published:** {pub['release_date']}")
+                if pub.get('summary'):
+                    st.write(f"**Summary:** {pub['summary']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
@@ -115,9 +136,12 @@ def main():
             st.success(f"🆕 {len(new_presentations)} new presentation(s)")
         
         for pres in presentations:
-            with st.expander(f"{pres['series']}: {pres['document_name']}"):
+            header = f"{pres['series']}: {pres['document_name']}"
+            with st.expander(header):
                 st.write(f"**Status:** {pres['status']}")
                 st.write(f"**Type:** {pres['resource_type']}")
+                if pres.get('release_date'):
+                    st.write(f"**Published:** {pres['release_date']}")
                 if pres['link']:
                     st.markdown(f"[🎤 View Presentation]({pres['link']})")
                 st.write("---")

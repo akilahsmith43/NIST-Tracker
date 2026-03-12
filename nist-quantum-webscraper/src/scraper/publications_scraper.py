@@ -42,14 +42,27 @@ def scrape_publications(query: str | None = None):
             series_el = item.select_one(".sub-title strong")
             series = series_el.get_text(strip=True) if series_el else ""
 
+            # date and abstract/summary appear in predictable elements
+            date_el = item.select_one('strong[id^="date-container-"]')
+            release_date = date_el.get_text(strip=True) if date_el else ""
+
+            summary_el = item.select_one('p[id^="content-area-"]')
+            # remove leading "Abstract:" if present and trim
+            summary = ""
+            if summary_el:
+                summary = summary_el.get_text(strip=True)
+                if summary.lower().startswith("abstract:"):
+                    summary = summary[len("abstract:"):].strip()
+
             publications.append({
                 "document_name": name,
                 "document_number": "",
                 "series": series,
                 "status": "Unknown",
-                "release_date": "",
+                "release_date": release_date,
                 "resource_type": "Publication",
                 "link": link,
+                "summary": summary,
             })
     except Exception as e:
         print(f"Error scraping publications: {e}")
