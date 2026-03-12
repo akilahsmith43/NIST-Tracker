@@ -42,16 +42,12 @@ def scrape_publications(query: str | None = None):
             series_el = item.select_one(".sub-title strong")
             series = series_el.get_text(strip=True) if series_el else ""
 
-            # attempt to grab a date element if it's present in the search
-            date_el = item.select_one('strong[id^="date-container"]')
-            date_text = date_el.get_text(strip=True) if date_el else ""
-
             publications.append({
                 "document_name": name,
                 "document_number": "",
                 "series": series,
                 "status": "Unknown",
-                "release_date": date_text,
+                "release_date": "",
                 "resource_type": "Publication",
                 "link": link,
             })

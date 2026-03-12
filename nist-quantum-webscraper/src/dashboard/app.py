@@ -90,9 +90,7 @@ def main():
             st.success(f"🆕 {len(new_finals)} new final publication(s)")
         for pub in finals:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                # show release date if we were able to scrape it
-                if pub.get('release_date'):
-                    st.write(f"**Published:** {pub['release_date']}")
+                st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
@@ -104,8 +102,7 @@ def main():
             st.success(f"🆕 {len(new_drafts)} new draft publication(s)")
         for pub in drafts:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                if pub.get('release_date'):
-                    st.write(f"**Published:** {pub['release_date']}")
+                st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
@@ -119,8 +116,6 @@ def main():
         
         for pres in presentations:
             with st.expander(f"{pres['series']}: {pres['document_name']}"):
-                if pres.get('release_date'):
-                    st.write(f"**Published:** {pres['release_date']}")
                 st.write(f"**Status:** {pres['status']}")
                 st.write(f"**Type:** {pres['resource_type']}")
                 if pres['link']:
@@ -136,13 +131,7 @@ def main():
         for article in news:
             with st.expander(f"{article['title']}"):
                 if article['publish_date']:
-                    # try to parse ISO date and format nicely
-                    try:
-                        dt = datetime.fromisoformat(article['publish_date'])
-                        nice = dt.strftime('%B %d, %Y')
-                    except Exception:
-                        nice = article['publish_date']
-                    st.write(f"**Published:** {nice}")
+                    st.write(f"**Published:** {article['publish_date']}")
                 if article['summary']:
                     st.write(f"**Summary:** {article['summary']}")
                 if article['link']:
