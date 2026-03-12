@@ -79,17 +79,12 @@ class DataStorage:
         """Get notifications that are less than 48 hours old"""
         notifications = self.load_notifications()
         now = datetime.now()
-        active = []
         
-        for n in notifications:
-            if (now - n['timestamp']).total_seconds() < 48 * 3600:
-                active.append(n)
-            else:
-                # Remove expired notifications
-                notifications.remove(n)
+        # Filter to keep only active notifications (not expired)
+        active = [n for n in notifications if (now - n['timestamp']).total_seconds() < 48 * 3600]
         
-        # Save cleaned notifications
-        self.save_notifications(notifications)
+        # Save cleaned notifications (removes expired ones)
+        self.save_notifications(active)
         return active
     
     def save_notifications(self, notifications: List[Dict[str, Any]]):

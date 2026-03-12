@@ -7,7 +7,7 @@
       "release_date": "March 10, 2026",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/low-frequency-cryocoolers-are-compressed-inefficiently",
-      "summary": ""
+      "summary": "Low-frequency cryocoolers are compressed inefficiently"
     },
     {
       "document_name": "QDFlow: A Python package for physics simulations of quantum dot devices",
@@ -16,7 +16,7 @@
       "release_date": "March 3, 2026",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/qdflow-python-package-physics-simulations-quantum-dot-devices",
-      "summary": ""
+      "summary": "QDFlow: A Python package for physics simulations of quantum dot devices"
     },
     {
       "document_name": "Electrical interconnects for silicon spin qubits",
@@ -25,7 +25,7 @@
       "release_date": "February 2, 2026",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/electrical-interconnects-silicon-spin-qubits",
-      "summary": ""
+      "summary": "Electrical interconnects for silicon spin qubits"
     },
     {
       "document_name": "Bootstrapping, autonomous testing, and initialization system for Si/Si$_x$Ge$_1-x}$ multi-quantum-dot devices",
@@ -34,7 +34,7 @@
       "release_date": "January 20, 2026",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/bootstrapping-autonomous-testing-and-initialization-system-sisixge1-x-multi-quantum-dot",
-      "summary": ""
+      "summary": "Bootstrapping, autonomous testing, and initialization system for Si/Si$_x$Ge$_1-x}$ multi-quantum-dot devices"
     },
     {
       "document_name": "Chirped magneto-optical trap of molybdenum",
@@ -43,7 +43,7 @@
       "release_date": "December 12, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/chirped-magneto-optical-trap-molybdenum",
-      "summary": ""
+      "summary": "Chirped magneto-optical trap of molybdenum"
     },
     {
       "document_name": "Observation of a fault tolerance threshold with concatenated codes",
@@ -52,7 +52,7 @@
       "release_date": "December 9, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/observation-fault-tolerance-threshold-concatenated-codes",
-      "summary": ""
+      "summary": "Observation of a fault tolerance threshold with concatenated codes"
     },
     {
       "document_name": "Broadband pulsed quadrature measurements with calorimeters",
@@ -61,7 +61,7 @@
       "release_date": "December 8, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/broadband-pulsed-quadrature-measurements-calorimeters",
-      "summary": ""
+      "summary": "Broadband pulsed quadrature measurements with calorimeters"
     },
     {
       "document_name": "Detection of Surface Spins Causing Flux Noise in Quantum Devices using Electron Spin Resonance",
@@ -70,7 +70,7 @@
       "release_date": "December 1, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/detection-surface-spins-causing-flux-noise-quantum-devices-using-electron-spin",
-      "summary": ""
+      "summary": "Detection of Surface Spins Causing Flux Noise in Quantum Devices using Electron Spin Resonance"
     },
     {
       "document_name": "Argon-Ion Treatment of Multi-Material Layered Surface-Electrode Traps for Noise Mitigation",
@@ -79,7 +79,7 @@
       "release_date": "November 28, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/argon-ion-treatment-multi-material-layered-surface-electrode-traps-noise-mitigation",
-      "summary": ""
+      "summary": "Argon-Ion Treatment of Multi-Material Layered Surface-Electrode Traps for Noise Mitigation"
     },
     {
       "document_name": "Robust Two-Qubit Geometric Phase Gates using Amplitude and Frequency Ramping",
@@ -88,7 +88,7 @@
       "release_date": "November 18, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/robust-two-qubit-geometric-phase-gates-using-amplitude-and-frequency-ramping",
-      "summary": ""
+      "summary": "Robust Two-Qubit Geometric Phase Gates using Amplitude and Frequency Ramping"
     },
     {
       "document_name": "Towards a quantum repeater using a surface-trap-integrated microcavity and trapped ions",
@@ -97,7 +97,7 @@
       "release_date": "November 18, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/towards-quantum-repeater-using-surface-trap-integrated-microcavity-and-trapped-ions",
-      "summary": ""
+      "summary": "Towards a quantum repeater using a surface-trap-integrated microcavity and trapped ions"
     },
     {
       "document_name": "Compatibility of trapped ions and dielectrics at cryogenic temperatures",
@@ -106,7 +106,7 @@
       "release_date": "November 17, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/compatibility-trapped-ions-and-dielectrics-cryogenic-temperatures",
-      "summary": ""
+      "summary": "Compatibility of trapped ions and dielectrics at cryogenic temperatures"
     },
     {
       "document_name": "Single-photon time-of-flight measurements for benchmarking time transfer in quantum networks",
@@ -115,7 +115,7 @@
       "release_date": "November 14, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/single-photon-time-flight-measurements-benchmarking-time-transfer-quantum-networks",
-      "summary": ""
+      "summary": "Single-photon time-of-flight measurements for benchmarking time transfer in quantum networks"
     },
     {
       "document_name": "A fault-tolerant neutral-atom architecture for universal quantum computation",
@@ -124,7 +124,7 @@
       "release_date": "November 10, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/fault-tolerant-neutral-atom-architecture-universal-quantum-computation",
-      "summary": ""
+      "summary": "A fault-tolerant neutral-atom architecture for universal quantum computation"
     },
     {
       "document_name": "Clock precision beyond the Standard Quantum Limit at 10 -18 level",
@@ -133,7 +133,7 @@
       "release_date": "November 7, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/clock-precision-beyond-standard-quantum-limit-10-18-level",
-      "summary": ""
+      "summary": "Clock precision beyond the Standard Quantum Limit at 10 -18 level"
     },
     {
       "document_name": "Unraveling spin entanglement using quantum gates with scanning tunneling microscopy-driven electron spin resonance",
@@ -142,7 +142,7 @@
       "release_date": "October 31, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/unraveling-spin-entanglement-using-quantum-gates-scanning-tunneling-microscopy-driven",
-      "summary": ""
+      "summary": "Unraveling spin entanglement using quantum gates with scanning tunneling microscopy-driven electron spin resonance"
     },
     {
       "document_name": "Solitons in thermal gas stabilized by photon-mediated interactions in an optical cavity",
@@ -151,7 +151,7 @@
       "release_date": "October 21, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/solitons-thermal-gas-stabilized-photon-mediated-interactions-optical-cavity",
-      "summary": ""
+      "summary": "Solitons in thermal gas stabilized by photon-mediated interactions in an optical cavity"
     },
     {
       "document_name": "Temperature-Compensated Multi-Level CMOS Modulators Operating from 10 K to 300 K for Cryogenic Interconnects",
@@ -160,7 +160,7 @@
       "release_date": "October 14, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/temperature-compensated-multi-level-cmos-modulators-operating-10-k-300-k-cryogenic",
-      "summary": ""
+      "summary": "Temperature-Compensated Multi-Level CMOS Modulators Operating from 10 K to 300 K for Cryogenic Interconnects"
     },
     {
       "document_name": "Scalable and fault-tolerant preparation of encoded k-uniform states",
@@ -169,7 +169,7 @@
       "release_date": "October 3, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/scalable-and-fault-tolerant-preparation-encoded-k-uniform-states",
-      "summary": ""
+      "summary": "Scalable and fault-tolerant preparation of encoded k-uniform states"
     },
     {
       "document_name": "Efficient production of sodium Bose-Einstein condensates in a hybrid trap",
@@ -178,7 +178,7 @@
       "release_date": "September 10, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/efficient-production-sodium-bose-einstein-condensates-hybrid-trap",
-      "summary": ""
+      "summary": "Efficient production of sodium Bose-Einstein condensates in a hybrid trap"
     },
     {
       "document_name": "Accurate Unsupervised Photon Counting from Transition Edge Sensor Signals",
@@ -187,7 +187,7 @@
       "release_date": "September 5, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/accurate-unsupervised-photon-counting-transition-edge-sensor-signals",
-      "summary": ""
+      "summary": "Accurate Unsupervised Photon Counting from Transition Edge Sensor Signals"
     },
     {
       "document_name": "Atomic Coherence of over 100 s and 1-s Instability of 1.5x10 -18 in a Wannier-Stark Lattice Clock",
@@ -196,7 +196,7 @@
       "release_date": "September 3, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/atomic-coherence-over-100-s-and-1-s-instability-15x10-18-wannier-stark-lattice-clock",
-      "summary": ""
+      "summary": "Atomic Coherence of over 100 s and 1-s Instability of 1.5x10 -18 in a Wannier-Stark Lattice Clock"
     },
     {
       "document_name": "Atomistic tight-binding Hartree-Fock calculations of multielectron configurations in P-doped silicon devices: Wavefunction reshaping",
@@ -205,7 +205,7 @@
       "release_date": "August 28, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/atomistic-tight-binding-hartree-fock-calculations-multielectron-configurations-p-doped",
-      "summary": ""
+      "summary": "Atomistic tight-binding Hartree-Fock calculations of multielectron configurations in P-doped silicon devices: Wavefunction reshaping"
     },
     {
       "document_name": "Error-corrected fermionic quantum processors with neutral atoms",
@@ -214,7 +214,7 @@
       "release_date": "August 25, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/error-corrected-fermionic-quantum-processors-neutral-atoms",
-      "summary": ""
+      "summary": "Error-corrected fermionic quantum processors with neutral atoms"
     },
     {
       "document_name": "Emergent Unitary Designs for Encoded Qubits from Coherent Errors and Syndrome Measurements",
@@ -223,9 +223,9 @@
       "release_date": "August 22, 2025",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/emergent-unitary-designs-encoded-qubits-coherent-errors-and-syndrome-measurements",
-      "summary": ""
+      "summary": "Emergent Unitary Designs for Encoded Qubits from Coherent Errors and Syndrome Measurements"
     }
   ],
-  "timestamp": "2026-03-12T15:02:39.190005",
+  "timestamp": "2026-03-12T15:21:17.612197",
   "count": 25
 }

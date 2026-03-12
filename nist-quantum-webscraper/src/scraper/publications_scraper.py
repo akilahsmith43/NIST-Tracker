@@ -3,6 +3,33 @@ from bs4 import BeautifulSoup
 import re
 
 
+def generate_summary(pub: dict) -> str:
+    """Generate a meaningful summary for a publication.
+    
+    Creates a summary from the title and available metadata.
+    """
+    if pub.get('summary'):
+        return pub['summary']
+    
+    # Create a meaningful summary from the title
+    title = pub.get('document_name', '')
+    if not title:
+        return "Publication detailing quantum information science research."
+    
+    # Use title as base summary but limit length for readability
+    if len(title) > 200:
+        summary = title[:200] + "..."
+    else:
+        summary = title
+    
+    # Add context about document type
+    series = pub.get('series', 'Publication')
+    if series and series.lower() not in summary.lower():
+        summary = f"{series}: {summary}"
+    
+    return summary
+
+
 def clean_text(text: str) -> str:
     """Clean extracted text by removing extra whitespace and control characters."""
     if not text:
@@ -148,6 +175,10 @@ def scrape_publications(url: str | None = None, query: str | None = None):
     except Exception as e:
         print(f"Error scraping publications from {base_url}: {e}")
 
+    # Generate summaries for publications that don't have them
+    for pub in publications:
+        pub['summary'] = generate_summary(pub)
+    
     print(f"DEBUG: Retrieved {len(publications)} publications from {base_url}")
     return publications
 

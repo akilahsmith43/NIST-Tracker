@@ -60,20 +60,32 @@ def main():
     if notification_count > 0:
         st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
         
-        if new_publications:
+        # Separate notifications by type
+        pub_notifications = [n for n in active_notifications if n.get('type') == 'publication']
+        pres_notifications = [n for n in active_notifications if n.get('type') == 'presentation']
+        news_notifications = [n for n in active_notifications if n.get('type') == 'news']
+        
+        if pub_notifications:
             st.sidebar.subheader("📄 New Publications:")
-            for pub in new_publications:
-                st.sidebar.write(f"• {pub['document_name']}")
+            for notif in pub_notifications:
+                pub = notif.get('item', {})
+                st.sidebar.write(f"• {pub.get('document_name', 'Untitled')}")
+                if pub.get('summary'):
+                    st.sidebar.caption(f"   {pub['summary'][:100]}...")
         
-        if new_presentations:
+        if pres_notifications:
             st.sidebar.subheader("🎤 New Presentations:")
-            for pres in new_presentations:
-                st.sidebar.write(f"• {pres['document_name']}")
+            for notif in pres_notifications:
+                pres = notif.get('item', {})
+                st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
         
-        if new_news:
+        if news_notifications:
             st.sidebar.subheader("📰 New News:")
-            for article in new_news:
-                st.sidebar.write(f"• {article['title']}")
+            for notif in news_notifications:
+                article = notif.get('item', {})
+                st.sidebar.write(f"• {article.get('title', 'Untitled')}")
+                if article.get('summary'):
+                    st.sidebar.caption(f"   {article['summary'][:100]}...")
     else:
         st.sidebar.info("No new items found since last check.")
     
@@ -91,6 +103,8 @@ def main():
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub.get('release_date'):
                     st.write(f"**Published:** {pub['release_date']}")
+                if pub.get('summary'):
+                    st.write(f"**Summary:** {pub['summary']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
