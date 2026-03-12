@@ -90,7 +90,7 @@ def main():
             st.success(f"🆕 {len(new_finals)} new final publication(s)")
         for pub in finals:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                st.write(f"**Status:** {pub['status']}")
+                # status is not needed for publications; omit it
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
@@ -102,7 +102,7 @@ def main():
             st.success(f"🆕 {len(new_drafts)} new draft publication(s)")
         for pub in drafts:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                st.write(f"**Status:** {pub['status']}")
+                # status is not needed for publications; omit it
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
