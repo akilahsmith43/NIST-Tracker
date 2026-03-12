@@ -6,7 +6,11 @@ from datetime import datetime
 # Add the src directory to the Python path
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
-from scraper.publications_scraper import scrape_publications
+from scraper.publications_scraper import (
+    scrape_publications,
+    scrape_all_publications,
+    filter_publications,
+)
 from scraper.presentations_scraper import scrape_presentations
 from scraper.news_scraper import scrape_news
 from data.data_storage import DataStorage
@@ -23,7 +27,8 @@ def main():
     
     # Scrape data
     with st.spinner('Scraping NIST data...'):
-        publications = scrape_publications()
+        # use the helper that runs all relevant queries (final/draft/open)
+        publications = scrape_all_publications()
         presentations = scrape_presentations()
         news = scrape_news()
     
@@ -31,6 +36,12 @@ def main():
     new_publications = storage.get_new_items('publications', publications)
     new_presentations = storage.get_new_items('presentations', presentations)
     new_news = storage.get_new_items('news', news)
+
+    # split publication sets for display
+    finals = filter_publications(publications, include_final=True, include_drafts=False)
+    drafts = filter_publications(publications, include_final=False, include_drafts=True)
+    new_finals = filter_publications(new_publications, include_final=True, include_drafts=False)
+    new_drafts = filter_publications(new_publications, include_final=False, include_drafts=True)
     
     # Save current data
     storage.save_data('publications', publications)
@@ -43,9 +54,13 @@ def main():
     if notification_count > 0:
         st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
         
-        if new_publications:
-            st.sidebar.subheader("📄 New Publications:")
-            for pub in new_publications:
+        if new_finals:
+            st.sidebar.subheader("📄 New Final Publications:")
+            for pub in new_finals:
+                st.sidebar.write(f"• {pub['document_name']}")
+        if new_drafts:
+            st.sidebar.subheader("📝 New Draft Publications:")
+            for pub in new_drafts:
                 st.sidebar.write(f"• {pub['document_name']}")
         
         if new_presentations:
@@ -69,7 +84,23 @@ def main():
         if new_publications:
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
-        for pub in publications:
+        st.subheader("Final documents")
+        st.write(f"Total: {len(finals)} items")
+        if new_finals:
+            st.success(f"🆕 {len(new_finals)} new final publication(s)")
+        for pub in finals:
+            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
+                st.write(f"**Status:** {pub['status']}")
+                st.write(f"**Type:** {pub['resource_type']}")
+                if pub['link']:
+                    st.markdown(f"[📄 View Document]({pub['link']})")
+                st.write("---")
+
+        st.subheader("Drafts / open for comment")
+        st.write(f"Total: {len(drafts)} items")
+        if new_drafts:
+            st.success(f"🆕 {len(new_drafts)} new draft publication(s)")
+        for pub in drafts:
             with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
                 st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
