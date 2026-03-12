@@ -5947,7 +5947,7 @@
       "release_date": "February 5, 2007",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/characterization-fiber-generated-entangled-photon-pairs-superconducting-single-photon",
-      "summary": ""
+      "summary": "We demonstrate the suitability of fiber-generated entangled photon pairs for practical quantum communications in the telecom band by measuring their properties"
     },
     {
       "document_name": "The non-disjoint ontic states of the Grassmann ontological model, transformation contextuality, and the single qubit stabilizer subtheory",
@@ -8578,6 +8578,6 @@
       "summary": "While relatively easy to engineer, transverse coupling between a qubit and a cavity mode satisfies the criteria for a quantum non-demolition (QND) measurement o"
     }
   ],
-  "timestamp": "2026-03-12T16:45:24.663941",
+  "timestamp": "2026-03-12T16:50:05.265455",
   "count": 953
 }

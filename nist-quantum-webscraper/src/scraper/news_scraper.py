@@ -35,7 +35,8 @@ def generate_news_summary(title: str, summary: str) -> str:
 
 def scrape_news():
     url = "https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or&topic-area-fieldset%5B%5D=249281"
-    response = requests.get(url)
+    session = requests.Session()
+    response = session.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
     news_data = []
@@ -60,9 +61,28 @@ def scrape_news():
         date_el = article.find('time')
         date = date_el['datetime'] if date_el else ""
         
-        # Safely extract summary
-        summary_el = article.find('p')
-        summary = summary_el.get_text(strip=True) if summary_el else ""
+        # Try to fetch real summary from the article page
+        summary = ""
+        try:
+            article_response = session.get(link, timeout=5)
+            article_soup = BeautifulSoup(article_response.content, 'html.parser')
+            
+            # First try meta description
+            meta = article_soup.select_one('meta[name="description"]')
+            if meta and meta.get('content'):
+                summary = meta['content'].strip()
+            
+            # If no meta description, try to extract first paragraph from content
+            if not summary:
+                # Look for main content area
+                content = article_soup.select_one('main') or article_soup.select_one('[role="main"]') or article_soup.select_one('.field-type-text-long')
+                if content:
+                    p = content.find('p')
+                    if p:
+                        summary = p.get_text(strip=True)
+        except Exception:
+            # If fetching fails, fall back to empty summary
+            pass
         
         # Format date and generate summary
         formatted_date = format_date(date)
