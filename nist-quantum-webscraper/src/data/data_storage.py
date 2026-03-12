@@ -60,3 +60,49 @@ class DataStorage:
                 new_items.append(item)
         
         return new_items
+    
+    def add_notification(self, item_type: str, item: Dict[str, Any]):
+        """Add a new item to the persistent notifications"""
+        notifications = self.load_notifications()
+        
+        # Create notification entry
+        notification = {
+            'type': item_type,
+            'timestamp': datetime.now(),
+            'item': item
+        }
+        
+        notifications.append(notification)
+        self.save_notifications(notifications)
+    
+    def get_active_notifications(self) -> List[Dict[str, Any]]:
+        """Get notifications that are less than 24 hours old"""
+        notifications = self.load_notifications()
+        now = datetime.now()
+        active = []
+        
+        for n in notifications:
+            if (now - n['timestamp']).total_seconds() < 24 * 3600:
+                active.append(n)
+            else:
+                # Remove expired notifications
+                notifications.remove(n)
+        
+        # Save cleaned notifications
+        self.save_notifications(notifications)
+        return active
+    
+    def save_notifications(self, notifications: List[Dict[str, Any]]):
+        filename = f"{self.storage_dir}/notifications.json"
+        with open(filename, 'w') as f:
+            json.dump(notifications, f, indent=2, default=str)
+    
+    def load_notifications(self) -> List[Dict[str, Any]]:
+        filename = f"{self.storage_dir}/notifications.json"
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                data = json.load(f)
+                for n in data:
+                    n['timestamp'] = datetime.fromisoformat(n['timestamp'])
+                return data
+        return []

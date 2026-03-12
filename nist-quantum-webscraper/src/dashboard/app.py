@@ -32,6 +32,17 @@ def main():
     new_presentations = storage.get_new_items('presentations', presentations)
     new_news = storage.get_new_items('news', news)
     
+    # Add new items to persistent notifications
+    for pub in new_publications:
+        storage.add_notification('publication', pub)
+    for pres in new_presentations:
+        storage.add_notification('presentation', pres)
+    for article in new_news:
+        storage.add_notification('news', article)
+    
+    # Get active notifications (within 24 hours)
+    active_notifications = storage.get_active_notifications()
+    
     # Save current data
     storage.save_data('publications', publications)
     storage.save_data('presentations', presentations)
@@ -70,10 +81,18 @@ def main():
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
         for pub in publications:
-            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
-                st.write(f"**Status:** {pub['status']}")
+            title_line = pub['document_name']
+            if pub.get('series') or pub.get('document_number'):
+                title_line = f"{pub.get('series','')} {pub.get('document_number','')}: {pub['document_name']}"
+            with st.expander(title_line):
+                if pub.get('status'):
+                    st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
-                if pub['link']:
+                if pub.get('release_date'):
+                    st.write(f"**Date:** {pub['release_date']}")
+                if pub.get('summary'):
+                    st.write(f"**Summary:** {pub['summary']}")
+                if pub.get('link'):
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
     
