@@ -1,5 +1,26 @@
 import requests
 from bs4 import BeautifulSoup
+import re
+
+
+def clean_text(text: str) -> str:
+    """Clean extracted text by removing extra whitespace and control characters."""
+    if not text:
+        return ""
+    
+    # Remove zero-width spaces and other invisible unicode characters
+    text = text.replace('\u200b', '')  # zero-width space
+    text = text.replace('\u200c', '')  # zero-width non-joiner
+    text = text.replace('\u200d', '')  # zero-width joiner
+    text = text.replace('\ufeff', '')  # zero-width no-break space
+    
+    # Collapse multiple whitespace into single space
+    text = re.sub(r'\s+', ' ', text)
+    
+    # Strip leading/trailing whitespace
+    text = text.strip()
+    
+    return text
 
 def scrape_publications(url: str | None = None, query: str | None = None):
     """Scrape publications from a given URL or the default CSRC search interface.
@@ -40,46 +61,94 @@ def scrape_publications(url: str | None = None, query: str | None = None):
 
     publications = []
     try:
-        response = requests.get(base_url)
+        response = requests.get(base_url, timeout=10)
+        response.raise_for_status()
         soup = BeautifulSoup(response.content, "html.parser")
+        
+        # Try multiple selectors for different page layouts
+        items = soup.select(".search-list-item")
+        
+        # If no items found with main selector, try alternative selectors
+        if not items:
+            items = soup.select("article")
+        if not items:
+            items = soup.select(".publication-item")
+        if not items:
+            items = soup.select("[data-publication]")
+        
+        print(f"DEBUG: Found {len(items)} items on {base_url}")
 
-        for item in soup.select(".search-list-item"):
+        for item in items:
+            # Try different selectors for title
             title_link = item.select_one("h4.search-results-title a")
+            if not title_link:
+                title_link = item.select_one("h3 a")
+            if not title_link:
+                title_link = item.select_one("a[data-title]")
+            if not title_link:
+                title_link = item.select_one("a")
+            
             if not title_link:
                 continue
 
-            name = title_link.get_text(strip=True)
+            name = clean_text(title_link.get_text(strip=True))
+            if not name:
+                continue
+                
             link = title_link.get("href", "")
             if link and not link.startswith("http"):
-                link = f"https://csrc.nist.gov{link}"
+                if "csrc.nist.gov" in base_url:
+                    link = f"https://csrc.nist.gov{link}"
+                else:
+                    link = f"https://www.nist.gov{link}"
 
+            # Try different selectors for series
             series_el = item.select_one(".sub-title strong")
-            series = series_el.get_text(strip=True) if series_el else ""
+            if not series_el:
+                series_el = item.select_one(".series")
+            if not series_el:
+                series_el = item.select_one("[class*='series']")
+            series = clean_text(series_el.get_text(strip=True)) if series_el else ""
 
-            # date and abstract/summary appear in predictable elements
+            # Try different selectors for date
             date_el = item.select_one('strong[id^="date-container-"]')
-            release_date = date_el.get_text(strip=True) if date_el else ""
+            if not date_el:
+                date_el = item.select_one("time")
+            if not date_el:
+                date_el = item.select_one(".date")
+            if not date_el:
+                date_el = item.select_one("[class*='date']")
+            release_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
 
+            # Try different selectors for summary
             summary_el = item.select_one('p[id^="content-area-"]')
-            # remove leading "Abstract:" if present and trim
+            if not summary_el:
+                summary_el = item.select_one(".summary")
+            if not summary_el:
+                summary_el = item.select_one(".description")
+            if not summary_el:
+                summary_el = item.select_one("p")
+            
             summary = ""
             if summary_el:
-                summary = summary_el.get_text(strip=True)
+                summary = clean_text(summary_el.get_text(strip=True))
                 if summary.lower().startswith("abstract:"):
                     summary = summary[len("abstract:"):].strip()
 
-            publications.append({
-                "document_name": name,
-                "document_number": "",
-                "series": series,
-                "release_date": release_date,
-                "resource_type": "Publication",
-                "link": link,
-                "summary": summary,
-            })
+            if name:  # Only add if we have at least a title
+                publications.append({
+                    "document_name": name,
+                    "document_number": "",
+                    "series": series,
+                    "release_date": release_date,
+                    "resource_type": "Publication",
+                    "link": link,
+                    "summary": summary,
+                })
     except Exception as e:
-        print(f"Error scraping publications: {e}")
+        print(f"Error scraping publications from {base_url}: {e}")
 
+    print(f"DEBUG: Retrieved {len(publications)} publications from {base_url}")
     return publications
 
 
@@ -119,41 +188,43 @@ def filter_publications(publications, *, include_drafts: bool = False,
 
 
 def scrape_all_publications():
-    """Convenience wrapper that attempts to fetch publications from multiple sources.
+    """Convenience wrapper that scrapes publications from 4 specified NIST sources.
 
-    Scrapes from multiple NIST publication URLs and de‑duplicates by link.
+    Scrapes from 4 NIST publication URLs and de‑duplicates by link.
     """
 
     urls = [
-        "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications",
-        "https://www.nist.gov/publications/search?k=&t=&a=&ps=All&ta%5B%5D=249281&n=&d%5Bmin%5D=&d%5Bmax%5D=",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description%2CBook+Section&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://www.nist.gov/publications/search/topic/249281",
         "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
         "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
     ]
     
     seen = set()
     all_pubs = []
     
-    # Scrape from multiple URLs
-    for url in urls:
-        for pub in scrape_publications(url=url):
+    print("=" * 50)
+    print("Starting publication scraping...")
+    print(f"Will scrape {len(urls)} URLs")
+    print("=" * 50)
+    
+    # Scrape from the specified URLs
+    for i, url in enumerate(urls, 1):
+        print(f"\n[{i}/{len(urls)}] Scraping: {url[:80]}...")
+        pubs = scrape_publications(url=url)
+        count = 0
+        for pub in pubs:
             link = pub.get("link")
             if link in seen:
                 continue
             seen.add(link)
             all_pubs.append(pub)
+            count += 1
+        print(f"[{i}/{len(urls)}] Added {count} new publications (total: {len(all_pubs)})")
     
-    # Also keep the original query-based approach for backward compatibility
-    queries = [None, "draft", "open for comment"]
-    for q in queries:
-        for pub in scrape_publications(query=q):
-            link = pub.get("link")
-            if link in seen:
-                continue
-            seen.add(link)
-            all_pubs.append(pub)
-    
+    print("=" * 50)
+    print(f"Scraping complete! Total unique publications: {len(all_pubs)}")
+    print("=" * 50)
     return all_pubs
 
 def main():

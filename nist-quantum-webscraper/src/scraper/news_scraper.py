@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_news():
-    url = "https://www.nist.gov/news-events/news"
+    url = "https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or&topic-area-fieldset%5B%5D=249281"
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 

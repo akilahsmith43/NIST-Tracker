@@ -87,7 +87,7 @@ def main():
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
         for pub in publications:
-            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
+            with st.expander(f"{pub['series']} {pub['document_number']} {pub['document_name']}"):
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub.get('release_date'):
                     st.write(f"**Published:** {pub['release_date']}")
