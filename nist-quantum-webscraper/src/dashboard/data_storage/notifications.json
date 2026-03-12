@@ -736,5 +736,1445 @@
       "publish_date": "2023-10-05T12:00:00Z",
       "summary": ""
     }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.764953",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP 1800-39 (Initial Public Draft)",
+      "release_date": "February 12, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "This guide demonstrates how organizations can discover, identify and label unstructured data using data classification practices. Performing Data Classification Practices allows an organization to know its data and apply technologies that minimize the risk of valuable or sensitive data being lost or..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.766538",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other (Initial Public Draft)",
+      "release_date": "February 5, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.767623",
+    "item": {
+      "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
+      "document_number": "",
+      "series": "Other 2602.00314v1 (Final)",
+      "release_date": "January 30, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/01/30/on-the-assessment-of-sensitivity-of-autonomous-veh/final",
+      "summary": "The viability of automated driving is heavily dependent on the performance of perception systems to provide real-time accurate and reliable information for robust decision-making and maneuvers. These systems must perform reliably not only under ideal conditions, but also when challenged by natural a..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.768546",
+    "item": {
+      "document_name": "Bridging the Gap Between Standards on Random Number Generation: Comparison of SP 800-90 Series and AIS 20/31",
+      "document_number": "",
+      "series": "IR 8446 (Final)",
+      "release_date": "January 29, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8446/final",
+      "summary": "This report studies the cryptographic random number generation standards and guidelines written by BSI and NIST, namely AIS 20/31 and the SP 800\u201090 series. The aim of this report is to compare these publications, focusing on the similarities and differences of their terminol\u2010ogy, assumptions, and re..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.769417",
+    "item": {
+      "document_name": "Pre-Draft Call for Comments: Guide to Operational Technology (OT) Security",
+      "document_number": "",
+      "series": "SP 800-82 Rev. 4 (Initial Preliminary Draft)",
+      "release_date": "January 22, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/82/r4/iprd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.770332",
+    "item": {
+      "document_name": "Transit Cybersecurity Framework Community Profile",
+      "document_number": "",
+      "series": "IR 8576 (Initial Public Draft)",
+      "release_date": "January 22, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8576/ipd",
+      "summary": "This document is a Cybersecurity Framework (CSF) Community Profile developed to support United States-based transit agencies. This \u201cTransit Profile\u201d is aligned with transit sector priorities and best practices and can be used as a guide for prioritizing cybersecurity activities and outco..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.771509",
+    "item": {
+      "document_name": "NIST First Call for Multi-Party Threshold Schemes",
+      "document_number": "",
+      "series": "IR 8214C (Final)",
+      "release_date": "January 20, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8214/c/final",
+      "summary": "This is the NIST Threshold Call, calling for public submissions of multi-party threshold schemes, and other related crypto-systems, to support the United States' National Institute of Standards and Technology (NIST) in gathering a public body of reference materials on advanced cryptography. In a thr..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.772464",
+    "item": {
+      "document_name": "Practical Attack on All Parameters of the HPPC Signature Scheme",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "January 2, 2026",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2026/01/02/practical-attack-on-all-parameters-of-the-hppc-sig/final",
+      "summary": "Conference: Selected Areas in Cryptography (SAC 2025) Abstract: HPPC is a multivariate signature scheme submitted to the NIST PQC standardization process in response to the recent call for additional signature schemes. We show that, despite some non-standard notational choices in the submission document, HPPC can be viewed as a special case of the well-studied,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.773400",
+    "item": {
+      "document_name": "Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
+      "document_number": "",
+      "series": "IR 8587 (Initial Public Draft)",
+      "release_date": "December 22, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8587/ipd",
+      "summary": "This report provides implementation guidance to help federal agencies and cloud service providers (CSPs) protect identity tokens and assertions from forgery, theft, and misuse. Building on updates to NIST SP 800-53 (Release 5.1.1), it outlines principles for CSPs and consuming agencies, details arch..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.774354",
+    "item": {
+      "document_name": "Considerations for Achieving Cryptographic Agility: Strategies and Practices",
+      "document_number": "",
+      "series": "CSWP 39 (Final)",
+      "release_date": "December 19, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/39/considerations-for-achieving-cryptographic-agility/final",
+      "summary": "Cryptographic (crypto) agility refers to the capabilities needed to replace and adapt cryptographic algorithms in protocols, applications, software, hardware, firmware, and infrastructures while preserving security and ongoing operations. This white paper provides an in-depth survey of current appro..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.775210",
+    "item": {
+      "document_name": "Integrating Cybersecurity and Enterprise Risk Management (ERM)",
+      "document_number": "",
+      "series": "IR 8286 Rev. 1 (Final)",
+      "release_date": "December 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8286/r1/final",
+      "summary": "The increasing frequency, creativity, and severity of cybersecurity attacks means that all enterprises should ensure that cybersecurity risk is receiving appropriate attention within their enterprise risk management (ERM) programs. This document is intended to help individual organizations within an..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.776319",
+    "item": {
+      "document_name": "Staging Cybersecurity Risks for Enterprise Risk Management and Governance Oversight",
+      "document_number": "",
+      "series": "IR 8286C Rev. 1 (Final)",
+      "release_date": "December 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8286/c/r1/final",
+      "summary": "This document is the third in a series that supplements NIST Interagency Report (IR) 8286, Integrating Cybersecurity and Enterprise Risk Management (ERM). This series provides additional details regarding enterprise application of cybersecurity risk information; the previous documents, IRs 8286A and..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.777409",
+    "item": {
+      "document_name": "Identifying and Estimating Cybersecurity Risk for Enterprise Risk Management",
+      "document_number": "",
+      "series": "IR 8286A Rev. 1 (Final)",
+      "release_date": "December 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8286/a/r1/final",
+      "summary": "This document supplements NIST Interagency Report (IR) 8286, Integrating Cybersecurity and Enterprise Risk Management (ERM), by providing additional detail regarding risk guidance, identification, and analysis. This report offers examples and information to illustrate risk tolerance, risk appetite,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.778322",
+    "item": {
+      "document_name": "Secure Software Development Framework (SSDF) Version 1.2: Recommendations for Mitigating the Risk of Software Vulnerabilities",
+      "document_number": "",
+      "series": "SP 800-218 Rev. 1 (Initial Public Draft)",
+      "release_date": "December 17, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/218/r1/ipd",
+      "summary": "Few software development life cycle (SDLC) models explicitly address software security in detail, so secure software development practices usually need to be added to each SDLC model to ensure that the software being developed is well-secured. This document recommends the Secure Software Development..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.779269",
+    "item": {
+      "document_name": "Mitigating Cybersecurity and Privacy Risks in Telehealth Smart Home Integration",
+      "document_number": "",
+      "series": "CSWP 34 (Final)",
+      "release_date": "December 17, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/34/mitigating-cybersecurity-and-privacy-risks-in-tele/final",
+      "summary": "In-patient service demands have increased during a time when patients have experienced reduced access to hospital care. Hospital-at-Home (HaH) solutions are a form of telehealth that provide an in-patient care experience in patients\u2019 homes, offering the potential for improved outcomes. While t..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.780165",
+    "item": {
+      "document_name": "Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile): NIST Community Profile",
+      "document_number": "",
+      "series": "IR 8596 (Initial Preliminary Draft)",
+      "release_date": "December 16, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8596/iprd",
+      "summary": "The Cybersecurity Framework Profile for Artificial Intelligence (AI) Profile (\u201cCyber AI Profile\u201d or \u201cThe Profile\u201d) will provide guidelines for managing cybersecurity risk related to AI systems as well as identifying opportunities for using AI to enhance cybersecurity capabili..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.781024",
+    "item": {
+      "document_name": "SCAP 1.4 Component Specification Version Updates: An Annex to NIST Special Publication 800-126 Revision 4",
+      "document_number": "",
+      "series": "SP 800-126A Rev. 4 (Initial Public Draft)",
+      "release_date": "December 11, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/126/a/r4/ipd",
+      "summary": "The Security Content Automation Protocol (SCAP) is a multi-purpose framework of component specifications that support automated configuration, vulnerability, patch checking, security measurement, and technical control compliance activities. The SCAP version 1.4 specification is defined by the combin..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.781882",
+    "item": {
+      "document_name": "Technical Specification for the Security Content Automation Protocol (SCAP): SCAP Version 1.4",
+      "document_number": "",
+      "series": "SP 800-126 Rev. 4 (Initial Public Draft)",
+      "release_date": "December 11, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/126/r4/ipd",
+      "summary": "The Security Content Automation Protocol (SCAP) is a suite of specifications that standardize the format and nomenclature by which software flaw and security configuration information is communicated, both to machines and humans. This publication, along with its annex (NIST Special Publication 800-1..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.782761",
+    "item": {
+      "document_name": "National Checklist Program for IT Products: Guidelines for Checklist Users and Developers",
+      "document_number": "",
+      "series": "SP 800-70 Rev. 5 (Initial Public Draft)",
+      "release_date": "December 9, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/70/r5/ipd",
+      "summary": "A security configuration checklist is a document or technical content that contains instructions or procedures for securely configuring an IT product to match an operational environment\u2019s risk tolerance, verifying that the product has been configured properly, and/or identifying unauthorized c..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.783636",
+    "item": {
+      "document_name": "Recommendation for Key Management: Part 1 \u2013 General",
+      "document_number": "",
+      "series": "SP 800-57 Rev. 6 (Initial Public Draft)",
+      "release_date": "December 5, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/57/pt1/r6/ipd",
+      "summary": "This recommendation provides cryptographic key-management guidelines in three parts. Part 1 provides general guidelines and best practices for the management of cryptographic keying material, including definitions for the security services that may be provided when using cryptography and the algorit..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.784526",
+    "item": {
+      "document_name": "Charting the Course for NIST OSCAL",
+      "document_number": "",
+      "series": "CSWP 53 (Initial Public Draft)",
+      "release_date": "December 2, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/53/charting-the-course-for-nist-oscal/ipd",
+      "summary": "This document introduces the Open Security Controls Assessment Language (OSCAL), a NIST-developed, open-source, machine-readable language that modernizes manual, paper-based cybersecurity compliance by enabling automated and scalable processes. OSCAL standardizes security documentation for easier mo..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.785448",
+    "item": {
+      "document_name": "Trusted Internet of Things (IoT) Device Network-Layer Onboarding and Lifecycle Management: Enhancing Internet Protocol-Based IoT Device and Network Security",
+      "document_number": "",
+      "series": "SP 1800-36 (Final)",
+      "release_date": "November 25, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/36/final",
+      "summary": "Establishing trust between a network and an Internet of Things (IoT) device (as defined in NIST Internal Report 8425) prior to providing the device with the credentials it needs to join the network is crucial for mitigating the risk of potential attacks. There are two possibilities for attack. One h..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.786345",
+    "item": {
+      "document_name": "Towards Automating IoT Security: Implementing Trusted Network-Layer Onboarding",
+      "document_number": "",
+      "series": "CSWP 42 (Final)",
+      "release_date": "November 25, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/42/towards-automating-iot-security-implementing-trust/final",
+      "summary": "This document provides an overview of trusted Internet of Things (IoT) device network-layer onboarding\u2014a\u00a0capability for securely providing IoT devices with their local network credentials in a manner that helps to\u00a0ensure that the network is not put at risk as new IoT devices are conn..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.787462",
+    "item": {
+      "document_name": "Foundational Concepts in Trusted IoT Device Network-Layer Onboarding: Enhancing Internet Protocol-Based IoT Device and Network Security",
+      "document_number": "",
+      "series": "IR 8350 (Final)",
+      "release_date": "November 25, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8350/final",
+      "summary": "Internet of Things (IoT) devices are typically connected to a network. The steps performed to provision a device with its network credentials are referred to as network-layer onboarding (or simply, onboarding, assuming the network-layer context is understood). This paper proposes a definition for tr..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.788649",
+    "item": {
+      "document_name": "NIST Cybersecurity Framework 2.0: Cybersecurity, Enterprise Risk Management, and Workforce Management Quick-Start Guide",
+      "document_number": "",
+      "series": "SP 1308 (2nd Public Draft)",
+      "release_date": "November 24, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1308/2pd",
+      "summary": "This Quick Start Guide (QSG) shows how the NICE Workforce Framework for Cybersecurity and the Cybersecurity Framework (CSF) can be used together to facilitate communication across business units and improve organizational processes where cybersecurity, enterprise risk management (ERM), and workforce..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.790081",
+    "item": {
+      "document_name": "Reducing the Cybersecurity Risks of Portable Storage Media in OT Environments",
+      "document_number": "",
+      "series": "SP 1334 (Final)",
+      "release_date": "September 30, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1334/final",
+      "summary": "Portable storage media continue to be useful tools for transferring data physically to and from Operational Technology (OT) environments. Universal Serial Bus (USB) flash drives are commonly used, in addition to external hard drives, CD or DVD drives, and other removable media.Though portable storag..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.791009",
+    "item": {
+      "document_name": "Foundational Cybersecurity Activities for IoT Product Manufacturers",
+      "document_number": "",
+      "series": "IR 8259 Rev. 1 (2nd Public Draft)",
+      "release_date": "September 30, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8259/r1/2pd",
+      "summary": "Internet of Things (IoT) products often lack product cybersecurity capabilities their customers\u2014organizations and individuals\u2014can use to help mitigate their cybersecurity risks. Manufacturers can help their customers by improving the securability of their IoT products by providing necess..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.792033",
+    "item": {
+      "document_name": "Cybersecurity Framework 2.0 Manufacturing Profile",
+      "document_number": "",
+      "series": "IR 8183 Rev. 2 (Initial Public Draft)",
+      "release_date": "September 29, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8183/r2/ipd",
+      "summary": "This document provides the Cybersecurity Framework (CSF) Version 2.0 Community Profile developed for supporting manufacturing environments. This \u201cManufacturing Profile\u201d is aligned with manufacturing sector goals and industry best practices and can be used as a roadmap for reducing cybers..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.793130",
+    "item": {
+      "document_name": "Enhanced Security Requirements for Protecting Controlled Unclassified Information",
+      "document_number": "",
+      "series": "SP 800-172 Rev. 3 (Final Public Draft)",
+      "release_date": "September 29, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/172/r3/fpd",
+      "summary": "The protection of Controlled Unclassified Information (CUI) resident in nonfederal systems and organizations is of paramount importance to federal agencies and can directly impact the ability of the Federal Government to successfully conduct its essential missions and functions. This publication pro..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.794175",
+    "item": {
+      "document_name": "Assessing Enhanced Security Requirements for Controlled Unclassified Information",
+      "document_number": "",
+      "series": "SP 800-172A Rev. 3 (Initial Public Draft)",
+      "release_date": "September 29, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/172/a/r3/ipd",
+      "summary": "The protection of controlled unclassified information (CUI) resident in nonfederal systems and organizations is of paramount importance to federal agencies and can directly impact the ability of the Federal Government to successfully conduct its essential missions and functions. This publication pro..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.795175",
+    "item": {
+      "document_name": "Guidelines for Media Sanitization",
+      "document_number": "",
+      "series": "SP 800-88 Rev. 2 (Final)",
+      "release_date": "September 26, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/88/r2/final",
+      "summary": "Media sanitization refers to a process that renders access to target data on the media infeasible for a given level of effort. This guide will assist organizations and system owners in setting up a media sanitization program with proper and applicable techniques and controls for sanitization and dis..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.796069",
+    "item": {
+      "document_name": "Recommendation for Random Bit Generator (RBG) Constructions",
+      "document_number": "",
+      "series": "SP 800-90C (Final)",
+      "release_date": "September 25, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/90/c/final",
+      "summary": "The NIST Special Publication (SP) 800-90 series of documents supports the generation of high-quality random bits for cryptographic and non-cryptographic use. SP 800-90A, Recommendation for Random Number Generation Using Deterministic Random Bit Generators, specifies several deterministic random bit..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.796971",
+    "item": {
+      "document_name": "Exploiting SNOVA's Structure in the Wedge Product Attack",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "September 24, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/09/24/exploiting-snovas-structure-in-the-wedge-product-a/final",
+      "summary": "Conference: 6th Post-Quantum Cryptography Conference Abstract: Post-quantum cryptography (PQC) aims to develop cryptographic schemes secure against quantum adversaries. One promising class of digital signature schemes is based on multivariate quadratic equations, with Unbalanced Oil and Vinegar (UOV) being a leading example. UOV has been extensively studied sin..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.797857",
+    "item": {
+      "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+      "document_number": "",
+      "series": "CSWP 48 (Initial Public Draft)",
+      "release_date": "September 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+      "summary": "The capabilities demonstrated by the NCCoE Migration to Post-Quantum Cryptography project support several security objectives and controls identified by the NIST Cybersecurity Framework 2.0 (CSWP 29) and Security and Privacy Controls for Information Systems and Organizations (SP 800-53), respectivel..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.798712",
+    "item": {
+      "document_name": "Recommendations for Key-Encapsulation Mechanisms",
+      "document_number": "",
+      "series": "SP 800-227 (Final)",
+      "release_date": "September 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/227/final",
+      "summary": "A key-encapsulation mechanism (KEM) is a set of algorithms that can be used by two parties under certain conditions to securely establish a shared secret key over a public channel. A shared secret key that is established using a KEM can then be used with symmetric-key cryptographic algorithms to per..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.799575",
+    "item": {
+      "document_name": "Addressing Visibility Challenges with TLS 1.3 within the Enterprise: High-Level Document",
+      "document_number": "",
+      "series": "SP 1800-37 (Final)",
+      "release_date": "September 17, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/37/final",
+      "summary": "The Transport Layer Security (TLS) protocol is widely deployed to secure network traffic. TLS 1.3 protects the contents of its previous TLS communications even if a TLS-enabled server is compromised.\u00a0 This is known as forward secrecy. The approach used to achieve forward secrecy in TLS 1.3 may..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.800441",
+    "item": {
+      "document_name": "A Community\u2010Driven Differential Privacy Deployment Registry",
+      "document_number": "",
+      "series": "IR 8588 (Initial Public Draft)",
+      "release_date": "September 17, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8588/ipd",
+      "summary": "There is a need in the community of privacy practitioners for a trustworthy, collaborative shared database of differentially private deployments, to help foster norms about best practices. We propose a shared governance resource to (1) help industry grow to consensus on best practices, (2) provide p..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.801609",
+    "item": {
+      "document_name": "SCONE: A Logic Locking Technique Utilizing SMT Solver and Circuit Encoding Scheme for Efficient Hardware IP Protection",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "September 15, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/09/15/scone-a-logic-locking-technique-utilizing-smt-solv/final",
+      "summary": "Conference: 2025 62nd ACM/IEEE Design Automation Conference (DAC) Abstract: Multiple intellectual property (IP) protections have emerged to defeat security threats in integrated circuit (IC) supply chain. Among these, logic locking is regarded as a promising IP protection for its security. A state-of-the-art work uses stripped-functionality logic locking (SFLL) technique wi..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.802612",
+    "item": {
+      "document_name": "Automation of the NIST Cryptographic Module Validation Program: April 2025 Status Report",
+      "document_number": "",
+      "series": "CSWP 37B (Initial Public Draft)",
+      "release_date": "September 10, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/37/b/automation-of-the-nist-cmvp-april-2025/ipd",
+      "summary": "The Cryptographic Module Validation Program (CMVP) validates third-party assertions that cryptographic module implementations satisfy the requirements of Federal Information Processing Standards (FIPS) Publication 140-3, Security Requirements for Cryptographic Modules. The current cryptographic modu..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.803712",
+    "item": {
+      "document_name": "PRE-DRAFT Call for Comments: Recommendation for Random Number Generation Using Deterministic Random Bit Generators",
+      "document_number": "",
+      "series": "SP 800-90A Rev. 2 (Initial Preliminary Draft)",
+      "release_date": "September 4, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/90/a/r2/iprd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.804586",
+    "item": {
+      "document_name": "Multi-Factor Authentication for Criminal Justice Information Systems: Implementation Considerations for Protecting Criminal Justice Information",
+      "document_number": "",
+      "series": "IR 8523 (Final)",
+      "release_date": "September 3, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8523/final",
+      "summary": "Most recent cybersecurity breaches have involved compromised credentials. Migrating from single-factor to multi-factor authentication (MFA) reduces the risk of compromised credentials and unauthorized access. Both criminal and noncriminal justice agencies need to access criminal justice information..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.805458",
+    "item": {
+      "document_name": "Report on the Design-A-Thon: Designing Effective and Accessible Approaches for Digital Product Cybersecurity Education and Awareness",
+      "document_number": "",
+      "series": "IR 8558 (Final)",
+      "release_date": "September 3, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8558/final",
+      "summary": "This report documents the first SOUPS Design-A-Thon, which was held on August 11th, 2024, and focused on Designing Effective and Accessible Approaches for Digital Product Cybersecurity Education and Awareness. In total, eight individuals participated in the event, forming three teams. The teams each..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.806340",
+    "item": {
+      "document_name": "Methodology for Characterizing Network Behavior of Internet of Things Devices",
+      "document_number": "",
+      "series": "IR 8349 (Final)",
+      "release_date": "August 28, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8349/final",
+      "summary": "This report describes an approach to capturing and documenting the network communication behavior of Internet of Things (IoT) devices. From this information, manufacturers, network administrators, and others can create and use files based on the Manufacturer Usage Description (MUD) specification to..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.807235",
+    "item": {
+      "document_name": "Quick-Start Guide for Using CSF 2.0 to Improve Management of Emerging Cybersecurity Risks",
+      "document_number": "",
+      "series": "SP 1331 (Initial Public Draft)",
+      "release_date": "August 21, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1331/ipd",
+      "summary": "This Quick-Start Guide introduces the topic of emerging cybersecurity risks and illustrates how organizations can improve their ability to address such risks through existing practices within the NIST Cybersecurity Framework (CSF) 2.0. The guide also emphasizes the importance of integrating these pr..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.808267",
+    "item": {
+      "document_name": "Protecting Controlled Unclassified Information (CUI): NIST Special Publication 800-171, Revision 3. Small Business Primer",
+      "document_number": "",
+      "series": "SP 1318 (Final)",
+      "release_date": "August 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1318/final",
+      "summary": "This introductory guide provides small businesses with a high level overview of NIST Special Publication (SP) 800-171 Revision 3, Protecting Controlled Unclassified Information in Nonfederal Systems and Organizations. The document is broken up into two separate sections. The first few pages provide..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.809385",
+    "item": {
+      "document_name": "Ascon-Based Lightweight Cryptography Standards for Constrained Devices: Authenticated Encryption, Hash, and Extendable Output Functions",
+      "document_number": "",
+      "series": "SP 800-232 (Final)",
+      "release_date": "August 13, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/232/final",
+      "summary": "In 2023, the National Institute of Standards and Technology (NIST) announced the selection of the Ascon family of algorithms designed by Dobraunig, Eichlseder, Mendel, and Schlaffer to provide efficient cryptographic solutions for resource-constrained devices. This decision emerged from a rigorous,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.810163",
+    "item": {
+      "document_name": "Genomic Data Threat Modeling",
+      "document_number": "",
+      "series": "SP 1800-43 (Initial Public Draft)",
+      "release_date": "August 5, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/43/ipd",
+      "summary": "This paper provides an example of how to conduct genomic data threat modeling for privacy on a data processing environment, including documenting the architecture, identifying threats, applying sample interventions, and iterating the process as needed. The paper complements the earlier NIST CSWP 35,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.811358",
+    "item": {
+      "document_name": "Developing the NCCoE Chatbot: Technical and Security Learnings from the Initial Implementation",
+      "document_number": "",
+      "series": "IR 8579 (Initial Public Draft)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8579/ipd",
+      "summary": "Chatbots are emerging as alternative interfaces for structured information retrieval and internal knowledge access. Chatbots can utilize the capabilities of large language models (LLMs) to help interpret user-provided input and provide responses to a variety of requests. This paper describes the dev..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.812226",
+    "item": {
+      "document_name": "Digital Identity Guidelines",
+      "document_number": "",
+      "series": "SP 800-63-4 (Final)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/63/4/final",
+      "summary": "These guidelines cover the identity proofing, authentication, and federation of users (e.g., employees, contractors, or private individuals) who interact with government information systems over networks. They define technical requirements in each of the areas of identity proofing, enrollment, authe..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.813093",
+    "item": {
+      "document_name": "Digital Identity Guidelines: Identity Proofing and Enrollment",
+      "document_number": "",
+      "series": "SP 800-63A-4 (Final)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/63/a/4/final",
+      "summary": "This guideline focuses on identity proofing and enrollment for use in digital authentication. During the process of identity proofing, an applicant provides evidence to a credential service provider (CSP) reliably identifying themselves, thereby allowing the CSP to assert that identification at a us..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.813981",
+    "item": {
+      "document_name": "Digital Identity Guidelines: Authentication and Authenticator Management",
+      "document_number": "",
+      "series": "SP 800-63B-4 (Final)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/63/b/4/final",
+      "summary": "This guideline focuses on the authentication of subjects who interact with government information systems over networks to establish that a given claimant is a subscriber who has been previously authenticated. The result of the authentication process may be used locally by the system performing the..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.814903",
+    "item": {
+      "document_name": "Digital Identity Guidelines: Federation and Assertions",
+      "document_number": "",
+      "series": "SP 800-63C-4 (Final)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/63/c/4/final",
+      "summary": "This guideline focuses on identity federations and the use of assertions to implement them. Federation allows a given credential service provider to provide authentication attributes and (optionally) subscriber attributes to a number of separately administered relying parties. Similarly, relying par..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.815824",
+    "item": {
+      "document_name": "Supply Chain Traceability: Manufacturing Meta-Framework",
+      "document_number": "",
+      "series": "IR 8536 (2nd Public Draft)",
+      "release_date": "July 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8536/2pd",
+      "summary": "Manufacturing and critical infrastructure supply chains are vital to the security, resilience, and economic strength of the United States. However, increasing global complexity makes tracing product origins more difficult, exposing vulnerabilities to logistical disruptions, fraud, sabotage, and coun..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.816735",
+    "item": {
+      "document_name": "Secure Software Development, Security, and Operations (DevSecOps) Practices",
+      "document_number": "",
+      "series": "SP 1800-44 (Initial Public Draft)",
+      "release_date": "July 30, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/44/ipd",
+      "summary": "Development Operations (DevOps) bring together software development and operations to shorten development cycles, allow organizations to be agile and maintain the pace of innovation while taking advantage of cloud-native technology and practices and the increasing industry use of rapidly evolving ar..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.817667",
+    "item": {
+      "document_name": "Turning Hash-Based Signatures into Distributed Signatures and Threshold Signatures: Delegate Your Signing Capability, and Distribute it Among Trustees",
+      "document_number": "",
+      "series": "Journal Article (Final)",
+      "release_date": "July 7, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/journal/2025/07/turning-hash-based-signatures-into-distributed-sig/final",
+      "summary": "Journal: Communications in Cryptology Abstract: We introduce techniques to transform existing stateful hash based signature (HBS) schemes, such as LMS or XMSS, into efficient threshold and distributed signature schemes. Our approach requires a trusted dealer for setup, and uses a large (up to a few GiB, typically) common reference value for each..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.818602",
+    "item": {
+      "document_name": "Analyzing Collusion Threats in the Semiconductor Supply Chain",
+      "document_number": "",
+      "series": "CSWP 46 (Final)",
+      "release_date": "June 30, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/46/analyzing-collusion-threats-in-the-semiconductor-s/final",
+      "summary": "This work proposes a framework for analyzing threats related to the semiconductor supply chain. The framework introduces a metric that quantifies the severity of different threats subjected to a collusion of adversaries from different stages of the supply chain. Two different case studies are provid..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.819530",
+    "item": {
+      "document_name": "Guidelines for API Protection for Cloud-Native Systems",
+      "document_number": "",
+      "series": "SP 800-228 (Final)",
+      "release_date": "June 27, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/228/final",
+      "summary": "Modern enterprise IT systems rely on a family of application programming interfaces (APIs) for integration to support organizational business processes. Hence, a secure deployment of APIs is critical for overall enterprise security. This, in turn, requires the identification of risk factors or vulne..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.820455",
+    "item": {
+      "document_name": "Can AI Fix Buggy Code? Exploring the Use of Large Language Models in Automated Program Repair",
+      "document_number": "",
+      "series": "Journal Article (Final)",
+      "release_date": "June 26, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/journal/2025/06/can-ai-fix-buggy-code/final",
+      "summary": "Journal: Computer (IEEE Computer) Abstract: This article reviews the current human\u2013large language models collaboration approach to bug fixing and points out the research directions toward (the development of) autonomous program repair artificial intelligence agents."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.821642",
+    "item": {
+      "document_name": "Hallucination Detection in Large Language Models Using Diversion Decoding",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "June 24, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/06/24/hallucination-detection-in-llms-using-diversion-de/final",
+      "summary": "Conference: 39th IFIP WG 11.3 Annual Conference on Data and Applications Security and Privacy, DBSec 2025 Abstract: Large language models (LLMs) have emerged as a powerful tool for retrieving knowledge through seamless, human-like interactions. Despite their advanced text generation capabilities, LLMs exhibit hallucination tendencies, where they generate factually incorrect statements and fabricate knowledge, und..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.822586",
+    "item": {
+      "document_name": "5G Network Security Design Principles: Applying 5G Cybersecurity and Privacy Capabilities",
+      "document_number": "",
+      "series": "CSWP 36E (Initial Public Draft)",
+      "release_date": "June 17, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/36/e/5g-network-security-design-principles/ipd",
+      "summary": "This white paper describes the network infrastructure design principles that commercial and private 5G network operators are encouraged to use to improve cybersecurity and privacy. Such a network infrastructure isolates types of 5G network traffic from each other: data plane, signaling, and operatio..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.823541",
+    "item": {
+      "document_name": "Implementing a Zero Trust Architecture: High-Level Document",
+      "document_number": "",
+      "series": "SP 1800-35 (Final)",
+      "release_date": "June 10, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/35/final",
+      "summary": "A zero trust architecture (ZTA) enables secure authorized access to enterprise resources that are distributed across on-premises and multiple cloud environments, while enabling a hybrid workforce and partners to access resources from anywhere, at any time, from any device in support of the organizat..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.824497",
+    "item": {
+      "document_name": "PRE-DRAFT Call for Comments: NIST Launches Development of Cryptographic Accordions",
+      "document_number": "",
+      "series": "SP 800-197A (Initial Preliminary Draft)",
+      "release_date": "June 6, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/197/a/iprd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.825471",
+    "item": {
+      "document_name": "Metrics and Methodology for Hardware Security Constructs",
+      "document_number": "",
+      "series": "CSWP 45 (Final)",
+      "release_date": "June 5, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/45/metrics-and-methodology-for-hardware-security-cons/final",
+      "summary": "Although hardware is commonly believed to be security-resilient, it is often susceptible to vulnerabilities that arise from design and implementation flaws. These flaws can jeopardize the hardware\u2019s security, its operations, and critical user information. This investigation presents a comprehensive..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.826755",
+    "item": {
+      "document_name": "Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "June 5, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/06/05/exploring-prompt-patterns-for-effective-vulnerabil/final",
+      "summary": "Conference: 2025 ACM International Workshop on Security and Privacy Analytics Abstract: Large Language Models (LLMs) have shown promise in automating code vulnerability repair, but their effectiveness in handling real-world code remains limited. This paper investigates the capability of LLMs, in repairing vulnerabilities and proposes a systematic approach to enhance their performance t..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.827744",
+    "item": {
+      "document_name": "Developing Security, Privacy, and Cybersecurity Supply Chain Risk Management Plans for Systems",
+      "document_number": "",
+      "series": "SP 800-18 Rev. 2 (Initial Public Draft)",
+      "release_date": "June 4, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/18/r2/ipd",
+      "summary": "The system security plan, system privacy plan, and cybersecurity supply chain risk management plan are collectively referred to as system plans. They describe the purpose of the system, the operational status of the controls selected and allocated for meeting risk management requirements, and the re..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.828835",
+    "item": {
+      "document_name": "Report of the Virtual Workshop on Usable Cybersecurity and Privacy for Immersive Technologies",
+      "document_number": "",
+      "series": "IR 8557 (Final)",
+      "release_date": "May 23, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8557/final",
+      "summary": "This document reports on the Virtual Workshop on Usable Cybersecurity and Privacy for Immersive Technologies (the Workshop) hosted by the Symposium in Usable Privacy and Security (SOUPS). The Workshop was held on August 7th, 2024 before the in-person symposium held August 11th and 12th, 2024 in Phil..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.829838",
+    "item": {
+      "document_name": "Likely Exploited Vulnerabilities: A Proposed Metric for Vulnerability Exploitation Probability",
+      "document_number": "",
+      "series": "CSWP 41 (Final)",
+      "release_date": "May 19, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/41/likely-exploited-vulnerabilities-a-proposed-metric/final",
+      "summary": "This work presents a proposed security metric to determine the likelihood that a vulnerability has been observed to be exploited. Only a small fraction of the tens of thousands of software and hardware vulnerabilities that are published every year will be exploited. Predicting which ones is importan..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.830858",
+    "item": {
+      "document_name": "Workshop Summary Report for \u201cWorkshop on Foundational Cybersecurity Activities for IoT Device Manufacturers\u201d",
+      "document_number": "",
+      "series": "IR 8572 (Final)",
+      "release_date": "May 13, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8572/final",
+      "summary": "This report summarizes discussions held at the March 5, 2025 \"Workshop on Foundational Cybersecurity Activities for IoT Device Manufacturers\u201d organized by the NIST Cybersecurity for the Internet of Things (IoT) program. This workshop follows an earlier event held in December 2024 titled \u201cWorkshop on..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.831854",
+    "item": {
+      "document_name": "Small Business Cybersecurity: Non-Employer Firms",
+      "document_number": "",
+      "series": "IR 7621 Rev. 2 (Initial Public Draft)",
+      "release_date": "May 1, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/7621/r2/ipd",
+      "summary": "This report is designed to help small firms use the NIST Cybersecurity Framework (CSF) 2.0 to begin managing their cybersecurity risks. The document is tailored to the smallest of businesses\u2014those with no employees, or \u201cnon-employer\u201d firms. These firms are also often colloquially referred to as \u201csol..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.832869",
+    "item": {
+      "document_name": "High-Performance Computing (HPC) Security Overlay",
+      "document_number": "",
+      "series": "SP 800-234 (Initial Public Draft)",
+      "release_date": "May 1, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/234/ipd",
+      "summary": "High-performance computing (HPC) systems provide fundamental computing infrastructure for large-scale artificial intelligence (AI) and machine learning (ML) model training, big data analysis, and complex simulations at exceptional speeds. Securing HPC systems is essential for safeguarding AI models,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.833898",
+    "item": {
+      "document_name": "Fiscal Year 2024 Cybersecurity and Privacy Annual Report",
+      "document_number": "",
+      "series": "SP 800-236 (Final)",
+      "release_date": "April 28, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/236/final",
+      "summary": "Throughout Fiscal Year 2024 (FY 2024) \u2014 from October 1, 2023, through September 30, 2024 \u2014 the NIST Information Technology Laboratory (ITL) Cybersecurity and Privacy Program successfully responded to numerous challenges and opportunities in security and privacy. This Annual Report highlights the ITL..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.834920",
+    "item": {
+      "document_name": "Summary Report for \u201cWorkshop on Updating Manufacturer Guidance for Securable Connected Product Development\u201d",
+      "document_number": "",
+      "series": "IR 8562 (Final)",
+      "release_date": "April 16, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8562/final",
+      "summary": "This report summarizes the feedback received by the NIST Cybersecurity for the Internet of Things (IoT) program at the in-person and hybrid workshop on \"Updating Manufacturer Guidance for Securable Connected Product Development\" held in December 2024. The purpose of this workshop was to consider how..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.835987",
+    "item": {
+      "document_name": "Combinatorial Methods for Enhancing the Resilience of Production Facilities",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "April 16, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/04/16/combinatorial-methods-for-enhancing-the-resilience/final",
+      "summary": "Conference: 2025 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW) Abstract: In this paper, we apply combinatorial methods to generate crisis scenarios for production facilities with the goal of strengthening their resilience by identifying weaknesses in operational aspects or crisis response plans, extending previous work from the domain of disaster research. We use notions..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.837116",
+    "item": {
+      "document_name": "Data Frequency Coverage Impact on AI Performance",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "April 15, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/04/15/data-frequency-coverage-impact-on-ai-performance/final",
+      "summary": "Conference: 2025 IEEE International Conference on Software Testing, Verification and Validation Workshops (ICSTW) Abstract: Artificial Intelligence (AI) models use statistical learning over data to solve complex problems for which straightforward rules or algorithms may be difficult or impossible to design; however, a side effect is that models that are complex enough to sufficiently represent the function may be uninter..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.838241",
+    "item": {
+      "document_name": "NIST Privacy Framework 1.1",
+      "document_number": "",
+      "series": "CSWP 40 (Initial Public Draft)",
+      "release_date": "April 14, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/40/nist-privacy-framework-11/ipd",
+      "summary": "The NIST Privacy Framework 1.1 is a voluntary tool developed in collaboration with stakeholders intended to help organizations identify and manage privacy risk to build innovative products and services while protecting individuals\u2019 privacy. It provides high-level privacy risk management outcomes tha..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.839361",
+    "item": {
+      "document_name": "Requirements for Cryptographic Accordions",
+      "document_number": "",
+      "series": "IR 8552 (Final)",
+      "release_date": "April 11, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8552/final",
+      "summary": "This report introduces the cryptographic accordion as a tweakable, variable-input-length strong pseudorandom permutation (VIL-SPRP) that is constructed from an underlying block cipher. An accordion facilitates the cryptographic processing of messages of various sizes while offering enhanced security..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.840419",
+    "item": {
+      "document_name": "Secure Domain Name System (DNS) Deployment Guide",
+      "document_number": "",
+      "series": "SP 800-81 Rev. 3 (Initial Public Draft)",
+      "release_date": "April 10, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/81/r3/ipd",
+      "summary": "This document provides Domain Name System (DNS) deployment guidelines to secure the DNS protocol and infrastructure, mitigate misuse or misconfiguration, and provide an additional layer of network security as part of a zero trust and/or defense-in-depth security risk management approach. This introd..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.841529",
+    "item": {
+      "document_name": "Incident Response Recommendations and Considerations for Cybersecurity Risk Management: A CSF 2.0 Community Profile",
+      "document_number": "",
+      "series": "SP 800-61 Rev. 3 (Final)",
+      "release_date": "April 3, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/61/r3/final",
+      "summary": "This publication seeks to assist organizations with incorporating cybersecurity incident response recommendations and considerations throughout their cybersecurity risk management activities as described by the NIST Cybersecurity Framework (CSF) 2.0. Doing so can help organizations prepare for incid..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.842651",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "document_number": "",
+      "series": "AI 100-2 E2025 (Final)",
+      "release_date": "March 24, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ai/100/2/e2025/final",
+      "summary": "This NIST Trustworthy and Responsible AI report provides a taxonomy of concepts and defines terminology in the field of adversarial machine learning (AML). The taxonomy is arranged in a conceptual hierarchy that includes key types of ML methods, life cycle stages of attack, and attacker goals, objec..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.843777",
+    "item": {
+      "document_name": "5G Cybersecurity",
+      "document_number": "",
+      "series": "SP 1800-33 (Initial Public Draft)",
+      "release_date": "March 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/33/ipd",
+      "summary": "The National Cybersecurity Center of Excellence (NCCoE) is collaborating with technology providers and other companies on a project to develop example solution approaches for safeguarding 5G networks. These solutions use combinations of cybersecurity and privacy measures drawn from 5G capabilities a..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.844804",
+    "item": {
+      "document_name": "PRE-DRAFT Call for Comments: NIST is Aligning the Foundational Positioning, Navigation, and Timing (PNT) Profile (NIST IR 8323) with CSF 2.0",
+      "document_number": "",
+      "series": "IR 8323 Rev. 2 (Initial Preliminary Draft)",
+      "release_date": "March 12, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8323/r2/iprd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.845873",
+    "item": {
+      "document_name": "Status Report on the Fourth Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR 8545 (Final)",
+      "release_date": "March 11, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8545/final",
+      "summary": "NIST is selecting public-key cryptographic algorithms through a public, competition-like process to specify additional digital signature, public-key encryption, and key-establishment algorithms to supplement FIPS 186-5, SP 800-56Ar3, and SP 800-56Br2. These algorithms are intended to protect sensiti..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.846932",
+    "item": {
+      "document_name": "Guidelines for Evaluating Differential Privacy Guarantees",
+      "document_number": "",
+      "series": "SP 800-226 (Final)",
+      "release_date": "March 6, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/226/final",
+      "summary": "This publication describes differential privacy \u2014 a mathematical framework that quantifies privacy loss to entities when their data appears in a dataset. The primary goal of this publication is to help practitioners of all backgrounds better understand how to think about differentially private softw..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.848014",
+    "item": {
+      "document_name": "Cybersecurity Framework Version 2.0 Semiconductor Manufacturing Profile",
+      "document_number": "",
+      "series": "IR 8546 (Initial Public Draft)",
+      "release_date": "February 27, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8546/ipd",
+      "summary": "This document defines a Cybersecurity Framework (CSF) 2.0 Community Profile with a voluntary, risk-based approach to managing cybersecurity activities and reducing cyber risks for semiconductor development and manufacturing. Collaboratively developed in support of the National Cybersecurity Implemen..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.849081",
+    "item": {
+      "document_name": "Prioritizing Cybersecurity Risk for Enterprise Risk Management",
+      "document_number": "",
+      "series": "IR 8286B (Final)",
+      "release_date": "February 26, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8286/b/upd1/final",
+      "summary": "This document is the second in a series that supplements NIST Interagency Report (IR) 8286, Integrating Cybersecurity and Enterprise Risk Management (ERM). This series provides additional detail regarding the enterprise application of cybersecurity risk information; the previous document, NIST IR 82..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.850219",
+    "item": {
+      "document_name": "Using Business Impact Analysis to Inform Risk Prioritization and Response",
+      "document_number": "",
+      "series": "IR 8286D (Final)",
+      "release_date": "February 26, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8286/d/upd1/final",
+      "summary": "While business impact analysis (BIA) has historically been used to determine availability requirements for business continuity, the process can be extended to provide a broad understanding of the potential impacts of any type of loss on the enterprise mission. The management of enterprise risk requi..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.851340",
+    "item": {
+      "document_name": "A Security Perspective on the Web3 Paradigm",
+      "document_number": "",
+      "series": "IR 8475 (Final)",
+      "release_date": "February 25, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8475/final",
+      "summary": "Web3 is a proposed vision for the future of the internet that is restructured to be more user-centric with an emphasis on decentralized data. Users would own and manage their personal data, and systems would be decentralized and distributed. Digital tokens would be used to represent assets, and web-..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.852513",
+    "item": {
+      "document_name": "Testable Controls and Security Capabilities for Continuous Monitoring: Volume 1  \u2014 Overview and Methodology",
+      "document_number": "",
+      "series": "IR 8011 Vol. 1 Rev. 1 (Initial Public Draft)",
+      "release_date": "February 20, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8011/v1/r1/ipd",
+      "summary": "According to the NIST Risk Management Framework (RMF) methodology, SP 800-53 security and privacy controls are selected, implemented, assessed, and monitored to help achieve security and privacy objectives. Due to the sheer size, complexity, and scope of information technology footprints, the automa..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.853587",
+    "item": {
+      "document_name": "Workshop on Enhancing Security of Devices and Components Across the Supply Chain",
+      "document_number": "",
+      "series": "IR 8532 (Final)",
+      "release_date": "February 18, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8532/final",
+      "summary": "The National Institute of Standards and Technology (NIST) hosted an in-person, all-day workshop on February 27, 2024, to discuss existing and emerging cybersecurity threats and mitigation techniques for semiconductors throughout their life cycle. The workshop obtained valuable feedback from industry..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.854744",
+    "item": {
+      "document_name": "Security and Trust Considerations for Digital Twin Technology",
+      "document_number": "",
+      "series": "IR 8356 (Final)",
+      "release_date": "February 14, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8356/final",
+      "summary": "Digital twin technology enables the creation of electronic representations of real-world entities and the ability to view the states and transitions between states of these entities. This report discusses the concept and purpose of digital twin technology and describes its characteristics, features,..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.855845",
+    "item": {
+      "document_name": "Recommendation for Block Cipher Modes of Operation: Methods for Format-Preserving Encryption",
+      "document_number": "",
+      "series": "SP 800-38G Rev. 1 (2nd Public Draft)",
+      "release_date": "February 3, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/38/g/r1/2pd",
+      "summary": "This recommendation specifies the FF1 method for format-preserving encryption. This method is a mode of operation for an underlying, approved symmetric-key block cipher algorithm."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.856958",
+    "item": {
+      "document_name": "Error Floor Prediction with Markov Models for QC-MDPC Codes",
+      "document_number": "",
+      "series": "Other 2025/153 (Final)",
+      "release_date": "February 1, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2025/02/01/error-floor-prediction-with-markov-models-for-qc-m/final",
+      "summary": "Quasi-cyclic moderate-density parity check (QC-MDPC) code-based encryption schemes under iterative decoders offer highly-competitive performance in the quantum-resistant space of cryptography, but the decoding-failure rate (DFR) of these algorithms are not well-understood. The DFR decreases extremel..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.858187",
+    "item": {
+      "document_name": "Security Property Verification by Transition Model",
+      "document_number": "",
+      "series": "IR 8539 (Final)",
+      "release_date": "January 31, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8539/final",
+      "summary": "Verifying the security properties of access control policies is a complex and critical task. The policies and their implementation often do not explicitly express their underlying semantics, which may be implicitly embedded in the logic flows of policy rules, especially when policies are combined. I..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.859362",
+    "item": {
+      "document_name": "No SUPI-Based Paging: Applying 5G Cybersecurity and Privacy Capabilities",
+      "document_number": "",
+      "series": "CSWP 36D (Initial Public Draft)",
+      "release_date": "January 30, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/36/d/no-supi-based-paging-applying-5g-cybersecurity-and/ipd",
+      "summary": "This white paper provides an overview of \"no Subscription Permanent Identifier (SUPI) based paging,\" a 5G capability for protecting users from being identified and located by an attacker. Unlike previous generations of cellular systems, new requirements in 5G protect subscriber confidentiality by us..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.860474",
+    "item": {
+      "document_name": "Translating Natural Language Specifications into Access Control Policies by Leveraging Large Language Models",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "release_date": "January 16, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2025/01/16/translating-natural-language-specifications/final",
+      "summary": "Conference: The 6th IEEE Intl Conference on Trust, Privacy and Security in Intelligent Systems, and Application Abstract: This paper investigates the application of large language models (LLMs) for the automated translation and information extraction of access control policies from a natural language source. Prior research in this domain have predominantly relied on manual methods, traditional natural language processi..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.861604",
+    "item": {
+      "document_name": "Ransomware Risk Management: A Cybersecurity Framework 2.0 Community Profile",
+      "document_number": "",
+      "series": "IR 8374 Rev. 1 (Initial Public Draft)",
+      "release_date": "January 13, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8374/r1/ipd",
+      "summary": "Ransomware is a type of malicious attack where attackers encrypt an organization\u2019s data and demand payment to restore access. Attackers may also steal an organization\u2019s information and demand an additional payment in return for not disclosing the information to authorities, competitors, or the publi..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.862778",
+    "item": {
+      "document_name": "Pre-Draft Call for Comments: GCM and GMAC Block Cipher Modes of Operation",
+      "document_number": "",
+      "series": "SP 800-38D Rev. 1 (Initial Preliminary Draft)",
+      "release_date": "January 6, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/38/d/r1/iprd",
+      "summary": "N/A"
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.863985",
+    "item": {
+      "document_name": "Border Gateway Protocol Security and Resilience",
+      "document_number": "",
+      "series": "SP 800-189 Rev. 1 (Initial Public Draft)",
+      "release_date": "January 3, 2025",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/189/r1/ipd",
+      "summary": "This publication provides guidance on Internet routing security, preventing IP address spoofing, and certain aspects of DDoS detection and mitigation. It particularly focuses on Border Gateway Protocol, which is the routing protocol used to distribute and compute paths between the tens of thousands..."
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.865185",
+    "item": {
+      "document_name": "PRE-DRAFT Call for Comments: NIST Proposes to Standardize a Wider Variant of AES",
+      "document_number": "",
+      "series": "SP 800-197 (Initial Preliminary Draft)",
+      "release_date": "December 23, 2024",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/197/iprd",
+      "summary": ""
+    }
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-03-12 14:29:42.866824",
+    "item": {
+      "document_name": "Cybersecurity for Smart Inverters: Guidelines for Residential and Light Commercial Solar Energy Systems",
+      "document_number": "",
+      "series": "IR 8498 (Final)",
+      "release_date": "December 20, 2024",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8498/final",
+      "summary": "This report provides practical cybersecurity guidance for small-scale solar inverter implementations that are typically used in homes and small businesses. These guidelines are informed by a review of known smart-inverter vulnerabilities documented in the National Vulnerability Database (NVD), a rev..."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.867993",
+    "item": {
+      "title": "2 Health Care Organizations Will Receive 2025 Baldrige National Quality Awards",
+      "link": "https://www.nist.gov/news-events/news/2026/02/2-health-care-organizations-will-receive-2025-baldrige-national-quality",
+      "publish_date": "2026-02-19T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.869177",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "link": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "publish_date": "2026-02-17T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.870456",
+    "item": {
+      "title": "NIST Releases New Forensic Genetic Reference Material\u202fto Help Crime Laboratories Analyze Challenging Cases",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-releases-new-forensic-genetic-reference-material-help-crime",
+      "publish_date": "2026-02-17T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.871666",
+    "item": {
+      "title": "Space: The Final Frontier for Standards",
+      "link": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
+      "publish_date": "2026-02-09T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.872923",
+    "item": {
+      "title": "The Department of Commerce\u2019s CHIPS Program Announces a Letter of Intent with USA Rare Earth to Accelerate Its Domestic and Vertically Integrated \"Mine-to-Magnet\" Strategy",
+      "link": "https://www.nist.gov/news-events/news/2026/01/department-commerces-chips-program-announces-letter-intent-usa-rare-earth",
+      "publish_date": "2026-01-26T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.874176",
+    "item": {
+      "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
+      "link": "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
+      "publish_date": "2026-01-12T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.875574",
+    "item": {
+      "title": "Securing Smart Speakers for Home Health Care: NIST Offers New Guidelines",
+      "link": "https://www.nist.gov/news-events/news/2025/12/securing-smart-speakers-home-health-care-nist-offers-new-guidelines",
+      "publish_date": "2025-12-17T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.876869",
+    "item": {
+      "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
+      "link": "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era",
+      "publish_date": "2025-12-16T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.878119",
+    "item": {
+      "title": "Department of Commerce Announces Transition of Baldrige Performance Excellence Program",
+      "link": "https://www.nist.gov/news-events/news/2025/12/department-commerce-announces-transition-baldrige-performance-excellence",
+      "publish_date": "2025-12-11T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.879365",
+    "item": {
+      "title": "New Music Captures NIST\u2019s Essence, Measure for Measure",
+      "link": "https://www.nist.gov/blogs/taking-measure/new-music-captures-nists-essence-measure-measure",
+      "publish_date": "2026-03-03T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.880626",
+    "item": {
+      "title": "Putting Einstein to the Test With the World\u2019s Most Accurate Clocks",
+      "link": "https://www.nist.gov/blogs/taking-measure/putting-einstein-test-worlds-most-accurate-clocks",
+      "publish_date": "2026-02-25T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.881892",
+    "item": {
+      "title": "Checkup Time! How Measurement Science Keeps You Healthy",
+      "link": "https://www.nist.gov/blogs/taking-measure/checkup-time-how-measurement-science-keeps-you-healthy",
+      "publish_date": "2026-02-18T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.883192",
+    "item": {
+      "title": "How Thousands of Tiny Dots Can Save First Responders\u2019 Lives",
+      "link": "https://www.nist.gov/blogs/taking-measure/how-thousands-tiny-dots-can-save-first-responders-lives",
+      "publish_date": "2026-02-04T12:00:00Z",
+      "summary": ""
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 14:29:42.884393",
+    "item": {
+      "title": "Finding PFAS Wherever They\u2019re Hiding",
+      "link": "https://www.nist.gov/feature-stories/finding-forever-chemicals-wherever-theyre-hiding",
+      "publish_date": "2024-03-28T12:00:00Z",
+      "summary": "Forever chemicals are everywhere, but they\u2019re really hard to measure. NIST scientists are helping."
+    }
   }
 ]

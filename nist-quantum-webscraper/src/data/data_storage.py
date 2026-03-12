@@ -68,7 +68,7 @@ class DataStorage:
         # Create notification entry
         notification = {
             'type': item_type,
-            'timestamp': datetime.now(),
+            'timestamp': datetime.now().isoformat(),
             'item': item
         }
         
@@ -76,13 +76,13 @@ class DataStorage:
         self.save_notifications(notifications)
     
     def get_active_notifications(self) -> List[Dict[str, Any]]:
-        """Get notifications that are less than 24 hours old"""
+        """Get notifications that are less than 48 hours old"""
         notifications = self.load_notifications()
         now = datetime.now()
         active = []
         
         for n in notifications:
-            if (now - n['timestamp']).total_seconds() < 24 * 3600:
+            if (now - n['timestamp']).total_seconds() < 48 * 3600:
                 active.append(n)
             else:
                 # Remove expired notifications

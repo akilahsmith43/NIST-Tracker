@@ -2,49 +2,41 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_news():
-    # URL for NIST news with quantum search filter
-    url = "https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or"
+    url = "https://www.nist.gov/news-events/news"
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
     news_data = []
 
-    try:
-        response = requests.get(url)
-        soup = BeautifulSoup(response.content, 'html.parser')
+    articles = soup.find_all('article')
+    for article in articles:
+        # Safely extract title
+        title_el = article.find('h3')
+        if not title_el:
+            continue
+        title = title_el.get_text(strip=True)
+        
+        # Safely extract link
+        link_el = article.find('a')
+        if not link_el or not link_el.get('href'):
+            continue
+        link = link_el['href']
+        if not link.startswith('http'):
+            link = f"https://www.nist.gov{link}"
+        
+        # Safely extract date
+        date_el = article.find('time')
+        date = date_el['datetime'] if date_el else ""
+        
+        # Safely extract summary
+        summary_el = article.find('p')
+        summary = summary_el.get_text(strip=True) if summary_el else ""
 
-        # Find news articles
-        articles = soup.select('article[class*="nist-teaser"]')
-        for article in articles:
-            # the teaser contains two <a> tags with the same href: one around
-            # the image and one around the title. grab the one inside the title
-            # header so we can read the text.
-            title_link = article.select_one('h3.nist-teaser__title a')
-            if not title_link:
-                # fallback to any link if structure changed
-                title_link = article.select_one('a[href*="/news-events/news/"]')
-            if not title_link:
-                continue
-
-            title = title_link.get_text(strip=True)
-            link = title_link.get('href', '')
-
-            # Make link absolute if needed
-            if link and not link.startswith('http'):
-                link = f"https://www.nist.gov{link}"
-
-            # Try to get publish date - get the text content of the time element
-            date_elem = article.select_one('time')
-            date = date_elem.get_text(strip=True) if date_elem else ''
-
-            # Try to get summary - now text is inside div.text-with-summary
-            summary_elem = article.select_one('.text-with-summary')
-            summary = summary_elem.get_text(strip=True) if summary_elem else ''
-
-            news_data.append({
-                'title': title,
-                'link': link,
-                'publish_date': date,
-                'summary': summary
-            })
-    except Exception as e:
-        print(f"Error scraping news: {e}")
+        news_data.append({
+            'title': title,
+            'link': link,
+            'publish_date': date,
+            'summary': summary
+        })
 
     return news_data

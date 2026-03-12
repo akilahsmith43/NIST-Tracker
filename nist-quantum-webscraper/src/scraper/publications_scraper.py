@@ -1,8 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 
-def scrape_publications(query: str | None = None):
-    """Scrape quantum‑related publications from the CSRC search interface.
+def scrape_publications(url: str | None = None, query: str | None = None):
+    """Scrape publications from a given URL or the default CSRC search interface.
+
+    Parameters
+    ----------
+    url
+        The base URL to scrape from. If None, uses the default CSRC search URL.
+    query
+        Optional query string to append to the URL (e.g. "draft" or
+        "open for comment"). Only used if url is None.
 
     The search endpoint is used because the standalone publication pages are
     rendered client‑side.  By supplying a `query` string (e.g. "draft" or
@@ -14,15 +22,21 @@ def scrape_publications(query: str | None = None):
     the project.
     """
 
-    base_url = (
-        "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications"
-        "&topicsMatch=ANY&topics=27501%7cquantum+information+science"
-    )
-    if query:
-        # url‑encode the query term; requests will handle most characters but
-        # we'll be explicit.
-        from urllib.parse import quote_plus
-        base_url += "&q=" + quote_plus(query)
+    if url is None:
+        base_url = (
+            "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications"
+            "&topicsMatch=ANY&topics=27501%7cquantum+information+science"
+        )
+        if query:
+            # url‑encode the query term; requests will handle most characters but
+            # we'll be explicit.
+            from urllib.parse import quote_plus
+            base_url += "&q=" + quote_plus(query)
+    else:
+        base_url = url
+        if query:
+            from urllib.parse import quote_plus
+            base_url += "&q=" + quote_plus(query)
 
     publications = []
     try:
@@ -105,38 +119,51 @@ def filter_publications(publications, *, include_drafts: bool = False,
 
 
 def scrape_all_publications():
-    """Convenience wrapper that attempts to fetch every publication status.
+    """Convenience wrapper that attempts to fetch publications from multiple sources.
 
-    We perform three searches: the default (usually finals), one for drafts,
-    and another for "open for comment".  Results are concatenated and
-    de‑duplicated by link.
+    Scrapes from multiple NIST publication URLs and de‑duplicates by link.
     """
 
-    queries = [None, "draft", "open for comment"]
+    urls = [
+        "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications",
+        "https://www.nist.gov/publications/search?k=&t=&a=&ps=All&ta%5B%5D=249281&n=&d%5Bmin%5D=&d%5Bmax%5D=",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description%2CBook+Section&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+    ]
+    
     seen = set()
     all_pubs = []
-    for q in queries:
-        for pub in scrape_publications(q):
+    
+    # Scrape from multiple URLs
+    for url in urls:
+        for pub in scrape_publications(url=url):
             link = pub.get("link")
             if link in seen:
                 continue
             seen.add(link)
             all_pubs.append(pub)
+    
+    # Also keep the original query-based approach for backward compatibility
+    queries = [None, "draft", "open for comment"]
+    for q in queries:
+        for pub in scrape_publications(query=q):
+            link = pub.get("link")
+            if link in seen:
+                continue
+            seen.add(link)
+            all_pubs.append(pub)
+    
     return all_pubs
 
 def main():
-    urls = [
-        'https://www.nist.gov/quantum/publication1',
-        'https://www.nist.gov/quantum/publication2',
-        # Add more URLs as needed
-    ]
-    
-    all_publications = []
-    for url in urls:
-        all_publications.extend(scrape_publications(url))
+    """Scrape all publications from multiple NIST sources."""
+    all_publications = scrape_all_publications()
     
     # Output or process the collected data as needed
-    print(all_publications)
+    print(f"Scraped {len(all_publications)} publications")
+    for pub in all_publications[:5]:  # Print first 5 as example
+        print(pub)
 
 if __name__ == "__main__":
     main()

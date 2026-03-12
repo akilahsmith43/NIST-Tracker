@@ -19,8 +19,9 @@ def main():
     st.set_page_config(page_title="NIST Quantum Tracker", page_icon="🔬", layout="wide")
     st.title("🔬 NIST Quantum Information Science Tracker")
     
-    # Initialize data storage
-    storage = DataStorage()
+    # Initialize data storage with correct path
+    storage_dir = os.path.join(os.path.dirname(__file__), 'data_storage')
+    storage = DataStorage(storage_dir=storage_dir)
     
     # Sidebar for notifications
     st.sidebar.header("Notifications")
@@ -45,7 +46,7 @@ def main():
     for article in new_news:
         storage.add_notification('news', article)
     
-    # Get active notifications (within 24 hours)
+    # Get active notifications (within 48 hours)
     active_notifications = storage.get_active_notifications()
     
     # Save current data
