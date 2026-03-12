@@ -36,12 +36,17 @@ def main():
     new_publications = storage.get_new_items('publications', publications)
     new_presentations = storage.get_new_items('presentations', presentations)
     new_news = storage.get_new_items('news', news)
-
-    # split publication sets for display
-    finals = filter_publications(publications, include_final=True, include_drafts=False)
-    drafts = filter_publications(publications, include_final=False, include_drafts=True)
-    new_finals = filter_publications(new_publications, include_final=True, include_drafts=False)
-    new_drafts = filter_publications(new_publications, include_final=False, include_drafts=True)
+    
+    # Add new items to persistent notifications
+    for pub in new_publications:
+        storage.add_notification('publication', pub)
+    for pres in new_presentations:
+        storage.add_notification('presentation', pres)
+    for article in new_news:
+        storage.add_notification('news', article)
+    
+    # Get active notifications (within 24 hours)
+    active_notifications = storage.get_active_notifications()
     
     # Save current data
     storage.save_data('publications', publications)
@@ -49,18 +54,14 @@ def main():
     storage.save_data('news', news)
     
     # Display notifications
-    notification_count = len(new_publications) + len(new_presentations) + len(new_news)
+    notification_count = len(active_notifications)
     
     if notification_count > 0:
         st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
         
-        if new_finals:
-            st.sidebar.subheader("📄 New Final Publications:")
-            for pub in new_finals:
-                st.sidebar.write(f"• {pub['document_name']}")
-        if new_drafts:
-            st.sidebar.subheader("📝 New Draft Publications:")
-            for pub in new_drafts:
+        if new_publications:
+            st.sidebar.subheader("📄 New Publications:")
+            for pub in new_publications:
                 st.sidebar.write(f"• {pub['document_name']}")
         
         if new_presentations:
@@ -84,47 +85,10 @@ def main():
         if new_publications:
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
-        st.subheader("Final documents")
-        st.write(f"Total: {len(finals)} items")
-        if new_finals:
-            st.success(f"🆕 {len(new_finals)} new final publication(s)")
-        for pub in finals:
-            # show first 80 characters of summary in header if available
-            header = f"{pub['series']} {pub['document_number']}: {pub['document_name']}"
-            if pub.get('summary'):
-                snippet = pub['summary'][:80].strip()
-                if len(pub['summary']) > 80:
-                    snippet += '...'
-                header += f" — {snippet}"
-            with st.expander(header):
+        for pub in publications:
+            with st.expander(f"{pub['series']} {pub['document_number']}: {pub['document_name']}"):
                 st.write(f"**Status:** {pub['status']}")
                 st.write(f"**Type:** {pub['resource_type']}")
-                if pub.get('release_date'):
-                    st.write(f"**Published:** {pub['release_date']}")
-                if pub.get('summary'):
-                    st.write(f"**Summary:** {pub['summary']}")
-                if pub['link']:
-                    st.markdown(f"[📄 View Document]({pub['link']})")
-                st.write("---")
-
-        st.subheader("Drafts / open for comment")
-        st.write(f"Total: {len(drafts)} items")
-        if new_drafts:
-            st.success(f"🆕 {len(new_drafts)} new draft publication(s)")
-        for pub in drafts:
-            header = f"{pub['series']} {pub['document_number']}: {pub['document_name']}"
-            if pub.get('summary'):
-                snippet = pub['summary'][:80].strip()
-                if len(pub['summary']) > 80:
-                    snippet += '...'
-                header += f" — {snippet}"
-            with st.expander(header):
-                st.write(f"**Status:** {pub['status']}")
-                st.write(f"**Type:** {pub['resource_type']}")
-                if pub.get('release_date'):
-                    st.write(f"**Published:** {pub['release_date']}")
-                if pub.get('summary'):
-                    st.write(f"**Summary:** {pub['summary']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
