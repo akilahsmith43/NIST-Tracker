@@ -1,156 +1,181 @@
 {
   "data": [
     {
-      "title": "New Spin-Squeezing Techniques Let Atoms Work Together for Better Quantum Measurements",
-      "link": "https://www.nist.gov/news-events/news/2023/09/new-spin-squeezing-techniques-let-atoms-work-together-better-quantum",
-      "publish_date": "September 25, 2023",
-      "summary": "Opening new possibilities for quantum sensors, atomic clocks and tests of fundamental physics, JILA researchers have developed new ways of \u201centangling\u201d or interlinking the properties of large numbers of particles."
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10T12:00:00Z",
+      "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
     },
     {
       "title": "NIST Issues Broad Agency Announcement for Proposals to Advance Microelectronics Technologies",
       "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
       "publish_date": "September 24, 2025",
+      "publish_date_raw": "2025-09-24T12:00:00Z",
       "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States."
-    },
-    {
-      "title": "NIST Physicist Adam Kaufman Wins Breakthrough New Horizons in Physics Prize",
-      "link": "https://www.nist.gov/news-events/news/2022/09/nist-physicist-adam-kaufman-wins-breakthrough-new-horizons-physics-prize",
-      "publish_date": "September 22, 2022",
-      "summary": "Kaufman won for his work in advancing the control of atoms and molecules to improve atomic clocks and quantum information processing."
     },
     {
       "title": "In Quantum Sensing, What Beats Beating Noise? Meeting Noise Halfway.",
       "link": "https://www.nist.gov/news-events/news/2025/09/quantum-sensing-what-beats-beating-noise-meeting-noise-halfway",
       "publish_date": "September 10, 2025",
+      "publish_date_raw": "2025-09-10T12:00:00Z",
       "summary": "A team including scientists at NIST may have found a new way of dealing with noise at the microscopic scales where quantum physics reigns."
     },
     {
-      "title": "NIST Seeks Input on Implementation of National Standards Strategy for Critical and Emerging Technology",
-      "link": "https://www.nist.gov/news-events/news/2023/09/nist-seeks-input-implementation-national-standards-strategy-critical-and",
-      "publish_date": "September 07, 2023",
-      "summary": "The strategy promotes technologically sound standards that help American industry compete internationally on a level playing field."
+      "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
+      "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
+      "publish_date": "June 11, 2025",
+      "publish_date_raw": "2025-06-11T12:00:00Z",
+      "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
     },
     {
-      "title": "An Entangled Matter-Wave Interferometer: Now With Double the Spookiness!",
-      "link": "https://www.nist.gov/news-events/news/2022/10/entangled-matter-wave-interferometer-now-double-spookiness",
-      "publish_date": "October 20, 2022",
-      "summary": "A team of researchers at JILA has for the first time successfully combined two of the \u201cspookiest\u201d features of quantum mechanics to make a better quantum sensor."
+      "title": "Novel \u2018Quantum Refrigerator\u2019 Is Great at Erasing Quantum Computer\u2019s Chalkboard",
+      "link": "https://www.nist.gov/news-events/news/2025/01/novel-quantum-refrigerator-great-erasing-quantum-computers-chalkboard",
+      "publish_date": "January 09, 2025",
+      "publish_date_raw": "2025-01-09T12:00:00Z",
+      "summary": "Quantum computers need a \"clean\" workspace, and a team including scientists at NIST has found a way to make one."
+    },
+    {
+      "title": "3 NIST Researchers Receive Presidential Rank Awards",
+      "link": "https://www.nist.gov/news-events/news/2024/12/3-nist-researchers-receive-presidential-rank-awards",
+      "publish_date": "December 05, 2024",
+      "publish_date_raw": "2024-12-05T12:00:00Z",
+      "summary": "All three were awarded the \u201cDistinguished Rank,\u201d the highest category of Presidential Rank Awards."
     },
     {
       "title": "NIST Awards $15 Million to ASTM International to Establish Standardization Center of Excellence",
       "link": "https://www.nist.gov/news-events/news/2024/10/nist-awards-15-million-astm-international-establish-standardization-center",
       "publish_date": "October 15, 2024",
+      "publish_date_raw": "2024-10-15T12:00:00Z",
       "summary": "The new center will support U.S. engagement in international standardization for critical and emerging technologies."
     },
     {
-      "title": "NIST\u2019s Grid of Quantum Islands Could Reveal Secrets for Powerful Technologies",
-      "link": "https://www.nist.gov/news-events/news/2022/11/nists-grid-quantum-islands-could-reveal-secrets-powerful-technologies",
-      "publish_date": "November 17, 2022",
-      "summary": "The grids provided playing fields in which electrons could behave in nearly ideal, textbook-like conditions."
+      "title": "Tiny New Lasers Fill a Long-Standing Gap in the Rainbow of Visible-Light Colors, Opening New Applications",
+      "link": "https://www.nist.gov/news-events/news/2024/08/tiny-new-lasers-fill-long-standing-gap-rainbow-visible-light-colors-opening",
+      "publish_date": "August 28, 2024",
+      "publish_date_raw": "2024-08-28T12:00:00Z",
+      "summary": "Researchers have created orange, yellow and green lasers tiny enough to fit on a chip."
     },
     {
-      "title": "NIST Sensor Experts Invent Supercool Mini-Thermometer",
-      "link": "https://www.nist.gov/news-events/news/2020/11/nist-sensor-experts-invent-supercool-mini-thermometer",
-      "publish_date": "November 17, 2020",
-      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have invented a miniature thermometer with big potential applications, such as monit"
+      "title": "NIST Participates in White House Summit on Standards for Critical and Emerging Technology",
+      "link": "https://www.nist.gov/news-events/news/2024/07/nist-participates-white-house-summit-standards-critical-and-emerging",
+      "publish_date": "July 29, 2024",
+      "publish_date_raw": "2024-07-29T12:00:00Z",
+      "summary": "A new Implementation Roadmap provides recommendations and actions for putting the U.S. standards strategy into effect."
+    },
+    {
+      "title": "The Big Quantum Chill: NIST Scientists Modify Common Lab Refrigerator to Cool Faster With Less Energy",
+      "link": "https://www.nist.gov/news-events/news/2024/04/big-quantum-chill-nist-scientists-modify-common-lab-refrigerator-cool",
+      "publish_date": "April 23, 2024",
+      "publish_date_raw": "2024-04-23T12:00:00Z",
+      "summary": "The Big Quantum Chill: NIST Scientists Modify Common Lab Refrigerator to Cool Fa..."
+    },
+    {
+      "title": "New Spin-Squeezing Techniques Let Atoms Work Together for Better Quantum Measurements",
+      "link": "https://www.nist.gov/news-events/news/2023/09/new-spin-squeezing-techniques-let-atoms-work-together-better-quantum",
+      "publish_date": "September 25, 2023",
+      "publish_date_raw": "2023-09-25T12:00:00Z",
+      "summary": "Opening new possibilities for quantum sensors, atomic clocks and tests of fundamental physics, JILA researchers have developed new ways of \u201centangling\u201d or interlinking the properties of large numbers of particles."
+    },
+    {
+      "title": "NIST Seeks Input on Implementation of National Standards Strategy for Critical and Emerging Technology",
+      "link": "https://www.nist.gov/news-events/news/2023/09/nist-seeks-input-implementation-national-standards-strategy-critical-and",
+      "publish_date": "September 07, 2023",
+      "publish_date_raw": "2023-09-07T12:00:00Z",
+      "summary": "The strategy promotes technologically sound standards that help American industry compete internationally on a level playing field."
+    },
+    {
+      "title": "NIST \u2018Toggle Switch\u2019 Can Help Quantum Computers Cut Through the Noise",
+      "link": "https://www.nist.gov/news-events/news/2023/06/nist-toggle-switch-can-help-quantum-computers-cut-through-noise",
+      "publish_date": "June 26, 2023",
+      "publish_date_raw": "2023-06-26T12:00:00Z",
+      "summary": "The novel device could lead to more versatile quantum processors with clearer outputs."
     },
     {
       "title": "NIST/JILA Physicist Ana Maria Rey Elected to National Academy of Sciences",
       "link": "https://www.nist.gov/news-events/news/2023/05/nistjila-physicist-ana-maria-rey-elected-national-academy-sciences",
       "publish_date": "May 09, 2023",
+      "publish_date_raw": "2023-05-09T12:00:00Z",
       "summary": "As a theoretical physicist, Ana Maria Rey studies atomic, molecular and optical physics, condensed matter physics and quantum information science."
+    },
+    {
+      "title": "NIST\u2019s Grid of Quantum Islands Could Reveal Secrets for Powerful Technologies",
+      "link": "https://www.nist.gov/news-events/news/2022/11/nists-grid-quantum-islands-could-reveal-secrets-powerful-technologies",
+      "publish_date": "November 17, 2022",
+      "publish_date_raw": "2022-11-17T12:00:00Z",
+      "summary": "The grids provided playing fields in which electrons could behave in nearly ideal, textbook-like conditions."
+    },
+    {
+      "title": "An Entangled Matter-Wave Interferometer: Now With Double the Spookiness!",
+      "link": "https://www.nist.gov/news-events/news/2022/10/entangled-matter-wave-interferometer-now-double-spookiness",
+      "publish_date": "October 20, 2022",
+      "publish_date_raw": "2022-10-20T12:00:00Z",
+      "summary": "A team of researchers at JILA has for the first time successfully combined two of the \u201cspookiest\u201d features of quantum mechanics to make a better quantum sensor."
+    },
+    {
+      "title": "NIST Physicist Adam Kaufman Wins Breakthrough New Horizons in Physics Prize",
+      "link": "https://www.nist.gov/news-events/news/2022/09/nist-physicist-adam-kaufman-wins-breakthrough-new-horizons-physics-prize",
+      "publish_date": "September 22, 2022",
+      "publish_date_raw": "2022-09-22T12:00:00Z",
+      "summary": "Kaufman won for his work in advancing the control of atoms and molecules to improve atomic clocks and quantum information processing."
+    },
+    {
+      "title": "DC-Area U.S. Government Agencies Announce the Washington Metropolitan Quantum Network Research Consortium, or DC-QNet",
+      "link": "https://www.nist.gov/news-events/news/2022/06/dc-area-us-government-agencies-announce-washington-metropolitan-quantum",
+      "publish_date": "June 27, 2022",
+      "publish_date_raw": "2022-06-27T12:00:00Z",
+      "summary": "The group will work to advance quantum network capabilities and leadership."
     },
     {
       "title": "NIST Team Directs and Measures Quantum Drum Duet",
       "link": "https://www.nist.gov/news-events/news/2021/05/nist-team-directs-and-measures-quantum-drum-duet",
       "publish_date": "May 06, 2021",
+      "publish_date_raw": "2021-05-06T12:00:00Z",
       "summary": "Like conductors of a spooky symphony, researchers at the National Institute of Standards and Technology (NIST) have \u201centangled\u201d two small mechanical drums an"
     },
     {
       "title": "Optical Fiber Could Boost Power of Superconducting Quantum Computers",
       "link": "https://www.nist.gov/news-events/news/2021/03/optical-fiber-could-boost-power-superconducting-quantum-computers",
       "publish_date": "March 24, 2021",
+      "publish_date_raw": "2021-03-24T12:00:00Z",
       "summary": "The secret to building superconducting quantum computers with massive processing power may be an ordinary telecommunications technology \u2014 optical fiber.&nbsp"
-    },
-    {
-      "title": "DC-Area U.S. Government Agencies Announce the Washington Metropolitan Quantum Network Research Consortium, or DC-QNet",
-      "link": "https://www.nist.gov/news-events/news/2022/06/dc-area-us-government-agencies-announce-washington-metropolitan-quantum",
-      "publish_date": "June 27, 2022",
-      "summary": "The group will work to advance quantum network capabilities and leadership."
-    },
-    {
-      "title": "NIST \u2018Toggle Switch\u2019 Can Help Quantum Computers Cut Through the Noise",
-      "link": "https://www.nist.gov/news-events/news/2023/06/nist-toggle-switch-can-help-quantum-computers-cut-through-noise",
-      "publish_date": "June 26, 2023",
-      "summary": "The novel device could lead to more versatile quantum processors with clearer outputs."
-    },
-    {
-      "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
-      "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
-      "publish_date": "June 11, 2025",
-      "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
-    },
-    {
-      "title": "NIST Participates in White House Summit on Standards for Critical and Emerging Technology",
-      "link": "https://www.nist.gov/news-events/news/2024/07/nist-participates-white-house-summit-standards-critical-and-emerging",
-      "publish_date": "July 29, 2024",
-      "summary": "A new Implementation Roadmap provides recommendations and actions for putting the U.S. standards strategy into effect."
-    },
-    {
-      "title": "Novel \u2018Quantum Refrigerator\u2019 Is Great at Erasing Quantum Computer\u2019s Chalkboard",
-      "link": "https://www.nist.gov/news-events/news/2025/01/novel-quantum-refrigerator-great-erasing-quantum-computers-chalkboard",
-      "publish_date": "January 09, 2025",
-      "summary": "Quantum computers need a \"clean\" workspace, and a team including scientists at NIST has found a way to make one."
-    },
-    {
-      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
-      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
-      "publish_date": "February 10, 2026",
-      "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
     },
     {
       "title": "JILA\u2019s Bigger and Better \u2018Tweezer Clock\u2019 Is Super Stable",
       "link": "https://www.nist.gov/news-events/news/2020/12/jilas-bigger-and-better-tweezer-clock-super-stable",
       "publish_date": "December 16, 2020",
+      "publish_date_raw": "2020-12-16T12:00:00Z",
       "summary": "JILA\u2019s Bigger and Better \u2018Tweezer Clock\u2019 Is Super Stable..."
     },
     {
       "title": "JILA\u2019s Electric \u2018Knob\u2019 Tunes Chemical Reaction Rates in Quantum Gas",
       "link": "https://www.nist.gov/news-events/news/2020/12/jilas-electric-knob-tunes-chemical-reaction-rates-quantum-gas",
       "publish_date": "December 10, 2020",
+      "publish_date_raw": "2020-12-10T12:00:00Z",
       "summary": "Building on their newfound ability to induce molecules in ultracold gases to interact with each other over long distances, JILA researchers have used an elec"
     },
     {
       "title": "New JILA Tools \u2018Turn On\u2019 Quantum Gases of Ultracold Molecules",
       "link": "https://www.nist.gov/news-events/news/2020/12/new-jila-tools-turn-quantum-gases-ultracold-molecules",
       "publish_date": "December 09, 2020",
+      "publish_date_raw": "2020-12-09T12:00:00Z",
       "summary": "JILA researchers have developed tools to \u201cturn on\u201d quantum gases of ultracold molecules, gaining control of long-distance molecular interactions for potentia"
     },
     {
       "title": "Error-Prone Quantum Bits Could Correct Themselves, NIST Physicists Show",
       "link": "https://www.nist.gov/news-events/news/2020/12/error-prone-quantum-bits-could-correct-themselves-nist-physicists-show",
       "publish_date": "December 08, 2020",
+      "publish_date_raw": "2020-12-08T12:00:00Z",
       "summary": "Error-Prone Quantum Bits Could Correct Themselves, NIST Physicists Show..."
     },
     {
-      "title": "3 NIST Researchers Receive Presidential Rank Awards",
-      "link": "https://www.nist.gov/news-events/news/2024/12/3-nist-researchers-receive-presidential-rank-awards",
-      "publish_date": "December 05, 2024",
-      "summary": "All three were awarded the \u201cDistinguished Rank,\u201d the highest category of Presidential Rank Awards."
-    },
-    {
-      "title": "Tiny New Lasers Fill a Long-Standing Gap in the Rainbow of Visible-Light Colors, Opening New Applications",
-      "link": "https://www.nist.gov/news-events/news/2024/08/tiny-new-lasers-fill-long-standing-gap-rainbow-visible-light-colors-opening",
-      "publish_date": "August 28, 2024",
-      "summary": "Researchers have created orange, yellow and green lasers tiny enough to fit on a chip."
-    },
-    {
-      "title": "The Big Quantum Chill: NIST Scientists Modify Common Lab Refrigerator to Cool Faster With Less Energy",
-      "link": "https://www.nist.gov/news-events/news/2024/04/big-quantum-chill-nist-scientists-modify-common-lab-refrigerator-cool",
-      "publish_date": "April 23, 2024",
-      "summary": "The Big Quantum Chill: NIST Scientists Modify Common Lab Refrigerator to Cool Fa..."
+      "title": "NIST Sensor Experts Invent Supercool Mini-Thermometer",
+      "link": "https://www.nist.gov/news-events/news/2020/11/nist-sensor-experts-invent-supercool-mini-thermometer",
+      "publish_date": "November 17, 2020",
+      "publish_date_raw": "2020-11-17T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have invented a miniature thermometer with big potential applications, such as monit"
     }
   ],
-  "timestamp": "2026-03-12T16:50:05.269291",
+  "timestamp": "2026-03-12T17:01:33.752230",
   "count": 25
 }

@@ -34,9 +34,9 @@ def main():
         news = scrape_news()
     
     # Sort by date - newest first
-    publications = sorted(publications, key=lambda x: x.get('release_date', ''), reverse=True)
+    publications = sorted(publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
     presentations = sorted(presentations, key=lambda x: x.get('release_date', ''), reverse=True)
-    news = sorted(news, key=lambda x: x.get('publish_date', ''), reverse=True)
+    news = sorted(news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
     
     # Check for new items and save data
     new_publications = storage.get_new_items('publications', publications)

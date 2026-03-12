@@ -92,6 +92,7 @@ def scrape_news():
             'title': title,
             'link': link,
             'publish_date': formatted_date,
+            'publish_date_raw': date,  # Keep raw ISO for sorting
             'summary': final_summary
         })
 

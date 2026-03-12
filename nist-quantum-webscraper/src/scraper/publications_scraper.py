@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
+from datetime import datetime
 
 
 def generate_summary(pub: dict) -> str:
@@ -204,11 +205,22 @@ def scrape_publications(url: str | None = None, query: str | None = None):
 
                     if name:  # Only add if we have at least a title
                         # store summary now; may fetch meta later
+                        # Convert formatted date to ISO for sorting
+                        release_date_raw = ""
+                        if release_date:
+                            try:
+                                # Parse "Month Day, Year" format to ISO
+                                date_obj = datetime.strptime(release_date, '%B %d, %Y')
+                                release_date_raw = date_obj.strftime('%Y-%m-%d')
+                            except Exception:
+                                # If parsing fails, use original
+                                release_date_raw = release_date
                         publications.append({
                             "document_name": name,
                             "document_number": "",
                             "series": series,
                             "release_date": release_date,
+                            "release_date_raw": release_date_raw,
                             "resource_type": "Publication",
                             "link": link,
                             "summary": summary,
