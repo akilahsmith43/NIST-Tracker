@@ -1,0 +1,69 @@
+{
+  "data": [
+    {
+      "document_name": "Cryptographic Agility and Transition R&D and Plans",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2024/cryptographic-agility-and-transition-rd-and-plans"
+    },
+    {
+      "document_name": "Poster: The World's Fastest Coin Flip: Randomness for Everyone!",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/poster-the-worlds-fastest-coin-flip-randomness-for"
+    },
+    {
+      "document_name": "US National CET Standards Strategy",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2024/us-national-cet-standards-strategy"
+    },
+    {
+      "document_name": "1400-Test for Date and Time Shift",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2024/1400-test-for-date-and-time-shift"
+    },
+    {
+      "document_name": "Initial Public Draft NIST IR 8587: Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/draft-nist-ir-8587"
+    },
+    {
+      "document_name": "Entropy Sources; Importance and Testing",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2022/entropy-sources-importance-and-testing"
+    },
+    {
+      "document_name": "NCCoE Roadmap and Select Project Overviews",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/nccoe-roadmap-and-select-project-overviews"
+    }
+  ],
+  "timestamp": "2026-03-11T20:07:17.421035",
+  "count": 7
+}

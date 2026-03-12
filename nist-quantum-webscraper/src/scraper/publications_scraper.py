@@ -2,50 +2,51 @@ import requests
 from bs4 import BeautifulSoup
 
 def scrape_publications():
-    # URLs for NIST CSRC publications
-    urls = [
-        'https://csrc.nist.gov/publications/final-pubs',
-        'https://csrc.nist.gov/publications/drafts-open-for-comment',
-        'https://csrc.nist.gov/publications/draft-pubs'
-    ]
-    
-    all_publications = []
-    
-    for url in urls:
-        try:
-            response = requests.get(url)
-            soup = BeautifulSoup(response.content, 'html.parser')
-            
-            # Find publication rows in the table
-            for row in soup.select('tr[id^="pub-title-link-"]'):
-                # Get the link element
-                link_elem = row.select_one('a[id^="pub-title-link-"]')
-                if not link_elem:
-                    continue
-                    
-                # Extract publication details from the row
-                series_elem = row.select_one('td[id^="pub-series-"]')
-                number_elem = row.select_one('td[id^="pub-number-"]')
-                
-                publication = {
-                    'document_name': link_elem.get_text(strip=True),
-                    'document_number': number_elem.get_text(strip=True) if number_elem else '',
-                    'series': series_elem.get_text(strip=True) if series_elem else '',
-                    'status': 'Final' if 'final-pubs' in url else 'Draft',
-                    'release_date': '',  # Not easily extractable from this page
-                    'resource_type': 'Publication',
-                    'link': link_elem['href'] if link_elem.get('href') else ''
-                }
-                
-                # Make link absolute if needed
-                if publication['link'] and not publication['link'].startswith('http'):
-                    publication['link'] = f"https://csrc.nist.gov{publication['link']}"
-                
-                all_publications.append(publication)
-        except Exception as e:
-            print(f"Error scraping publications from {url}: {e}")
-    
-    return all_publications
+    """Return a list of quantum‑related publications scraped from the CSRC search
+    interface.
+
+    The site no longer exposes a simple table, so we hit the search endpoint and
+    parse the `.search-list-item` blocks (the same pattern used by
+    `scrape_presentations`).
+    """
+
+    search_url = (
+        "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications"
+        "&topicsMatch=ANY&topics=27501%7cquantum+information+science"
+    )
+
+    publications = []
+    try:
+        response = requests.get(search_url)
+        soup = BeautifulSoup(response.content, "html.parser")
+
+        for item in soup.select(".search-list-item"):
+            title_link = item.select_one("h4.search-results-title a")
+            if not title_link:
+                continue
+
+            name = title_link.get_text(strip=True)
+            link = title_link.get("href", "")
+            if link and not link.startswith("http"):
+                link = f"https://csrc.nist.gov{link}"
+
+            # attempt to capture a subtitle/series label
+            series_el = item.select_one(".sub-title strong")
+            series = series_el.get_text(strip=True) if series_el else ""
+
+            publications.append({
+                "document_name": name,
+                "document_number": "",
+                "series": series,
+                "status": "Unknown",
+                "release_date": "",
+                "resource_type": "Publication",
+                "link": link,
+            })
+    except Exception as e:
+        print(f"Error scraping publications: {e}")
+
+    return publications
 
 def main():
     urls = [

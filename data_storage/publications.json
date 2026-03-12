@@ -1,0 +1,87 @@
+{
+  "data": [
+    {
+      "document_name": "Perfect Cheating is Impossible for Single-qubit Position Verification",
+      "document_number": "",
+      "series": "Other (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2024/06/28/perfect-cheating-is-impossible-for-single-qubit-po/final"
+    },
+    {
+      "document_name": "Lattice-Based Quantum Advantage from Rotated Measurements",
+      "document_number": "",
+      "series": "Other (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2022/10/18/latticebased-quantum-advantage-from-rotated-measur/final"
+    },
+    {
+      "document_name": "The membership problem for constant-sized quantum correlations is undecidable",
+      "document_number": "",
+      "series": "Other (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2021/01/26/problem-for-constantsized-quantum-correlations-is/final"
+    },
+    {
+      "document_name": "Parallel Device-Independent Quantum Key Distribution",
+      "document_number": "",
+      "series": "Journal Article (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/journal/2020/09/parallel-deviceindependent-quantum-key-distributio/final"
+    },
+    {
+      "document_name": "The impossibility of efficient quantum weak coin flipping",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2020/06/22/the-impossibility-of-efficient-quantum-weak-coin-f/final"
+    },
+    {
+      "document_name": "Evaluating the Security of CRYSTALS-Dilithium in the Quantum Random Oracle Model",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2024/04/29/evaluating-the-security-of-crystalsdilithium/final"
+    },
+    {
+      "document_name": "The Mathematics of Quantum Coin-Flipping",
+      "document_number": "",
+      "series": "Journal Article (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/journal/2022/12/mathematics-of-quantum-coin-flipping/final"
+    },
+    {
+      "document_name": "Apply Quantum Search to the Safety Check for Mono Operational Attribute Based Protection Systems",
+      "document_number": "",
+      "series": "Conference Paper (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2020/12/18/apply-quantum-search-to-the-safety-check/final"
+    },
+    {
+      "document_name": "Notes on Interrogating Random Quantum Circuits",
+      "document_number": "",
+      "series": "Other (Final)",
+      "status": "Unknown",
+      "release_date": "",
+      "resource_type": "Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2020/05/29/notes-on-interrogating-random-quantum-circuits/final"
+    }
+  ],
+  "timestamp": "2026-03-11T20:07:17.420817",
+  "count": 9
+}
