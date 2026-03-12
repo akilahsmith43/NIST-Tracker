@@ -66,10 +66,14 @@ def scrape_publications(url: str | None = None, query: str | None = None):
     other non‑final items; omitting it returns the default set, which at the
     moment consists mostly of final publications.
 
+    This function also follows pagination links ("next" buttons) so that all
+    available pages are crawled.
+
     Returns a list of dictionaries with the same structure used elsewhere in
     the project.
     """
 
+    # build the initial URL
     if url is None:
         base_url = (
             "https://csrc.nist.gov/search?ipp=100&sortBy=relevance&showOnly=publications"
@@ -87,93 +91,118 @@ def scrape_publications(url: str | None = None, query: str | None = None):
             base_url += "&q=" + quote_plus(query)
 
     publications = []
-    try:
-        response = requests.get(base_url, timeout=10)
-        response.raise_for_status()
-        soup = BeautifulSoup(response.content, "html.parser")
-        
-        # Try multiple selectors for different page layouts
-        items = soup.select(".search-list-item")
-        
-        # If no items found with main selector, try alternative selectors
-        if not items:
-            items = soup.select("article")
-        if not items:
-            items = soup.select(".publication-item")
-        if not items:
-            items = soup.select("[data-publication]")
-        
-        print(f"DEBUG: Found {len(items)} items on {base_url}")
+    visited = set()
+    next_url = base_url
 
-        for item in items:
-            # Try different selectors for title
-            title_link = item.select_one("h4.search-results-title a")
-            if not title_link:
-                title_link = item.select_one("h3 a")
-            if not title_link:
-                title_link = item.select_one("a[data-title]")
-            if not title_link:
-                title_link = item.select_one("a")
-            
-            if not title_link:
-                continue
+    # follow pagination while new pages appear
+    while next_url and next_url not in visited:
+        visited.add(next_url)
+        try:
+            response = requests.get(next_url, timeout=10)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, "html.parser")
 
-            name = clean_text(title_link.get_text(strip=True))
-            if not name:
-                continue
+            # Try multiple selectors for different page layouts
+            items = soup.select(".search-list-item")
+            # If no items found with main selector, try alternative selectors
+            if not items:
+                items = soup.select("article")
+            if not items:
+                items = soup.select(".publication-item")
+            if not items:
+                items = soup.select("[data-publication]")
+
+            print(f"DEBUG: Found {len(items)} items on {next_url}")
+
+            # iterate over items inside try block
+            for item in items:
+                # Try different selectors for title
+                title_link = item.select_one("h4.search-results-title a")
+                if not title_link:
+                    title_link = item.select_one("h3 a")
+                if not title_link:
+                    title_link = item.select_one("a[data-title]")
+                if not title_link:
+                    title_link = item.select_one("a")
                 
-            link = title_link.get("href", "")
-            if link and not link.startswith("http"):
-                if "csrc.nist.gov" in base_url:
-                    link = f"https://csrc.nist.gov{link}"
-                else:
-                    link = f"https://www.nist.gov{link}"
+                if not title_link:
+                    continue
 
-            # Try different selectors for series
-            series_el = item.select_one(".sub-title strong")
-            if not series_el:
-                series_el = item.select_one(".series")
-            if not series_el:
-                series_el = item.select_one("[class*='series']")
-            series = clean_text(series_el.get_text(strip=True)) if series_el else ""
+                name = clean_text(title_link.get_text(strip=True))
+                if not name:
+                    continue
+                    
+                link = title_link.get("href", "")
+                if link and not link.startswith("http"):
+                    if "csrc.nist.gov" in base_url:
+                        link = f"https://csrc.nist.gov{link}"
+                    else:
+                        link = f"https://www.nist.gov{link}"
 
-            # Try different selectors for date
-            date_el = item.select_one('strong[id^="date-container-"]')
-            if not date_el:
-                date_el = item.select_one("time")
-            if not date_el:
-                date_el = item.select_one(".date")
-            if not date_el:
-                date_el = item.select_one("[class*='date']")
-            release_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
+                # Try different selectors for series
+                series_el = item.select_one(".sub-title strong")
+                if not series_el:
+                    series_el = item.select_one(".series")
+                if not series_el:
+                    series_el = item.select_one("[class*='series']")
+                series = clean_text(series_el.get_text(strip=True)) if series_el else ""
 
-            # Try different selectors for summary
-            summary_el = item.select_one('p[id^="content-area-"]')
-            if not summary_el:
-                summary_el = item.select_one(".summary")
-            if not summary_el:
-                summary_el = item.select_one(".description")
-            if not summary_el:
-                summary_el = item.select_one("p")
-            
-            summary = ""
-            if summary_el:
-                summary = clean_text(summary_el.get_text(strip=True))
-                if summary.lower().startswith("abstract:"):
-                    summary = summary[len("abstract:"):].strip()
+                # Try different selectors for date
+                date_el = item.select_one('strong[id^="date-container-"]')
+                if not date_el:
+                    date_el = item.select_one("time")
+                if not date_el:
+                    date_el = item.select_one(".date")
+                if not date_el:
+                    date_el = item.select_one("[class*='date']")
+                release_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
 
-            if name:  # Only add if we have at least a title
-                publications.append({
-                    "document_name": name,
-                    "document_number": "",
-                    "series": series,
-                    "release_date": release_date,
-                    "resource_type": "Publication",
-                    "link": link,
-                    "summary": summary,
-                })
-    except Exception as e:
-        print(f"Error scraping publications from {base_url}: {e}")
+                # Try different selectors for summary
+                summary_el = item.select_one('p[id^="content-area-"]')
+                if not summary_el:
+                    summary_el = item.select_one(".summary")
+                if not summary_el:
+                    summary_el = item.select_one(".description")
+                if not summary_el:
+                    summary_el = item.select_one("p")
+                
+                summary = ""
+                if summary_el:
+                    summary = clean_text(summary_el.get_text(strip=True))
+                    if summary.lower().startswith("abstract:"):
+                        summary = summary[len("abstract:"):].strip()
+
+                if name:  # Only add if we have at least a title
+                    publications.append({
+                        "document_name": name,
+                        "document_number": "",
+                        "series": series,
+                        "release_date": release_date,
+                        "resource_type": "Publication",
+                        "link": link,
+                        "summary": summary,
+                    })
+
+            # pagination: look for next button
+            next_link = None
+            for selector in [
+                'a[rel="next"]',
+                'a.pagination-next',
+                'li.next a',
+                '.pager-next a'
+            ]:
+                el = soup.select_one(selector)
+                if el and el.get('href'):
+                    next_link = el.get('href')
+                    break
+            if next_link:
+                from urllib.parse import urljoin
+                next_url = urljoin(next_url, next_link)
+            else:
+                next_url = None
+        except Exception as e:
+            print(f"Error scraping publications from {next_url}: {e}")
+            break
 
     # Generate summaries for publications that don't have them
     for pub in publications:
