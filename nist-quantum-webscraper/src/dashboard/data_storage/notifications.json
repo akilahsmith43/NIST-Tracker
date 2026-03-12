@@ -14805,5 +14805,1369 @@
       "link": "https://www.nist.gov/publications/fast-high-fidelity-quantum-non-demolition-readout-superconducting-qubit-using",
       "summary": "Fast, High-Fidelity, Quantum Non-demolition Readout of a Superconducting Qubit Using a Transverse Coupling"
     }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.034873",
+    "item": {
+      "title": "A Billion Tiny Pendulums Could Detect the Universe\u2019s Missing Mass",
+      "link": "https://www.nist.gov/news-events/news/2020/10/billion-tiny-pendulums-could-detect-universes-missing-mass",
+      "publish_date": "October 13, 2020",
+      "publish_date_raw": "2020-10-13T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and their colleagues have proposed a novel method for finding dark matter, the cosmo"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.049187",
+    "item": {
+      "title": "Quantum Economic Development Consortium Confirms Steering Committee",
+      "link": "https://www.nist.gov/news-events/news/2020/09/quantum-economic-development-consortium-confirms-steering-committee",
+      "publish_date": "September 16, 2020",
+      "publish_date_raw": "2020-09-16T12:00:00Z",
+      "summary": "GAITHERSBURG, Md."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.062180",
+    "item": {
+      "title": "Atomic \u2018Swiss Army Knife\u2019 Precisely Measures Materials for Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2020/07/atomic-swiss-army-knife-precisely-measures-materials-quantum-computers",
+      "publish_date": "July 06, 2020",
+      "publish_date_raw": "2020-07-06T12:00:00Z",
+      "summary": "It images single atoms. It maps atomic-scale hills and valleys on metal and insulating surfaces."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.072967",
+    "item": {
+      "title": "NIST Scientists Create New Recipe for Single-Atom Transistors",
+      "link": "https://www.nist.gov/news-events/news/2020/05/nist-scientists-create-new-recipe-single-atom-transistors",
+      "publish_date": "May 11, 2020",
+      "publish_date_raw": "2020-05-11T12:00:00Z",
+      "summary": "Once unimaginable, transistors consisting only of several-atom clusters or even single atoms promise to become the building blocks of a new generation of com"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.085190",
+    "item": {
+      "title": "To Tune Up Your Quantum Computer, Better Call an AI Mechanic",
+      "link": "https://www.nist.gov/news-events/news/2020/03/tune-your-quantum-computer-better-call-ai-mechanic",
+      "publish_date": "March 31, 2020",
+      "publish_date_raw": "2020-03-31T12:00:00Z",
+      "summary": "To Tune Up Your Quantum Computer, Better Call an AI Mechanic..."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.094140",
+    "item": {
+      "title": "What a Pair! Coupled Quantum Dots May Offer a New Way to Store Quantum Information",
+      "link": "https://www.nist.gov/news-events/news/2020/01/what-pair-coupled-quantum-dots-may-offer-new-way-store-quantum-information",
+      "publish_date": "January 29, 2020",
+      "publish_date_raw": "2020-01-29T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and their colleagues have for the first time created and imaged a novel pair of quan"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.103041",
+    "item": {
+      "title": "A New Playbook for Interference",
+      "link": "https://www.nist.gov/news-events/news/2019/12/new-playbook-interference",
+      "publish_date": "December 17, 2019",
+      "publish_date_raw": "2019-12-17T12:00:00Z",
+      "summary": "Particles can sometimes act like waves, and photons (particles of light) are no exception."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.111690",
+    "item": {
+      "title": "What a Switch! NIST-Led Team Develops Tiny Low-Energy Device to Rapidly Reroute Light in Computer Chips",
+      "link": "https://www.nist.gov/news-events/news/2019/11/what-switch-nist-led-team-develops-tiny-low-energy-device-rapidly-reroute",
+      "publish_date": "November 14, 2019",
+      "publish_date_raw": "2019-11-14T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and their colleagues have developed an optical switch that routes light from one com"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.119995",
+    "item": {
+      "title": "Newfound Superconductor Material Could Be the \u2018Silicon of Quantum Computers\u2019",
+      "link": "https://www.nist.gov/news-events/news/2019/08/newfound-superconductor-material-could-be-silicon-quantum-computers",
+      "publish_date": "August 15, 2019",
+      "publish_date_raw": "2019-08-15T12:00:00Z",
+      "summary": "A potentially useful material for building quantum computers has been unearthed at the National Institute of Standards and Technology (NIST), whose scientist"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.128535",
+    "item": {
+      "title": "NIST Physicists Create Record-Setting Quantum Motion",
+      "link": "https://www.nist.gov/news-events/news/2019/07/nist-physicists-create-record-setting-quantum-motion",
+      "publish_date": "July 22, 2019",
+      "publish_date_raw": "2019-07-22T12:00:00Z",
+      "summary": "Showcasing precise control at the quantum level, physicists at the National Institute of Standards and Technology (NIST) have developed a method for making a"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.136809",
+    "item": {
+      "title": "NIST Infrared Frequency Comb Measures Biological Signatures",
+      "link": "https://www.nist.gov/news-events/news/2019/06/nist-infrared-frequency-comb-measures-biological-signatures",
+      "publish_date": "June 07, 2019",
+      "publish_date_raw": "2019-06-07T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and collaborators have demonstrated a compact frequency-comb apparatus that rapidly"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.146509",
+    "item": {
+      "title": "NIST Physicists \u2018Teleport\u2019 Logic Operation Between Separated Ions",
+      "link": "https://www.nist.gov/news-events/news/2019/05/nist-physicists-teleport-logic-operation-between-separated-ions",
+      "publish_date": "May 30, 2019",
+      "publish_date_raw": "2019-05-30T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have teleported a computer circuit instruction known as a quantum logic operation bet"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.154687",
+    "item": {
+      "title": "JILA Researchers Uncover Quantum Structure of Buckyballs",
+      "link": "https://www.nist.gov/news-events/news/2019/01/jila-researchers-uncover-quantum-structure-buckyballs",
+      "publish_date": "January 28, 2019",
+      "publish_date_raw": "2019-01-28T12:00:00Z",
+      "summary": "JILA researchers have measured hundreds of individual quantum energy levels in the buckyball, a spherical cage of 60 carbon atoms."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.163187",
+    "item": {
+      "title": "JILA Researchers See Signs of Interactive Form of Quantum Matter",
+      "link": "https://www.nist.gov/news-events/news/2018/10/jila-researchers-see-signs-interactive-form-quantum-matter",
+      "publish_date": "October 31, 2018",
+      "publish_date_raw": "2018-10-31T12:00:00Z",
+      "summary": "JILA researchers have, for the first time, isolated groups of a few atoms and precisely measured their multi-particle interactions within an atomic clock."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.171329",
+    "item": {
+      "title": "NIST Launches Consortium to Support Development of Quantum Industry",
+      "link": "https://www.nist.gov/news-events/news/2018/09/nist-launches-consortium-support-development-quantum-industry",
+      "publish_date": "September 28, 2018",
+      "publish_date_raw": "2018-09-28T12:00:00Z",
+      "summary": "GAITHERSBURG, Md.\u2014The U.S."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.179626",
+    "item": {
+      "title": "NIST Chip Lights Up Optical Neural Network Demo",
+      "link": "https://www.nist.gov/news-events/news/2018/07/nist-chip-lights-optical-neural-network-demo",
+      "publish_date": "July 26, 2018",
+      "publish_date_raw": "2018-07-26T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have made a silicon chip that distributes optical signals precisely across a miniatu"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.187964",
+    "item": {
+      "title": "NIST\u2019s New Quantum Method GeneratesReallyRandom Numbers",
+      "link": "https://www.nist.gov/news-events/news/2018/04/nists-new-quantum-method-generates-really-random-numbers",
+      "publish_date": "April 11, 2018",
+      "publish_date_raw": "2018-04-11T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have developed a method for generating numbers guaranteed to be random by quantum me"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.196455",
+    "item": {
+      "title": "Quantum Simulators Wield Control Over More Than 50 Qubits",
+      "link": "https://www.nist.gov/news-events/news/2017/11/quantum-simulators-wield-control-over-more-50-qubits",
+      "publish_date": "November 29, 2017",
+      "publish_date_raw": "2017-11-29T12:00:00Z",
+      "summary": "COLLEGE PARK, Md.\u2014Two independent teams of scientists, including one from the Joint Quantum Institute (JQI, University of Maryland/NIST), have used"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.204764",
+    "item": {
+      "title": "Hybrid Circuit Combines Single-Photon Generator and Efficient Waveguides on One Chip",
+      "link": "https://www.nist.gov/news-events/news/2017/11/hybrid-circuit-combines-single-photon-generator-and-efficient-waveguides",
+      "publish_date": "November 07, 2017",
+      "publish_date_raw": "2017-11-07T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology (NIST) and their collaborators have taken a new step forward in the quest to build quantum p"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.213532",
+    "item": {
+      "title": "JILA Spinning Method Confirms the Electron Still Seems Round",
+      "link": "https://www.nist.gov/news-events/news/2017/10/jila-spinning-method-confirms-electron-still-seems-round",
+      "publish_date": "October 09, 2017",
+      "publish_date_raw": "2017-10-09T12:00:00Z",
+      "summary": "JILA physicists have for the first time used their spinning molecules technique to measure the \u201croundness\u201d of the electron, confirming the leading results fr"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.221815",
+    "item": {
+      "title": "Driving the Universal Quantum Bus",
+      "link": "https://www.nist.gov/news-events/news/2017/09/driving-universal-quantum-bus",
+      "publish_date": "September 12, 2017",
+      "publish_date_raw": "2017-09-12T12:00:00Z",
+      "summary": "NIST scientists have achieved a world record in detecting the intensity of an ultra-faint source of light, equaling the capabilities of the deep-space instru"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.230366",
+    "item": {
+      "title": "NIST Physicists Find a Way to Control Charged Molecules \u2013 with Quantum Logic",
+      "link": "https://www.nist.gov/news-events/news/2017/05/nist-physicists-find-way-control-charged-molecules-quantum-logic",
+      "publish_date": "May 10, 2017",
+      "publish_date_raw": "2017-05-10T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014National Institute of Standards and Technology (NIST) physicists have solved the seemingly intractable puzzle of how to control the quantum pr"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.238714",
+    "item": {
+      "title": "NIST Physicists Show Ion Pairs Perform Enhanced 'Spooky Action'",
+      "link": "https://www.nist.gov/news-events/news/2017/03/nist-physicists-show-ion-pairs-perform-enhanced-spooky-action",
+      "publish_date": "March 28, 2017",
+      "publish_date_raw": "2017-03-28T12:00:00Z",
+      "summary": "Adding to strong recent demonstrations that particles of light perform what Einstein called \u201cspooky action at a distance,\u201d in which two separated objects can"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.247102",
+    "item": {
+      "title": "Quantum Computers May Have Higher \u2018Speed Limits\u2019 Than Thought",
+      "link": "https://www.nist.gov/news-events/news/2017/03/quantum-computers-may-have-higher-speed-limits-thought",
+      "publish_date": "March 24, 2017",
+      "publish_date_raw": "2017-03-24T12:00:00Z",
+      "summary": "How fast will a quantum computer be able to calculate?"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.255368",
+    "item": {
+      "title": "JILA Atomic Clock Mimics Long-sought Synthetic Magnetic State in Solids",
+      "link": "https://www.nist.gov/news-events/news/2016/12/jila-atomic-clock-mimics-long-sought-synthetic-magnetic-state-solids",
+      "publish_date": "December 21, 2016",
+      "publish_date_raw": "2016-12-21T12:00:00Z",
+      "summary": "Using their advanced atomic clock to mimic other desirable quantum systems, JILA physicists have caused atoms in a gas to behave as if they possess unusual m"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.263783",
+    "item": {
+      "title": "Realizing the Potential of Quantum Information Science and Advancing High-Performance Computing",
+      "link": "https://www.nist.gov/news-events/news/2016/07/realizing-potential-quantum-information-science-and-advancing-high",
+      "publish_date": "July 27, 2016",
+      "publish_date_raw": "2016-07-27T12:00:00Z",
+      "summary": "The White House announced today a new report from the National Science and Technology Council on challenges, opportunities and the path forward in quantum in"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.273171",
+    "item": {
+      "title": "NIST's Super Quantum Simulator 'Entangles' Hundreds of Ions",
+      "link": "https://www.nist.gov/news-events/news/2016/06/nists-super-quantum-simulator-entangles-hundreds-ions",
+      "publish_date": "June 09, 2016",
+      "publish_date_raw": "2016-06-09T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have \"entangled\" or linked together the properties of up to 219 beryllium ions (charg"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.282419",
+    "item": {
+      "title": "New Nanodevice Shifts Light's Color at Single-Photon Level",
+      "link": "https://www.nist.gov/news-events/news/2016/04/new-nanodevice-shifts-lights-color-single-photon-level",
+      "publish_date": "April 18, 2016",
+      "publish_date_raw": "2016-04-18T12:00:00Z",
+      "summary": "Converting a single photon from one color, or frequency, to another is an essential tool in quantum communication, which harnesses the subtle correlations be"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.290933",
+    "item": {
+      "title": "Quantum Spin Squeezing Gets Real",
+      "link": "https://www.nist.gov/news-events/news/2016/02/quantum-spin-squeezing-gets-real",
+      "publish_date": "February 26, 2016",
+      "publish_date_raw": "2016-02-26T12:00:00Z",
+      "summary": "Today's atomic clocks are ridiculously accurate."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.299398",
+    "item": {
+      "title": "Quantum Information Transfer: From Microwaves to Motion to Light",
+      "link": "https://www.nist.gov/news-events/news/2016/01/quantum-information-transfer-microwaves-motion-light",
+      "publish_date": "January 28, 2016",
+      "publish_date_raw": "2016-01-28T12:00:00Z",
+      "summary": "When a long-awaited quantum information network finally arrives, in whatever form, it will incorporate two essential technologies: a method of generating and"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.307978",
+    "item": {
+      "title": "NIST Featured in Media's Top Science Stories of 2015",
+      "link": "https://www.nist.gov/news-events/news/2016/01/nist-featured-medias-top-science-stories-2015",
+      "publish_date": "January 06, 2016",
+      "publish_date_raw": "2016-01-06T12:00:00Z",
+      "summary": "The National Institute of Standards and Technology (NIST) is featured in several of the news media's lists of the top science stories of 2015."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.316282",
+    "item": {
+      "title": "Less Jitter, More Bits: New Material for Detecting Photons Captures More Quantum Information",
+      "link": "https://www.nist.gov/news-events/news/2016/01/less-jitter-more-bits-new-material-detecting-photons-captures-more-quantum",
+      "publish_date": "January 05, 2016",
+      "publish_date_raw": "2016-01-05T12:00:00Z",
+      "summary": "Detecting individual particles of light just got a bit more precise\u2014by 74 picoseconds to be exact\u2014thanks to advances in materials by National Institute of St"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.327221",
+    "item": {
+      "title": "NIST Adds to Quantum Computing Toolkit with Mixed-Atom Logic Operations",
+      "link": "https://www.nist.gov/news-events/news/2015/12/nist-adds-quantum-computing-toolkit-mixed-atom-logic-operations",
+      "publish_date": "December 16, 2015",
+      "publish_date_raw": "2015-12-16T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2013Physicists at the National Institute of Standards and Technology (NIST) have added to their collection of ingredients for future quantum compu"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.335816",
+    "item": {
+      "title": "NIST Team Proves 'Spooky Action at a Distance' is Really Real",
+      "link": "https://www.nist.gov/news-events/news/2015/11/nist-team-proves-spooky-action-distance-really-real",
+      "publish_date": "November 10, 2015",
+      "publish_date_raw": "2015-11-10T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Einstein was wrong about at least one thing: There are, in fact, \"spooky actions at a distance,\" as now proven by researchers at the National"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.344168",
+    "item": {
+      "title": "Quantum Simulation: Physics at the Edge",
+      "link": "https://www.nist.gov/news-events/news/2015/09/quantum-simulation-physics-edge",
+      "publish_date": "September 25, 2015",
+      "publish_date_raw": "2015-09-25T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology (NIST) have achieved a major milestone in simulating the dynamics of condensed-matter system"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.352803",
+    "item": {
+      "title": "NIST Team Breaks Distance Record for Quantum Teleportation",
+      "link": "https://www.nist.gov/news-events/news/2015/09/nist-team-breaks-distance-record-quantum-teleportation",
+      "publish_date": "September 22, 2015",
+      "publish_date_raw": "2015-09-22T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Researchers at the National Institute of Standards and Technology (NIST) have \"teleported\" or transferred quantum information carried in light"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.361727",
+    "item": {
+      "title": "NIST Method for Spotting Quantum Dots Could Help Make High-Performance Nanophotonic Devices",
+      "link": "https://www.nist.gov/news-events/news/2015/08/nist-method-spotting-quantum-dots-could-help-make-high-performance",
+      "publish_date": "August 10, 2015",
+      "publish_date_raw": "2015-08-10T12:00:00Z",
+      "summary": "Life may be as unpredictable as a box of chocolates, but ideally, you always know what you're going to get from a quantum dot."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.370090",
+    "item": {
+      "title": "What is Quantum Physics? Dancers Explain",
+      "link": "https://www.nist.gov/news-events/news/2015/05/what-quantum-physics-dancers-explain",
+      "publish_date": "May 15, 2015",
+      "publish_date_raw": "2015-05-15T12:00:00Z",
+      "summary": "News article about what is quantum physics? dancers explain."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.378513",
+    "item": {
+      "title": "Low Error-Rate Detector System for Telecommunications",
+      "link": "https://www.nist.gov/news-events/news/2014/12/low-error-rate-detector-system-telecommunications",
+      "publish_date": "December 02, 2014",
+      "publish_date_raw": "2014-12-02T12:00:00Z",
+      "summary": "NIST scientists have devised an experimental photon-detection system for communications with error rates far below even the most ideal conventional designs."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.387274",
+    "item": {
+      "title": "Computing with Single Atoms",
+      "link": "https://www.nist.gov/news-events/news/2014/11/computing-single-atoms",
+      "publish_date": "November 26, 2014",
+      "publish_date_raw": "2014-11-26T12:00:00Z",
+      "summary": "As features on silicon microchips continue to shrink, the final frontier of miniaturization is a transistor on the scale of a single atom \u2013 a technology that"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.399026",
+    "item": {
+      "title": "UMD and NIST Announce the Creation of the Joint Center for Quantum Information and Computer Science",
+      "link": "https://www.nist.gov/news-events/news/2014/10/umd-and-nist-announce-creation-joint-center-quantum-information-and",
+      "publish_date": "October 31, 2014",
+      "publish_date_raw": "2014-10-31T12:00:00Z",
+      "summary": "The University of Maryland (UMD) and the U.S."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.408587",
+    "item": {
+      "title": "Photons by the Numbers",
+      "link": "https://www.nist.gov/news-events/news/2014/09/photons-numbers",
+      "publish_date": "September 25, 2014",
+      "publish_date_raw": "2014-09-25T12:00:00Z",
+      "summary": "A NIST team is at work on what promises to be one of the world's most accurate methods for generating a specified number of photons, and has devised a method"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.417159",
+    "item": {
+      "title": "Three's a Charm: NIST Detectors Reveal Entangled Photon Triplets",
+      "link": "https://www.nist.gov/news-events/news/2014/09/threes-charm-nist-detectors-reveal-entangled-photon-triplets",
+      "publish_date": "September 15, 2014",
+      "publish_date_raw": "2014-09-15T12:00:00Z",
+      "summary": "Researchers at the University of Waterloo in Canada have directly entangled three photons in the most technologically useful state for the first time, thanks"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.426001",
+    "item": {
+      "title": "NIST Therapy for Ultraviolet Laser Beams: Hydrogen-treated Fibers",
+      "link": "https://www.nist.gov/news-events/news/2014/08/nist-therapy-ultraviolet-laser-beams-hydrogen-treated-fibers",
+      "publish_date": "August 11, 2014",
+      "publish_date_raw": "2014-08-11T12:00:00Z",
+      "summary": "To make a better optical fiber for transmitting laser beams, the first idea that comes to mind is probably not a nice long hydrogen bath."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.434458",
+    "item": {
+      "title": "Beyond Six Nines: Ultra-enriched Silicon Paves the Road to Quantum Computing",
+      "link": "https://www.nist.gov/news-events/news/2014/08/beyond-six-nines-ultra-enriched-silicon-paves-road-quantum-computing",
+      "publish_date": "August 11, 2014",
+      "publish_date_raw": "2014-08-11T12:00:00Z",
+      "summary": "Using a relatively straightforward technique, a team of NIST researchers has created what may be the most highly enriched silicon currently being produced."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.442808",
+    "item": {
+      "title": "NIST Ion Duet Offers Tunable Module for Quantum Simulator",
+      "link": "https://www.nist.gov/news-events/news/2014/08/nist-ion-duet-offers-tunable-module-quantum-simulator",
+      "publish_date": "August 06, 2014",
+      "publish_date_raw": "2014-08-06T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have demonstrated a pas de deux of atomic ions that combines the fine choreo"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.451339",
+    "item": {
+      "title": "Don't Blink! NIST Studies Why Quantum Dots Suffer from 'Fluorescence Intermittency'",
+      "link": "https://www.nist.gov/news-events/news/2014/05/dont-blink-nist-studies-why-quantum-dots-suffer-fluorescence-intermittency",
+      "publish_date": "May 20, 2014",
+      "publish_date_raw": "2014-05-20T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST), working in collaboration with the Naval Research Laboratory, have found that a part"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.459881",
+    "item": {
+      "title": "NIST Demonstrates How Losing Information Can Benefit Quantum Computing",
+      "link": "https://www.nist.gov/news-events/news/2013/11/nist-demonstrates-how-losing-information-can-benefit-quantum-computing",
+      "publish_date": "November 25, 2013",
+      "publish_date_raw": "2013-11-25T12:00:00Z",
+      "summary": "Suggesting that quantum computers might benefit from losing some data, physicists at the National Institute of Standards and Technology (NIST) have entangled"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.468849",
+    "item": {
+      "title": "NIST Physicists 'Entangle' Microscopic Drum's Beat with Electrical Signals",
+      "link": "https://www.nist.gov/news-events/news/2013/10/nist-physicists-entangle-microscopic-drums-beat-electrical-signals",
+      "publish_date": "October 22, 2013",
+      "publish_date_raw": "2013-10-22T12:00:00Z",
+      "summary": "Extending evidence of quantum behavior farther into the large-scale world of everyday life, physicists at the National Institute of Standards and Technology"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.477750",
+    "item": {
+      "title": "JILA Researchers Discover Atomic Clock Can Simulate Quantum Magnetism",
+      "link": "https://www.nist.gov/news-events/news/2013/08/jila-researchers-discover-atomic-clock-can-simulate-quantum-magnetism",
+      "publish_date": "August 08, 2013",
+      "publish_date_raw": "2013-08-08T12:00:00Z",
+      "summary": "Researchers at JILA have for the first time used an atomic clock as a quantum simulator, mimicking the behavior of a different, more complex quantum system."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.486662",
+    "item": {
+      "title": "New Photon Detector for Advanced Communications Knows When to Not Know",
+      "link": "https://www.nist.gov/news-events/news/2013/06/new-photon-detector-advanced-communications-knows-when-not-know",
+      "publish_date": "June 26, 2013",
+      "publish_date_raw": "2013-06-26T12:00:00Z",
+      "summary": "In some standardized tests, the graders add in a penalty factor for wrong answers to discourage students from randomly guessing."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.495294",
+    "item": {
+      "title": "High-Efficiency Photon Source Brings Day of Reckoning Closer for a Famous Quantum Test",
+      "link": "https://www.nist.gov/news-events/news/2013/06/high-efficiency-photon-source-brings-day-reckoning-closer-famous-quantum",
+      "publish_date": "June 25, 2013",
+      "publish_date_raw": "2013-06-25T12:00:00Z",
+      "summary": "Physicists working at the National Institute of Standards and Technology (NIST) and the Joint Quantum Institute (JQI) are edging ever closer to getting reall"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.503735",
+    "item": {
+      "title": "First Observation of Spin Hall Effect in a Quantum Gas Is Step Toward 'Atomtronics'",
+      "link": "https://www.nist.gov/news-events/news/2013/06/first-observation-spin-hall-effect-quantum-gas-step-toward-atomtronics",
+      "publish_date": "June 05, 2013",
+      "publish_date_raw": "2013-06-05T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have reported the first observation of the \"spin Hall effect\" in a Bose-Einstein con"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.512183",
+    "item": {
+      "title": "Closing the Last Bell-test Loophole for Photons",
+      "link": "https://www.nist.gov/news-events/news/2013/06/closing-last-bell-test-loophole-photons",
+      "publish_date": "June 03, 2013",
+      "publish_date_raw": "2013-06-03T12:00:00Z",
+      "summary": "An international team of researchers has reached a milestone in experimental confirmation of a key tenet of quantum mechanics, using ultra-sensitive photon d"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.520673",
+    "item": {
+      "title": "Single Photon from a Quantum Emitter? It's a Matter of Timing...",
+      "link": "https://www.nist.gov/news-events/news/2013/04/single-photon-quantum-emitter-its-matter-timing",
+      "publish_date": "April 03, 2013",
+      "publish_date_raw": "2013-04-03T12:00:00Z",
+      "summary": "Many systems envisioned for practical quantum information processing require the use of single, indistinguishable photons as carriers of information and"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.529515",
+    "item": {
+      "title": "Don't Call It Vaporware: Scientists Use Cloud of Atoms as Optical Memory Device",
+      "link": "https://www.nist.gov/news-events/news/2013/04/dont-call-it-vaporware-scientists-use-cloud-atoms-optical-memory-device",
+      "publish_date": "April 03, 2013",
+      "publish_date_raw": "2013-04-03T12:00:00Z",
+      "summary": "Talk about storing data in the cloud."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.538249",
+    "item": {
+      "title": "NIST Mechanical Micro-Drum Used as Quantum Memory",
+      "link": "https://www.nist.gov/news-events/news/2013/03/nist-mechanical-micro-drum-used-quantum-memory",
+      "publish_date": "March 13, 2013",
+      "publish_date_raw": "2013-03-13T12:00:00Z",
+      "summary": "One of the oldest forms of computer memory is back again\u2014but in a 21st century microscopic device designed by physicists at the National Institute of Standar"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.547435",
+    "item": {
+      "title": "NIST Quantum Refrigerator Offers Extreme Cooling and Convenience",
+      "link": "https://www.nist.gov/news-events/news/2013/03/nist-quantum-refrigerator-offers-extreme-cooling-and-convenience",
+      "publish_date": "March 05, 2013",
+      "publish_date_raw": "2013-03-05T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have demonstrated a solid-state refrigerator that uses quantum physics in micro- and"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.556144",
+    "item": {
+      "title": "High Efficiency in the Fastest Single-Photon Detector System",
+      "link": "https://www.nist.gov/news-events/news/2013/02/high-efficiency-fastest-single-photon-detector-system",
+      "publish_date": "February 19, 2013",
+      "publish_date_raw": "2013-02-19T12:00:00Z",
+      "summary": "A single photon may not seem like much of a catch. But detecting photons one-by-one with near-perfect reliability is formidably difficult."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.564550",
+    "item": {
+      "title": "'Standard Quantum Limit' Smashed, Could Mean Better Fiber-Optic Comms",
+      "link": "https://www.nist.gov/news-events/news/2013/01/standard-quantum-limit-smashed-could-mean-better-fiber-optic-comms",
+      "publish_date": "January 08, 2013",
+      "publish_date_raw": "2013-01-08T12:00:00Z",
+      "summary": "Communicating with light may soon get a lot easier, hints recent research* from the National Institute of Standards and Technology (NIST) and the University"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.573099",
+    "item": {
+      "title": "'Magic Zero' Technique Reduces Atomic Clock Uncertainty",
+      "link": "https://www.nist.gov/news-events/news/2012/12/magic-zero-technique-reduces-atomic-clock-uncertainty",
+      "publish_date": "December 05, 2012",
+      "publish_date_raw": "2012-12-05T12:00:00Z",
+      "summary": "Scientists from a PML-Joint Quantum Institute (JQI)* group have devised and demons"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.581517",
+    "item": {
+      "title": "Enriched Silicon: Going for Four Nines",
+      "link": "https://www.nist.gov/news-events/news/2012/11/enriched-silicon-going-four-nines",
+      "publish_date": "November 20, 2012",
+      "publish_date_raw": "2012-11-20T12:00:00Z",
+      "summary": "Any eventual quantum computer, no matter how it may be configured, will need a way to store and manipulate information in qubits \u2013 the quantum counterpart of"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.590112",
+    "item": {
+      "title": "Princeton/NIST Collaboration Puts Wheels on the Quantum Bus",
+      "link": "https://www.nist.gov/news-events/news/2012/10/princetonnist-collaboration-puts-wheels-quantum-bus",
+      "publish_date": "October 19, 2012",
+      "publish_date_raw": "2012-10-19T12:00:00Z",
+      "summary": "In yet another step toward the realization of a practical quantum computer, scientists working at Princeton and the Joint Quantum Institute (JQI) have shown"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.598947",
+    "item": {
+      "title": "NIST's Speedy Ions Could Add Zip to Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2012/08/nists-speedy-ions-could-add-zip-quantum-computers",
+      "publish_date": "August 08, 2012",
+      "publish_date_raw": "2012-08-08T12:00:00Z",
+      "summary": "Take that, sports cars!"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.608201",
+    "item": {
+      "title": "Seeing the Light with NIST's New Noiseless Optical Amplifier",
+      "link": "https://www.nist.gov/news-events/news/2012/08/seeing-light-nists-new-noiseless-optical-amplifier",
+      "publish_date": "August 08, 2012",
+      "publish_date_raw": "2012-08-08T12:00:00Z",
+      "summary": "Most devices that amplify light suffer from the same problem: making the image brighter also adds muddying distortion."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.616763",
+    "item": {
+      "title": "Quantum Computers Will Be Able to Simulate Particle Collisions",
+      "link": "https://www.nist.gov/news-events/news/2012/05/quantum-computers-will-be-able-simulate-particle-collisions",
+      "publish_date": "May 31, 2012",
+      "publish_date_raw": "2012-05-31T12:00:00Z",
+      "summary": "Quantum computers are still years away, but a trio of theorists has already figured out at least one talent they may have."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.625478",
+    "item": {
+      "title": "First Light: NIST Researchers Develop New Way to Generate Superluminal Pulses",
+      "link": "https://www.nist.gov/news-events/news/2012/05/first-light-nist-researchers-develop-new-way-generate-superluminal-pulses",
+      "publish_date": "May 02, 2012",
+      "publish_date_raw": "2012-05-02T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have developed a novel way of producing light pulses that are \"superluminal\"\u2014in some"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.634048",
+    "item": {
+      "title": "NIST Physicists Benchmark Quantum Simulator with Hundreds of Qubits",
+      "link": "https://www.nist.gov/news-events/news/2012/04/nist-physicists-benchmark-quantum-simulator-hundreds-qubits",
+      "publish_date": "April 25, 2012",
+      "publish_date_raw": "2012-04-25T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have built a quantum simulator that can engineer interactions among hundreds of quant"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.642649",
+    "item": {
+      "title": "The Great Gravity Showdown",
+      "link": "https://www.nist.gov/news-events/news/2012/02/great-gravity-showdown",
+      "publish_date": "February 27, 2012",
+      "publish_date_raw": "2012-02-27T12:00:00Z",
+      "summary": "During the week of February 6-10, 2012, some extremely weighty matters were in progress at NIST's non-magnetic facility, where PML researchers hosted an inte"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.651486",
+    "item": {
+      "title": "Quantum Computer Components 'Coalesce' to 'Converse'",
+      "link": "https://www.nist.gov/news-events/news/2011/10/quantum-computer-components-coalesce-converse",
+      "publish_date": "October 25, 2011",
+      "publish_date_raw": "2011-10-25T12:00:00Z",
+      "summary": "If quantum computers are ever to be realized, they likely will be made of different types of parts that will need to share information with one another, just"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.660176",
+    "item": {
+      "title": "NIST Achieves Record-Low Error Rate for Quantum Information Processing with One Qubit",
+      "link": "https://www.nist.gov/news-events/news/2011/08/nist-achieves-record-low-error-rate-quantum-information-processing-one",
+      "publish_date": "August 30, 2011",
+      "publish_date_raw": "2011-08-30T12:00:00Z",
+      "summary": "Thanks to advances in experimental design, physicists at the National Institute of Standards and Technology (NIST) have achieved a record-low probability of"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.669637",
+    "item": {
+      "title": "Better 'Photon Loops' May Be Key to Computer and Physics Advances",
+      "link": "https://www.nist.gov/news-events/news/2011/08/better-photon-loops-may-be-key-computer-and-physics-advances",
+      "publish_date": "August 22, 2011",
+      "publish_date_raw": "2011-08-22T12:00:00Z",
+      "summary": "Surprisingly, transmitting information-rich photons thousands of miles through fiber-optic cable is far easier than reliably sending them just a few nanomete"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.678264",
+    "item": {
+      "title": "NIST Physicists 'Entangle' Two Atoms Using Microwaves for the First Time",
+      "link": "https://www.nist.gov/news-events/news/2011/08/nist-physicists-entangle-two-atoms-using-microwaves-first-time",
+      "publish_date": "August 10, 2011",
+      "publish_date_raw": "2011-08-10T12:00:00Z",
+      "summary": "BOULDER, Colo."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.686894",
+    "item": {
+      "title": "Cooler Than Ever: NIST Mechanical Micro-Drum Chilled to Quantum Ground State",
+      "link": "https://www.nist.gov/news-events/news/2011/07/cooler-ever-nist-mechanical-micro-drum-chilled-quantum-ground-state",
+      "publish_date": "July 06, 2011",
+      "publish_date_raw": "2011-07-06T12:00:00Z",
+      "summary": "BOULDER, Colo."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.695586",
+    "item": {
+      "title": "NIST Prototype 'Optics Table on a Chip' Places Microwave Photon in Two Colors at Once",
+      "link": "https://www.nist.gov/news-events/news/2011/07/nist-prototype-optics-table-chip-places-microwave-photon-two-colors-once",
+      "publish_date": "July 06, 2011",
+      "publish_date_raw": "2011-07-06T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have created a tunable superconducting circuit on a chip that can place a single mic"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.704231",
+    "item": {
+      "title": "Key Ingredient: Change in Material Boosts Prospects of Ultrafast Single-photon Detector",
+      "link": "https://www.nist.gov/news-events/news/2011/06/key-ingredient-change-material-boosts-prospects-ultrafast-single-photon",
+      "publish_date": "June 30, 2011",
+      "publish_date_raw": "2011-06-30T12:00:00Z",
+      "summary": "By swapping one superconducting material for another, researchers at the National Institute of Standards and Technology (NIST) have found a practical way to"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.712847",
+    "item": {
+      "title": "NIST's Charles Clark Named Co-Director of the Joint Quantum Institute",
+      "link": "https://www.nist.gov/news-events/news/2011/05/nists-charles-clark-named-co-director-joint-quantum-institute",
+      "publish_date": "May 10, 2011",
+      "publish_date_raw": "2011-05-10T12:00:00Z",
+      "summary": "Physicist Charles Clark of the National Institute of Standards and Technology (NIST) has been named a co-director of the Joint Quantum Institute (JQI), a res"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.721535",
+    "item": {
+      "title": "NIST Electromechanical Circuit Sets Record Beating Microscopic 'Drum'",
+      "link": "https://www.nist.gov/news-events/news/2011/03/nist-electromechanical-circuit-sets-record-beating-microscopic-drum",
+      "publish_date": "March 09, 2011",
+      "publish_date_raw": "2011-03-09T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Physicists at the National Institute of Standards and Technology (NIST) have demonstrated an electromechanical circuit in which microwaves com"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.731094",
+    "item": {
+      "title": "JQI Physicists Demonstrate Coveted 'Spin-Orbit Coupling' for the First Time in Ultracold Atomic Gases",
+      "link": "https://www.nist.gov/news-events/news/2011/03/jqi-physicists-demonstrate-coveted-spin-orbit-coupling-first-time-ultracold",
+      "publish_date": "March 02, 2011",
+      "publish_date_raw": "2011-03-02T12:00:00Z",
+      "summary": "GAITHERSBURG, Md.\u2014Physicists at the Joint Quantum Institute (JQI), a collaboration of the National Institute of Standards and Technology (NIST) and the Unive"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.739901",
+    "item": {
+      "title": "Quantum Hot Potato: NIST Researchers Entice Two Atoms to Swap Smallest Energy Units",
+      "link": "https://www.nist.gov/news-events/news/2011/02/quantum-hot-potato-nist-researchers-entice-two-atoms-swap-smallest-energy",
+      "publish_date": "February 23, 2011",
+      "publish_date_raw": "2011-02-23T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Physicists at the National Institute of Standards and Technology (NIST) have for the first time coaxed two atoms in separate locations to take"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.748519",
+    "item": {
+      "title": "Etched Quantum Dots Shape Up as Single Photon Emitters, NIST Tests Show",
+      "link": "https://www.nist.gov/news-events/news/2011/02/etched-quantum-dots-shape-single-photon-emitters-nist-tests-show",
+      "publish_date": "February 22, 2011",
+      "publish_date_raw": "2011-02-22T12:00:00Z",
+      "summary": "Like snowflakes or fingerprints, no two quantum dots are identical."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.757395",
+    "item": {
+      "title": "NIST Advances Single Photon Management for Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2011/01/nist-advances-single-photon-management-quantum-computers",
+      "publish_date": "January 19, 2011",
+      "publish_date_raw": "2011-01-19T12:00:00Z",
+      "summary": "The quantum computers of tomorrow might use photons, or particles of light, to move around the data they need to make calculations, but photons are tricky to"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.765972",
+    "item": {
+      "title": "NIST Ships First Programmable AC/DC 10-Volt Standard",
+      "link": "https://www.nist.gov/news-events/news/2010/10/nist-ships-first-programmable-acdc-10-volt-standard",
+      "publish_date": "October 26, 2010",
+      "publish_date_raw": "2010-10-26T12:00:00Z",
+      "summary": "Extending its 26-year tradition of innovative quantum voltage standards, researchers at the National Institute of Standards and Technology (NIST) have begun"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.774811",
+    "item": {
+      "title": "This Little Light of Mine: Changing the Color of Single Photons Emitted by Quantum Dots",
+      "link": "https://www.nist.gov/news-events/news/2010/10/little-light-mine-changing-color-single-photons-emitted-quantum-dots",
+      "publish_date": "October 13, 2010",
+      "publish_date_raw": "2010-10-13T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have demonstrated* for the first time the conversion of near-infrared 1,300 nm wavel"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.783555",
+    "item": {
+      "title": "NIST Researchers Create 'Quantum Cats' Made of Light",
+      "link": "https://www.nist.gov/news-events/news/2010/08/nist-researchers-create-quantum-cats-made-light",
+      "publish_date": "August 31, 2010",
+      "publish_date_raw": "2010-08-31T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have created \"quantum cats\" made of photons (particles of light), boosting prospects"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.792599",
+    "item": {
+      "title": "Novel Ion Trap with Optical Fiber Could Link Atoms and Light in Quantum Networks",
+      "link": "https://www.nist.gov/news-events/news/2010/07/novel-ion-trap-optical-fiber-could-link-atoms-and-light-quantum-networks",
+      "publish_date": "July 06, 2010",
+      "publish_date_raw": "2010-07-06T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have demonstrated an ion trap with a built-in optical fiber that collects light emitt"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.801769",
+    "item": {
+      "title": "NIST Develops 'Dimmer Switch' for Superconducting Quantum Computing",
+      "link": "https://www.nist.gov/news-events/news/2010/04/nist-develops-dimmer-switch-superconducting-quantum-computing",
+      "publish_date": "April 27, 2010",
+      "publish_date_raw": "2010-04-27T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology (NIST) have developed the first \"dimmer switch\" for a superconducting circuit linking a quan"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.810506",
+    "item": {
+      "title": "NIST Detector Counts Photons With 99 Percent Efficiency",
+      "link": "https://www.nist.gov/news-events/news/2010/04/nist-detector-counts-photons-99-percent-efficiency",
+      "publish_date": "April 13, 2010",
+      "publish_date_raw": "2010-04-13T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology (NIST) have developed the world's most efficient single photon detector, which is able to co"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.819157",
+    "item": {
+      "title": "NIST Racetrack Ion Trap is a Contender in Quantum Computing Quest",
+      "link": "https://www.nist.gov/news-events/news/2010/03/nist-racetrack-ion-trap-contender-quantum-computing-quest",
+      "publish_date": "March 30, 2010",
+      "publish_date_raw": "2010-03-30T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have built and tested a device for trapping electrically charged atoms (ions) that po"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.827839",
+    "item": {
+      "title": "Seeing the Quantum in Chemistry: JILA Scientists Control Chemical Reactions of Ultracold Molecules",
+      "link": "https://www.nist.gov/news-events/news/2010/02/seeing-quantum-chemistry-jila-scientists-control-chemical-reactions",
+      "publish_date": "February 11, 2010",
+      "publish_date_raw": "2010-02-11T12:00:00Z",
+      "summary": "Physicists at JILA have for the first time observed chemical reactions near absolute zero, demonstrating that chemistry is possible at ultralow temperatures"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.836513",
+    "item": {
+      "title": "Stacking the Deck: Single Photons Observed at Seemingly Faster-than-Light Speeds",
+      "link": "https://www.nist.gov/news-events/news/2010/01/stacking-deck-single-photons-observed-seemingly-faster-light-speeds",
+      "publish_date": "January 26, 2010",
+      "publish_date_raw": "2010-01-26T12:00:00Z",
+      "summary": "Researchers at the Joint Quantum Institute (JQI), a collaboration of the National Institute of Standards and Technology (NIST) and the University of Maryland"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.845309",
+    "item": {
+      "title": "Theorists Close In on Improved Atomic Property Predictions",
+      "link": "https://www.nist.gov/news-events/news/2010/01/theorists-close-improved-atomic-property-predictions",
+      "publish_date": "January 12, 2010",
+      "publish_date_raw": "2010-01-12T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology (NIST) and Indiana University (IU) have determined* the most accurate values ever for a fund"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.854242",
+    "item": {
+      "title": "JQI Researchers Create 'Synthetic Magnetic Fields' for Neutral Atoms",
+      "link": "https://www.nist.gov/news-events/news/2009/12/jqi-researchers-create-synthetic-magnetic-fields-neutral-atoms",
+      "publish_date": "December 15, 2009",
+      "publish_date_raw": "2009-12-15T12:00:00Z",
+      "summary": "Achieving an important new capability in ultracold atomic gases, researchers at the Joint Quantum Institute, a collaboration of the National Institute of Sta"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.863506",
+    "item": {
+      "title": "Everlasting Quantum Wave: NIST Physicists Predict New Form of Soliton in Ultracold Gases",
+      "link": "https://www.nist.gov/news-events/news/2009/12/everlasting-quantum-wave-nist-physicists-predict-new-form-soliton-ultracold",
+      "publish_date": "December 15, 2009",
+      "publish_date_raw": "2009-12-15T12:00:00Z",
+      "summary": "Solitary waves that run a long distance without losing their shape or dying out are a special class of waves called solitons."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.872320",
+    "item": {
+      "title": "NIST Demonstrates 'Universal' Programmable Quantum Processor",
+      "link": "https://www.nist.gov/news-events/news/2009/11/nist-demonstrates-universal-programmable-quantum-processor",
+      "publish_date": "November 17, 2009",
+      "publish_date_raw": "2009-11-17T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have demonstrated the first \"universal\" programmable quantum information processor ab"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.880929",
+    "item": {
+      "title": "JQI Researchers Create Entangled Photons from Quantum Dots",
+      "link": "https://www.nist.gov/news-events/news/2009/11/jqi-researchers-create-entangled-photons-quantum-dots",
+      "publish_date": "November 17, 2009",
+      "publish_date_raw": "2009-11-17T12:00:00Z",
+      "summary": "To exploit the quantum world to the fullest, a key commodity is entanglement--the spooky, distance-defying link that can form between objects such as atoms e"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.889860",
+    "item": {
+      "title": "NIST Demonstrates 'Universal' Programmable Quantum Processor for Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2009/11/nist-demonstrates-universal-programmable-quantum-processor-quantum",
+      "publish_date": "November 16, 2009",
+      "publish_date_raw": "2009-11-16T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014 Physicists at the National Institute of Standards and Technology (NIST) have demonstrated the first \"universal\" programmable quantum informat"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.898663",
+    "item": {
+      "title": "NIST Physicists Turn to Radio Dial for Finer Atomic Matchmaking",
+      "link": "https://www.nist.gov/news-events/news/2009/10/nist-physicists-turn-radio-dial-finer-atomic-matchmaking",
+      "publish_date": "October 20, 2009",
+      "publish_date_raw": "2009-10-20T12:00:00Z",
+      "summary": "Investigating mysterious data in ultracold gases of rubidium atoms, scientists at the Joint Quantum Institute of the National Institute of Standards and Tech"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.907622",
+    "item": {
+      "title": "NIST Demonstrates Sustained Quantum Computation Processing",
+      "link": "https://www.nist.gov/news-events/news/2009/08/nist-demonstrates-sustained-quantum-computation-processing",
+      "publish_date": "August 11, 2009",
+      "publish_date_raw": "2009-08-11T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have demonstrated sustained, reliable information processing operations on electrical"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.916917",
+    "item": {
+      "title": "NIST Demonstrates Sustained Quantum Processing in Step Toward Building Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2009/08/nist-demonstrates-sustained-quantum-processing-step-toward-building-quantum",
+      "publish_date": "August 06, 2009",
+      "publish_date_raw": "2009-08-06T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Raising prospects for building a practical quantum computer, physicists at the National Institute of Standards and Technology (NIST) have demo"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.925823",
+    "item": {
+      "title": "NIST Develops Powerful Method of Suppressing Errors in Many Types of Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2009/04/nist-develops-powerful-method-suppressing-errors-many-types-quantum",
+      "publish_date": "April 22, 2009",
+      "publish_date_raw": "2009-04-22T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Researchers at the National Institute of Standards and Technology (NIST) have demonstrated a technique for efficiently suppressing errors in q"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.949544",
+    "item": {
+      "title": "Quantum Computers Will Require Complex Software to Manage Errors",
+      "link": "https://www.nist.gov/news-events/news/2009/04/quantum-computers-will-require-complex-software-manage-errors",
+      "publish_date": "April 07, 2009",
+      "publish_date_raw": "2009-04-07T12:00:00Z",
+      "summary": "Highlighting another challenge to the development of quantum computers, theorists at the National Institute of Standards and Technology (NIST) have shown tha"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.958555",
+    "item": {
+      "title": "Researchers Demonstrate Novel 'Quantum Data Buffering' Scheme",
+      "link": "https://www.nist.gov/news-events/news/2009/02/researchers-demonstrate-novel-quantum-data-buffering-scheme",
+      "publish_date": "February 24, 2009",
+      "publish_date_raw": "2009-02-24T12:00:00Z",
+      "summary": "In a new demonstration of physicists' growing ability to control the \"spooky\" quantum dynamics phenomenon called entanglement, researchers from the"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.967494",
+    "item": {
+      "title": "NIST/Maryland Researchers Demonstrate 'Quantum Data Buffering' Scheme",
+      "link": "https://www.nist.gov/news-events/news/2009/02/nistmaryland-researchers-demonstrate-quantum-data-buffering-scheme",
+      "publish_date": "February 12, 2009",
+      "publish_date_raw": "2009-02-12T12:00:00Z",
+      "summary": "GAITHERSBURG, Md.\u2014Pushing the envelope of Albert Einstein's \"spooky action at a distance,\" known as entanglement, researchers at the Joint Quantum Institute"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.976297",
+    "item": {
+      "title": "NIST Physicist Wins OSA's First Walther Award",
+      "link": "https://www.nist.gov/news-events/news/2008/11/nist-physicist-wins-osas-first-walther-award",
+      "publish_date": "November 25, 2008",
+      "publish_date_raw": "2008-11-25T12:00:00Z",
+      "summary": "NIST physicist David Wineland will receive the inaugural Herbert Walther Award in recognition of his \"seminal contributions to quantum information physics an"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.985212",
+    "item": {
+      "title": "First Tunable, 'Noiseless' Amplifier May Boost Quantum Computing, Communications",
+      "link": "https://www.nist.gov/news-events/news/2008/10/first-tunable-noiseless-amplifier-may-boost-quantum-computing",
+      "publish_date": "October 14, 2008",
+      "publish_date_raw": "2008-10-14T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and JILA, a joint institute of NIST and the University of Colorado (CU) at Boulder,"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:43.994737",
+    "item": {
+      "title": "JILA Scientists Create First Dense Gas of Ultracold 'Polar' Molecules",
+      "link": "https://www.nist.gov/news-events/news/2008/09/jila-scientists-create-first-dense-gas-ultracold-polar-molecules",
+      "publish_date": "September 18, 2008",
+      "publish_date_raw": "2008-09-18T12:00:00Z",
+      "summary": "Scientists at JILA, a joint institute of the National Institute of Standards and Technology (NIST) and the University of Colorado at Boulder (CU-Boulder), ha"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.003879",
+    "item": {
+      "title": "NIST Physicist David J. Wineland Awarded 2007 National Medal of Science",
+      "link": "https://www.nist.gov/news-events/news/2008/08/nist-physicist-david-j-wineland-awarded-2007-national-medal-science",
+      "publish_date": "August 25, 2008",
+      "publish_date_raw": "2008-08-25T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014Physicist David J."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.012704",
+    "item": {
+      "title": "Light Touch: Controlling the Behavior of Quantum Dots",
+      "link": "https://www.nist.gov/news-events/news/2008/08/light-touch-controlling-behavior-quantum-dots",
+      "publish_date": "August 19, 2008",
+      "publish_date_raw": "2008-08-19T12:00:00Z",
+      "summary": "Researchers from the National Institute of Standards and Technology (NIST) and the Joint Quantum Institute (JQI), a collaborative center of the University of"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.021636",
+    "item": {
+      "title": "Physicists Produce Quantum-Entangled Images",
+      "link": "https://www.nist.gov/news-events/news/2008/06/physicists-produce-quantum-entangled-images",
+      "publish_date": "June 12, 2008",
+      "publish_date_raw": "2008-06-12T12:00:00Z",
+      "summary": "GAITHERSBURG, MD\u2014Using a convenient and flexible method for creating twin light beams, researchers at the Joint Quantum Institute (JQI) of the Commerce Depar"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.030419",
+    "item": {
+      "title": "Bon MOT: Innovative Atom Trap Catches Highly Magnetic Atoms",
+      "link": "https://www.nist.gov/news-events/news/2008/04/bon-mot-innovative-atom-trap-catches-highly-magnetic-atoms",
+      "publish_date": "April 01, 2008",
+      "publish_date_raw": "2008-04-01T12:00:00Z",
+      "summary": "A research team from the National Institute of Standards and Technology (NIST) and the University of Maryland has succeeded in cooling atoms of a rare-earth"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.039552",
+    "item": {
+      "title": "Loopy Photons Clarify 'Spookiness' of Quantum Physics",
+      "link": "https://www.nist.gov/news-events/news/2008/03/loopy-photons-clarify-spookiness-quantum-physics",
+      "publish_date": "March 18, 2008",
+      "publish_date_raw": "2008-03-18T12:00:00Z",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) and the Joint Quantum Institute (NIST/University of Maryland) have developed a new m"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.048391",
+    "item": {
+      "title": "NIST 'Quantum Logic Clock' Rivals Mercury Ion as World's Most Accurate Clock",
+      "link": "https://www.nist.gov/news-events/news/2008/03/nist-quantum-logic-clock-rivals-mercury-ion-worlds-most-accurate-clock",
+      "publish_date": "March 06, 2008",
+      "publish_date_raw": "2008-03-06T12:00:00Z",
+      "summary": "BOULDER, Colo.\u2014An atomic clock that uses an aluminum atom to apply the logic of computers to the peculiarities of the quantum world now rivals the world's mo"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.057731",
+    "item": {
+      "title": "'Dead Time' Limits Quantum Cryptography Speeds",
+      "link": "https://www.nist.gov/news-events/news/2007/09/dead-time-limits-quantum-cryptography-speeds",
+      "publish_date": "September 27, 2007",
+      "publish_date_raw": "2007-09-27T12:00:00Z",
+      "summary": "Quantum cryptography is potentially the most secure method of sending encrypted information, but does it have a speed limit?"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.067078",
+    "item": {
+      "title": "NIST Demonstrates Better Memory with Quantum Computer Bits",
+      "link": "https://www.nist.gov/news-events/news/2005/08/nist-demonstrates-better-memory-quantum-computer-bits",
+      "publish_date": "August 10, 2005",
+      "publish_date_raw": "2005-08-10T12:00:00Z",
+      "summary": "Physicists at the National Institute of Standards and Technology (NIST) have used charged atoms (ions) to demonstrate a quantum physics version of computer m"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.076156",
+    "item": {
+      "title": "NIST Photon Detectors Have Record Efficiency",
+      "link": "https://www.nist.gov/news-events/news/2005/06/nist-photon-detectors-have-record-efficiency",
+      "publish_date": "June 02, 2005",
+      "publish_date_raw": "2005-06-02T12:00:00Z",
+      "summary": "Sensors that detect and count single photons, the smallest quantities of light, with 88 percent efficiency have been demonstrated by physicists at the Nation"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.085102",
+    "item": {
+      "title": "Quantum Computers May Be Easier to Build Than Predicted, NIST Work Suggests",
+      "link": "https://www.nist.gov/news-events/news/2005/03/quantum-computers-may-be-easier-build-predicted-nist-work-suggests",
+      "publish_date": "March 02, 2005",
+      "publish_date_raw": "2005-03-02T12:00:00Z",
+      "summary": "Boulder, Colo.\u2014 A full-scale quantum computer could produce reliable results even if its components performed no better than today's best first-generation pr"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.093981",
+    "item": {
+      "title": "NIST Demonstrates Data 'Repair Kit' for Quantum Computers",
+      "link": "https://www.nist.gov/news-events/news/2004/12/nist-demonstrates-data-repair-kit-quantum-computers",
+      "publish_date": "December 01, 2004",
+      "publish_date_raw": "2004-12-01T12:00:00Z",
+      "summary": "A practical method for automatically correcting data-handling errors in quantum computers has been developed and demonstrated by physicists at the National I"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.102799",
+    "item": {
+      "title": "NIST Demonstrates 'Teleportation' of Atomic States for Quantum Computing",
+      "link": "https://www.nist.gov/news-events/news/2004/06/nist-demonstrates-teleportation-atomic-states-quantum-computing",
+      "publish_date": "June 16, 2004",
+      "publish_date_raw": "2004-06-16T12:00:00Z",
+      "summary": "Physicists at the Commerce Department's National Institute of Standards and Technology (NIST) have demonstrated \"teleportation\" by transferring key propertie"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.111813",
+    "item": {
+      "title": "A Quantum Mechanical 'Tune Up' for Better Measurement",
+      "link": "https://www.nist.gov/news-events/news/2004/06/quantum-mechanical-tune-better-measurement",
+      "publish_date": "June 04, 2004",
+      "publish_date_raw": "2004-06-04T12:00:00Z",
+      "summary": "By exploiting the weird quantum behavior of atoms, physicists at the Commerce Department's National Institute of Standards and Technology (NIST) have demonst"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.120897",
+    "item": {
+      "title": "Ultracold Molecules Pave Way for Quantum 'Super Molecule'",
+      "link": "https://www.nist.gov/news-events/news/2003/07/ultracold-molecules-pave-way-quantum-super-molecule",
+      "publish_date": "July 02, 2003",
+      "publish_date_raw": "2003-07-02T12:00:00Z",
+      "summary": "A team of researchers at JILA, a joint institute of the Commerce Department's National Institute of Standards and Technology (NIST) and the University o"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.130371",
+    "item": {
+      "title": "Taming the Qubit",
+      "link": "https://www.nist.gov/news-events/news/2003/04/taming-qubit",
+      "publish_date": "April 10, 2003",
+      "publish_date_raw": "2003-04-10T12:00:00Z",
+      "summary": "The trouble with qubits is they don't always behave."
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12 18:05:44.139554",
+    "item": {
+      "title": "Design Proposed for Large-Scale Quantum Computer",
+      "link": "https://www.nist.gov/news-events/news/2002/06/design-proposed-large-scale-quantum-computer",
+      "publish_date": "June 12, 2002",
+      "publish_date_raw": "2002-06-12T12:00:00Z",
+      "summary": "Scientists at the National Institute of Standards and Technology, Massachusetts Institute of Technology and the University of Michigan have taken a significa"
+    }
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-12T18:05:44.148678",
+    "item": {
+      "title": "NIST Scientists Cross the Bridge between Atomic and Real Worlds",
+      "link": "https://www.nist.gov/news-events/news/2000/01/nist-scientists-cross-bridge-between-atomic-and-real-worlds",
+      "publish_date": "January 19, 2000",
+      "publish_date_raw": "2000-01-19T12:00:00Z",
+      "summary": "In 1996, researchers at the Boulder, Colo., laboratories of the Commerce Department's National Institute of Standards and Technology confirmed the belief tha"
+    }
   }
 ]

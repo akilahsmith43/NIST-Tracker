@@ -90,8 +90,11 @@ def main():
         if pub_notifications:
             st.sidebar.subheader("📄 New Publications:")
             for notif in pub_notifications:
+                from html import escape
                 pub = notif.get('item', {})
-                st.sidebar.write(f"• {pub.get('document_name', 'Untitled')}")
+                title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
+                title = f"<span style=\"color:black\">{title}</span>"
+                st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
         
         if pres_notifications:
             st.sidebar.subheader("🎤 New Presentations:")
@@ -118,16 +121,13 @@ def main():
         if new_publications:
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
+        from html import escape
         for pub in publications:
-            # build header showing title plus a snippet of summary
+            # header is just the title (no snippet)
             title = pub.get('document_name','Publication')
-            sum_snip = ''
-            if pub.get('summary'):
-                clean = pub['summary'].replace('\n',' ')
-                # only add snippet if distinct from title
-                if clean.strip().lower() != title.strip().lower():
-                    sum_snip = ' - ' + (clean[:80] + '...' if len(clean) > 80 else clean)
-            header = f"{title}{sum_snip}"
+            # escape any HTML characters and replace underscores so markdown won't style
+            safe_title = escape(title).replace('_','&#95;')
+            header = safe_title
             with st.expander(header):
                 # inside dropdown we no longer re-show the title
                 if pub.get('summary'):
