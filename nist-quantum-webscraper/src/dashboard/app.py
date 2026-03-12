@@ -33,6 +33,11 @@ def main():
         presentations = scrape_presentations()
         news = scrape_news()
     
+    # Sort by date - newest first
+    publications = sorted(publications, key=lambda x: x.get('release_date', ''), reverse=True)
+    presentations = sorted(presentations, key=lambda x: x.get('release_date', ''), reverse=True)
+    news = sorted(news, key=lambda x: x.get('publish_date', ''), reverse=True)
+    
     # Check for new items and save data
     new_publications = storage.get_new_items('publications', publications)
     new_presentations = storage.get_new_items('presentations', presentations)
@@ -58,7 +63,8 @@ def main():
     notification_count = len(active_notifications)
     
     if notification_count > 0:
-        st.sidebar.success(f"🎉 {notification_count} new item(s) found!")
+        # omit the success banner; notification list itself is enough
+        pass
         
         # Separate notifications by type
         pub_notifications = [n for n in active_notifications if n.get('type') == 'publication']
@@ -70,8 +76,6 @@ def main():
             for notif in pub_notifications:
                 pub = notif.get('item', {})
                 st.sidebar.write(f"• {pub.get('document_name', 'Untitled')}")
-                if pub.get('summary'):
-                    st.sidebar.caption(f"   {pub['summary'][:100]}...")
         
         if pres_notifications:
             st.sidebar.subheader("🎤 New Presentations:")
@@ -85,7 +89,7 @@ def main():
                 article = notif.get('item', {})
                 st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                 if article.get('summary'):
-                    st.sidebar.caption(f"   {article['summary'][:100]}...")
+                    st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
     else:
         st.sidebar.info("No new items found since last check.")
     
@@ -99,12 +103,25 @@ def main():
             st.success(f"🆕 {len(new_publications)} new publication(s)")
         
         for pub in publications:
-            with st.expander(f"{pub['series']} {pub['document_number']} {pub['document_name']}"):
+            # build header showing title plus a snippet of summary
+            title = pub.get('document_name','Publication')
+            sum_snip = ''
+            if pub.get('summary'):
+                clean = pub['summary'].replace('\n',' ')
+                # only add snippet if distinct from title
+                if clean.strip().lower() != title.strip().lower():
+                    sum_snip = ' - ' + (clean[:80] + '...' if len(clean) > 80 else clean)
+            header = f"{title}{sum_snip}"
+            with st.expander(header):
+                # inside dropdown we no longer re-show the title
+                if pub.get('summary'):
+                    st.info(f"**Summary:** {pub['summary']}")
+                else:
+                    st.warning("No summary available for this publication.")
+                st.divider()
                 st.write(f"**Type:** {pub['resource_type']}")
                 if pub.get('release_date'):
                     st.write(f"**Published:** {pub['release_date']}")
-                if pub.get('summary'):
-                    st.write(f"**Summary:** {pub['summary']}")
                 if pub['link']:
                     st.markdown(f"[📄 View Document]({pub['link']})")
                 st.write("---")
@@ -134,10 +151,11 @@ def main():
         
         for article in news:
             with st.expander(f"{article['title']}"):
+                if article['summary']:
+                    st.info(f"**Summary:** {article['summary']}")
+                    st.divider()
                 if article['publish_date']:
                     st.write(f"**Published:** {article['publish_date']}")
-                if article['summary']:
-                    st.write(f"**Summary:** {article['summary']}")
                 if article['link']:
                     st.markdown(f"[📰 Read Article]({article['link']})")
                 st.write("---")

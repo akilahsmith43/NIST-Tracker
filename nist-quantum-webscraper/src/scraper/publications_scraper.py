@@ -9,7 +9,14 @@ def generate_summary(pub: dict) -> str:
     Creates a summary from the title and available metadata.
     """
     if pub.get('summary'):
-        return pub['summary']
+        # if the existing summary is just the title, treat it as empty
+        existing = pub['summary'].strip()
+        title = pub.get('document_name', '').strip()
+        if existing and title and existing.lower() == title.lower():
+            # fall through to regenerate
+            pass
+        else:
+            return existing
     
     # Create a meaningful summary from the title
     title = pub.get('document_name', '')
@@ -26,6 +33,10 @@ def generate_summary(pub: dict) -> str:
     series = pub.get('series', 'Publication')
     if series and series.lower() not in summary.lower():
         summary = f"{series}: {summary}"
+    
+    # if summary equals title (no extra info), return empty
+    if summary.strip().lower() == title.strip().lower():
+        return ""
     
     return summary
 
@@ -92,119 +103,164 @@ def scrape_publications(url: str | None = None, query: str | None = None):
 
     publications = []
     visited = set()
-    next_url = base_url
+    session = requests.Session()  # reuse connection
 
-    # follow pagination while new pages appear
-    while next_url and next_url not in visited:
-        visited.add(next_url)
-        try:
-            response = requests.get(next_url, timeout=10)
-            response.raise_for_status()
-            soup = BeautifulSoup(response.content, "html.parser")
+    # helper to fetch a page and return soup, or raise
+    def _fetch_page(url):
+        resp = session.get(url, timeout=10)
+        resp.raise_for_status()
+        return BeautifulSoup(resp.content, "html.parser")
 
-            # Try multiple selectors for different page layouts
-            items = soup.select(".search-list-item")
-            # If no items found with main selector, try alternative selectors
-            if not items:
-                items = soup.select("article")
-            if not items:
-                items = soup.select(".publication-item")
-            if not items:
-                items = soup.select("[data-publication]")
-
-            print(f"DEBUG: Found {len(items)} items on {next_url}")
-
-            # iterate over items inside try block
-            for item in items:
-                # Try different selectors for title
-                title_link = item.select_one("h4.search-results-title a")
-                if not title_link:
-                    title_link = item.select_one("h3 a")
-                if not title_link:
-                    title_link = item.select_one("a[data-title]")
-                if not title_link:
-                    title_link = item.select_one("a")
-                
-                if not title_link:
+    # build a dynamic crawling queue so we can fetch multiple pages at once
+    from concurrent.futures import ThreadPoolExecutor, as_completed, wait, FIRST_COMPLETED
+    futures = {}
+    # start with base url
+    with ThreadPoolExecutor(max_workers=8) as executor:
+        futures[executor.submit(_fetch_page, base_url)] = base_url
+        while futures:
+            done, _ = wait(
+                futures.keys(), return_when=FIRST_COMPLETED
+            )
+            for fut in done:
+                url = futures.pop(fut)
+                try:
+                    soup = fut.result()
+                except Exception as e:
+                    print(f"Error fetching {url}: {e}")
                     continue
 
-                name = clean_text(title_link.get_text(strip=True))
-                if not name:
+                if url in visited:
                     continue
+                visited.add(url)
+
+                # Try multiple selectors for different page layouts
+                items = soup.select(".search-list-item")
+                if not items:
+                    items = soup.select("article")
+                if not items:
+                    items = soup.select(".publication-item")
+                if not items:
+                    items = soup.select("[data-publication]")
+
+                print(f"DEBUG: Found {len(items)} items on {url}")
+
+                # iterate over items inside try block
+                for item in items:
+                    # Try different selectors for title
+                    title_link = item.select_one("h4.search-results-title a")
+                    if not title_link:
+                        title_link = item.select_one("h3 a")
+                    if not title_link:
+                        title_link = item.select_one("a[data-title]")
+                    if not title_link:
+                        title_link = item.select_one("a")
                     
-                link = title_link.get("href", "")
-                if link and not link.startswith("http"):
-                    if "csrc.nist.gov" in base_url:
-                        link = f"https://csrc.nist.gov{link}"
-                    else:
-                        link = f"https://www.nist.gov{link}"
+                    if not title_link:
+                        continue
 
-                # Try different selectors for series
-                series_el = item.select_one(".sub-title strong")
-                if not series_el:
-                    series_el = item.select_one(".series")
-                if not series_el:
-                    series_el = item.select_one("[class*='series']")
-                series = clean_text(series_el.get_text(strip=True)) if series_el else ""
+                    name = clean_text(title_link.get_text(strip=True))
+                    if not name:
+                        continue
+                        
+                    link = title_link.get("href", "")
+                    if link and not link.startswith("http"):
+                        if "csrc.nist.gov" in base_url:
+                            link = f"https://csrc.nist.gov{link}"
+                        else:
+                            link = f"https://www.nist.gov{link}"
 
-                # Try different selectors for date
-                date_el = item.select_one('strong[id^="date-container-"]')
-                if not date_el:
-                    date_el = item.select_one("time")
-                if not date_el:
-                    date_el = item.select_one(".date")
-                if not date_el:
-                    date_el = item.select_one("[class*='date']")
-                release_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
+                    # Try different selectors for series
+                    series_el = item.select_one(".sub-title strong")
+                    if not series_el:
+                        series_el = item.select_one(".series")
+                    if not series_el:
+                        series_el = item.select_one("[class*='series']")
+                    series = clean_text(series_el.get_text(strip=True)) if series_el else ""
 
-                # Try different selectors for summary
-                summary_el = item.select_one('p[id^="content-area-"]')
-                if not summary_el:
-                    summary_el = item.select_one(".summary")
-                if not summary_el:
-                    summary_el = item.select_one(".description")
-                if not summary_el:
-                    summary_el = item.select_one("p")
-                
-                summary = ""
-                if summary_el:
-                    summary = clean_text(summary_el.get_text(strip=True))
-                    if summary.lower().startswith("abstract:"):
-                        summary = summary[len("abstract:"):].strip()
+                    # Try different selectors for date
+                    date_el = item.select_one('strong[id^="date-container-"]')
+                    if not date_el:
+                        date_el = item.select_one("time")
+                    if not date_el:
+                        date_el = item.select_one(".date")
+                    if not date_el:
+                        date_el = item.select_one("[class*='date']")
+                    release_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
 
-                if name:  # Only add if we have at least a title
-                    publications.append({
-                        "document_name": name,
-                        "document_number": "",
-                        "series": series,
-                        "release_date": release_date,
-                        "resource_type": "Publication",
-                        "link": link,
-                        "summary": summary,
-                    })
+                    # Try different selectors for summary
+                    summary_el = item.select_one('p[id^="content-area-"]')
+                    if not summary_el:
+                        summary_el = item.select_one(".summary")
+                    if not summary_el:
+                        summary_el = item.select_one(".description")
+                    if not summary_el:
+                        summary_el = item.select_one("p")
+                    
+                    summary = ""
+                    if summary_el:
+                        summary = clean_text(summary_el.get_text(strip=True))
+                        if summary.lower().startswith("abstract:"):
+                            summary = summary[len("abstract:"):].strip()
 
-            # pagination: look for next button
-            next_link = None
-            for selector in [
-                'a[rel="next"]',
-                'a.pagination-next',
-                'li.next a',
-                '.pager-next a'
-            ]:
-                el = soup.select_one(selector)
-                if el and el.get('href'):
-                    next_link = el.get('href')
-                    break
-            if next_link:
-                from urllib.parse import urljoin
-                next_url = urljoin(next_url, next_link)
-            else:
-                next_url = None
-        except Exception as e:
-            print(f"Error scraping publications from {next_url}: {e}")
-            break
+                    if name:  # Only add if we have at least a title
+                        # store summary now; may fetch meta later
+                        publications.append({
+                            "document_name": name,
+                            "document_number": "",
+                            "series": series,
+                            "release_date": release_date,
+                            "resource_type": "Publication",
+                            "link": link,
+                            "summary": summary,
+                        })
 
-    # Generate summaries for publications that don't have them
+                # schedule next page if available
+                next_link = None
+                for selector in [
+                    'a[rel="next"]',
+                    'a.pagination-next',
+                    'li.next a',
+                    '.pager-next a'
+                ]:
+                    el = soup.select_one(selector)
+                    if el and el.get('href'):
+                        next_link = el.get('href')
+                        break
+                if next_link:
+                    from urllib.parse import urljoin
+                    full_next = urljoin(url, next_link)
+                    if full_next not in visited and full_next not in futures.values():
+                        futures[executor.submit(_fetch_page, full_next)] = full_next
+
+
+    # Enrich missing summaries by fetching publication pages concurrently
+    def _fetch_meta(pub):
+        if pub.get('summary'):
+            return pub['summary']
+        link = pub.get('link')
+        if not link:
+            return ""
+        try:
+            resp = session.get(link, timeout=5)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.content, "html.parser")
+            meta = soup.select_one('meta[name="description"]')
+            if meta and meta.get('content'):
+                return clean_text(meta['content'])
+        except Exception:
+            pass
+        return ""
+
+    from concurrent.futures import ThreadPoolExecutor
+    # collect current summaries, will overwrite if new text fetched
+    pubs_to_update = [pub for pub in publications if not pub.get('summary')]
+    if pubs_to_update:
+        with ThreadPoolExecutor(max_workers=8) as executor:
+            for pub, new_summary in zip(pubs_to_update, executor.map(_fetch_meta, pubs_to_update)):
+                if new_summary:
+                    pub['summary'] = new_summary
+
+    # Generate or normalize final summaries
     for pub in publications:
         pub['summary'] = generate_summary(pub)
     
@@ -268,19 +324,28 @@ def scrape_all_publications():
     print(f"Will scrape {len(urls)} URLs")
     print("=" * 50)
     
-    # Scrape from the specified URLs
-    for i, url in enumerate(urls, 1):
-        print(f"\n[{i}/{len(urls)}] Scraping: {url[:80]}...")
-        pubs = scrape_publications(url=url)
-        count = 0
-        for pub in pubs:
-            link = pub.get("link")
-            if link in seen:
+    # Scrape from the specified URLs in parallel to save time
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    futures = {}
+    with ThreadPoolExecutor(max_workers=min(4, len(urls))) as executor:
+        for url in urls:
+            futures[executor.submit(scrape_publications, url=url)] = url
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                pubs = future.result()
+            except Exception as e:
+                print(f"Error scraping {url}: {e}")
                 continue
-            seen.add(link)
-            all_pubs.append(pub)
-            count += 1
-        print(f"[{i}/{len(urls)}] Added {count} new publications (total: {len(all_pubs)})")
+            count = 0
+            for pub in pubs:
+                link = pub.get("link")
+                if link in seen:
+                    continue
+                seen.add(link)
+                all_pubs.append(pub)
+                count += 1
+            print(f"Scraped {url[:80]} -> added {count} new publications (total: {len(all_pubs)})")
     
     print("=" * 50)
     print(f"Scraping complete! Total unique publications: {len(all_pubs)}")
