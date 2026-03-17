@@ -33,21 +33,56 @@ def main():
         presentations = scrape_presentations()
         news = scrape_news()
     
-    # keep only publications from the last five years
+    # keep only publications from the past year
     from datetime import datetime, timedelta
-    cutoff = datetime.now() - timedelta(days=5*365)
+    cutoff = datetime.now() - timedelta(days=365)
     recent_pubs = []
     for pub in publications:
         raw = pub.get('release_date_raw')
         if raw:
             try:
                 d = datetime.fromisoformat(raw)
+                # normalize to naive datetime for comparison
+                if d.tzinfo:
+                    d = d.replace(tzinfo=None)
             except Exception:
                 continue
             if d >= cutoff:
                 recent_pubs.append(pub)
         # if we can't parse date, drop it
     publications = recent_pubs
+
+    # keep only presentations from the past year
+    recent_pres = []
+    for pres in presentations:
+        raw = pres.get('release_date')
+        if raw:
+            try:
+                # Parse date in format "Month DD, YYYY"
+                d = datetime.strptime(raw, '%B %d, %Y')
+            except Exception:
+                continue
+            if d >= cutoff:
+                recent_pres.append(pres)
+        # if we can't parse date, drop it
+    presentations = recent_pres
+
+    # keep only news from the past year
+    recent_news = []
+    for article in news:
+        raw = article.get('publish_date_raw')
+        if raw:
+            try:
+                d = datetime.fromisoformat(raw)
+                # normalize to naive datetime for comparison
+                if d.tzinfo:
+                    d = d.replace(tzinfo=None)
+            except Exception:
+                continue
+            if d >= cutoff:
+                recent_news.append(article)
+        # if we can't parse date, drop it
+    news = recent_news
 
     # Sort by date - newest first
     publications = sorted(publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
@@ -67,8 +102,41 @@ def main():
     for article in new_news:
         storage.add_notification('news', article)
     
-    # Get active notifications (within 48 hours)
-    active_notifications = storage.get_active_notifications()
+    # Get all notifications (not just active ones)
+    all_notifications = storage.load_notifications()
+    
+    # Filter notifications to only show items from the past year
+    cutoff = datetime.now() - timedelta(days=365)
+    filtered_notifications = []
+    for n in all_notifications:
+        item = n.get('item', {})
+        item_date = None
+        
+        # Try to get the item's release/publish date
+        if item.get('release_date_raw'):
+            try:
+                item_date = datetime.fromisoformat(item['release_date_raw'])
+                if item_date.tzinfo:
+                    item_date = item_date.replace(tzinfo=None)
+            except Exception:
+                continue
+        elif item.get('publish_date_raw'):
+            try:
+                item_date = datetime.fromisoformat(item['publish_date_raw'])
+                if item_date.tzinfo:
+                    item_date = item_date.replace(tzinfo=None)
+            except Exception:
+                continue
+        elif item.get('release_date'):
+            try:
+                item_date = datetime.strptime(item['release_date'], '%B %d, %Y')
+            except Exception:
+                continue
+        
+        if item_date and item_date >= cutoff:
+            filtered_notifications.append(n)
+    
+    all_notifications = filtered_notifications
     
     # Save current data
     storage.save_data('publications', publications)
@@ -76,39 +144,115 @@ def main():
     storage.save_data('news', news)
     
     # Display notifications
-    notification_count = len(active_notifications)
+    notification_count = len(all_notifications)
     
     if notification_count > 0:
-        # omit the success banner; notification list itself is enough
-        pass
-        
         # Separate notifications by type
-        pub_notifications = [n for n in active_notifications if n.get('type') == 'publication']
-        pres_notifications = [n for n in active_notifications if n.get('type') == 'presentation']
-        news_notifications = [n for n in active_notifications if n.get('type') == 'news']
+        pub_notifications = [n for n in all_notifications if n.get('type') == 'publication']
+        pres_notifications = [n for n in all_notifications if n.get('type') == 'presentation']
+        news_notifications = [n for n in all_notifications if n.get('type') == 'news']
         
-        if pub_notifications:
-            st.sidebar.subheader("📄 New Publications:")
-            for notif in pub_notifications:
-                from html import escape
-                pub = notif.get('item', {})
-                title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                title = f"<span style=\"color:black\">{title}</span>"
-                st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
+        # Separate by time periods — filter by the item's actual release/publish date,
+        # not by when it was first scraped (notification timestamp).
+        from datetime import datetime, timedelta
+        now = datetime.now()
+
+        def get_item_date(n):
+            """Return a naive datetime for the item's release/publish date, or None."""
+            item = n.get('item', {})
+            raw = item.get('release_date_raw') or item.get('publish_date_raw')
+            if raw:
+                try:
+                    d = datetime.fromisoformat(raw)
+                    return d.replace(tzinfo=None) if d.tzinfo else d
+                except Exception:
+                    pass
+            # fallback: presentations use a formatted string
+            rel = item.get('release_date')
+            if rel:
+                try:
+                    return datetime.strptime(rel, '%B %d, %Y')
+                except Exception:
+                    pass
+            return None
+
+        # Last week (7 days) — based on item release date
+        week_ago = now - timedelta(days=7)
+        week_notifications = [
+            n for n in all_notifications
+            if (d := get_item_date(n)) is not None and d >= week_ago
+        ]
+
+        week_pub = [n for n in week_notifications if n.get('type') == 'publication']
+        week_pres = [n for n in week_notifications if n.get('type') == 'presentation']
+        week_news = [n for n in week_notifications if n.get('type') == 'news']
+
+        # Last two weeks (14 days) — based on item release date
+        two_weeks_ago = now - timedelta(days=14)
+        two_week_notifications = [
+            n for n in all_notifications
+            if (d := get_item_date(n)) is not None and d >= two_weeks_ago
+        ]
+
+        two_week_pub = [n for n in two_week_notifications if n.get('type') == 'publication']
+        two_week_pres = [n for n in two_week_notifications if n.get('type') == 'presentation']
+        two_week_news = [n for n in two_week_notifications if n.get('type') == 'news']
         
-        if pres_notifications:
-            st.sidebar.subheader("🎤 New Presentations:")
-            for notif in pres_notifications:
-                pres = notif.get('item', {})
-                st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+        # Last week section
+        st.sidebar.subheader("📅 Last Week (7 days)")
+        if week_notifications:
+            if week_pub:
+                st.sidebar.write("**📄 Publications:**")
+                for notif in week_pub:
+                    from html import escape
+                    pub = notif.get('item', {})
+                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
+                    title = f"<span style=\"color:black\">{title}</span>"
+                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
+            
+            if week_pres:
+                st.sidebar.write("**🎤 Presentations:**")
+                for notif in week_pres:
+                    pres = notif.get('item', {})
+                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+            
+            if week_news:
+                st.sidebar.write("**📰 News:**")
+                for notif in week_news:
+                    article = notif.get('item', {})
+                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
+                    if article.get('summary'):
+                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
+        else:
+            st.sidebar.write("No new items in the last week.")
         
-        if news_notifications:
-            st.sidebar.subheader("📰 New News:")
-            for notif in news_notifications:
-                article = notif.get('item', {})
-                st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                if article.get('summary'):
-                    st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
+        # Last two weeks section
+        st.sidebar.subheader("📅 Last Two Weeks (14 days)")
+        if two_week_notifications:
+            if two_week_pub:
+                st.sidebar.write("**📄 Publications:**")
+                for notif in two_week_pub:
+                    from html import escape
+                    pub = notif.get('item', {})
+                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
+                    title = f"<span style=\"color:black\">{title}</span>"
+                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
+            
+            if two_week_pres:
+                st.sidebar.write("**🎤 Presentations:**")
+                for notif in two_week_pres:
+                    pres = notif.get('item', {})
+                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+            
+            if two_week_news:
+                st.sidebar.write("**📰 News:**")
+                for notif in two_week_news:
+                    article = notif.get('item', {})
+                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
+                    if article.get('summary'):
+                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
+        else:
+            st.sidebar.write("No new items in the last two weeks.")
     else:
         st.sidebar.info("No new items found since last check.")
     

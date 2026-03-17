@@ -43,8 +43,7 @@ def scrape_presentations():
     return presentations
 
 def main():
-    url = 'https://www.nist.gov/quantum/presentations'  # Example URL
-    presentations_data = scrape_presentations(url)
+    presentations_data = scrape_presentations()
     print(presentations_data)
 
 if __name__ == "__main__":
