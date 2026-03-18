@@ -61,7 +61,7 @@ def clean_text(text: str) -> str:
     
     return text
 
-def scrape_publications(url: str | None = None, query: str | None = None):
+def scrape_publications(url: str | None = None, query: str | None = None, cutoff_date: datetime | None = None):
     """Scrape publications from a given URL or the default CSRC search interface.
 
     Parameters
@@ -71,10 +71,13 @@ def scrape_publications(url: str | None = None, query: str | None = None):
     query
         Optional query string to append to the URL (e.g. "draft" or
         "open for comment"). Only used if url is None.
+    cutoff_date
+        Optional datetime object to filter publications. Only publications
+        with release_date >= cutoff_date will be included.
 
     The search endpoint is used because the standalone publication pages are
     rendered client‑side.  By supplying a `query` string (e.g. "draft" or
-    "open for comment") you can broaden the results to include drafts or
+        "open for comment") you can broaden the results to include drafts or
     other non‑final items; omitting it returns the default set, which at the
     moment consists mostly of final publications.
 
@@ -215,6 +218,26 @@ def scrape_publications(url: str | None = None, query: str | None = None):
                             except Exception:
                                 # If parsing fails, use original
                                 release_date_raw = release_date
+                        
+                        # Apply date filtering if cutoff_date is provided
+                        if cutoff_date:
+                            try:
+                                # Parse the release date to compare with cutoff
+                                if release_date_raw:
+                                    pub_date = datetime.strptime(release_date_raw, '%Y-%m-%d')
+                                elif release_date:
+                                    pub_date = datetime.strptime(release_date, '%B %d, %Y')
+                                else:
+                                    # If no date available, include it (default behavior)
+                                    pub_date = None
+                                
+                                # Only include if publication date is after cutoff
+                                if pub_date and pub_date < cutoff_date:
+                                    continue  # Skip this publication
+                            except Exception:
+                                # If date parsing fails, include it (default behavior)
+                                pass
+                        
                         publications.append({
                             "document_name": name,
                             "document_number": "",
@@ -313,6 +336,61 @@ def filter_publications(publications, *, include_drafts: bool = False,
         elif is_final and include_final:
             out.append(pub)
     return out
+
+
+def scrape_publications_past_year():
+    """Scrape publications from the past year only.
+    
+    Uses the same URLs as scrape_all_publications but applies date filtering
+    during scraping to only include publications from the past year.
+    """
+    from datetime import datetime, timedelta
+    
+    # Calculate cutoff date (1 year ago from today)
+    cutoff_date = datetime.now() - timedelta(days=365)
+    
+    urls = [
+        "https://www.nist.gov/publications/search/topic/249281",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+    ]
+    
+    seen = set()
+    all_pubs = []
+    
+    print("=" * 50)
+    print("Starting publication scraping (past year only)...")
+    print(f"Will scrape {len(urls)} URLs with cutoff date: {cutoff_date.strftime('%Y-%m-%d')}")
+    print("=" * 50)
+    
+    # Scrape from the specified URLs in parallel to save time
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    futures = {}
+    with ThreadPoolExecutor(max_workers=min(4, len(urls))) as executor:
+        for url in urls:
+            futures[executor.submit(scrape_publications, url=url, cutoff_date=cutoff_date)] = url
+        for future in as_completed(futures):
+            url = futures[future]
+            try:
+                pubs = future.result()
+            except Exception as e:
+                print(f"Error scraping {url}: {e}")
+                continue
+            count = 0
+            for pub in pubs:
+                link = pub.get("link")
+                if link in seen:
+                    continue
+                seen.add(link)
+                all_pubs.append(pub)
+                count += 1
+            print(f"Scraped {url[:80]} -> added {count} new publications (total: {len(all_pubs)})")
+    
+    print("=" * 50)
+    print(f"Scraping complete! Total unique publications from past year: {len(all_pubs)}")
+    print("=" * 50)
+    return all_pubs
 
 
 def scrape_all_publications():

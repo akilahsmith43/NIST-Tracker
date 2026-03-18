@@ -301,6 +301,14 @@
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
+        "title": "How a Forensic Anthropologist Thinks About Human Remains Research \u2014 and What It Means for Our Humanity",
+        "summary": "",
+        "publish_date": "March 18, 2026",
+        "publish_date_raw": "2026-03-18",
+        "link": "https://www.nist.gov/blogs/taking-measure/how-forensic-anthropologist-thinks-about-human-remains-research-and-what-it",
+        "resource_type": "Post-Quantum Cryptography News"
+      },
+      {
         "title": "New Music Captures NIST\u2019s Essence, Measure for Measure",
         "summary": "",
         "publish_date": "March 3, 2026",
@@ -325,14 +333,6 @@
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "How Thousands of Tiny Dots Can Save First Responders\u2019 Lives",
-        "summary": "",
-        "publish_date": "February 4, 2026",
-        "publish_date_raw": "2026-02-04",
-        "link": "https://www.nist.gov/blogs/taking-measure/how-thousands-tiny-dots-can-save-first-responders-lives",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
         "title": "Finding PFAS Wherever They\u2019re Hiding",
         "summary": "Forever chemicals are everywhere, but they\u2019re really hard to measure. NIST scientists are helping.",
         "publish_date": "March 28, 2024",
@@ -342,7 +342,7 @@
       }
     ]
   },
-  "timestamp": "2026-03-17T22:13:15.237856",
+  "timestamp": "2026-03-18T12:05:59.140960",
   "counts": {
     "publications": 0,
     "presentations": 25,

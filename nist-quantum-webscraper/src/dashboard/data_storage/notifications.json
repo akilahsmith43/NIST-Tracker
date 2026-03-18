@@ -17334,13 +17334,25 @@
   },
   {
     "type": "pqc_news",
-    "timestamp": "2026-03-17T21:59:58.311291",
+    "timestamp": "2026-03-17 21:59:58.311291",
     "item": {
       "title": "Finding PFAS Wherever They\u2019re Hiding",
       "summary": "Forever chemicals are everywhere, but they\u2019re really hard to measure. NIST scientists are helping.",
       "publish_date": "March 28, 2024",
       "publish_date_raw": "2024-03-28",
       "link": "https://www.nist.gov/feature-stories/finding-forever-chemicals-wherever-theyre-hiding",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-18T11:48:08.628408",
+    "item": {
+      "title": "How a Forensic Anthropologist Thinks About Human Remains Research \u2014 and What It Means for Our Humanity",
+      "summary": "",
+      "publish_date": "March 18, 2026",
+      "publish_date_raw": "2026-03-18",
+      "link": "https://www.nist.gov/blogs/taking-measure/how-forensic-anthropologist-thinks-about-human-remains-research-and-what-it",
       "resource_type": "Post-Quantum Cryptography News"
     }
   }

@@ -4,18 +4,80 @@ import os
 from datetime import datetime
 
 # Add the src directory to the Python path
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+current_dir = os.path.dirname(os.path.abspath(__file__))
+src_dir = os.path.join(current_dir, '..')
+if src_dir not in sys.path:
+    sys.path.insert(0, src_dir)
 
 # Import from the scraper modules
-from src.scraper.publications_scraper import (
-    scrape_publications,
-    scrape_all_publications,
-    filter_publications,
-)
-from src.scraper.presentations_scraper import scrape_presentations
-from src.scraper.news_scraper import scrape_news
-from src.scraper.pqc_scraper import scrape_all_pqc_data
-from src.data.data_storage import DataStorage
+try:
+    # Try importing with the src directory in path
+    from scraper.publications_scraper import (
+        scrape_publications,
+        scrape_all_publications,
+        scrape_publications_past_year,
+        filter_publications,
+    )
+    from scraper.presentations_scraper import scrape_presentations
+    from scraper.news_scraper import scrape_news
+    from scraper.pqc_scraper import scrape_all_pqc_data
+    from data.data_storage import DataStorage
+except ImportError as e:
+    print(f"Import error: {e}")
+    # Try absolute imports
+    try:
+        from src.scraper.publications_scraper import (
+            scrape_publications,
+            scrape_all_publications,
+            scrape_publications_past_year,
+            filter_publications,
+        )
+        from src.scraper.presentations_scraper import scrape_presentations
+        from src.scraper.news_scraper import scrape_news
+        from src.scraper.pqc_scraper import scrape_all_pqc_data
+        from src.data.data_storage import DataStorage
+    except ImportError as e2:
+        print(f"Absolute import error: {e2}")
+        # Final attempt - check if we can import the module directly
+        import importlib.util
+        import os
+        
+        # Try to load the module directly
+        publications_scraper_path = os.path.join(src_dir, 'scraper', 'publications_scraper.py')
+        spec = importlib.util.spec_from_file_location("publications_scraper", publications_scraper_path)
+        publications_scraper = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(publications_scraper)
+        
+        # Get the functions we need
+        scrape_publications = publications_scraper.scrape_publications
+        scrape_all_publications = publications_scraper.scrape_all_publications
+        scrape_publications_past_year = publications_scraper.scrape_publications_past_year
+        filter_publications = publications_scraper.filter_publications
+        
+        # Load other modules similarly
+        presentations_scraper_path = os.path.join(src_dir, 'scraper', 'presentations_scraper.py')
+        spec2 = importlib.util.spec_from_file_location("presentations_scraper", presentations_scraper_path)
+        presentations_scraper = importlib.util.module_from_spec(spec2)
+        spec2.loader.exec_module(presentations_scraper)
+        scrape_presentations = presentations_scraper.scrape_presentations
+        
+        news_scraper_path = os.path.join(src_dir, 'scraper', 'news_scraper.py')
+        spec3 = importlib.util.spec_from_file_location("news_scraper", news_scraper_path)
+        news_scraper = importlib.util.module_from_spec(spec3)
+        spec3.loader.exec_module(news_scraper)
+        scrape_news = news_scraper.scrape_news
+        
+        pqc_scraper_path = os.path.join(src_dir, 'scraper', 'pqc_scraper.py')
+        spec4 = importlib.util.spec_from_file_location("pqc_scraper", pqc_scraper_path)
+        pqc_scraper = importlib.util.module_from_spec(spec4)
+        spec4.loader.exec_module(pqc_scraper)
+        scrape_all_pqc_data = pqc_scraper.scrape_all_pqc_data
+        
+        data_storage_path = os.path.join(src_dir, 'data', 'data_storage.py')
+        spec5 = importlib.util.spec_from_file_location("data_storage", data_storage_path)
+        data_storage = importlib.util.module_from_spec(spec5)
+        spec5.loader.exec_module(data_storage)
+        DataStorage = data_storage.DataStorage
 
 def main():
     st.set_page_config(page_title="NIST Quantum Tracker", page_icon="🔬", layout="wide")
@@ -58,24 +120,32 @@ def main():
             pqc_presentations = pqc_data.get('presentations', [])
             pqc_news = pqc_data.get('news', [])
         
-        # keep only PQC publications from the past year
-        from datetime import datetime, timedelta
-        cutoff = datetime.now() - timedelta(days=365)
-        recent_pqc_pubs = []
-        for pub in pqc_publications:
-            raw = pub.get('release_date_raw')
-            if raw:
-                try:
-                    d = datetime.fromisoformat(raw)
-                    if d.tzinfo:
-                        d = d.replace(tzinfo=None)
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_pqc_pubs.append(pub)
-        pqc_publications = recent_pqc_pubs
+        # Use the new function to get publications from the past year only
+        with st.spinner('Scraping publications from the past year...'):
+            recent_pqc_pubs = scrape_publications_past_year()
+            # Merge with PQC publications and de-duplicate by link
+            seen_links = set()
+            all_pqc_publications = []
+            
+            # Add PQC publications first
+            for pub in pqc_publications:
+                link = pub.get('link', '')
+                if link and link not in seen_links:
+                    seen_links.add(link)
+                    all_pqc_publications.append(pub)
+            
+            # Add recent publications from the past year
+            for pub in recent_pqc_pubs:
+                link = pub.get('link', '')
+                if link and link not in seen_links:
+                    seen_links.add(link)
+                    all_pqc_publications.append(pub)
+            
+            pqc_publications = all_pqc_publications
 
         # keep only PQC presentations from the past year
+        from datetime import datetime, timedelta
+        cutoff = datetime.now() - timedelta(days=365)
         recent_pqc_pres = []
         for pres in pqc_presentations:
             raw = pres.get('release_date')
@@ -516,10 +586,10 @@ def main():
         col1, col2, col3 = st.columns(3)
         
         with col1:
-            st.header("🔐 PQC Publications")
+            st.header("📄 Publications")
             st.write(f"Total: {len(pqc_publications)} items")
             if new_pqc_publications:
-                st.success(f"🆕 {len(new_pqc_publications)} new PQC publication(s)")
+                st.success(f"🆕 {len(new_pqc_publications)} new publication(s)")
             
             from html import escape
             for pub in pqc_publications:
@@ -548,10 +618,10 @@ def main():
                     st.write("---")
         
         with col2:
-            st.header("🔐 PQC Presentations")
+            st.header("🎤 Presentations")
             st.write(f"Total: {len(pqc_presentations)} items")
             if new_pqc_presentations:
-                st.success(f"🆕 {len(new_pqc_presentations)} new PQC presentation(s)")
+                st.success(f"🆕 {len(new_pqc_presentations)} new presentation(s)")
             
             for pres in pqc_presentations:
                 header = f"{pres['series']}: {pres['document_name']}"
@@ -565,10 +635,10 @@ def main():
                     st.write("---")
         
         with col3:
-            st.header("🔐 PQC News")
+            st.header("📰 News")
             st.write(f"Total: {len(pqc_news)} items")
             if new_pqc_news:
-                st.success(f"🆕 {len(new_pqc_news)} new PQC news item(s)")
+                st.success(f"🆕 {len(new_pqc_news)} new news item(s)")
             
             for article in pqc_news:
                 with st.expander(f"{article['title']}"):
