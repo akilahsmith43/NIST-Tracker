@@ -409,18 +409,8 @@
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/many-body-gap-protection-motional-dephasing-optical-clock-transition",
       "summary": ""
-    },
-    {
-      "document_name": "Temperature sensitivity of a Thorium-229 solid-state nuclear clock",
-      "document_number": "",
-      "series": "",
-      "release_date": "March 17, 2025",
-      "release_date_raw": "2025-03-17",
-      "resource_type": "Publication",
-      "link": "https://www.nist.gov/publications/temperature-sensitivity-thorium-229-solid-state-nuclear-clock",
-      "summary": ""
     }
   ],
-  "timestamp": "2026-03-16T21:29:31.574805",
-  "count": 42
+  "timestamp": "2026-03-17T22:07:29.459113",
+  "count": 41
 }

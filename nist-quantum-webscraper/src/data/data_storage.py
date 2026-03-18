@@ -32,6 +32,65 @@ class DataStorage:
         saved_data = self.load_data(data_type)
         return saved_data.get('data', [])
     
+    def save_pqc_data(self, data: Dict[str, List[Dict[str, Any]]]):
+        """Save Post-Quantum Cryptography data to JSON file"""
+        filename = f"{self.storage_dir}/pqc_data.json"
+        with open(filename, 'w') as f:
+            json.dump({
+                'data': data,
+                'timestamp': datetime.now().isoformat(),
+                'counts': {
+                    'publications': len(data.get('publications', [])),
+                    'presentations': len(data.get('presentations', [])),
+                    'news': len(data.get('news', []))
+                }
+            }, f, indent=2)
+    
+    def load_pqc_data(self) -> Dict[str, Any]:
+        """Load previously saved PQC data"""
+        filename = f"{self.storage_dir}/pqc_data.json"
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                return json.load(f)
+        return {'data': {'publications': [], 'presentations': [], 'news': []}, 'timestamp': None, 'counts': {'publications': 0, 'presentations': 0, 'news': 0}}
+    
+    def get_previous_pqc_data(self) -> Dict[str, List[Dict[str, Any]]]:
+        """Get previously saved PQC data"""
+        saved_data = self.load_pqc_data()
+        return saved_data.get('data', {'publications': [], 'presentations': [], 'news': []})
+    
+    def get_new_pqc_items(self, current_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
+        """Get only the new PQC items since last save"""
+        previous_data = self.get_previous_pqc_data()
+        
+        new_items = {'publications': [], 'presentations': [], 'news': []}
+        
+        # Check publications
+        previous_pubs = {(item.get('document_name', '') + item.get('link', '')).lower() 
+                        for item in previous_data.get('publications', [])}
+        for item in current_data.get('publications', []):
+            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
+            if item_key not in previous_pubs:
+                new_items['publications'].append(item)
+        
+        # Check presentations
+        previous_pres = {(item.get('document_name', '') + item.get('link', '')).lower() 
+                        for item in previous_data.get('presentations', [])}
+        for item in current_data.get('presentations', []):
+            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
+            if item_key not in previous_pres:
+                new_items['presentations'].append(item)
+        
+        # Check news
+        previous_news = {(item.get('title', '') + item.get('link', '')).lower() 
+                        for item in previous_data.get('news', [])}
+        for item in current_data.get('news', []):
+            item_key = (item.get('title', '') + item.get('link', '')).lower()
+            if item_key not in previous_news:
+                new_items['news'].append(item)
+        
+        return new_items
+    
     def has_data_changed(self, data_type: str, current_data: List[Dict[str, Any]]) -> bool:
         """Check if data has changed since last save"""
         previous_data = self.get_previous_data(data_type)

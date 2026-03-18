@@ -16831,13 +16831,517 @@
   },
   {
     "type": "news",
-    "timestamp": "2026-03-16T21:12:43.890723",
+    "timestamp": "2026-03-16 21:12:43.890723",
     "item": {
       "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
       "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
       "publish_date": "June 11, 2025",
       "publish_date_raw": "2025-06-11T12:00:00Z",
       "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:58:56.630125",
+    "item": {
+      "document_name": "The Ship has Sailed: The NIST Post-Quantum Cryptography \"Competition\"",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2017/the-ship-has-sailed-the-nist-pqc-competition",
+      "release_date": "December 12, 2017"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:58:57.243912",
+    "item": {
+      "document_name": "Compact LWE",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2018/compact-lwe",
+      "release_date": "April 11, 2018"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:58:59.824890",
+    "item": {
+      "document_name": "KINDI",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2018/kindi",
+      "release_date": "April 11, 2018"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:02.645207",
+    "item": {
+      "document_name": "A Hardware Evaluation Study of NIST Post-Quantum Cryptographic Signature schemes",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/a-hardware-evaluation-study-of-nist-pqc-signature",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:04.732644",
+    "item": {
+      "document_name": "A Lightweight Implementation of NTRUEncrypt for 8-bit AVR Microcontrollers",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/a-lightweight-implementation-of-ntruencrypt-for",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:06.337686",
+    "item": {
+      "document_name": "Approximate Trapdoors for Lattices and Smaller Hash-and-Sign Signatures",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/approximate-trapdoors-for-lattices-and",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:08.793270",
+    "item": {
+      "document_name": "BIKE - Bit-Flipping Key Encapsulation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/bike-round-2-presentation",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:10.874201",
+    "item": {
+      "document_name": "Classic McEliece: conservative code-based cryptography",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/classic-mceliece-round-2-presentation",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:13.334286",
+    "item": {
+      "document_name": "Comparing proofs of security for lattice-based encryption",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/comparing-proofs-of-security-for-lattice-based-enc",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:15.990128",
+    "item": {
+      "document_name": "CRYSTALS-Dilithium Round 2",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/crystals-dilithium-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:18.552352",
+    "item": {
+      "document_name": "CRYSTALS-Kyber Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/crystals-kyber-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:20.687102",
+    "item": {
+      "document_name": "Energy Consumption of Round 2 Submissions for NIST PQC Standards",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/energy-consumption-of-round-2-submissions-for-nist",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:22.320368",
+    "item": {
+      "document_name": "Falcon - An Update",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/falcon-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:23.378819",
+    "item": {
+      "document_name": "Feasibility and Performance of PQC Algorithms on Microcontrollers",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/feasibility-and-performance-of-pqc-algorithms-on",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:24.920769",
+    "item": {
+      "document_name": "FrodoKEM Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/frodokem-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:25.967262",
+    "item": {
+      "document_name": "GeMSS Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/gemss-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:27.197761",
+    "item": {
+      "document_name": "HQC: Hamming Quasi-Cyclic - An IND-CCA2 Code-based Public Key Encryption Scheme",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/hqc-round-2-presentation",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:28.379051",
+    "item": {
+      "document_name": "Implementing and Benchmarking Seven Round 2 Lattice-Based Key Encapsulation Mechanisms Using Software/Hardware Codesign Approach",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/implementing-and-benchmarking-seven-round-2-lattic",
+      "release_date": "August 22, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:29.427003",
+    "item": {
+      "document_name": "Industry Panel Discussion - Second PQC Standardization Conference",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/industry-panel-discussion",
+      "release_date": "August 22, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:31.139567",
+    "item": {
+      "document_name": "LAC Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/lac-round-2-presentation",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:32.090361",
+    "item": {
+      "document_name": "LEDAcrypt",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/ledacrypt-round-2-presentation",
+      "release_date": "August 24, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:33.187237",
+    "item": {
+      "document_name": "LUOV Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/luov-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:34.256137",
+    "item": {
+      "document_name": "Measuring TLS key exchange with post-quantum KEM",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/measuring-tls-key-exchange-with-post-quantum-kem",
+      "release_date": "August 22, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:35.726533",
+    "item": {
+      "document_name": "MQDSS Round 2 Presentation",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/mqdss-round-2-presentation",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-17 21:59:36.992927",
+    "item": {
+      "document_name": "New Attacks on Lifted Unbalanced Oil Vinegar",
+      "series": "",
+      "status": "",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2019/new-attacks-on-lifted-unbalanced-oil-vinegar",
+      "release_date": "August 23, 2019"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:38.257155",
+    "item": {
+      "title": "2 Health Care Organizations Will Receive 2025 Baldrige National Quality Awards",
+      "summary": "",
+      "publish_date": "February 19, 2026",
+      "publish_date_raw": "2026-02-19",
+      "link": "https://www.nist.gov/news-events/news/2026/02/2-health-care-organizations-will-receive-2025-baldrige-national-quality",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:39.391384",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:40.398821",
+    "item": {
+      "title": "NIST Releases New Forensic Genetic Reference Material to Help Crime Laboratories Analyze Challenging Cases",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-releases-new-forensic-genetic-reference-material-help-crime",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:41.443335",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "summary": "",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:42.528462",
+    "item": {
+      "title": "Space: The Final Frontier for Standards",
+      "summary": "",
+      "publish_date": "February 9, 2026",
+      "publish_date_raw": "2026-02-09",
+      "link": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:44.148534",
+    "item": {
+      "title": "The Department of Commerce\u2019s CHIPS Program Announces a Letter of Intent with USA Rare Earth to Accelerate Its Domestic and Vertically Integrated \"Mine-to-Magnet\" Strategy",
+      "summary": "",
+      "publish_date": "January 26, 2026",
+      "publish_date_raw": "2026-01-26",
+      "link": "https://www.nist.gov/news-events/news/2026/01/department-commerces-chips-program-announces-letter-intent-usa-rare-earth",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:45.323319",
+    "item": {
+      "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
+      "summary": "",
+      "publish_date": "January 12, 2026",
+      "publish_date_raw": "2026-01-12",
+      "link": "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:46.636971",
+    "item": {
+      "title": "NIST Launches Centers for AI in Manufacturing and Critical Infrastructure",
+      "summary": "",
+      "publish_date": "December 22, 2025",
+      "publish_date_raw": "2025-12-22",
+      "link": "https://www.nist.gov/news-events/news/2025/12/nist-launches-centers-ai-manufacturing-and-critical-infrastructure",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:48.001910",
+    "item": {
+      "title": "NIST Physicists Bring Unruly Molecules to the Quantum Party",
+      "summary": "",
+      "publish_date": "December 18, 2025",
+      "publish_date_raw": "2025-12-18",
+      "link": "https://www.nist.gov/news-events/news/2025/12/nist-physicists-bring-unruly-molecules-quantum-party",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:49.387628",
+    "item": {
+      "title": "Securing Smart Speakers for Home Health Care: NIST Offers New Guidelines",
+      "summary": "",
+      "publish_date": "December 17, 2025",
+      "publish_date_raw": "2025-12-17",
+      "link": "https://www.nist.gov/news-events/news/2025/12/securing-smart-speakers-home-health-care-nist-offers-new-guidelines",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:50.856321",
+    "item": {
+      "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
+      "summary": "",
+      "publish_date": "December 16, 2025",
+      "publish_date_raw": "2025-12-16",
+      "link": "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:52.140605",
+    "item": {
+      "title": "Department of Commerce Announces Transition of Baldrige Performance Excellence Program",
+      "summary": "",
+      "publish_date": "December 11, 2025",
+      "publish_date_raw": "2025-12-11",
+      "link": "https://www.nist.gov/news-events/news/2025/12/department-commerce-announces-transition-baldrige-performance-excellence",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:53.048528",
+    "item": {
+      "title": "New Music Captures NIST\u2019s Essence, Measure for Measure",
+      "summary": "",
+      "publish_date": "March 3, 2026",
+      "publish_date_raw": "2026-03-03",
+      "link": "https://www.nist.gov/blogs/taking-measure/new-music-captures-nists-essence-measure-measure",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:54.689816",
+    "item": {
+      "title": "Putting Einstein to the Test With the World\u2019s Most Accurate Clocks",
+      "summary": "",
+      "publish_date": "February 25, 2026",
+      "publish_date_raw": "2026-02-25",
+      "link": "https://www.nist.gov/blogs/taking-measure/putting-einstein-test-worlds-most-accurate-clocks",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:55.736684",
+    "item": {
+      "title": "Checkup Time! How Measurement Science Keeps You Healthy",
+      "summary": "",
+      "publish_date": "February 18, 2026",
+      "publish_date_raw": "2026-02-18",
+      "link": "https://www.nist.gov/blogs/taking-measure/checkup-time-how-measurement-science-keeps-you-healthy",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17 21:59:56.970301",
+    "item": {
+      "title": "How Thousands of Tiny Dots Can Save First Responders\u2019 Lives",
+      "summary": "",
+      "publish_date": "February 4, 2026",
+      "publish_date_raw": "2026-02-04",
+      "link": "https://www.nist.gov/blogs/taking-measure/how-thousands-tiny-dots-can-save-first-responders-lives",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-17T21:59:58.311291",
+    "item": {
+      "title": "Finding PFAS Wherever They\u2019re Hiding",
+      "summary": "Forever chemicals are everywhere, but they\u2019re really hard to measure. NIST scientists are helping.",
+      "publish_date": "March 28, 2024",
+      "publish_date_raw": "2024-03-28",
+      "link": "https://www.nist.gov/feature-stories/finding-forever-chemicals-wherever-theyre-hiding",
+      "resource_type": "Post-Quantum Cryptography News"
     }
   }
 ]
