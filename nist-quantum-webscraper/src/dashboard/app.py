@@ -21,6 +21,7 @@ try:
     from scraper.presentations_scraper import scrape_presentations
     from scraper.news_scraper import scrape_news
     from scraper.pqc_scraper import scrape_all_pqc_data
+    from scraper.ai_scraper import scrape_all_ai_data
     from data.data_storage import DataStorage
 except ImportError as e:
     print(f"Import error: {e}")
@@ -35,6 +36,7 @@ except ImportError as e:
         from src.scraper.presentations_scraper import scrape_presentations
         from src.scraper.news_scraper import scrape_news
         from src.scraper.pqc_scraper import scrape_all_pqc_data
+        from src.scraper.ai_scraper import scrape_all_ai_data
         from src.data.data_storage import DataStorage
     except ImportError as e2:
         print(f"Absolute import error: {e2}")
@@ -72,6 +74,12 @@ except ImportError as e:
         pqc_scraper = importlib.util.module_from_spec(spec4)
         spec4.loader.exec_module(pqc_scraper)
         scrape_all_pqc_data = pqc_scraper.scrape_all_pqc_data
+
+        ai_scraper_path = os.path.join(src_dir, 'scraper', 'ai_scraper.py')
+        spec_ai = importlib.util.spec_from_file_location("ai_scraper", ai_scraper_path)
+        ai_scraper = importlib.util.module_from_spec(spec_ai)
+        spec_ai.loader.exec_module(ai_scraper)
+        scrape_all_ai_data = ai_scraper.scrape_all_ai_data
         
         data_storage_path = os.path.join(src_dir, 'data', 'data_storage.py')
         spec5 = importlib.util.spec_from_file_location("data_storage", data_storage_path)
@@ -84,7 +92,7 @@ def main():
     
     # Sidebar navigation
     st.sidebar.title("🔬 Navigation")
-    page = st.sidebar.selectbox("Choose a page:", ["Quantum Information Science", "Post-Quantum Cryptography"])
+    page = st.sidebar.selectbox("Choose a page:", ["Quantum Information Science", "Post-Quantum Cryptography", "Artificial Intelligence"])
     
     if page == "Quantum Information Science":
         st.title("🔬 NIST Quantum Information Science Tracker")
@@ -611,6 +619,117 @@ def main():
         st.sidebar.divider()
         st.sidebar.caption(f"PQC Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
+    elif page == "Artificial Intelligence":
+        st.title("🤖 NIST Artificial Intelligence Tracker")
+        storage_dir = os.path.join(os.path.dirname(__file__), 'data_storage')
+        storage = DataStorage(storage_dir=storage_dir)
+        st.sidebar.header("Notifications")
+
+        with st.spinner('Scraping Artificial Intelligence data...'):
+            ai_data = scrape_all_ai_data()
+            ai_publications = ai_data.get('publications', [])
+            ai_presentations = ai_data.get('presentations', [])
+            ai_news = ai_data.get('news', [])
+
+        cutoff = datetime.now() - timedelta(days=365)
+        def _keep_recent(items, date_key):
+            output = []
+            for item in items:
+                raw = item.get(date_key, '')
+                if not raw:
+                    continue
+                dt = None
+                try:
+                    dt = datetime.fromisoformat(raw)
+                except Exception:
+                    try:
+                        dt = datetime.strptime(raw, '%B %d, %Y')
+                    except Exception:
+                        continue
+                if dt.tzinfo:
+                    dt = dt.replace(tzinfo=None)
+                if dt >= cutoff:
+                    output.append(item)
+            return output
+
+        ai_publications = _keep_recent(ai_publications, 'release_date_raw')
+        ai_presentations = _keep_recent(ai_presentations, 'release_date')
+        ai_news = _keep_recent(ai_news, 'publish_date_raw')
+
+        new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
+        new_ai_pres = storage.get_new_items('ai_presentations', ai_presentations)
+        new_ai_news = storage.get_new_items('ai_news', ai_news)
+
+        for pub in new_ai_pubs:
+            storage.add_notification('ai_publication', pub)
+        for pres in new_ai_pres:
+            storage.add_notification('ai_presentation', pres)
+        for article in new_ai_news:
+            storage.add_notification('ai_news', article)
+
+        all_notifications = storage.load_notifications()
+        ai_notifications = [n for n in all_notifications if n.get('type', '').startswith('ai_')]
+
+        st.sidebar.write(f"AI notifications: {len(ai_notifications)}")
+        for notif in ai_notifications[-12:]:
+            item = notif.get('item', {})
+            if notif.get('type') == 'ai_publication':
+                st.sidebar.write(f"📄 {item.get('document_name', '')}")
+            elif notif.get('type') == 'ai_presentation':
+                st.sidebar.write(f"🎤 {item.get('document_name', '')}")
+            else:
+                st.sidebar.write(f"📰 {item.get('title', '')}")
+
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.header("📄 AI Publications")
+            st.write(f"Total: {len(ai_publications)}")
+            if new_ai_pubs:
+                st.success(f"🆕 {len(new_ai_pubs)} new publication(s)")
+            for pub in ai_publications:
+                title = pub.get('document_name', 'AI Publication')
+                category = pub.get('category', '')
+                header = f"{category}: {title}" if category else title
+                with st.expander(header):
+                    if pub.get('summary'):
+                        st.info(f"**Summary:** {pub['summary']}")
+                    if pub.get('release_date'):
+                        st.write(f"**Published:** {pub['release_date']}")
+                    if pub.get('link'):
+                        st.markdown(f"[📄 View Document]({pub['link']})")
+
+        with col2:
+            st.header("🎤 AI Presentations")
+            st.write(f"Total: {len(ai_presentations)}")
+            if new_ai_pres:
+                st.success(f"🆕 {len(new_ai_pres)} new presentation(s)")
+            for pres in ai_presentations:
+                label = pres.get('document_name', 'AI Presentation')
+                with st.expander(label):
+                    st.write(f"**Status:** {pres.get('status', '')}")
+                    if pres.get('release_date'):
+                        st.write(f"**Published:** {pres['release_date']}")
+                    if pres.get('link'):
+                        st.markdown(f"[🎤 View Presentation]({pres['link']})")
+
+        with col3:
+            st.header("📰 AI News")
+            st.write(f"Total: {len(ai_news)}")
+            if new_ai_news:
+                st.success(f"🆕 {len(new_ai_news)} new news item(s)")
+            for article in ai_news:
+                title = article.get('title', 'AI News')
+                with st.expander(title):
+                    if article.get('summary'):
+                        st.info(f"**Summary:** {article['summary']}")
+                    if article.get('publish_date'):
+                        st.write(f"**Published:** {article['publish_date']}")
+                    if article.get('link'):
+                        st.markdown(f"[📰 Read Article]({article['link']})")
+
+        st.sidebar.divider()
+        st.sidebar.caption(f"AI Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+
     else:
         # Display regular Quantum Information Science data sections
         col1, col2, col3 = st.columns(3)

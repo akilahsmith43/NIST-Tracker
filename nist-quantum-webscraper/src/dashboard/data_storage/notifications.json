@@ -17838,7 +17838,7 @@
   },
   {
     "type": "pqc_news",
-    "timestamp": "2026-03-19T12:33:41.202431",
+    "timestamp": "2026-03-19 12:33:41.202431",
     "item": {
       "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
       "summary": "",
@@ -17914,7 +17914,7 @@
   },
   {
     "type": "pqc_publication",
-    "timestamp": "2026-03-19T16:07:04.464689",
+    "timestamp": "2026-03-19 16:07:04.464689",
     "item": {
       "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
       "document_number": "",
@@ -17927,5 +17927,1727 @@
       "category": "Drafts"
     },
     "scrape_date": "2026-03-19T16:07:04.464692"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.323932",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "document_number": "",
+      "series": "AI",
+      "release_date": "3/24/2025",
+      "release_date_raw": "2025-03-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Final Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.323938"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.339429",
+    "item": {
+      "document_name": "Developing the NCCoE Chatbot: Technical and Security Learnings from the Initial Implementation",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/31/2025",
+      "release_date_raw": "2025-07-31",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.339434"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.352383",
+    "item": {
+      "document_name": "Can AI Fix Buggy Code? Exploring the Use of Large Language Models in Automated Program Repair",
+      "document_number": "",
+      "series": "Journal Article",
+      "release_date": "6/26/2025",
+      "release_date_raw": "2025-06-26",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.352387"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.364861",
+    "item": {
+      "document_name": "Hallucination Detection in Large Language Models Using Diversion Decoding",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/24/2025",
+      "release_date_raw": "2025-06-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.364864"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.377367",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "2/05/2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.377369"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.390373",
+    "item": {
+      "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "1/30/2026",
+      "release_date_raw": "2026-01-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.390375"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.402261",
+    "item": {
+      "document_name": "Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile): NIST Community Profile",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "12/16/2025",
+      "release_date_raw": "2025-12-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.402263"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.414814",
+    "item": {
+      "document_name": "Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/05/2025",
+      "release_date_raw": "2025-06-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.414816"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.428686",
+    "item": {
+      "document_name": "Data Frequency Coverage Impact on AI Performance",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "4/15/2025",
+      "release_date_raw": "2025-04-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.428690"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.443147",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:09.443151"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.456286",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:09.456290"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.468689",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "2/05/2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:09.468692"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.481828",
+    "item": {
+      "document_name": "Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile): NIST Community Profile",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "12/16/2025",
+      "release_date_raw": "2025-12-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:09.481830"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.494939",
+    "item": {
+      "document_name": "Developing the NCCoE Chatbot: Technical and Security Learnings from the Initial Implementation",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/31/2025",
+      "release_date_raw": "2025-07-31",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:09.494941"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.507926",
+    "item": {
+      "document_name": "Secure Software Development, Security, and Operations (DevSecOps) Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "7/30/2025",
+      "release_date_raw": "2025-07-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:09.507928"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.520792",
+    "item": {
+      "document_name": "On the Use of Machine Learning for the Development of an Acoustic-based Detection System for Early-Stage Thermal Runaway",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 15, 2026",
+      "release_date_raw": "2026-03-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.520795"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.533376",
+    "item": {
+      "document_name": "Challenges to the monitoring of deployed AI systems: Center for AI Standards and Innovation",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 6, 2026",
+      "release_date_raw": "2026-03-06",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.533378"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.546412",
+    "item": {
+      "document_name": "TREC 2025 Ad-hoc Video Search (AVS) Track Overview",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 15, 2026",
+      "release_date_raw": "2026-02-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.546415"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.559865",
+    "item": {
+      "document_name": "Application of Artificial Intelligence in Supply Chain Management - Opportunities and Challenges, a Workshop Report",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 9, 2026",
+      "release_date_raw": "2026-02-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.559868"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.572800",
+    "item": {
+      "document_name": "Machine Learning Based Forecasting for Building Fires",
+      "document_number": "",
+      "series": "",
+      "release_date": "January 9, 2026",
+      "release_date_raw": "2026-01-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.572803"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.585439",
+    "item": {
+      "document_name": "AI-Driven Antimicrobial Peptide Characterization Unveils Novel Motifs for Drug Design",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 29, 2025",
+      "release_date_raw": "2025-12-29",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.585441"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.598346",
+    "item": {
+      "document_name": "An Improved Robotic Workcell for Operational Technology (OT) Research",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 18, 2025",
+      "release_date_raw": "2025-12-18",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.598349"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.610964",
+    "item": {
+      "document_name": "Robust AI Security and Alignment: A Sisyphean Endeavor?",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 12, 2025",
+      "release_date_raw": "2025-12-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.610966"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.623978",
+    "item": {
+      "document_name": "Advancing Technical Language Processing and Large Language Models in Industrial Applications: Insights from TLP COI Events in 2024",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 2, 2025",
+      "release_date_raw": "2025-12-02",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.623980"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.636931",
+    "item": {
+      "document_name": "2025 NIST GenAI Text Challenge Evaluation Plan",
+      "document_number": "",
+      "series": "",
+      "release_date": "September 18, 2025",
+      "release_date_raw": "2025-09-18",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.636933"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.649601",
+    "item": {
+      "document_name": "EVALUATING IDENTITY LEAKAGE IN SPEAKER DE-IDENTIFICATION SYSTEMS",
+      "document_number": "",
+      "series": "",
+      "release_date": "August 21, 2025",
+      "release_date_raw": "2025-08-21",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.649603"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.662495",
+    "item": {
+      "document_name": "From Traditional Topic Models to LLM Topic Models: Can Large Language Models Replace Traditional Topic Models?",
+      "document_number": "",
+      "series": "",
+      "release_date": "August 1, 2025",
+      "release_date_raw": "2025-08-01",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.662498"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.675728",
+    "item": {
+      "document_name": "NIST AI Use Scenarios Library: Developing Repeatable AI Evaluations and Metrics",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 23, 2025",
+      "release_date_raw": "2025-07-23",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.675731"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.688516",
+    "item": {
+      "document_name": "2025 NIST GenAI (Pilot): Code Challenge Evaluation Plan",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 16, 2025",
+      "release_date_raw": "2025-07-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.688519"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.701153",
+    "item": {
+      "document_name": "Quasi-Deterministic Channel Propagation Model for Human Sensing: Gesture Recognition Use Case",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 9, 2025",
+      "release_date_raw": "2025-07-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.701155"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.714276",
+    "item": {
+      "document_name": "Can AI Fix Buggy Code? Exploring the Use of Large Language Models in Automated Program Repair",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 26, 2025",
+      "release_date_raw": "2025-06-26",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.714278"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.727003",
+    "item": {
+      "document_name": "2024 NIST GenAI (Pilot Study): Text-to-Text Evaluation Overview and Results",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 25, 2025",
+      "release_date_raw": "2025-06-25",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.727005"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.739564",
+    "item": {
+      "document_name": "Hallucination Detection in Large Language Models Using Diversion Decoding",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 24, 2025",
+      "release_date_raw": "2025-06-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.739565"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.752321",
+    "item": {
+      "document_name": "Analog end-to-end adaptive training with locally-updated physical gradients on integrated photonic platform",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 22, 2025",
+      "release_date_raw": "2025-06-22",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.752322"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.765087",
+    "item": {
+      "document_name": "Gradient Descent in Recurrent Neural Networks with Model-Free Multiplexed Gradient Descent: Toward Temporal On-Chip Neuromorphic Learning",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 12, 2025",
+      "release_date_raw": "2025-06-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.765088"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.777759",
+    "item": {
+      "document_name": "Explaining poisoned AI models",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 11, 2025",
+      "release_date_raw": "2025-06-11",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.777761"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.790479",
+    "item": {
+      "document_name": "Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 5, 2025",
+      "release_date_raw": "2025-06-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.790480"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.803006",
+    "item": {
+      "document_name": "NIST GenAI (Pilot): an Overview of Text-to-Text Evaluation Results",
+      "document_number": "",
+      "series": "",
+      "release_date": "May 5, 2025",
+      "release_date_raw": "2025-05-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.803008"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.815963",
+    "item": {
+      "document_name": "A Plan for Global Engagement on AI Standards",
+      "document_number": "",
+      "series": "",
+      "release_date": "April 29, 2025",
+      "release_date_raw": "2025-04-29",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.815964"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:09.828821",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 24, 2025",
+      "release_date_raw": "2025-03-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:09.828823"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.841886",
+    "item": {
+      "document_name": "Agentic AI: Emerging Threats, Mitigations, and Challenges",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "January 21, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:09.841888"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.854680",
+    "item": {
+      "document_name": "AI in Cybersecurity - Historical Aspects",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 21, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.854683"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.867440",
+    "item": {
+      "document_name": "MITRE ATLAS: Real World AI Security Attacks and Community Capabilities",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.867441"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.880377",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 14, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.880379"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.893257",
+    "item": {
+      "document_name": "US Air Force Experience Collecting SBOMs for High Performance Computing and AI/Machine Learning",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 13, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.893259"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.910692",
+    "item": {
+      "document_name": "Illuminating AI Usage in Software Supply Chains",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.910694"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.925173",
+    "item": {
+      "document_name": "Cybersecurity X AI Panel",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:09.925178"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.938295",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "February 4, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:09.938298"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:09.950911",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "February 18, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:09.950914"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:09.964595",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:09.964599"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:09.977595",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "summary": "",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:09.977597"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:09.990789",
+    "item": {
+      "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
+      "summary": "",
+      "publish_date": "January 12, 2026",
+      "publish_date_raw": "2026-01-12",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:09.990791"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:10.003463",
+    "item": {
+      "title": "NIST Launches Centers for AI in Manufacturing and Critical Infrastructure",
+      "summary": "",
+      "publish_date": "December 22, 2025",
+      "publish_date_raw": "2025-12-22",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:10.003466"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:10.015946",
+    "item": {
+      "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
+      "summary": "",
+      "publish_date": "December 16, 2025",
+      "publish_date_raw": "2025-12-16",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:10.015948"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:10.028858",
+    "item": {
+      "title": "CAISI Evaluation of DeepSeek AI Models Finds Shortcomings and Risks",
+      "summary": "",
+      "publish_date": "September 30, 2025",
+      "publish_date_raw": "2025-09-30",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:10.028860"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:10.041702",
+    "item": {
+      "title": "NIST Issues Broad Agency Announcement for Proposals to Advance Microelectronics Technologies",
+      "summary": "",
+      "publish_date": "September 24, 2025",
+      "publish_date_raw": "2025-09-24",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:10.041704"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:10.054609",
+    "item": {
+      "title": "NIST Awards Over $1.8 Million to Small Businesses Advancing AI, Semiconductors, Additive Manufacturing and More",
+      "summary": "",
+      "publish_date": "August 18, 2025",
+      "publish_date_raw": "2025-08-18",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:10.054612"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.178755",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "document_number": "",
+      "series": "AI",
+      "release_date": "3/24/2025",
+      "release_date_raw": "2025-03-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Final Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:28.178761"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.251215",
+    "item": {
+      "document_name": "Developing the NCCoE Chatbot: Technical and Security Learnings from the Initial Implementation",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/31/2025",
+      "release_date_raw": "2025-07-31",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.251223"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.419045",
+    "item": {
+      "document_name": "Can AI Fix Buggy Code? Exploring the Use of Large Language Models in Automated Program Repair",
+      "document_number": "",
+      "series": "Journal Article",
+      "release_date": "6/26/2025",
+      "release_date_raw": "2025-06-26",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.419052"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.541379",
+    "item": {
+      "document_name": "Hallucination Detection in Large Language Models Using Diversion Decoding",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/24/2025",
+      "release_date_raw": "2025-06-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.541386"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.556480",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "2/05/2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.556485"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.648492",
+    "item": {
+      "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "1/30/2026",
+      "release_date_raw": "2026-01-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.648499"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.809376",
+    "item": {
+      "document_name": "Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile): NIST Community Profile",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "12/16/2025",
+      "release_date_raw": "2025-12-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.809382"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:28.967309",
+    "item": {
+      "document_name": "Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/05/2025",
+      "release_date_raw": "2025-06-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:28.967315"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.008560",
+    "item": {
+      "document_name": "Data Frequency Coverage Impact on AI Performance",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "4/15/2025",
+      "release_date_raw": "2025-04-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:29.008566"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.053165",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:25:29.053170"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.094914",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:29.094920"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.159783",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "2/05/2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:29.159789"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.221625",
+    "item": {
+      "document_name": "Cybersecurity Framework Profile for Artificial Intelligence (Cyber AI Profile): NIST Community Profile",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "12/16/2025",
+      "release_date_raw": "2025-12-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:29.221630"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.297724",
+    "item": {
+      "document_name": "Developing the NCCoE Chatbot: Technical and Security Learnings from the Initial Implementation",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/31/2025",
+      "release_date_raw": "2025-07-31",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:29.297730"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.345249",
+    "item": {
+      "document_name": "Secure Software Development, Security, and Operations (DevSecOps) Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "7/30/2025",
+      "release_date_raw": "2025-07-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:25:29.345254"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.523657",
+    "item": {
+      "document_name": "On the Use of Machine Learning for the Development of an Acoustic-based Detection System for Early-Stage Thermal Runaway",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 15, 2026",
+      "release_date_raw": "2026-03-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.523663"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.550448",
+    "item": {
+      "document_name": "Challenges to the monitoring of deployed AI systems: Center for AI Standards and Innovation",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 6, 2026",
+      "release_date_raw": "2026-03-06",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.550454"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.717353",
+    "item": {
+      "document_name": "TREC 2025 Ad-hoc Video Search (AVS) Track Overview",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 15, 2026",
+      "release_date_raw": "2026-02-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.717359"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.771052",
+    "item": {
+      "document_name": "Application of Artificial Intelligence in Supply Chain Management - Opportunities and Challenges, a Workshop Report",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 9, 2026",
+      "release_date_raw": "2026-02-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.771059"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.848010",
+    "item": {
+      "document_name": "Machine Learning Based Forecasting for Building Fires",
+      "document_number": "",
+      "series": "",
+      "release_date": "January 9, 2026",
+      "release_date_raw": "2026-01-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.848018"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:29.958086",
+    "item": {
+      "document_name": "AI-Driven Antimicrobial Peptide Characterization Unveils Novel Motifs for Drug Design",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 29, 2025",
+      "release_date_raw": "2025-12-29",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:29.958092"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.046129",
+    "item": {
+      "document_name": "An Improved Robotic Workcell for Operational Technology (OT) Research",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 18, 2025",
+      "release_date_raw": "2025-12-18",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.046137"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.184408",
+    "item": {
+      "document_name": "Robust AI Security and Alignment: A Sisyphean Endeavor?",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 12, 2025",
+      "release_date_raw": "2025-12-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.184417"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.252890",
+    "item": {
+      "document_name": "Advancing Technical Language Processing and Large Language Models in Industrial Applications: Insights from TLP COI Events in 2024",
+      "document_number": "",
+      "series": "",
+      "release_date": "December 2, 2025",
+      "release_date_raw": "2025-12-02",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.252897"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.274063",
+    "item": {
+      "document_name": "2025 NIST GenAI Text Challenge Evaluation Plan",
+      "document_number": "",
+      "series": "",
+      "release_date": "September 18, 2025",
+      "release_date_raw": "2025-09-18",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.274068"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.344798",
+    "item": {
+      "document_name": "EVALUATING IDENTITY LEAKAGE IN SPEAKER DE-IDENTIFICATION SYSTEMS",
+      "document_number": "",
+      "series": "",
+      "release_date": "August 21, 2025",
+      "release_date_raw": "2025-08-21",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.344803"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.467134",
+    "item": {
+      "document_name": "From Traditional Topic Models to LLM Topic Models: Can Large Language Models Replace Traditional Topic Models?",
+      "document_number": "",
+      "series": "",
+      "release_date": "August 1, 2025",
+      "release_date_raw": "2025-08-01",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.467139"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.488468",
+    "item": {
+      "document_name": "NIST AI Use Scenarios Library: Developing Repeatable AI Evaluations and Metrics",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 23, 2025",
+      "release_date_raw": "2025-07-23",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.488473"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.616720",
+    "item": {
+      "document_name": "2025 NIST GenAI (Pilot): Code Challenge Evaluation Plan",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 16, 2025",
+      "release_date_raw": "2025-07-16",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.616726"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.703127",
+    "item": {
+      "document_name": "Quasi-Deterministic Channel Propagation Model for Human Sensing: Gesture Recognition Use Case",
+      "document_number": "",
+      "series": "",
+      "release_date": "July 9, 2025",
+      "release_date_raw": "2025-07-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.703134"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:30.910341",
+    "item": {
+      "document_name": "Can AI Fix Buggy Code? Exploring the Use of Large Language Models in Automated Program Repair",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 26, 2025",
+      "release_date_raw": "2025-06-26",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:30.910349"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.009880",
+    "item": {
+      "document_name": "2024 NIST GenAI (Pilot Study): Text-to-Text Evaluation Overview and Results",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 25, 2025",
+      "release_date_raw": "2025-06-25",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.009887"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.119179",
+    "item": {
+      "document_name": "Hallucination Detection in Large Language Models Using Diversion Decoding",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 24, 2025",
+      "release_date_raw": "2025-06-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.119186"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.187998",
+    "item": {
+      "document_name": "Analog end-to-end adaptive training with locally-updated physical gradients on integrated photonic platform",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 22, 2025",
+      "release_date_raw": "2025-06-22",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.188004"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.257701",
+    "item": {
+      "document_name": "Gradient Descent in Recurrent Neural Networks with Model-Free Multiplexed Gradient Descent: Toward Temporal On-Chip Neuromorphic Learning",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 12, 2025",
+      "release_date_raw": "2025-06-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.257707"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.305913",
+    "item": {
+      "document_name": "Explaining poisoned AI models",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 11, 2025",
+      "release_date_raw": "2025-06-11",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.305920"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.371522",
+    "item": {
+      "document_name": "Exploring Prompt Patterns for Effective Vulnerability Repair in Real-World Code by Large Language Models",
+      "document_number": "",
+      "series": "",
+      "release_date": "June 5, 2025",
+      "release_date_raw": "2025-06-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.371527"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.515780",
+    "item": {
+      "document_name": "NIST GenAI (Pilot): an Overview of Text-to-Text Evaluation Results",
+      "document_number": "",
+      "series": "",
+      "release_date": "May 5, 2025",
+      "release_date_raw": "2025-05-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.515786"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.537554",
+    "item": {
+      "document_name": "A Plan for Global Engagement on AI Standards",
+      "document_number": "",
+      "series": "",
+      "release_date": "April 29, 2025",
+      "release_date_raw": "2025-04-29",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.537558"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-19 16:25:31.550580",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 24, 2025",
+      "release_date_raw": "2025-03-24",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-19T16:25:31.550583"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.582053",
+    "item": {
+      "document_name": "Agentic AI: Emerging Threats, Mitigations, and Challenges",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "January 21, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:31.582058"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.671549",
+    "item": {
+      "document_name": "AI in Cybersecurity - Historical Aspects",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 21, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:31.671554"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.752027",
+    "item": {
+      "document_name": "MITRE ATLAS: Real World AI Security Attacks and Community Capabilities",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:31.752033"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.788289",
+    "item": {
+      "document_name": "Adversarial Machine Learning: A Taxonomy and Terminology of Attacks and Mitigations",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 14, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:31.788294"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.930446",
+    "item": {
+      "document_name": "US Air Force Experience Collecting SBOMs for High Performance Computing and AI/Machine Learning",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "May 13, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:31.930452"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:31.993061",
+    "item": {
+      "document_name": "Illuminating AI Usage in Software Supply Chains",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:31.993067"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:32.100832",
+    "item": {
+      "document_name": "Cybersecurity X AI Panel",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "September 9, 2025"
+    },
+    "scrape_date": "2026-03-19T16:25:32.100838"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:32.225644",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "February 4, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:32.225651"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-19 16:25:32.315554",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov",
+      "release_date": "February 18, 2026"
+    },
+    "scrape_date": "2026-03-19T16:25:32.315560"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:32.510376",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:32.510382"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:32.542444",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "summary": "",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:32.542451"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:32.605398",
+    "item": {
+      "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
+      "summary": "",
+      "publish_date": "January 12, 2026",
+      "publish_date_raw": "2026-01-12",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:32.605405"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:32.773170",
+    "item": {
+      "title": "NIST Launches Centers for AI in Manufacturing and Critical Infrastructure",
+      "summary": "",
+      "publish_date": "December 22, 2025",
+      "publish_date_raw": "2025-12-22",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:32.773177"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:32.900473",
+    "item": {
+      "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
+      "summary": "",
+      "publish_date": "December 16, 2025",
+      "publish_date_raw": "2025-12-16",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:32.900479"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:33.005275",
+    "item": {
+      "title": "CAISI Evaluation of DeepSeek AI Models Finds Shortcomings and Risks",
+      "summary": "",
+      "publish_date": "September 30, 2025",
+      "publish_date_raw": "2025-09-30",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:33.005281"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19 16:25:33.132940",
+    "item": {
+      "title": "NIST Issues Broad Agency Announcement for Proposals to Advance Microelectronics Technologies",
+      "summary": "",
+      "publish_date": "September 24, 2025",
+      "publish_date_raw": "2025-09-24",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:33.132946"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-19T16:25:33.257366",
+    "item": {
+      "title": "NIST Awards Over $1.8 Million to Small Businesses Advancing AI, Semiconductors, Additive Manufacturing and More",
+      "summary": "",
+      "publish_date": "August 18, 2025",
+      "publish_date_raw": "2025-08-18",
+      "link": "https://www.nist.gov",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-19T16:25:33.257373"
   }
 ]
