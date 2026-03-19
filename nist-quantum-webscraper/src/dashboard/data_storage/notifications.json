@@ -17357,7 +17357,6 @@
     }
   },
   {
-<<<<<<< HEAD
     "type": "pqc_publication",
     "timestamp": "2026-03-19 12:33:40.869589",
     "item": {
@@ -17839,7 +17838,7 @@
   },
   {
     "type": "pqc_news",
-    "timestamp": "2026-03-19T15:54:18.022979",
+    "timestamp": "2026-03-19T12:33:41.202431",
     "item": {
       "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
       "summary": "",
@@ -17848,5 +17847,85 @@
       "link": "https://www.nist.gov/news-events/news/2026/03/nist-submits-annual-report-congress-summarizing-fy-2025-progress-national",
       "resource_type": "Post-Quantum Cryptography News"
     }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 16:07:04.411331",
+    "item": {
+      "document_name": "Recommendations for Key-Encapsulation Mechanisms",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "2025-09-18",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/227/final",
+      "summary": "",
+      "category": "Final Publications"
+    },
+    "scrape_date": "2026-03-19T16:07:04.411336"
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 16:07:04.424396",
+    "item": {
+      "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+      "document_number": "",
+      "series": "CSWP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "2025-09-18",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:07:04.424399"
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 16:07:04.438335",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-19T16:07:04.438340"
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 16:07:04.451127",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:07:04.451130"
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19T16:07:04.464689",
+    "item": {
+      "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+      "document_number": "",
+      "series": "CSWP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "2025-09-18",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-19T16:07:04.464692"
   }
 ]
