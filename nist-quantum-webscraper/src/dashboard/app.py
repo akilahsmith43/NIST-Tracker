@@ -435,112 +435,75 @@ def main():
     notification_count = len(all_notifications)
     
     if notification_count > 0:
-        # Separate notifications by type
-        pub_notifications = [n for n in all_notifications if n.get('type') == 'publication']
-        pres_notifications = [n for n in all_notifications if n.get('type') == 'presentation']
-        news_notifications = [n for n in all_notifications if n.get('type') == 'news']
+        # Get categorized notifications using the new method
+        categorized_notifications = storage.get_notifications_by_week()
+        week_1_notifications = categorized_notifications.get('week_1', [])
+        week_2_notifications = categorized_notifications.get('week_2', [])
         
-        # Separate by time periods — filter by the item's actual release/publish date,
-        # not by when it was first scraped (notification timestamp).
-        from datetime import datetime, timedelta
-        now = datetime.now()
-
-        def get_item_date(n):
-            """Return a naive datetime for the item's release/publish date, or None."""
-            item = n.get('item', {})
-            raw = item.get('release_date_raw') or item.get('publish_date_raw')
-            if raw:
-                try:
-                    d = datetime.fromisoformat(raw)
-                    return d.replace(tzinfo=None) if d.tzinfo else d
-                except Exception:
-                    pass
-            # fallback: presentations use a formatted string
-            rel = item.get('release_date')
-            if rel:
-                try:
-                    return datetime.strptime(rel, '%B %d, %Y')
-                except Exception:
-                    pass
-            return None
-
-        # Last week (7 days) — based on item release date
-        week_ago = now - timedelta(days=7)
-        week_notifications = [
-            n for n in all_notifications
-            if (d := get_item_date(n)) is not None and d >= week_ago
-        ]
-
-        week_pub = [n for n in week_notifications if n.get('type') == 'publication']
-        week_pres = [n for n in week_notifications if n.get('type') == 'presentation']
-        week_news = [n for n in week_notifications if n.get('type') == 'news']
-
-        # Last two weeks (14 days) — based on item release date
-        two_weeks_ago = now - timedelta(days=14)
-        two_week_notifications = [
-            n for n in all_notifications
-            if (d := get_item_date(n)) is not None and d >= two_weeks_ago
-        ]
-
-        two_week_pub = [n for n in two_week_notifications if n.get('type') == 'publication']
-        two_week_pres = [n for n in two_week_notifications if n.get('type') == 'presentation']
-        two_week_news = [n for n in two_week_notifications if n.get('type') == 'news']
+        # Separate by type for each week
+        week_1_pub = [n for n in week_1_notifications if n.get('type') == 'publication']
+        week_1_pres = [n for n in week_1_notifications if n.get('type') == 'presentation']
+        week_1_news = [n for n in week_1_notifications if n.get('type') == 'news']
         
-        # Last week section
-        st.sidebar.subheader("📅 Last Week (7 days)")
-        if week_notifications:
-            if week_pub:
+        week_2_pub = [n for n in week_2_notifications if n.get('type') == 'publication']
+        week_2_pres = [n for n in week_2_notifications if n.get('type') == 'presentation']
+        week_2_news = [n for n in week_2_notifications if n.get('type') == 'news']
+        
+        # Week 1 section (0-7 days)
+        st.sidebar.subheader("📅 Week 1 (0-7 days)")
+        if week_1_notifications:
+            if week_1_pub:
                 st.sidebar.write("**📄 Publications:**")
-                for notif in week_pub:
+                for notif in week_1_pub:
                     from html import escape
                     pub = notif.get('item', {})
                     title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
                     title = f"<span style=\"color:black\">{title}</span>"
                     st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
             
-            if week_pres:
+            if week_1_pres:
                 st.sidebar.write("**🎤 Presentations:**")
-                for notif in week_pres:
+                for notif in week_1_pres:
                     pres = notif.get('item', {})
                     st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
             
-            if week_news:
+            if week_1_news:
                 st.sidebar.write("**📰 News:**")
-                for notif in week_news:
+                for notif in week_1_news:
                     article = notif.get('item', {})
                     st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                     if article.get('summary'):
                         st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
         else:
-            st.sidebar.write("No new items in the last week.")
+            st.sidebar.write("No new items in Week 1.")
         
-        # Last two weeks section
-        st.sidebar.subheader("📅 Last Two Weeks (14 days)")
-        if two_week_notifications:
-            if two_week_pub:
+        # Week 2 section (8-14 days)
+        st.sidebar.subheader("📅 Week 2 (8-14 days)")
+        if week_2_notifications:
+            if week_2_pub:
                 st.sidebar.write("**📄 Publications:**")
-                for notif in two_week_pub:
+                for notif in week_2_pub:
                     from html import escape
                     pub = notif.get('item', {})
                     title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
                     title = f"<span style=\"color:black\">{title}</span>"
                     st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
             
-            if two_week_pres:
+            if week_2_pres:
                 st.sidebar.write("**🎤 Presentations:**")
-                for notif in two_week_pres:
+                for notif in week_2_pres:
                     pres = notif.get('item', {})
                     st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
             
-            if two_week_news:
+            if week_2_news:
                 st.sidebar.write("**📰 News:**")
-                for notif in two_week_news:
+                for notif in week_2_news:
                     article = notif.get('item', {})
                     st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                     if article.get('summary'):
                         st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
         else:
-            st.sidebar.write("No new items in the last two weeks.")
+            st.sidebar.write("No new items in Week 2.")
     else:
         st.sidebar.info("No new items found since last check.")
     
@@ -667,18 +630,83 @@ def main():
         for article in new_ai_news:
             storage.add_notification('ai_news', article)
 
+        # Get all AI notifications and organize by week
         all_notifications = storage.load_notifications()
         ai_notifications = [n for n in all_notifications if n.get('type', '').startswith('ai_')]
-
-        st.sidebar.write(f"AI notifications: {len(ai_notifications)}")
-        for notif in ai_notifications[-12:]:
-            item = notif.get('item', {})
-            if notif.get('type') == 'ai_publication':
-                st.sidebar.write(f"📄 {item.get('document_name', '')}")
-            elif notif.get('type') == 'ai_presentation':
-                st.sidebar.write(f"🎤 {item.get('document_name', '')}")
-            else:
-                st.sidebar.write(f"📰 {item.get('title', '')}")
+        
+        # Get categorized notifications using the new method
+        categorized_notifications = storage.get_notifications_by_week()
+        week_1_notifications = categorized_notifications.get('week_1', [])
+        week_2_notifications = categorized_notifications.get('week_2', [])
+        
+        # Filter to only AI notifications
+        week_1_ai = [n for n in week_1_notifications if n.get('type', '').startswith('ai_')]
+        week_2_ai = [n for n in week_2_notifications if n.get('type', '').startswith('ai_')]
+        
+        # Separate by type for each week
+        week_1_ai_pub = [n for n in week_1_ai if n.get('type') == 'ai_publication']
+        week_1_ai_pres = [n for n in week_1_ai if n.get('type') == 'ai_presentation']
+        week_1_ai_news = [n for n in week_1_ai if n.get('type') == 'ai_news']
+        
+        week_2_ai_pub = [n for n in week_2_ai if n.get('type') == 'ai_publication']
+        week_2_ai_pres = [n for n in week_2_ai if n.get('type') == 'ai_presentation']
+        week_2_ai_news = [n for n in week_2_ai if n.get('type') == 'ai_news']
+        
+        # Week 1 section (0-7 days)
+        st.sidebar.subheader("📅 Week 1 (0-7 days)")
+        if week_1_ai:
+            if week_1_ai_pub:
+                st.sidebar.write("**🤖 AI Publications:**")
+                for notif in week_1_ai_pub:
+                    from html import escape
+                    pub = notif.get('item', {})
+                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
+                    title = f"<span style=\"color:black\">{title}</span>"
+                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
+            
+            if week_1_ai_pres:
+                st.sidebar.write("**🤖 AI Presentations:**")
+                for notif in week_1_ai_pres:
+                    pres = notif.get('item', {})
+                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+            
+            if week_1_ai_news:
+                st.sidebar.write("**🤖 AI News:**")
+                for notif in week_1_ai_news:
+                    article = notif.get('item', {})
+                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
+                    if article.get('summary'):
+                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
+        else:
+            st.sidebar.write("No new AI items in Week 1.")
+        
+        # Week 2 section (8-14 days)
+        st.sidebar.subheader("📅 Week 2 (8-14 days)")
+        if week_2_ai:
+            if week_2_ai_pub:
+                st.sidebar.write("**🤖 AI Publications:**")
+                for notif in week_2_ai_pub:
+                    from html import escape
+                    pub = notif.get('item', {})
+                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
+                    title = f"<span style=\"color:black\">{title}</span>"
+                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
+            
+            if week_2_ai_pres:
+                st.sidebar.write("**🤖 AI Presentations:**")
+                for notif in week_2_ai_pres:
+                    pres = notif.get('item', {})
+                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+            
+            if week_2_ai_news:
+                st.sidebar.write("**🤖 AI News:**")
+                for notif in week_2_ai_news:
+                    article = notif.get('item', {})
+                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
+                    if article.get('summary'):
+                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
+        else:
+            st.sidebar.write("No new AI items in Week 2.")
 
         col1, col2, col3 = st.columns(3)
         with col1:
