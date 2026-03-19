@@ -205,11 +205,11 @@
     ],
     "news": [
       {
-        "title": "2 Health Care Organizations Will Receive 2025 Baldrige National Quality Awards",
+        "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
         "summary": "",
-        "publish_date": "February 19, 2026",
-        "publish_date_raw": "2026-02-19",
-        "link": "https://www.nist.gov/news-events/news/2026/02/2-health-care-organizations-will-receive-2025-baldrige-national-quality",
+        "publish_date": "March 19, 2026",
+        "publish_date_raw": "2026-03-19",
+        "link": "https://www.nist.gov/news-events/news/2026/03/nist-submits-annual-report-congress-summarizing-fy-2025-progress-national",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
@@ -253,6 +253,14 @@
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
+        "title": "Space: The Final Frontier for Standards",
+        "summary": "",
+        "publish_date": "February 9, 2026",
+        "publish_date_raw": "2026-02-09",
+        "link": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
+        "resource_type": "Post-Quantum Cryptography News"
+      },
+      {
         "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
         "summary": "",
         "publish_date": "January 12, 2026",
@@ -290,14 +298,6 @@
         "publish_date": "December 16, 2025",
         "publish_date_raw": "2025-12-16",
         "link": "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "Department of Commerce Announces Transition of Baldrige Performance Excellence Program",
-        "summary": "",
-        "publish_date": "December 11, 2025",
-        "publish_date_raw": "2025-12-11",
-        "link": "https://www.nist.gov/news-events/news/2025/12/department-commerce-announces-transition-baldrige-performance-excellence",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
@@ -342,7 +342,7 @@
       }
     ]
   },
-  "timestamp": "2026-03-18T18:36:19.667883",
+  "timestamp": "2026-03-19T15:54:18.041105",
   "counts": {
     "publications": 0,
     "presentations": 25,

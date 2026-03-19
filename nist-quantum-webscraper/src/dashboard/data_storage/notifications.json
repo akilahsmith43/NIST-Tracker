@@ -17357,6 +17357,7 @@
     }
   },
   {
+<<<<<<< HEAD
     "type": "pqc_publication",
     "timestamp": "2026-03-19 12:33:40.869589",
     "item": {
@@ -17838,7 +17839,7 @@
   },
   {
     "type": "pqc_news",
-    "timestamp": "2026-03-19T12:33:41.202431",
+    "timestamp": "2026-03-19T15:54:18.022979",
     "item": {
       "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
       "summary": "",
