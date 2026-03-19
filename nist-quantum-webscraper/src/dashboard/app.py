@@ -113,35 +113,15 @@ def main():
         # Sidebar for notifications
         st.sidebar.header("Notifications")
         
-        # Scrape PQC data
+        # Scrape PQC data - use ONLY the PQC-specific URLs
         with st.spinner('Scraping Post-Quantum Cryptography data...'):
+            # Get publications ONLY from PQC-specific URLs (past year only)
+            pqc_publications = scrape_all_pqc_data().get('publications', [])
+            
+            # Get PQC presentations and news from the general PQC scraper
             pqc_data = scrape_all_pqc_data()
-            pqc_publications = pqc_data.get('publications', [])
             pqc_presentations = pqc_data.get('presentations', [])
             pqc_news = pqc_data.get('news', [])
-        
-        # Use the new function to get publications from the past year only
-        with st.spinner('Scraping publications from the past year...'):
-            recent_pqc_pubs = scrape_publications_past_year()
-            # Merge with PQC publications and de-duplicate by link
-            seen_links = set()
-            all_pqc_publications = []
-            
-            # Add PQC publications first
-            for pub in pqc_publications:
-                link = pub.get('link', '')
-                if link and link not in seen_links:
-                    seen_links.add(link)
-                    all_pqc_publications.append(pub)
-            
-            # Add recent publications from the past year
-            for pub in recent_pqc_pubs:
-                link = pub.get('link', '')
-                if link and link not in seen_links:
-                    seen_links.add(link)
-                    all_pqc_publications.append(pub)
-            
-            pqc_publications = all_pqc_publications
 
         # keep only PQC presentations from the past year
         from datetime import datetime, timedelta
@@ -230,118 +210,94 @@ def main():
         # Save current PQC data
         storage.save_pqc_data(pqc_data)
         
-        # Display PQC notifications
+        # Display PQC notifications with two-tier system
         pqc_notification_count = len(all_pqc_notifications)
         
         if pqc_notification_count > 0:
-            # Separate PQC notifications by type
-            pqc_pub_notifications = [n for n in all_pqc_notifications if n.get('type') == 'pqc_publication']
-            pqc_pres_notifications = [n for n in all_pqc_notifications if n.get('type') == 'pqc_presentation']
-            pqc_news_notifications = [n for n in all_pqc_notifications if n.get('type') == 'pqc_news']
+            # Get categorized notifications using the new method
+            categorized_notifications = storage.get_notifications_by_week()
+            week_1_notifications = categorized_notifications.get('week_1', [])
+            week_2_notifications = categorized_notifications.get('week_2', [])
             
-            # Separate by time periods — filter by the item's actual release/publish date,
-            # not by when it was first scraped (notification timestamp).
-            from datetime import datetime, timedelta
-            now = datetime.now()
-
-            def get_pqc_item_date(n):
-                """Return a naive datetime for the PQC item's release/publish date, or None."""
-                item = n.get('item', {})
-                raw = item.get('release_date_raw') or item.get('publish_date_raw')
-                if raw:
-                    try:
-                        d = datetime.fromisoformat(raw)
-                        return d.replace(tzinfo=None) if d.tzinfo else d
-                    except Exception:
-                        pass
-                # fallback: presentations use a formatted string
-                rel = item.get('release_date')
-                if rel:
-                    try:
-                        return datetime.strptime(rel, '%B %d, %Y')
-                    except Exception:
-                        pass
-                return None
-
-            # Last week (7 days) — based on item release date
-            week_ago = now - timedelta(days=7)
-            week_pqc_notifications = [
-                n for n in all_pqc_notifications
-                if (d := get_pqc_item_date(n)) is not None and d >= week_ago
-            ]
-
-            week_pqc_pub = [n for n in week_pqc_notifications if n.get('type') == 'pqc_publication']
-            week_pqc_pres = [n for n in week_pqc_notifications if n.get('type') == 'pqc_presentation']
-            week_pqc_news = [n for n in week_pqc_notifications if n.get('type') == 'pqc_news']
-
-            # Last two weeks (14 days) — based on item release date
-            two_weeks_ago = now - timedelta(days=14)
-            two_week_pqc_notifications = [
-                n for n in all_pqc_notifications
-                if (d := get_pqc_item_date(n)) is not None and d >= two_weeks_ago
-            ]
-
-            two_week_pqc_pub = [n for n in two_week_pqc_notifications if n.get('type') == 'pqc_publication']
-            two_week_pqc_pres = [n for n in two_week_pqc_notifications if n.get('type') == 'pqc_presentation']
-            two_week_pqc_news = [n for n in two_week_pqc_notifications if n.get('type') == 'pqc_news']
+            # Separate by type for each week
+            week_1_pub = [n for n in week_1_notifications if n.get('type') == 'pqc_publication']
+            week_1_pres = [n for n in week_1_notifications if n.get('type') == 'pqc_presentation']
+            week_1_news = [n for n in week_1_notifications if n.get('type') == 'pqc_news']
             
-            # Last week section
-            st.sidebar.subheader("📅 Last Week (7 days)")
-            if week_pqc_notifications:
-                if week_pqc_pub:
+            week_2_pub = [n for n in week_2_notifications if n.get('type') == 'pqc_publication']
+            week_2_pres = [n for n in week_2_notifications if n.get('type') == 'pqc_presentation']
+            week_2_news = [n for n in week_2_notifications if n.get('type') == 'pqc_news']
+            
+            # Week 1 section (0-7 days)
+            st.sidebar.subheader("📅 Week 1 (0-7 days)")
+            if week_1_notifications:
+                if week_1_pub:
                     st.sidebar.write("**🔐 PQC Publications:**")
-                    for notif in week_pqc_pub:
+                    for notif in week_1_pub:
                         from html import escape
                         pub = notif.get('item', {})
                         title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
                         title = f"<span style=\"color:black\">{title}</span>"
                         st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
                 
-                if week_pqc_pres:
+                if week_1_pres:
                     st.sidebar.write("**🔐 PQC Presentations:**")
-                    for notif in week_pqc_pres:
+                    for notif in week_1_pres:
                         pres = notif.get('item', {})
                         st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
                 
-                if week_pqc_news:
+                if week_1_news:
                     st.sidebar.write("**🔐 PQC News:**")
-                    for notif in week_pqc_news:
+                    for notif in week_1_news:
                         article = notif.get('item', {})
                         st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                         if article.get('summary'):
                             st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
             else:
-                st.sidebar.write("No new PQC items in the last week.")
+                st.sidebar.write("No new PQC items in Week 1.")
             
-            # Last two weeks section
-            st.sidebar.subheader("📅 Last Two Weeks (14 days)")
-            if two_week_pqc_notifications:
-                if two_week_pqc_pub:
+            # Week 2 section (8-14 days)
+            st.sidebar.subheader("📅 Week 2 (8-14 days)")
+            if week_2_notifications:
+                if week_2_pub:
                     st.sidebar.write("**🔐 PQC Publications:**")
-                    for notif in two_week_pqc_pub:
+                    for notif in week_2_pub:
                         from html import escape
                         pub = notif.get('item', {})
                         title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
                         title = f"<span style=\"color:black\">{title}</span>"
                         st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
                 
-                if two_week_pqc_pres:
+                if week_2_pres:
                     st.sidebar.write("**🔐 PQC Presentations:**")
-                    for notif in two_week_pqc_pres:
+                    for notif in week_2_pres:
                         pres = notif.get('item', {})
                         st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
                 
-                if two_week_pqc_news:
+                if week_2_news:
                     st.sidebar.write("**🔐 PQC News:**")
-                    for notif in two_week_pqc_news:
+                    for notif in week_2_news:
                         article = notif.get('item', {})
                         st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                         if article.get('summary'):
                             st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
             else:
-                st.sidebar.write("No new PQC items in the last two weeks.")
+                st.sidebar.write("No new PQC items in Week 2.")
         else:
             st.sidebar.info("No new PQC items found since last check.")
+        
+        # Display last scrape information
+        scrape_info = storage.get_last_scrape_info()
+        st.sidebar.divider()
+        st.sidebar.subheader("📊 Scrape Session Info")
+        if scrape_info['last_scrape']:
+            from datetime import datetime
+            last_scrape_dt = datetime.fromisoformat(scrape_info['last_scrape'])
+            st.sidebar.write(f"**Last Scrape:** {last_scrape_dt.strftime('%Y-%m-%d %H:%M:%S')}")
+            st.sidebar.write(f"**Total Notifications:** {scrape_info['scrape_count']}")
+            st.sidebar.write(f"**New Items This Session:** {scrape_info['new_items_this_session']}")
+        else:
+            st.sidebar.write("**No scrape data available**")
     
     # keep only publications from the past year
     from datetime import datetime, timedelta

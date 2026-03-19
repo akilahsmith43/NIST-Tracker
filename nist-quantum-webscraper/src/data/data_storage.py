@@ -46,6 +46,51 @@ class DataStorage:
                 }
             }, f, indent=2)
     
+    def save_pqc_data_to_dashboard(self, data: Dict[str, List[Dict[str, Any]]]):
+        """Save Post-Quantum Cryptography data to dashboard data storage"""
+        dashboard_dir = f"{self.storage_dir}/dashboard/data_storage"
+        if not os.path.exists(dashboard_dir):
+            os.makedirs(dashboard_dir)
+        
+        print(f"DEBUG: save_pqc_data_to_dashboard called with {len(data.get('publications', []))} publications")
+        print(f"DEBUG: Dashboard directory: {dashboard_dir}")
+        
+        # Save publications (only the filtered ones from the past year)
+        if 'publications' in data:
+            filename = f"{dashboard_dir}/publications.json"
+            print(f"DEBUG: Saving {len(data['publications'])} publications to {filename}")
+            with open(filename, 'w') as f:
+                json.dump({
+                    'data': data['publications'],
+                    'timestamp': datetime.now().isoformat(),
+                    'count': len(data['publications'])
+                }, f, indent=2)
+            print(f"DEBUG: Publications saved successfully")
+        
+        # Save presentations
+        if 'presentations' in data:
+            filename = f"{dashboard_dir}/presentations.json"
+            print(f"DEBUG: Saving {len(data['presentations'])} presentations to {filename}")
+            with open(filename, 'w') as f:
+                json.dump({
+                    'data': data['presentations'],
+                    'timestamp': datetime.now().isoformat(),
+                    'count': len(data['presentations'])
+                }, f, indent=2)
+            print(f"DEBUG: Presentations saved successfully")
+        
+        # Save news
+        if 'news' in data:
+            filename = f"{dashboard_dir}/news.json"
+            print(f"DEBUG: Saving {len(data['news'])} news items to {filename}")
+            with open(filename, 'w') as f:
+                json.dump({
+                    'data': data['news'],
+                    'timestamp': datetime.now().isoformat(),
+                    'count': len(data['news'])
+                }, f, indent=2)
+            print(f"DEBUG: News saved successfully")
+    
     def load_pqc_data(self) -> Dict[str, Any]:
         """Load previously saved PQC data"""
         filename = f"{self.storage_dir}/pqc_data.json"
@@ -124,15 +169,105 @@ class DataStorage:
         """Add a new item to the persistent notifications"""
         notifications = self.load_notifications()
         
-        # Create notification entry
+        # Create notification entry with enhanced metadata
         notification = {
             'type': item_type,
             'timestamp': datetime.now().isoformat(),
-            'item': item
+            'item': item,
+            'scrape_date': datetime.now().isoformat()
         }
         
         notifications.append(notification)
         self.save_notifications(notifications)
+    
+    def get_notifications_by_week(self) -> Dict[str, List[Dict[str, Any]]]:
+        """Get notifications categorized by week (Week 1: 0-7 days, Week 2: 8-14 days)"""
+        notifications = self.load_notifications()
+        now = datetime.now()
+        categorized = {
+            'week_1': [],  # 0-7 days
+            'week_2': [],  # 8-14 days
+            'archived': []  # older than 14 days
+        }
+        
+        for n in notifications:
+            item = n.get('item', {})
+            item_date_str = None
+            
+            # Try to get the item's release/publish date
+            if item.get('release_date_raw'):
+                item_date_str = item['release_date_raw']  # ISO format date
+            elif item.get('publish_date_raw'):
+                item_date_str = item['publish_date_raw']  # ISO format date
+            
+            if item_date_str:
+                try:
+                    # Parse the ISO date
+                    item_date = datetime.fromisoformat(item_date_str)
+                    age_days = (now - item_date).days
+                    
+                    # Categorize based on age
+                    if 0 <= age_days <= 7:
+                        categorized['week_1'].append(n)
+                    elif 8 <= age_days <= 14:
+                        categorized['week_2'].append(n)
+                    else:
+                        categorized['archived'].append(n)
+                        
+                except Exception:
+                    # If parsing fails, skip this notification
+                    pass
+        
+        return categorized
+    
+    def get_last_scrape_info(self) -> Dict[str, Any]:
+        """Get information about the last scrape session"""
+        notifications = self.load_notifications()
+        if not notifications:
+            return {
+                'last_scrape': None,
+                'scrape_count': 0,
+                'new_items_this_session': 0
+            }
+        
+        # Get the most recent scrape date from notifications
+        scrape_dates = []
+        for n in notifications:
+            if n.get('scrape_date'):
+                try:
+                    scrape_dates.append(datetime.fromisoformat(n['scrape_date']))
+                except Exception:
+                    pass
+        
+        if not scrape_dates:
+            return {
+                'last_scrape': None,
+                'scrape_count': 0,
+                'new_items_this_session': 0
+            }
+        
+        last_scrape = max(scrape_dates)
+        scrape_count = len(notifications)
+        
+        # Count items from the last scrape session (same day)
+        today_start = last_scrape.replace(hour=0, minute=0, second=0, microsecond=0)
+        today_end = today_start.replace(hour=23, minute=59, second=59, microsecond=999999)
+        
+        new_items_this_session = 0
+        for n in notifications:
+            if n.get('scrape_date'):
+                try:
+                    scrape_date = datetime.fromisoformat(n['scrape_date'])
+                    if today_start <= scrape_date <= today_end:
+                        new_items_this_session += 1
+                except Exception:
+                    pass
+        
+        return {
+            'last_scrape': last_scrape.isoformat(),
+            'scrape_count': scrape_count,
+            'new_items_this_session': new_items_this_session
+        }
     
     def get_active_notifications(self) -> List[Dict[str, Any]]:
         """Get notifications where items were released within the last 48 hours"""

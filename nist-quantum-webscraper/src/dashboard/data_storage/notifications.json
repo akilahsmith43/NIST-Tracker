@@ -17346,13 +17346,505 @@
   },
   {
     "type": "pqc_news",
-    "timestamp": "2026-03-18T11:48:08.628408",
+    "timestamp": "2026-03-18 11:48:08.628408",
     "item": {
       "title": "How a Forensic Anthropologist Thinks About Human Remains Research \u2014 and What It Means for Our Humanity",
       "summary": "",
       "publish_date": "March 18, 2026",
       "publish_date_raw": "2026-03-18",
       "link": "https://www.nist.gov/blogs/taking-measure/how-forensic-anthropologist-thinks-about-human-remains-research-and-what-it",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.869589",
+    "item": {
+      "document_name": "Recommendations for Key-Encapsulation Mechanisms",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "9/18/2025",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/227/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.881563",
+    "item": {
+      "document_name": "Status Report on the Fourth Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "3/11/2025",
+      "release_date_raw": "3/11/2025",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8545/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.892768",
+    "item": {
+      "document_name": "Status Report on the First Round of the Additional Digital Signature Schemes for the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "10/24/2024",
+      "release_date_raw": "10/24/2024",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8528/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.903003",
+    "item": {
+      "document_name": "Module-Lattice-Based Key-Encapsulation Mechanism Standard",
+      "document_number": "",
+      "series": "FIPS",
+      "release_date": "8/13/2024",
+      "release_date_raw": "8/13/2024",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/fips/203/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.913802",
+    "item": {
+      "document_name": "Module-Lattice-Based Digital Signature Standard",
+      "document_number": "",
+      "series": "FIPS",
+      "release_date": "8/13/2024",
+      "release_date_raw": "8/13/2024",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/fips/204/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.925310",
+    "item": {
+      "document_name": "Stateless Hash-Based Digital Signature Standard",
+      "document_number": "",
+      "series": "FIPS",
+      "release_date": "8/13/2024",
+      "release_date_raw": "8/13/2024",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/fips/205/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.935659",
+    "item": {
+      "document_name": "Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "9/29/2022",
+      "release_date_raw": "9/29/2022",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8413/upd1/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.945193",
+    "item": {
+      "document_name": "Migration to Post-Quantum Cryptography",
+      "document_number": "",
+      "series": "Project Description",
+      "release_date": "8/04/2021",
+      "release_date_raw": "8/04/2021",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/pd/2021/08/04/migration-to-postquantum-cryptography/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.955034",
+    "item": {
+      "document_name": "Getting Ready for Post-Quantum Cryptography: Exploring Challenges Associated with Adopting and Using Post-Quantum Cryptographic Algorithms",
+      "document_number": "",
+      "series": "CSWP",
+      "release_date": "4/28/2021",
+      "release_date_raw": "4/28/2021",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/15/getting-ready-for-postquantum-cryptography/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.965335",
+    "item": {
+      "document_name": "Status Report on the Second Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/22/2020",
+      "release_date_raw": "7/22/2020",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8309/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.975618",
+    "item": {
+      "document_name": "Status Report on the First Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "1/31/2019",
+      "release_date_raw": "1/31/2019",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8240/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.985756",
+    "item": {
+      "document_name": "Vulnerabilities in Quantum Key Distribution Protocols",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "5/01/2003",
+      "release_date_raw": "5/01/2003",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/6977/final",
+      "summary": "",
+      "category": "Final Publications"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:40.995592",
+    "item": {
+      "document_name": "Extracting Linearization Equations from Noisy Sources",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "5/31/2018",
+      "release_date_raw": "5/31/2018",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2018/05/31/extracting-linearization-equations-from-noisy-sour/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.005743",
+    "item": {
+      "document_name": "Cryptography Standards in Quantum Time: New Wine in an Old Wineskin?",
+      "document_number": "",
+      "series": "Journal Article",
+      "release_date": "8/17/2017",
+      "release_date_raw": "8/17/2017",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/journal/2017/08/cryptography-standards-in-quantum-time/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.015814",
+    "item": {
+      "document_name": "SPHINCS-Simpira: Fast Stateless Hash-based Signatures with Post-quantum Security",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "6/29/2017",
+      "release_date_raw": "6/29/2017",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2017/06/29/sphincssimpira/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.025830",
+    "item": {
+      "document_name": "Improved Attacks for Characteristic-2 Parameters of the Cubic ABC Simple Matrix Encryption Scheme",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/28/2017",
+      "release_date_raw": "6/28/2017",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2017/06/28/improved-attacks-for-cubic-abc-simple-matrix-encry/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.035896",
+    "item": {
+      "document_name": "HMFEv - An Efficient Multivariate Signature Scheme",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "6/28/2017",
+      "release_date_raw": "6/28/2017",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2017/06/28/hmfev-an-efficient-multivariate-signature-scheme/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.045944",
+    "item": {
+      "document_name": "On the Differential Security of the HFEv- Signature Primitive",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "2/24/2016",
+      "release_date_raw": "2/24/2016",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2016/02/24/on-the-differential-security-of-the-hfev-signature/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.055951",
+    "item": {
+      "document_name": "Vulnerabilities in Quantum Key Distribution Protocols",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "5/01/2003",
+      "release_date_raw": "5/01/2003",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/6977/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.066067",
+    "item": {
+      "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+      "document_number": "",
+      "series": "CSWP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "9/18/2025",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.076000",
+    "item": {
+      "document_name": "Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "9/29/2022",
+      "release_date_raw": "9/29/2022",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8413/upd1/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.086117",
+    "item": {
+      "document_name": "Status Report on the Third Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/05/2022",
+      "release_date_raw": "7/05/2022",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8413/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.095981",
+    "item": {
+      "document_name": "Status Report on the Second Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "7/22/2020",
+      "release_date_raw": "7/22/2020",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8309/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.106594",
+    "item": {
+      "document_name": "Post-quantum Cryptography and 5G Security: Tutorial",
+      "document_number": "",
+      "series": "Conference Paper",
+      "release_date": "5/15/2019",
+      "release_date_raw": "5/15/2019",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/conference/2019/05/15/postquantum-crypto-and-5g-security-tutorial/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.116466",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2/12/2026",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.126336",
+    "item": {
+      "document_name": "Status Report on the First Round of the NIST Post-Quantum Cryptography Standardization Process",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "1/31/2019",
+      "release_date_raw": "1/31/2019",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8240/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.136553",
+    "item": {
+      "document_name": "Recommendation for Key Establishment Using Symmetric Block Ciphers",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "7/02/2018",
+      "release_date_raw": "7/02/2018",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/800/71/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.146497",
+    "item": {
+      "document_name": "Securing Tomorrow's Information Through Post-Quantum Cryptography",
+      "document_number": "",
+      "series": "ITL Bulletin",
+      "release_date": "2/27/2018",
+      "release_date_raw": "2/27/2018",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/itlb/2018/02/securing-information-through-postquantum-cryptogra/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.156142",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "2/12/2026",
+      "release_date_raw": "2/12/2026",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.166380",
+    "item": {
+      "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+      "document_number": "",
+      "series": "CSWP",
+      "release_date": "9/18/2025",
+      "release_date_raw": "9/18/2025",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+      "summary": "",
+      "category": "Drafts"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.176051",
+    "item": {
+      "document_name": "Transition to Post-Quantum Cryptography Standards",
+      "document_number": "",
+      "series": "IR",
+      "release_date": "11/12/2024",
+      "release_date_raw": "11/12/2024",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/ir/8547/ipd",
+      "summary": "",
+      "category": "Drafts"
+    }
+  },
+  {
+    "type": "pqc_publication",
+    "timestamp": "2026-03-19 12:33:41.185663",
+    "item": {
+      "document_name": "Migration to Post-Quantum Cryptography: Preparation for Considering the Implementation and Adoption of Quantum Safe Cryptography",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "12/19/2023",
+      "release_date_raw": "12/19/2023",
+      "resource_type": "Post-Quantum Cryptography Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/38/iprd-(1)",
+      "summary": "",
+      "category": "Drafts"
+    }
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19T12:33:41.202431",
+    "item": {
+      "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
+      "summary": "",
+      "publish_date": "March 19, 2026",
+      "publish_date_raw": "2026-03-19",
+      "link": "https://www.nist.gov/news-events/news/2026/03/nist-submits-annual-report-congress-summarizing-fy-2025-progress-national",
       "resource_type": "Post-Quantum Cryptography News"
     }
   }

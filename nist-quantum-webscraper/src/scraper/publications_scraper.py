@@ -341,8 +341,9 @@ def filter_publications(publications, *, include_drafts: bool = False,
 def scrape_publications_past_year():
     """Scrape publications from the past year only.
     
-    Uses the same URLs as scrape_all_publications but applies date filtering
-    during scraping to only include publications from the past year.
+    Uses PQC-specific URLs to focus on post-quantum cryptography publications
+    and applies date filtering during scraping to only include publications 
+    from the past year.
     """
     from datetime import datetime, timedelta
     
@@ -350,10 +351,10 @@ def scrape_publications_past_year():
     cutoff_date = datetime.now() - timedelta(days=365)
     
     urls = [
-        "https://www.nist.gov/publications/search/topic/249281",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        # PQC-specific URLs only
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27651%7Cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27651%7Cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27651%7Cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
     ]
     
     seen = set()

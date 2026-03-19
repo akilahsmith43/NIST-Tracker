@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import re
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Dict, Any
 
 
@@ -25,6 +25,52 @@ def clean_text(text: str) -> str:
     return text
 
 
+def parse_nist_date(date_str: str) -> datetime:
+    """Parse various NIST date formats and return datetime object.
+    
+    Supports multiple date formats used by NIST:
+    - "Month Day, Year" (e.g., "March 19, 2026")
+    - "Month Day, Year" with ordinal suffixes (e.g., "March 19th, 2026")
+    - "Month Year" (e.g., "March 2026")
+    - "Day Month Year" (e.g., "19 March 2026")
+    - ISO format "YYYY-MM-DD" (e.g., "2026-03-19")
+    - Numeric formats like "MM/DD/YYYY" or "DD/MM/YYYY"
+    - "Month Day Year" (e.g., "March 19 2026")
+    
+    Returns None if date cannot be parsed.
+    """
+    if not date_str:
+        return None
+    
+    # Clean and normalize the date string
+    date_str = clean_text(date_str)
+    
+    # Remove ordinal suffixes (1st, 2nd, 3rd, 4th, etc.)
+    date_str = re.sub(r'(\d)(st|nd|rd|th)', r'\1', date_str)
+    
+    # Define multiple date format patterns to try
+    date_formats = [
+        '%B %d, %Y',      # March 19, 2026
+        '%B %d %Y',       # March 19 2026
+        '%B %Y',          # March 2026
+        '%d %B %Y',       # 19 March 2026
+        '%Y-%m-%d',       # 2026-03-19
+        '%m/%d/%Y',       # 03/19/2026
+        '%d/%m/%Y',       # 19/03/2026
+        '%B %d,%Y',       # March 19,2026 (no space after comma)
+    ]
+    
+    # Try each format
+    for fmt in date_formats:
+        try:
+            return datetime.strptime(date_str, fmt)
+        except ValueError:
+            continue
+    
+    # If no format worked, return None
+    return None
+
+
 def scrape_pqc_publications():
     """Scrape Post-Quantum Cryptography publications from NIST CSRC.
     
@@ -37,15 +83,15 @@ def scrape_pqc_publications():
     # URLs for Post-Quantum Cryptography publications
     urls = [
         {
-            'url': 'https://csrc.nist.gov/publications/final-pubs',
+            'url': 'https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27651%7Cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY',
             'category': 'Final Publications'
         },
         {
-            'url': 'https://csrc.nist.gov/publications/drafts-open-for-comment',
+            'url': 'https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27651%7cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY&page=2',
             'category': 'Drafts Open for Comment'
         },
         {
-            'url': 'https://csrc.nist.gov/publications/draft-pubs',
+            'url': 'https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27651%7Cpost-quantum+cryptography&topicsMatch-lg=ANY&controlsMatch-lg=ANY',
             'category': 'Drafts'
         }
     ]
@@ -73,7 +119,9 @@ def scrape_pqc_publications():
                 continue
             
             # Try multiple selectors for different page layouts
-            items = soup.select(".search-list-item")
+            items = soup.select("tr[id^='result-']")
+            if not items:
+                items = soup.select(".search-list-item")
             if not items:
                 items = soup.select("article")
             if not items:
@@ -84,8 +132,10 @@ def scrape_pqc_publications():
             print(f"DEBUG: Found {len(items)} items on {base_url}")
             
             for item in items:
-                # Try different selectors for title
-                title_link = item.select_one("h4.search-results-title a")
+                # For table rows, look for the title link in the appropriate cell
+                title_link = item.select_one("td a")
+                if not title_link:
+                    title_link = item.select_one("h4.search-results-title a")
                 if not title_link:
                     title_link = item.select_one("h3 a")
                 if not title_link:
@@ -104,16 +154,20 @@ def scrape_pqc_publications():
                 if link and not link.startswith("http"):
                     link = f"https://csrc.nist.gov{link}"
                 
-                # Try different selectors for series
-                series_el = item.select_one(".sub-title strong")
+                # For table rows, look for series in the appropriate cell
+                series_el = item.select_one("td[id*='pub-series']")
+                if not series_el:
+                    series_el = item.select_one(".sub-title strong")
                 if not series_el:
                     series_el = item.select_one(".series")
                 if not series_el:
                     series_el = item.select_one("[class*='series']")
                 series = clean_text(series_el.get_text(strip=True)) if series_el else ""
                 
-                # Try different selectors for date
-                date_el = item.select_one('strong[id^="date-container-"]')
+                # For table rows, look for date in the appropriate cell
+                date_el = item.select_one("td[id*='pub-release-date']")
+                if not date_el:
+                    date_el = item.select_one('strong[id^="date-container-"]')
                 if not date_el:
                     date_el = item.select_one("time")
                 if not date_el:
@@ -138,16 +192,24 @@ def scrape_pqc_publications():
                         summary = summary[len("abstract:"):].strip()
                 
                 if name:  # Only add if we have at least a title
+                    # Parse the publication date using enhanced date parsing
+                    parsed_date = parse_nist_date(release_date)
+                    
+                    # Calculate cutoff date (365 days ago from today)
+                    cutoff_date = datetime.now() - timedelta(days=365)
+                    
+                    # Filter publications: only include those within the past year
+                    if parsed_date is None:
+                        print(f"DEBUG: Excluding publication '{name}' - could not parse date: '{release_date}'")
+                        continue
+                    elif parsed_date < cutoff_date:
+                        print(f"DEBUG: Excluding publication '{name}' - too old: {parsed_date.strftime('%Y-%m-%d')} (cutoff: {cutoff_date.strftime('%Y-%m-%d')})")
+                        continue
+                    else:
+                        print(f"DEBUG: Including publication '{name}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
+                    
                     # Convert formatted date to ISO for sorting
-                    release_date_raw = ""
-                    if release_date:
-                        try:
-                            # Parse "Month Day, Year" format to ISO
-                            date_obj = datetime.strptime(release_date, '%B %d, %Y')
-                            release_date_raw = date_obj.strftime('%Y-%m-%d')
-                        except Exception:
-                            # If parsing fails, use original
-                            release_date_raw = release_date
+                    release_date_raw = parsed_date.strftime('%Y-%m-%d') if parsed_date else ""
                     
                     publications.append({
                         "document_name": name,
@@ -224,6 +286,9 @@ def scrape_pqc_presentations():
     
     print(f"DEBUG: Found {len(items)} presentation items")
     
+    # Calculate cutoff date (365 days ago from today)
+    cutoff_date = datetime.now() - timedelta(days=365)
+    
     for item in items:
         # Try different selectors for title
         title_link = item.select_one("h4.search-results-title a")
@@ -270,14 +335,32 @@ def scrape_pqc_presentations():
         status = clean_text(status_el.get_text(strip=True)) if status_el else ""
         
         if name:  # Only add if we have at least a title
-            presentations.append({
-                "document_name": name,
-                "series": series,
-                "status": status,
-                "resource_type": "Post-Quantum Cryptography Presentation",
-                "link": link,
-                "release_date": release_date
-            })
+            # Parse the presentation date using enhanced date parsing
+            parsed_date = parse_nist_date(release_date)
+            
+            # Filter presentations: only include those within the past year
+            if parsed_date is None:
+                print(f"DEBUG: Including presentation '{name}' - could not parse date: '{release_date}' (defaulting to include)")
+                presentations.append({
+                    "document_name": name,
+                    "series": series,
+                    "status": status,
+                    "resource_type": "Post-Quantum Cryptography Presentation",
+                    "link": link,
+                    "release_date": release_date
+                })
+            elif parsed_date < cutoff_date:
+                print(f"DEBUG: Excluding presentation '{name}' - too old: {parsed_date.strftime('%Y-%m-%d')} (cutoff: {cutoff_date.strftime('%Y-%m-%d')})")
+            else:
+                print(f"DEBUG: Including presentation '{name}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
+                presentations.append({
+                    "document_name": name,
+                    "series": series,
+                    "status": status,
+                    "resource_type": "Post-Quantum Cryptography Presentation",
+                    "link": link,
+                    "release_date": release_date
+                })
     
     print(f"DEBUG: Retrieved {len(presentations)} PQC presentations")
     return presentations
@@ -314,6 +397,9 @@ def scrape_pqc_news():
         items = soup.select("[data-news]")
     
     print(f"DEBUG: Found {len(items)} news items")
+    
+    # Calculate cutoff date (365 days ago from today)
+    cutoff_date = datetime.now() - timedelta(days=365)
     
     for item in items:
         # Try different selectors for title
@@ -356,25 +442,54 @@ def scrape_pqc_news():
         publish_date = clean_text(date_el.get_text(strip=True)) if date_el else ""
         
         if title:  # Only add if we have at least a title
-            # Convert formatted date to ISO for sorting
-            publish_date_raw = ""
-            if publish_date:
-                try:
-                    # Parse "Month Day, Year" format to ISO
-                    date_obj = datetime.strptime(publish_date, '%B %d, %Y')
-                    publish_date_raw = date_obj.strftime('%Y-%m-%d')
-                except Exception:
-                    # If parsing fails, use original
-                    publish_date_raw = publish_date
+            # Parse the news date using enhanced date parsing
+            parsed_date = parse_nist_date(publish_date)
             
-            news.append({
-                "title": title,
-                "summary": summary,
-                "publish_date": publish_date,
-                "publish_date_raw": publish_date_raw,
-                "link": link,
-                "resource_type": "Post-Quantum Cryptography News"
-            })
+            # Filter news: only include those within the past year
+            if parsed_date is None:
+                print(f"DEBUG: Including news '{title}' - could not parse date: '{publish_date}' (defaulting to include)")
+                # Convert formatted date to ISO for sorting
+                publish_date_raw = ""
+                if publish_date:
+                    try:
+                        # Parse "Month Day, Year" format to ISO
+                        date_obj = datetime.strptime(publish_date, '%B %d, %Y')
+                        publish_date_raw = date_obj.strftime('%Y-%m-%d')
+                    except Exception:
+                        # If parsing fails, use original
+                        publish_date_raw = publish_date
+                
+                news.append({
+                    "title": title,
+                    "summary": summary,
+                    "publish_date": publish_date,
+                    "publish_date_raw": publish_date_raw,
+                    "link": link,
+                    "resource_type": "Post-Quantum Cryptography News"
+                })
+            elif parsed_date < cutoff_date:
+                print(f"DEBUG: Excluding news '{title}' - too old: {parsed_date.strftime('%Y-%m-%d')} (cutoff: {cutoff_date.strftime('%Y-%m-%d')})")
+            else:
+                print(f"DEBUG: Including news '{title}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
+                # Convert formatted date to ISO for sorting
+                publish_date_raw = ""
+                if publish_date:
+                    try:
+                        # Parse "Month Day, Year" format to ISO
+                        date_obj = datetime.strptime(publish_date, '%B %d, %Y')
+                        publish_date_raw = date_obj.strftime('%Y-%m-%d')
+                    except Exception:
+                        # If parsing fails, use original
+                        publish_date_raw = publish_date
+                
+                news.append({
+                    "title": title,
+                    "summary": summary,
+                    "publish_date": publish_date,
+                    "publish_date_raw": publish_date_raw,
+                    "link": link,
+                    "resource_type": "Post-Quantum Cryptography News"
+                })
     
     print(f"DEBUG: Retrieved {len(news)} PQC news items")
     return news
@@ -409,6 +524,43 @@ def scrape_all_pqc_data():
 def main():
     """Scrape all Post-Quantum Cryptography data from NIST sources."""
     all_pqc_data = scrape_all_pqc_data()
+    
+    # Save data to dashboard storage
+    import sys
+    import os
+    sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
+    from src.data.data_storage import DataStorage
+    storage = DataStorage()
+    
+    print(f"DEBUG: Saving {len(all_pqc_data['publications'])} PQC publications to dashboard storage")
+    print(f"DEBUG: First publication: {all_pqc_data['publications'][0]['document_name'] if all_pqc_data['publications'] else 'None'}")
+    
+    storage.save_pqc_data_to_dashboard(all_pqc_data)
+    storage.save_pqc_data(all_pqc_data)
+    
+    # Add notifications for new items
+    new_items = storage.get_new_pqc_items(all_pqc_data)
+    
+    # Add notifications for new publications
+    for pub in new_items['publications']:
+        storage.add_notification('publication', pub)
+        print(f"Added notification for publication: {pub['document_name']}")
+    
+    # Add notifications for new presentations
+    for pres in new_items['presentations']:
+        storage.add_notification('presentation', pres)
+        print(f"Added notification for presentation: {pres['document_name']}")
+    
+    # Add notifications for new news
+    for news in new_items['news']:
+        storage.add_notification('news', news)
+        print(f"Added notification for news: {news['title']}")
+    
+    # Get and display scrape session info
+    scrape_info = storage.get_last_scrape_info()
+    print(f"Last scrape: {scrape_info['last_scrape']}")
+    print(f"Total notifications: {scrape_info['scrape_count']}")
+    print(f"New items this session: {scrape_info['new_items_this_session']}")
     
     # Output or process the collected data as needed
     print(f"Scraped {len(all_pqc_data['publications'])} PQC publications")
