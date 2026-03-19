@@ -369,7 +369,9 @@ def scrape_pqc_presentations():
 def scrape_pqc_news():
     """Scrape Post-Quantum Cryptography news from NIST."""
     
-    url = 'https://www.nist.gov/news-events/news?key=quantum&topic-op=or'
+    # Use the updated PQC-specific NIST news search URL.
+    # This link includes topic-area-fieldset=248746 for PQC and uses the same day-based windowing logic below.
+    url = 'https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or&topic-area-fieldset%5B%5D=248746'
     
     news = []
     session = requests.Session()
@@ -445,51 +447,31 @@ def scrape_pqc_news():
             # Parse the news date using enhanced date parsing
             parsed_date = parse_nist_date(publish_date)
             
-            # Filter news: only include those within the past year
+            # Determine publish_date_raw consistently
+            publish_date_raw = ""
+            if publish_date:
+                try:
+                    date_obj = datetime.strptime(publish_date, '%B %d, %Y')
+                    publish_date_raw = date_obj.strftime('%Y-%m-%d')
+                except Exception:
+                    publish_date_raw = publish_date
+
             if parsed_date is None:
                 print(f"DEBUG: Including news '{title}' - could not parse date: '{publish_date}' (defaulting to include)")
-                # Convert formatted date to ISO for sorting
-                publish_date_raw = ""
-                if publish_date:
-                    try:
-                        # Parse "Month Day, Year" format to ISO
-                        date_obj = datetime.strptime(publish_date, '%B %d, %Y')
-                        publish_date_raw = date_obj.strftime('%Y-%m-%d')
-                    except Exception:
-                        # If parsing fails, use original
-                        publish_date_raw = publish_date
-                
-                news.append({
-                    "title": title,
-                    "summary": summary,
-                    "publish_date": publish_date,
-                    "publish_date_raw": publish_date_raw,
-                    "link": link,
-                    "resource_type": "Post-Quantum Cryptography News"
-                })
             elif parsed_date < cutoff_date:
-                print(f"DEBUG: Excluding news '{title}' - too old: {parsed_date.strftime('%Y-%m-%d')} (cutoff: {cutoff_date.strftime('%Y-%m-%d')})")
+                print(f"DEBUG: News '{title}' is older than 1 year ({parsed_date.strftime('%Y-%m-%d')} < {cutoff_date.strftime('%Y-%m-%d')}), including for dashboard fallback")
             else:
                 print(f"DEBUG: Including news '{title}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
-                # Convert formatted date to ISO for sorting
-                publish_date_raw = ""
-                if publish_date:
-                    try:
-                        # Parse "Month Day, Year" format to ISO
-                        date_obj = datetime.strptime(publish_date, '%B %d, %Y')
-                        publish_date_raw = date_obj.strftime('%Y-%m-%d')
-                    except Exception:
-                        # If parsing fails, use original
-                        publish_date_raw = publish_date
-                
-                news.append({
-                    "title": title,
-                    "summary": summary,
-                    "publish_date": publish_date,
-                    "publish_date_raw": publish_date_raw,
-                    "link": link,
-                    "resource_type": "Post-Quantum Cryptography News"
-                })
+
+            # Keep all news items; dashboard filtering applies strict 1-year window with fallback
+            news.append({
+                "title": title,
+                "summary": summary,
+                "publish_date": publish_date,
+                "publish_date_raw": publish_date_raw,
+                "link": link,
+                "resource_type": "Post-Quantum Cryptography News"
+            })
     
     print(f"DEBUG: Retrieved {len(news)} PQC news items")
     return news

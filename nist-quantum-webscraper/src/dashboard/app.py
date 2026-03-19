@@ -159,6 +159,22 @@ def main():
                     continue
                 if d >= cutoff:
                     recent_pqc_news.append(article)
+        
+        # If nothing is found in strict 1-year window, fall back to 2 years to provide a populated view
+        if not recent_pqc_news:
+            fallback_cutoff = datetime.now() - timedelta(days=730)
+            for article in pqc_news:
+                raw = article.get('publish_date_raw')
+                if raw:
+                    try:
+                        d = datetime.fromisoformat(raw)
+                        if d.tzinfo:
+                            d = d.replace(tzinfo=None)
+                    except Exception:
+                        continue
+                    if d >= fallback_cutoff:
+                        recent_pqc_news.append(article)
+
         pqc_news = recent_pqc_news
 
         # Sort by date - newest first

@@ -35,7 +35,8 @@ def generate_news_summary(title: str, summary: str) -> str:
 
 def scrape_news():
     # start with first page url; subsequent pages will be discovered via 'rel=next'
-    base_url = "https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or&topic-area-fieldset%5B0%5D=249281"
+    # Use PQC-specific topic area for consistent PQC news collection
+    base_url = "https://www.nist.gov/news-events/news/search?key=quantum&topic-op=or&topic-area-fieldset%5B%5D=248746"
     session = requests.Session()
 
     news_data = []
