@@ -23083,7 +23083,7 @@
   },
   {
     "type": "ai_news",
-    "timestamp": "2026-03-19T18:41:42.212070",
+    "timestamp": "2026-03-19 18:41:42.212070",
     "item": {
       "title": "NIST Awards Over $1.8 Million to Small Businesses Advancing AI, Semiconductors, Additive Manufacturing and More",
       "summary": "",
@@ -23093,5 +23093,165 @@
       "resource_type": "Artificial Intelligence News"
     },
     "scrape_date": "2026-03-19T18:41:42.212072"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.022473",
+    "item": {
+      "title": "NIST Selects HQC as Fifth Algorithm for Post-Quantum Encryption",
+      "summary": "",
+      "publish_date": "March 11, 2025",
+      "publish_date_raw": "2025-03-11",
+      "link": "https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.022482"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.038931",
+    "item": {
+      "title": "NIST Releases First 3 Finalized Post-Quantum Encryption Standards",
+      "summary": "",
+      "publish_date": "August 13, 2024",
+      "publish_date_raw": "2024-08-13",
+      "link": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.038940"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.061416",
+    "item": {
+      "title": "NIST to Standardize Encryption Algorithms That Can Resist Attack by Quantum Computers",
+      "summary": "",
+      "publish_date": "August 24, 2023",
+      "publish_date_raw": "2023-08-24",
+      "link": "https://www.nist.gov/news-events/news/2023/08/nist-standardize-encryption-algorithms-can-resist-attack-quantum-computers",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.061437"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.074668",
+    "item": {
+      "title": "NIST Selects \u2018Lightweight Cryptography\u2019 Algorithms to Protect Small Devices",
+      "summary": "",
+      "publish_date": "February 7, 2023",
+      "publish_date_raw": "2023-02-07",
+      "link": "https://www.nist.gov/news-events/news/2023/02/nist-selects-lightweight-cryptography-algorithms-protect-small-devices",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.074673"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.089091",
+    "item": {
+      "title": "NIST Announces First Four Quantum-Resistant Cryptographic Algorithms",
+      "summary": "",
+      "publish_date": "July 5, 2022",
+      "publish_date_raw": "2022-07-05",
+      "link": "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.089097"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.102766",
+    "item": {
+      "title": "NIST\u2019s Post-Quantum Cryptography Program Enters \u2018Selection Round\u2019",
+      "summary": "",
+      "publish_date": "July 22, 2020",
+      "publish_date_raw": "2020-07-22",
+      "link": "https://www.nist.gov/news-events/news/2020/07/nists-post-quantum-cryptography-program-enters-selection-round",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.102771"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.116723",
+    "item": {
+      "title": "NIST Reveals 26 Algorithms Advancing to the Post-Quantum Crypto \u2018Semifinals\u2019",
+      "summary": "",
+      "publish_date": "January 30, 2019",
+      "publish_date_raw": "2019-01-30",
+      "link": "https://www.nist.gov/news-events/news/2019/01/nist-reveals-26-algorithms-advancing-post-quantum-crypto-semifinals",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.116728"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-19 19:26:47.129743",
+    "item": {
+      "title": "NIST\u2019s New Quantum Method GeneratesReallyRandom Numbers",
+      "summary": "",
+      "publish_date": "April 11, 2018",
+      "publish_date_raw": "2018-04-11",
+      "link": "https://www.nist.gov/news-events/news/2018/04/nists-new-quantum-method-generates-really-random-numbers",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-19T19:26:47.129746"
+  },
+  {
+    "type": "presentation",
+    "timestamp": "2026-03-20 17:28:34.402885",
+    "item": {
+      "document_name": "NIST PQC: The Road Ahead",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "March 25, 2025",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
+    },
+    "scrape_date": "2026-03-20T17:28:34.402891"
+  },
+  {
+    "type": "presentation",
+    "timestamp": "2026-03-20 17:28:34.422854",
+    "item": {
+      "document_name": "Certified Randomness via Random Circuit Sampling",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "April 30, 2025",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
+    },
+    "scrape_date": "2026-03-20T17:28:34.422859"
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-20 23:34:31.177562",
+    "item": {
+      "document_name": "NIST PQC: The Road Ahead",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "March 25, 2025",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
+    },
+    "scrape_date": "2026-03-20T23:34:31.177568"
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-20T23:34:31.192747",
+    "item": {
+      "document_name": "Certified Randomness via Random Circuit Sampling",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "April 30, 2025",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
+    },
+    "scrape_date": "2026-03-20T23:34:31.192751"
   }
 ]

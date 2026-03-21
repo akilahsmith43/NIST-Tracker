@@ -399,18 +399,8 @@
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/multi-mode-gaussian-state-analysis-one-bounded-photon-counter",
       "summary": "Gaussian states are ubiquitous in quantum optics and information processing, and it is essential to have effective tools for their characterization."
-    },
-    {
-      "document_name": "Many-Body Gap Protection of Motional Dephasing of an Optical Clock Transition",
-      "document_number": "",
-      "series": "",
-      "release_date": "March 20, 2025",
-      "release_date_raw": "2025-03-20",
-      "resource_type": "Publication",
-      "link": "https://www.nist.gov/publications/many-body-gap-protection-motional-dephasing-optical-clock-transition",
-      "summary": ""
     }
   ],
-  "timestamp": "2026-03-19T18:41:28.870379",
-  "count": 41
+  "timestamp": "2026-03-20T17:28:34.445539",
+  "count": 40
 }

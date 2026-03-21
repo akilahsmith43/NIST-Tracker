@@ -1,24 +1,24 @@
 {
   "data": [
     {
-      "document_name": "NCCoE Roadmap and Select Project Overviews",
+      "document_name": "NIST PQC: The Road Ahead",
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "July 16, 2025",
+      "release_date": "March 25, 2025",
       "resource_type": "Presentation",
-      "link": "https://csrc.nist.gov/presentations/2025/nccoe-roadmap-and-select-project-overviews"
+      "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
     },
     {
-      "document_name": "Initial Public Draft NIST IR 8587: Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
+      "document_name": "Certified Randomness via Random Circuit Sampling",
       "document_number": "",
       "series": "Presentation",
       "status": "Available",
-      "release_date": "January 22, 2026",
+      "release_date": "April 30, 2025",
       "resource_type": "Presentation",
-      "link": "https://csrc.nist.gov/presentations/2026/draft-nist-ir-8587"
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
     }
   ],
-  "timestamp": "2026-03-19T18:41:28.870868",
+  "timestamp": "2026-03-20T17:28:34.445959",
   "count": 2
 }

@@ -57,142 +57,97 @@
         "category": "Drafts"
       }
     ],
-    "presentations": [],
+    "presentations": [
+      {
+        "document_name": "NIST PQC: The Road Ahead",
+        "document_number": "",
+        "series": "Presentation",
+        "status": "Available",
+        "release_date": "March 25, 2025",
+        "resource_type": "Post-Quantum Cryptography Presentation",
+        "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
+      },
+      {
+        "document_name": "Certified Randomness via Random Circuit Sampling",
+        "document_number": "",
+        "series": "Presentation",
+        "status": "Available",
+        "release_date": "April 30, 2025",
+        "resource_type": "Post-Quantum Cryptography Presentation",
+        "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
+      }
+    ],
     "news": [
       {
-        "title": "NIST Submits Annual Report to Congress Summarizing FY 2025 Progress on National Construction Safety Team Investigations",
+        "title": "NIST Selects HQC as Fifth Algorithm for Post-Quantum Encryption",
         "summary": "",
-        "publish_date": "March 19, 2026",
-        "publish_date_raw": "2026-03-19",
-        "link": "https://www.nist.gov/news-events/news/2026/03/nist-submits-annual-report-congress-summarizing-fy-2025-progress-national",
+        "publish_date": "March 11, 2025",
+        "publish_date_raw": "2025-03-11",
+        "link": "https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+        "title": "NIST Releases First 3 Finalized Post-Quantum Encryption Standards",
         "summary": "",
-        "publish_date": "February 17, 2026",
-        "publish_date_raw": "2026-02-17",
-        "link": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+        "publish_date": "August 13, 2024",
+        "publish_date_raw": "2024-08-13",
+        "link": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "NIST Releases New Forensic Genetic Reference Material to Help Crime Laboratories Analyze Challenging Cases",
+        "title": "NIST to Standardize Encryption Algorithms That Can Resist Attack by Quantum Computers",
         "summary": "",
-        "publish_date": "February 17, 2026",
-        "publish_date_raw": "2026-02-17",
-        "link": "https://www.nist.gov/news-events/news/2026/02/nist-releases-new-forensic-genetic-reference-material-help-crime",
+        "publish_date": "August 24, 2023",
+        "publish_date_raw": "2023-08-24",
+        "link": "https://www.nist.gov/news-events/news/2023/08/nist-standardize-encryption-algorithms-can-resist-attack-quantum-computers",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+        "title": "NIST Selects \u2018Lightweight Cryptography\u2019 Algorithms to Protect Small Devices",
         "summary": "",
-        "publish_date": "February 10, 2026",
-        "publish_date_raw": "2026-02-10",
-        "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+        "publish_date": "February 7, 2023",
+        "publish_date_raw": "2023-02-07",
+        "link": "https://www.nist.gov/news-events/news/2023/02/nist-selects-lightweight-cryptography-algorithms-protect-small-devices",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "Space: The Final Frontier for Standards",
+        "title": "NIST Announces First Four Quantum-Resistant Cryptographic Algorithms",
         "summary": "",
-        "publish_date": "February 9, 2026",
-        "publish_date_raw": "2026-02-09",
-        "link": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
+        "publish_date": "July 5, 2022",
+        "publish_date_raw": "2022-07-05",
+        "link": "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "The Department of Commerce\u2019s CHIPS Program Announces a Letter of Intent with USA Rare Earth to Accelerate Its Domestic and Vertically Integrated \"Mine-to-Magnet\" Strategy",
+        "title": "NIST\u2019s Post-Quantum Cryptography Program Enters \u2018Selection Round\u2019",
         "summary": "",
-        "publish_date": "January 26, 2026",
-        "publish_date_raw": "2026-01-26",
-        "link": "https://www.nist.gov/news-events/news/2026/01/department-commerces-chips-program-announces-letter-intent-usa-rare-earth",
+        "publish_date": "July 22, 2020",
+        "publish_date_raw": "2020-07-22",
+        "link": "https://www.nist.gov/news-events/news/2020/07/nists-post-quantum-cryptography-program-enters-selection-round",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "Space: The Final Frontier for Standards",
+        "title": "NIST Reveals 26 Algorithms Advancing to the Post-Quantum Crypto \u2018Semifinals\u2019",
         "summary": "",
-        "publish_date": "February 9, 2026",
-        "publish_date_raw": "2026-02-09",
-        "link": "https://www.nist.gov/news-events/news/2026/02/space-final-frontier-standards",
+        "publish_date": "January 30, 2019",
+        "publish_date_raw": "2019-01-30",
+        "link": "https://www.nist.gov/news-events/news/2019/01/nist-reveals-26-algorithms-advancing-post-quantum-crypto-semifinals",
         "resource_type": "Post-Quantum Cryptography News"
       },
       {
-        "title": "CAISI Issues Request for Information About Securing AI Agent Systems",
+        "title": "NIST\u2019s New Quantum Method GeneratesReallyRandom Numbers",
         "summary": "",
-        "publish_date": "January 12, 2026",
-        "publish_date_raw": "2026-01-12",
-        "link": "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST Launches Centers for AI in Manufacturing and Critical Infrastructure",
-        "summary": "",
-        "publish_date": "December 22, 2025",
-        "publish_date_raw": "2025-12-22",
-        "link": "https://www.nist.gov/news-events/news/2025/12/nist-launches-centers-ai-manufacturing-and-critical-infrastructure",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST Physicists Bring Unruly Molecules to the Quantum Party",
-        "summary": "",
-        "publish_date": "December 18, 2025",
-        "publish_date_raw": "2025-12-18",
-        "link": "https://www.nist.gov/news-events/news/2025/12/nist-physicists-bring-unruly-molecules-quantum-party",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "Securing Smart Speakers for Home Health Care: NIST Offers New Guidelines",
-        "summary": "",
-        "publish_date": "December 17, 2025",
-        "publish_date_raw": "2025-12-17",
-        "link": "https://www.nist.gov/news-events/news/2025/12/securing-smart-speakers-home-health-care-nist-offers-new-guidelines",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
-        "summary": "",
-        "publish_date": "December 16, 2025",
-        "publish_date_raw": "2025-12-16",
-        "link": "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "How a Forensic Anthropologist Thinks About Human Remains Research \u2014 and What It Means for Our Humanity",
-        "summary": "",
-        "publish_date": "March 18, 2026",
-        "publish_date_raw": "2026-03-18",
-        "link": "https://www.nist.gov/blogs/taking-measure/how-forensic-anthropologist-thinks-about-human-remains-research-and-what-it",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "New Music Captures NIST\u2019s Essence, Measure for Measure",
-        "summary": "",
-        "publish_date": "March 3, 2026",
-        "publish_date_raw": "2026-03-03",
-        "link": "https://www.nist.gov/blogs/taking-measure/new-music-captures-nists-essence-measure-measure",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "Putting Einstein to the Test With the World\u2019s Most Accurate Clocks",
-        "summary": "",
-        "publish_date": "February 25, 2026",
-        "publish_date_raw": "2026-02-25",
-        "link": "https://www.nist.gov/blogs/taking-measure/putting-einstein-test-worlds-most-accurate-clocks",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "Checkup Time! How Measurement Science Keeps You Healthy",
-        "summary": "",
-        "publish_date": "February 18, 2026",
-        "publish_date_raw": "2026-02-18",
-        "link": "https://www.nist.gov/blogs/taking-measure/checkup-time-how-measurement-science-keeps-you-healthy",
+        "publish_date": "April 11, 2018",
+        "publish_date_raw": "2018-04-11",
+        "link": "https://www.nist.gov/news-events/news/2018/04/nists-new-quantum-method-generates-really-random-numbers",
         "resource_type": "Post-Quantum Cryptography News"
       }
     ]
   },
-  "timestamp": "2026-03-19T13:31:50.102621",
+  "timestamp": "2026-03-20T23:33:39.613701",
   "counts": {
     "publications": 5,
-    "presentations": 0,
-    "news": 16
+    "presentations": 2,
+    "news": 8
   }
 }
