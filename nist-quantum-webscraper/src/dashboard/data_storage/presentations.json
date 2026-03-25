@@ -1,15 +1,6 @@
 {
   "data": [
     {
-      "document_name": "NIST PQC: The Road Ahead",
-      "document_number": "",
-      "series": "Presentation",
-      "status": "Available",
-      "release_date": "March 25, 2025",
-      "resource_type": "Presentation",
-      "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
-    },
-    {
       "document_name": "Certified Randomness via Random Circuit Sampling",
       "document_number": "",
       "series": "Presentation",
@@ -19,6 +10,6 @@
       "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
     }
   ],
-  "timestamp": "2026-03-20T17:28:34.445959",
-  "count": 2
+  "timestamp": "2026-03-25T19:17:51.472266",
+  "count": 1
 }

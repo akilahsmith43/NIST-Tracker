@@ -1,6 +1,16 @@
 {
   "data": [
     {
+      "document_name": "Robust phase stabilization of a dark quantum channel over a 120 km deployed fiber link",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 12, 2026",
+      "release_date_raw": "2026-03-12",
+      "resource_type": "Publication",
+      "link": "https://www.nist.gov/publications/robust-phase-stabilization-dark-quantum-channel-over-120-km-deployed-fiber-link",
+      "summary": "We present a scalable solution for phase stabilization of dark metropolitan-scale fiber links using wavelength division multiplexing (WDM)."
+    },
+    {
       "document_name": "Low-frequency cryocoolers are compressed inefficiently",
       "document_number": "",
       "series": "",
@@ -211,6 +221,16 @@
       "summary": "We compare methods for signal classification applied to voltage traces from transition edge sensors (TES) which are photon-number resolving detectors fundamenta"
     },
     {
+      "document_name": "Fault-tolerant hyperbolic Floquet quantum error correcting codes",
+      "document_number": "",
+      "series": "",
+      "release_date": "September 5, 2025",
+      "release_date_raw": "2025-09-05",
+      "resource_type": "Publication",
+      "link": "https://www.nist.gov/publications/fault-tolerant-hyperbolic-floquet-quantum-error-correcting-codes",
+      "summary": "A central goal in quantum error correction is to reduce the overhead of fault-tolerant quantum computing by increasing noise thresholds and reducing the number"
+    },
+    {
       "document_name": "Atomic Coherence of over 100 s and 1-s Instability of 1.5x10 -18 in a Wannier-Stark Lattice Clock",
       "document_number": "",
       "series": "",
@@ -341,6 +361,16 @@
       "summary": "Quantum computational advantage is challenging to maintain asymptotically in the presence of noise."
     },
     {
+      "document_name": "Dynamics of single photon emission from a quantum dot emitting photons at a telecom wavelength",
+      "document_number": "",
+      "series": "",
+      "release_date": "May 4, 2025",
+      "release_date_raw": "2025-05-04",
+      "resource_type": "Publication",
+      "link": "https://www.nist.gov/publications/dynamics-single-photon-emission-quantum-dot-emitting-photons-telecom-wavelength",
+      "summary": "We investigate the dynamics of single-photon emission from a near C-band quantum dot using a time-resolved Hanbury Brown and Twiss experiment."
+    },
+    {
       "document_name": "MEMSDuino: An Arduino-Based MEMS Switch Controller",
       "document_number": "",
       "series": "",
@@ -389,18 +419,8 @@
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/autoionization-enhanced-rydberg-dressing-fast-contaminant-removal",
       "summary": ""
-    },
-    {
-      "document_name": "Multi-mode Gaussian State Analysis with one Bounded Photon Counter",
-      "document_number": "",
-      "series": "",
-      "release_date": "March 25, 2025",
-      "release_date_raw": "2025-03-25",
-      "resource_type": "Publication",
-      "link": "https://www.nist.gov/publications/multi-mode-gaussian-state-analysis-one-bounded-photon-counter",
-      "summary": "Gaussian states are ubiquitous in quantum optics and information processing, and it is essential to have effective tools for their characterization."
     }
   ],
-  "timestamp": "2026-03-20T17:28:34.445539",
-  "count": 40
+  "timestamp": "2026-03-25T19:17:51.471791",
+  "count": 42
 }

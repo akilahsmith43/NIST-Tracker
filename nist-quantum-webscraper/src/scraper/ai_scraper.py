@@ -51,7 +51,7 @@ def _parse_link(href: str, base: str = "") -> str:
     if href.startswith('http'):
         return href
     if href.startswith('/'):
-        return f"https://{base}" if base else f"https://csrc.nist.gov{href}"
+        return f"https://{base}{href}" if base else f"https://csrc.nist.gov{href}"
     return href
 
 

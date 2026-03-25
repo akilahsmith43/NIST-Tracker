@@ -1,6 +1,7 @@
 import streamlit as st
 import sys
 import os
+import re
 from datetime import datetime
 
 # Add the src directory to the Python path
@@ -86,6 +87,20 @@ except ImportError as e:
         data_storage = importlib.util.module_from_spec(spec5)
         spec5.loader.exec_module(data_storage)
         DataStorage = data_storage.DataStorage
+
+def sanitize_link(link):
+    """Sanitize links to prevent corruption in markdown rendering"""
+    if not link:
+        return link
+    
+    # Pattern to detect corrupted links in format [](url)<url>
+    corrupted_pattern = r'^\[\]\((.*?)\)<\1>$'
+    match = re.match(corrupted_pattern, link)
+    if match:
+        # Extract the clean URL
+        return match.group(1)
+    
+    return link
 
 def main():
     st.set_page_config(page_title="NIST Quantum Tracker", page_icon="🔬", layout="wide")
@@ -557,7 +572,8 @@ def main():
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")
                     if pub['link']:
-                        st.markdown(f"[📄 View Document]({pub['link']})")
+                        sanitized_link = sanitize_link(pub['link'])
+                        st.markdown(f"[📄 View Document]({sanitized_link})")
                     st.write("---")
         
         with col2:
@@ -574,7 +590,8 @@ def main():
                     if pres.get('release_date'):
                         st.write(f"**Published:** {pres['release_date']}")
                     if pres['link']:
-                        st.markdown(f"[🎤 View Presentation]({pres['link']})")
+                        sanitized_link = sanitize_link(pres['link'])
+                        st.markdown(f"[🎤 View Presentation]({sanitized_link})")
                     st.write("---")
         
         with col3:
@@ -591,7 +608,8 @@ def main():
                     if article['publish_date']:
                         st.write(f"**Published:** {article['publish_date']}")
                     if article['link']:
-                        st.markdown(f"[📰 Read Article]({article['link']})")
+                        sanitized_link = sanitize_link(article['link'])
+                        st.markdown(f"[📰 Read Article]({sanitized_link})")
                     st.write("---")
         
         # PQC Last update info
@@ -646,6 +664,9 @@ def main():
         for article in new_ai_news:
             storage.add_notification('ai_news', article)
 
+        # Save current AI data
+        storage.save_ai_data(ai_data)
+        
         # Get all AI notifications and organize by week
         all_notifications = storage.load_notifications()
         ai_notifications = [n for n in all_notifications if n.get('type', '').startswith('ai_')]
@@ -740,7 +761,8 @@ def main():
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")
                     if pub.get('link'):
-                        st.markdown(f"[📄 View Document]({pub['link']})")
+                        sanitized_link = sanitize_link(pub['link'])
+                        st.markdown(f"[📄 View Document]({sanitized_link})")
 
         with col2:
             st.header("🎤 AI Presentations")
@@ -754,7 +776,8 @@ def main():
                     if pres.get('release_date'):
                         st.write(f"**Published:** {pres['release_date']}")
                     if pres.get('link'):
-                        st.markdown(f"[🎤 View Presentation]({pres['link']})")
+                        sanitized_link = sanitize_link(pres['link'])
+                        st.markdown(f"[🎤 View Presentation]({sanitized_link})")
 
         with col3:
             st.header("📰 AI News")
@@ -769,7 +792,8 @@ def main():
                     if article.get('publish_date'):
                         st.write(f"**Published:** {article['publish_date']}")
                     if article.get('link'):
-                        st.markdown(f"[📰 Read Article]({article['link']})")
+                        sanitized_link = sanitize_link(article['link'])
+                        st.markdown(f"[📰 Read Article]({sanitized_link})")
 
         st.sidebar.divider()
         st.sidebar.caption(f"AI Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
@@ -802,7 +826,8 @@ def main():
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")
                     if pub['link']:
-                        st.markdown(f"[📄 View Document]({pub['link']})")
+                        sanitized_link = sanitize_link(pub['link'])
+                        st.markdown(f"[📄 View Document]({sanitized_link})")
                     st.write("---")
         
         with col2:
@@ -819,7 +844,8 @@ def main():
                     if pres.get('release_date'):
                         st.write(f"**Published:** {pres['release_date']}")
                     if pres['link']:
-                        st.markdown(f"[🎤 View Presentation]({pres['link']})")
+                        sanitized_link = sanitize_link(pres['link'])
+                        st.markdown(f"[🎤 View Presentation]({sanitized_link})")
                     st.write("---")
         
         with col3:
@@ -836,7 +862,8 @@ def main():
                     if article['publish_date']:
                         st.write(f"**Published:** {article['publish_date']}")
                     if article['link']:
-                        st.markdown(f"[📰 Read Article]({article['link']})")
+                        sanitized_link = sanitize_link(article['link'])
+                        st.markdown(f"[📰 Read Article]({sanitized_link})")
                     st.write("---")
     
     # Last update info
