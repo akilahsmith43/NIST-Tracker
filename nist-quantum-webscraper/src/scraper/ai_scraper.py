@@ -44,6 +44,13 @@ def parse_nist_date(date_str: str) -> datetime:
     return None
 
 
+def format_date_for_display(date_obj: datetime) -> str:
+    """Convert datetime object to 'Month, DD, YYYY' format"""
+    if not date_obj:
+        return ""
+    return date_obj.strftime('%B %d, %Y')
+
+
 def _parse_link(href: str, base: str = "") -> str:
     if not href:
         return ""
@@ -138,6 +145,8 @@ def scrape_ai_publications() -> List[Dict[str, Any]]:
             parsed = parse_nist_date(release_date)
             if parsed:
                 release_date_raw = parsed.strftime('%Y-%m-%d')
+                # Convert to consistent display format
+                release_date = format_date_for_display(parsed)
             else:
                 release_date_raw = ""
 
@@ -216,6 +225,10 @@ def scrape_ai_presentations() -> List[Dict[str, Any]]:
         parsed = parse_nist_date(release_date)
         if parsed and parsed < cutoff:
             continue
+        
+        # Convert to consistent display format
+        if parsed:
+            release_date = format_date_for_display(parsed)
 
         presentations.append({
             "document_name": name,
@@ -285,6 +298,8 @@ def scrape_ai_news() -> List[Dict[str, Any]]:
 
         if parsed:
             publish_date_raw = parsed.strftime('%Y-%m-%d')
+            # Convert to consistent display format
+            publish_date = format_date_for_display(parsed)
         else:
             publish_date_raw = ""
 
