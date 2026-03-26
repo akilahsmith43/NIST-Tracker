@@ -5,7 +5,7 @@
         "document_name": "Recommendations for Key-Encapsulation Mechanisms",
         "document_number": "",
         "series": "SP",
-        "release_date": "9/18/2025",
+        "release_date": "September 18, 2025",
         "release_date_raw": "2025-09-18",
         "resource_type": "Post-Quantum Cryptography Publication",
         "link": "https://csrc.nist.gov/pubs/sp/800/227/final",
@@ -16,7 +16,7 @@
         "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
         "document_number": "",
         "series": "CSWP",
-        "release_date": "9/18/2025",
+        "release_date": "September 18, 2025",
         "release_date_raw": "2025-09-18",
         "resource_type": "Post-Quantum Cryptography Publication",
         "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
@@ -27,34 +27,12 @@
         "document_name": "Data Classification Practices",
         "document_number": "",
         "series": "SP",
-        "release_date": "2/12/2026",
+        "release_date": "February 12, 2026",
         "release_date_raw": "2026-02-12",
         "resource_type": "Post-Quantum Cryptography Publication",
         "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
         "summary": "",
         "category": "Drafts Open for Comment"
-      },
-      {
-        "document_name": "Data Classification Practices",
-        "document_number": "",
-        "series": "SP",
-        "release_date": "2/12/2026",
-        "release_date_raw": "2026-02-12",
-        "resource_type": "Post-Quantum Cryptography Publication",
-        "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
-        "summary": "",
-        "category": "Drafts"
-      },
-      {
-        "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
-        "document_number": "",
-        "series": "CSWP",
-        "release_date": "9/18/2025",
-        "release_date_raw": "2025-09-18",
-        "resource_type": "Post-Quantum Cryptography Publication",
-        "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
-        "summary": "",
-        "category": "Drafts"
       }
     ],
     "presentations": [
@@ -65,7 +43,8 @@
         "status": "Available",
         "release_date": "April 30, 2025",
         "resource_type": "Post-Quantum Cryptography Presentation",
-        "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
+        "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling",
+        "release_date_raw": "2025-04-30"
       }
     ],
     "news": [
@@ -84,61 +63,13 @@
         "publish_date_raw": "2024-08-13",
         "link": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
         "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST to Standardize Encryption Algorithms That Can Resist Attack by Quantum Computers",
-        "summary": "",
-        "publish_date": "August 24, 2023",
-        "publish_date_raw": "2023-08-24",
-        "link": "https://www.nist.gov/news-events/news/2023/08/nist-standardize-encryption-algorithms-can-resist-attack-quantum-computers",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST Selects \u2018Lightweight Cryptography\u2019 Algorithms to Protect Small Devices",
-        "summary": "",
-        "publish_date": "February 7, 2023",
-        "publish_date_raw": "2023-02-07",
-        "link": "https://www.nist.gov/news-events/news/2023/02/nist-selects-lightweight-cryptography-algorithms-protect-small-devices",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST Announces First Four Quantum-Resistant Cryptographic Algorithms",
-        "summary": "",
-        "publish_date": "July 5, 2022",
-        "publish_date_raw": "2022-07-05",
-        "link": "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST\u2019s Post-Quantum Cryptography Program Enters \u2018Selection Round\u2019",
-        "summary": "",
-        "publish_date": "July 22, 2020",
-        "publish_date_raw": "2020-07-22",
-        "link": "https://www.nist.gov/news-events/news/2020/07/nists-post-quantum-cryptography-program-enters-selection-round",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST Reveals 26 Algorithms Advancing to the Post-Quantum Crypto \u2018Semifinals\u2019",
-        "summary": "",
-        "publish_date": "January 30, 2019",
-        "publish_date_raw": "2019-01-30",
-        "link": "https://www.nist.gov/news-events/news/2019/01/nist-reveals-26-algorithms-advancing-post-quantum-crypto-semifinals",
-        "resource_type": "Post-Quantum Cryptography News"
-      },
-      {
-        "title": "NIST\u2019s New Quantum Method GeneratesReallyRandom Numbers",
-        "summary": "",
-        "publish_date": "April 11, 2018",
-        "publish_date_raw": "2018-04-11",
-        "link": "https://www.nist.gov/news-events/news/2018/04/nists-new-quantum-method-generates-really-random-numbers",
-        "resource_type": "Post-Quantum Cryptography News"
       }
     ]
   },
-  "timestamp": "2026-03-26T17:03:15.582324",
+  "timestamp": "2026-03-26T18:21:52.303203",
   "counts": {
-    "publications": 5,
+    "publications": 3,
     "presentations": 1,
-    "news": 8
+    "news": 2
   }
 }

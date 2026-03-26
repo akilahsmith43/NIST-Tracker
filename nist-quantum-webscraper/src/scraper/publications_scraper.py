@@ -61,7 +61,12 @@ def clean_text(text: str) -> str:
     
     return text
 
-def scrape_publications(url: str | None = None, query: str | None = None, cutoff_date: datetime | None = None):
+def scrape_publications(
+    url: str | None = None,
+    query: str | None = None,
+    cutoff_date: datetime | None = None,
+    category: str | None = None,
+):
     """Scrape publications from a given URL or the default CSRC search interface.
 
     Parameters
@@ -247,6 +252,7 @@ def scrape_publications(url: str | None = None, query: str | None = None, cutoff
                             "resource_type": "Publication",
                             "link": link,
                             "summary": summary,
+                            "category": category or "",
                         })
 
                 # schedule next page if available
@@ -400,11 +406,23 @@ def scrape_all_publications():
     Scrapes from 4 NIST publication URLs and de‑duplicates by link.
     """
 
-    urls = [
-        "https://www.nist.gov/publications/search/topic/249281",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
-        "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+    sources = [
+        {
+            "url": "https://www.nist.gov/publications/search/topic/249281",
+            "category": "General Publications",
+        },
+        {
+            "url": "https://csrc.nist.gov/publications/search?sortBy-lg=relevance&viewMode-lg=brief&ipp-lg=50&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+            "category": "All Publications",
+        },
+        {
+            "url": "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Draft&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+            "category": "Drafts Open for Comment",
+        },
+        {
+            "url": "https://csrc.nist.gov/publications/search?sortBy-lg=releasedate+DESC&viewMode-lg=brief&ipp-lg=all&status-lg=Final&series-lg=FIPS%2CSP%2CIR%2CCSWP%2CTN%2CVTS%2CAI%2CGCR%2CProject+Description&topics-lg=27501%7Cquantum+information+science&topicsMatch-lg=ANY&controlsMatch-lg=ANY",
+            "category": "Final Publications",
+        },
     ]
     
     seen = set()
@@ -412,17 +430,24 @@ def scrape_all_publications():
     
     print("=" * 50)
     print("Starting publication scraping...")
-    print(f"Will scrape {len(urls)} URLs")
+    print(f"Will scrape {len(sources)} URLs")
     print("=" * 50)
     
     # Scrape from the specified URLs in parallel to save time
     from concurrent.futures import ThreadPoolExecutor, as_completed
     futures = {}
-    with ThreadPoolExecutor(max_workers=min(4, len(urls))) as executor:
-        for url in urls:
-            futures[executor.submit(scrape_publications, url=url)] = url
+    with ThreadPoolExecutor(max_workers=min(4, len(sources))) as executor:
+        for source in sources:
+            futures[
+                executor.submit(
+                    scrape_publications,
+                    url=source["url"],
+                    category=source["category"],
+                )
+            ] = source
         for future in as_completed(futures):
-            url = futures[future]
+            source = futures[future]
+            url = source["url"]
             try:
                 pubs = future.result()
             except Exception as e:

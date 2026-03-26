@@ -7,9 +7,10 @@
       "status": "Available",
       "release_date": "April 30, 2025",
       "resource_type": "Presentation",
-      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling"
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling",
+      "release_date_raw": "2025-04-30"
     }
   ],
-  "timestamp": "2026-03-26T17:02:16.862031",
+  "timestamp": "2026-03-26T18:21:09.899512",
   "count": 1
 }

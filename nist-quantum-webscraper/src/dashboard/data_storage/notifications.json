@@ -17663,5 +17663,111 @@
       "resource_type": "Artificial Intelligence News"
     },
     "scrape_date": "2026-03-26T16:22:31.839577"
+  },
+  {
+    "type": "presentation",
+    "timestamp": "2026-03-26 18:21:09.760048",
+    "item": {
+      "document_name": "Certified Randomness via Random Circuit Sampling",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "April 30, 2025",
+      "resource_type": "Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling",
+      "release_date_raw": "2025-04-30"
+    },
+    "scrape_date": "2026-03-26T18:21:09.760052"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:21:09.793416",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
+    },
+    "scrape_date": "2026-03-26T18:21:09.793418"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:21:09.820975",
+    "item": {
+      "title": "NIST Issues Broad Agency Announcement for Proposals to Advance Microelectronics Technologies",
+      "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
+      "publish_date": "September 24, 2025",
+      "publish_date_raw": "2025-09-24",
+      "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States."
+    },
+    "scrape_date": "2026-03-26T18:21:09.820977"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:21:09.847203",
+    "item": {
+      "title": "In Quantum Sensing, What Beats Beating Noise? Meeting Noise Halfway.",
+      "link": "https://www.nist.gov/news-events/news/2025/09/quantum-sensing-what-beats-beating-noise-meeting-noise-halfway",
+      "publish_date": "September 10, 2025",
+      "publish_date_raw": "2025-09-10",
+      "summary": "A team including scientists at NIST may have found a new way of dealing with noise at the microscopic scales where quantum physics reigns."
+    },
+    "scrape_date": "2026-03-26T18:21:09.847204"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:21:09.873850",
+    "item": {
+      "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
+      "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
+      "publish_date": "June 11, 2025",
+      "publish_date_raw": "2025-06-11",
+      "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
+    },
+    "scrape_date": "2026-03-26T18:21:09.873853"
+  },
+  {
+    "type": "pqc_presentation",
+    "timestamp": "2026-03-26 18:21:52.274615",
+    "item": {
+      "document_name": "Certified Randomness via Random Circuit Sampling",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "April 30, 2025",
+      "resource_type": "Post-Quantum Cryptography Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/certified-randomness-via-random-circuit-sampling",
+      "release_date_raw": "2025-04-30"
+    },
+    "scrape_date": "2026-03-26T18:21:52.274620"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 18:22:10.940853",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/oscal-hub-open-source-visual-tools",
+      "release_date": "February 18, 2026",
+      "release_date_raw": "2026-02-18"
+    },
+    "scrape_date": "2026-03-26T18:22:10.940859"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 18:22:10.968570",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/ai-agent-for-oscal-instant-oscal-expertise-for-all",
+      "release_date": "February 04, 2026",
+      "release_date_raw": "2026-02-04"
+    },
+    "scrape_date": "2026-03-26T18:22:10.968577"
   }
 ]
