@@ -3,7 +3,8 @@ import sys
 import os
 import re
 import json
-from datetime import datetime
+from datetime import datetime, timedelta
+from urllib.parse import urlsplit
 
 # Add the src directory to the Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -103,6 +104,160 @@ def sanitize_link(link):
     
     return link
 
+def dedupe_notifications_for_sidebar(notifications):
+    """Deduplicate notifications by what users see in the sidebar."""
+    selected = {}
+
+    def _score_notification_link(notification):
+        item = notification.get('item', {})
+        link = item.get('link') or ''
+        if not link:
+            return 0
+
+        sanitized = sanitize_link(link)
+        try:
+            parsed = urlsplit(sanitized)
+        except Exception:
+            return 0
+
+        score = 0
+        path = parsed.path.rstrip('/')
+        hostname = parsed.netloc.lower()
+        notification_type = notification.get('type', '')
+
+        # Prefer real document pages over section homepages.
+        if path and path != '':
+            score += 10
+        if path.count('/') > 1:
+            score += 10
+
+        # AI/general items are typically canonical on www.nist.gov.
+        if hostname == 'www.nist.gov' and (notification_type.startswith('ai_') or notification_type in {'publication', 'presentation', 'news'}):
+            score += 20
+
+        # PQC items usually live on CSRC.
+        if hostname == 'csrc.nist.gov' and notification_type.startswith('pqc_'):
+            score += 20
+
+        # Prefer links that look like direct content pages.
+        if any(segment in path for segment in ('/publications/', '/news-events/news/', '/presentations/')):
+            score += 10
+
+        # Avoid bare homepages.
+        if path in {'', '/'}:
+            score -= 50
+
+        return score
+
+    for notif in notifications:
+        item = notif.get('item', {})
+        label = (item.get('document_name') or item.get('title') or '').strip().lower()
+        if not label:
+            label = (item.get('link') or '').strip().lower()
+        key = f"{notif.get('type', '')}::{label}"
+
+        current = selected.get(key)
+        if current is None or _score_notification_link(notif) > _score_notification_link(current):
+            selected[key] = notif
+
+    return list(selected.values())
+
+def render_sidebar_notification_item(label, link):
+    """Render a sidebar notification as a clickable bullet when a link exists."""
+    safe_label = (label or 'Untitled')
+    safe_label = safe_label.replace('\\', '\\\\').replace('[', '\\[').replace(']', '\\]').replace('_', '\\_')
+    if link:
+        st.sidebar.markdown(f"• [{safe_label}]({sanitize_link(link)})")
+    else:
+        st.sidebar.markdown(f"• {safe_label}")
+
+def group_notifications_for_sidebar(notifications, section_specs):
+    """Group and deduplicate notifications for sidebar rendering."""
+    grouped = {}
+    for notification_type, _, _, _ in section_specs:
+        grouped[notification_type] = dedupe_notifications_for_sidebar(
+            [n for n in notifications if n.get('type') == notification_type]
+        )
+    return grouped
+
+def render_weekly_notifications(grouped_notifications, empty_message=None):
+    """Render a weekly notifications block in the sidebar."""
+    has_items = False
+    for heading, notifications, label_key, summary_key in grouped_notifications:
+        if not notifications:
+            continue
+        has_items = True
+        st.sidebar.write(f"**{heading}:**")
+        for notif in notifications:
+            item = notif.get('item', {})
+            render_sidebar_notification_item(item.get(label_key, 'Untitled'), item.get('link'))
+            if summary_key and item.get(summary_key):
+                st.sidebar.caption(f"   Summary: {item[summary_key][:100]}...")
+
+    if not has_items and empty_message:
+        st.sidebar.write(empty_message)
+
+def render_two_week_notification_sidebar(week_1_notifications, week_2_notifications, section_specs, empty_week_1_message=None, empty_week_2_message=None):
+    """Render Past 1 Week and Past 2 Weeks notification sections."""
+    week_1_grouped = group_notifications_for_sidebar(week_1_notifications, section_specs)
+    week_2_grouped = group_notifications_for_sidebar(week_2_notifications, section_specs)
+
+    st.sidebar.subheader("📅 Past 1 Week (0-7 days)")
+    render_weekly_notifications(
+        [(heading, week_1_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
+        empty_week_1_message,
+    )
+
+    st.sidebar.subheader("📅 Past 2 Weeks (8-14 days)")
+    render_weekly_notifications(
+        [(heading, week_2_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
+        empty_week_2_message,
+    )
+
+def parse_dashboard_date(raw_value):
+    """Parse supported dashboard date formats into a naive datetime."""
+    if not raw_value:
+        return None
+
+    for parser in (datetime.fromisoformat, lambda value: datetime.strptime(value, '%B %d, %Y')):
+        try:
+            parsed = parser(raw_value)
+            return parsed.replace(tzinfo=None) if parsed.tzinfo else parsed
+        except Exception:
+            continue
+
+    return None
+
+def get_item_date(item, date_keys):
+    """Return the first parseable date found on an item."""
+    for key in date_keys:
+        parsed = parse_dashboard_date(item.get(key))
+        if parsed:
+            return parsed
+    return None
+
+def filter_items_since(items, cutoff, date_keys):
+    """Keep only items whose configured date fields are on or after cutoff."""
+    output = []
+    for item in items:
+        item_date = get_item_date(item, date_keys)
+        if item_date and item_date >= cutoff:
+            output.append(item)
+    return output
+
+def filter_notifications_since(notifications, cutoff):
+    """Keep only notifications whose underlying item date is on or after cutoff."""
+    output = []
+    for notification in notifications:
+        item_date = get_item_date(notification.get('item', {}), ('release_date_raw', 'publish_date_raw', 'release_date', 'publish_date'))
+        if item_date and item_date >= cutoff:
+            output.append(notification)
+    return output
+
+def sort_items_by_date(items, date_keys):
+    """Sort items newest-first using the first available parseable date."""
+    return sorted(items, key=lambda item: get_item_date(item, date_keys) or datetime.min, reverse=True)
+
 def main():
     st.set_page_config(page_title="NIST Quantum Tracker", page_icon="🔬", layout="wide")
     
@@ -147,56 +302,21 @@ def main():
             pqc_presentations = pqc_data.get('presentations', [])
             pqc_news = pqc_data.get('news', [])
 
-        # keep only PQC presentations from the past year
-        from datetime import datetime, timedelta
         cutoff = datetime.now() - timedelta(days=365)
-        recent_pqc_pres = []
-        for pres in pqc_presentations:
-            raw = pres.get('release_date')
-            if raw:
-                try:
-                    d = datetime.strptime(raw, '%B %d, %Y')
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_pqc_pres.append(pres)
-        pqc_presentations = recent_pqc_pres
-
-        # keep only PQC news from the past year
-        recent_pqc_news = []
-        for article in pqc_news:
-            raw = article.get('publish_date_raw')
-            if raw:
-                try:
-                    d = datetime.fromisoformat(raw)
-                    if d.tzinfo:
-                        d = d.replace(tzinfo=None)
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_pqc_news.append(article)
+        pqc_presentations = filter_items_since(pqc_presentations, cutoff, ('release_date',))
+        recent_pqc_news = filter_items_since(pqc_news, cutoff, ('publish_date_raw', 'publish_date'))
         
         # If nothing is found in strict 1-year window, fall back to 2 years to provide a populated view
         if not recent_pqc_news:
             fallback_cutoff = datetime.now() - timedelta(days=730)
-            for article in pqc_news:
-                raw = article.get('publish_date_raw')
-                if raw:
-                    try:
-                        d = datetime.fromisoformat(raw)
-                        if d.tzinfo:
-                            d = d.replace(tzinfo=None)
-                    except Exception:
-                        continue
-                    if d >= fallback_cutoff:
-                        recent_pqc_news.append(article)
+            recent_pqc_news = filter_items_since(pqc_news, fallback_cutoff, ('publish_date_raw', 'publish_date'))
 
         pqc_news = recent_pqc_news
 
         # Sort by date - newest first
-        pqc_publications = sorted(pqc_publications, key=lambda x: x.get('release_date_raw', ''), reverse=True)
-        pqc_presentations = sorted(pqc_presentations, key=lambda x: x.get('release_date', ''), reverse=True)
-        pqc_news = sorted(pqc_news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
+        pqc_publications = sort_items_by_date(pqc_publications, ('release_date_raw', 'release_date'))
+        pqc_presentations = sort_items_by_date(pqc_presentations, ('release_date',))
+        pqc_news = sort_items_by_date(pqc_news, ('publish_date_raw', 'publish_date'))
         
         # Check for new PQC items and save data
         new_pqc_items = storage.get_new_pqc_items(pqc_data)
@@ -216,36 +336,7 @@ def main():
         all_pqc_notifications = storage.load_notifications()
         
         # Filter PQC notifications to only show items from the past year
-        filtered_pqc_notifications = []
-        for n in all_pqc_notifications:
-            item = n.get('item', {})
-            item_date = None
-            
-            # Try to get the item's release/publish date
-            if item.get('release_date_raw'):
-                try:
-                    item_date = datetime.fromisoformat(item['release_date_raw'])
-                    if item_date.tzinfo:
-                        item_date = item_date.replace(tzinfo=None)
-                except Exception:
-                    continue
-            elif item.get('publish_date_raw'):
-                try:
-                    item_date = datetime.fromisoformat(item['publish_date_raw'])
-                    if item_date.tzinfo:
-                        item_date = item_date.replace(tzinfo=None)
-                except Exception:
-                    continue
-            elif item.get('release_date'):
-                try:
-                    item_date = datetime.strptime(item['release_date'], '%B %d, %Y')
-                except Exception:
-                    continue
-            
-            if item_date and item_date >= cutoff:
-                filtered_pqc_notifications.append(n)
-        
-        all_pqc_notifications = filtered_pqc_notifications
+        all_pqc_notifications = filter_notifications_since(all_pqc_notifications, cutoff)
         
         # Save current PQC data
         storage.save_pqc_data(pqc_data)
@@ -258,135 +349,36 @@ def main():
             categorized_notifications = storage.get_notifications_by_week()
             week_1_notifications = categorized_notifications.get('week_1', [])
             week_2_notifications = categorized_notifications.get('week_2', [])
-            
-            # Separate by type for each week
-            week_1_pub = [n for n in week_1_notifications if n.get('type') == 'pqc_publication']
-            week_1_pres = [n for n in week_1_notifications if n.get('type') == 'pqc_presentation']
-            week_1_news = [n for n in week_1_notifications if n.get('type') == 'pqc_news']
-            
-            week_2_pub = [n for n in week_2_notifications if n.get('type') == 'pqc_publication']
-            week_2_pres = [n for n in week_2_notifications if n.get('type') == 'pqc_presentation']
-            week_2_news = [n for n in week_2_notifications if n.get('type') == 'pqc_news']
-            
-            # Week 1 section (0-7 days)
-            st.sidebar.subheader("📅 Week 1 (0-7 days)")
-            if week_1_notifications:
-                if week_1_pub:
-                    st.sidebar.write("**🔐 PQC Publications:**")
-                    for notif in week_1_pub:
-                        from html import escape
-                        pub = notif.get('item', {})
-                        title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                        title = f"<span style=\"color:black\">{title}</span>"
-                        st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-                
-                if week_1_pres:
-                    st.sidebar.write("**🔐 PQC Presentations:**")
-                    for notif in week_1_pres:
-                        pres = notif.get('item', {})
-                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-                
-                if week_1_news:
-                    st.sidebar.write("**🔐 PQC News:**")
-                    for notif in week_1_news:
-                        article = notif.get('item', {})
-                        st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                        if article.get('summary'):
-                            st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-            else:
-                st.sidebar.write("No new PQC items in Week 1.")
-            
-            # Week 2 section (8-14 days)
-            st.sidebar.subheader("📅 Week 2 (8-14 days)")
-            if week_2_notifications:
-                if week_2_pub:
-                    st.sidebar.write("**🔐 PQC Publications:**")
-                    for notif in week_2_pub:
-                        from html import escape
-                        pub = notif.get('item', {})
-                        title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                        title = f"<span style=\"color:black\">{title}</span>"
-                        st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-                
-                if week_2_pres:
-                    st.sidebar.write("**🔐 PQC Presentations:**")
-                    for notif in week_2_pres:
-                        pres = notif.get('item', {})
-                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-                
-                if week_2_news:
-                    st.sidebar.write("**🔐 PQC News:**")
-                    for notif in week_2_news:
-                        article = notif.get('item', {})
-                        st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                        if article.get('summary'):
-                            st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-            else:
-                st.sidebar.write("No new PQC items in Week 2.")
+
+            render_two_week_notification_sidebar(
+                week_1_notifications,
+                week_2_notifications,
+                [
+                    ('pqc_publication', '🔐 PQC Publications', 'document_name', None),
+                    ('pqc_presentation', '🔐 PQC Presentations', 'document_name', None),
+                    ('pqc_news', '🔐 PQC News', 'title', 'summary'),
+                ],
+                empty_week_1_message="No new PQC items in Week 1.",
+                empty_week_2_message="No new PQC items in Week 2.",
+            )
         else:
             st.sidebar.info("No new PQC items found since last check.")
         
     
-    # keep only publications from the past year
-    from datetime import datetime, timedelta
     cutoff = datetime.now() - timedelta(days=365)
     
     # Only process data if we're on the Quantum Information Science page
     if page == "Quantum Information Science":
-        recent_pubs = []
-        for pub in publications:
-            raw = pub.get('release_date_raw')
-            if raw:
-                try:
-                    d = datetime.fromisoformat(raw)
-                    # normalize to naive datetime for comparison
-                    if d.tzinfo:
-                        d = d.replace(tzinfo=None)
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_pubs.append(pub)
-            # if we can't parse date, drop it
-        publications = recent_pubs
-
-        # keep only presentations from the past year
-        recent_pres = []
-        for pres in presentations:
-            raw = pres.get('release_date')
-            if raw:
-                try:
-                    # Parse date in format "Month DD, YYYY"
-                    d = datetime.strptime(raw, '%B %d, %Y')
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_pres.append(pres)
-            # if we can't parse date, drop it
-        presentations = recent_pres
-
-        # keep only news from the past year
-        recent_news = []
-        for article in news:
-            raw = article.get('publish_date_raw')
-            if raw:
-                try:
-                    d = datetime.fromisoformat(raw)
-                    # normalize to naive datetime for comparison
-                    if d.tzinfo:
-                        d = d.replace(tzinfo=None)
-                except Exception:
-                    continue
-                if d >= cutoff:
-                    recent_news.append(article)
-            # if we can't parse date, drop it
-        news = recent_news
+        publications = filter_items_since(publications, cutoff, ('release_date_raw', 'release_date'))
+        presentations = filter_items_since(presentations, cutoff, ('release_date',))
+        news = filter_items_since(news, cutoff, ('publish_date_raw', 'publish_date'))
 
     # Only process Quantum Information Science data if we're on that page
     if page == "Quantum Information Science":
         # Sort by date - newest first
-        publications = sorted(publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
-        presentations = sorted(presentations, key=lambda x: x.get('release_date', ''), reverse=True)
-        news = sorted(news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
+        publications = sort_items_by_date(publications, ('release_date_raw', 'release_date'))
+        presentations = sort_items_by_date(presentations, ('release_date',))
+        news = sort_items_by_date(news, ('publish_date_raw', 'publish_date'))
         
         # Check for new items and save data
         new_publications = storage.get_new_items('publications', publications)
@@ -405,37 +397,7 @@ def main():
         all_notifications = storage.load_notifications()
         
         # Filter notifications to only show items from the past year
-        cutoff = datetime.now() - timedelta(days=365)
-        filtered_notifications = []
-        for n in all_notifications:
-            item = n.get('item', {})
-            item_date = None
-            
-            # Try to get the item's release/publish date
-            if item.get('release_date_raw'):
-                try:
-                    item_date = datetime.fromisoformat(item['release_date_raw'])
-                    if item_date.tzinfo:
-                        item_date = item_date.replace(tzinfo=None)
-                except Exception:
-                    continue
-            elif item.get('publish_date_raw'):
-                try:
-                    item_date = datetime.fromisoformat(item['publish_date_raw'])
-                    if item_date.tzinfo:
-                        item_date = item_date.replace(tzinfo=None)
-                except Exception:
-                    continue
-            elif item.get('release_date'):
-                try:
-                    item_date = datetime.strptime(item['release_date'], '%B %d, %Y')
-                except Exception:
-                    continue
-            
-            if item_date and item_date >= cutoff:
-                filtered_notifications.append(n)
-        
-        all_notifications = filtered_notifications
+        all_notifications = filter_notifications_since(all_notifications, cutoff)
         
         # Save current data
         storage.save_data('publications', publications)
@@ -491,71 +453,18 @@ def main():
         categorized_notifications = storage.get_notifications_by_week()
         week_1_notifications = categorized_notifications.get('week_1', [])
         week_2_notifications = categorized_notifications.get('week_2', [])
-        
-        # Separate by type for each week
-        week_1_pub = [n for n in week_1_notifications if n.get('type') == 'publication']
-        week_1_pres = [n for n in week_1_notifications if n.get('type') == 'presentation']
-        week_1_news = [n for n in week_1_notifications if n.get('type') == 'news']
-        
-        week_2_pub = [n for n in week_2_notifications if n.get('type') == 'publication']
-        week_2_pres = [n for n in week_2_notifications if n.get('type') == 'presentation']
-        week_2_news = [n for n in week_2_notifications if n.get('type') == 'news']
-        
-        # Week 1 section (0-7 days)
-        st.sidebar.subheader("📅 Week 1 (0-7 days)")
-        if week_1_notifications:
-            if week_1_pub:
-                st.sidebar.write("**📄 Publications:**")
-                for notif in week_1_pub:
-                    from html import escape
-                    pub = notif.get('item', {})
-                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                    title = f"<span style=\"color:black\">{title}</span>"
-                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-            
-                if week_1_pres:
-                    st.sidebar.write("**🎤 Presentations:**")
-                    for notif in week_1_pres:
-                        pres = notif.get('item', {})
-                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-            
-            if week_1_news:
-                st.sidebar.write("**📰 News:**")
-                for notif in week_1_news:
-                    article = notif.get('item', {})
-                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                    if article.get('summary'):
-                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-        else:
-            st.sidebar.write("No new items in Week 1.")
-        
-        # Week 2 section (8-14 days)
-        st.sidebar.subheader("📅 Week 2 (8-14 days)")
-        if week_2_notifications:
-            if week_2_pub:
-                st.sidebar.write("**📄 Publications:**")
-                for notif in week_2_pub:
-                    from html import escape
-                    pub = notif.get('item', {})
-                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                    title = f"<span style=\"color:black\">{title}</span>"
-                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-            
-                if week_2_pres:
-                    st.sidebar.write("**🎤 Presentations:**")
-                    for notif in week_2_pres:
-                        pres = notif.get('item', {})
-                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-            
-            if week_2_news:
-                st.sidebar.write("**📰 News:**")
-                for notif in week_2_news:
-                    article = notif.get('item', {})
-                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                    if article.get('summary'):
-                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-        else:
-            st.sidebar.write("No new items in Week 2.")
+
+        render_two_week_notification_sidebar(
+            week_1_notifications,
+            week_2_notifications,
+            [
+                ('publication', '📄 Publications', 'document_name', None),
+                ('presentation', '🎤 Presentations', 'document_name', None),
+                ('news', '📰 News', 'title', 'summary'),
+            ],
+            empty_week_1_message="No new items in Week 1.",
+            empty_week_2_message="No new items in Week 2.",
+        )
     else:
         pass
     
@@ -650,47 +559,14 @@ def main():
             ai_news = ai_data.get('news', [])
 
         cutoff = datetime.now() - timedelta(days=60)
-        def _keep_recent(items, date_key):
-            output = []
-            for item in items:
-                raw = item.get(date_key, '')
-                if not raw:
-                    continue
-                dt = None
-                try:
-                    dt = datetime.fromisoformat(raw)
-                except Exception:
-                    try:
-                        dt = datetime.strptime(raw, '%B %d, %Y')
-                    except Exception:
-                        continue
-                if dt.tzinfo:
-                    dt = dt.replace(tzinfo=None)
-                if dt >= cutoff:
-                    output.append(item)
-            return output
-
-        ai_publications = _keep_recent(ai_publications, 'release_date_raw')
-        ai_presentations = _keep_recent(ai_presentations, 'release_date')
-        ai_news = _keep_recent(ai_news, 'publish_date_raw')
+        ai_publications = filter_items_since(ai_publications, cutoff, ('release_date_raw', 'release_date'))
+        ai_presentations = filter_items_since(ai_presentations, cutoff, ('release_date',))
+        ai_news = filter_items_since(ai_news, cutoff, ('publish_date_raw', 'publish_date'))
         
         # Sort by date - newest first
-        ai_publications = sorted(ai_publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
-        
-        # Sort AI presentations by parsing the date string properly
-        def parse_ai_presentation_date(pres):
-            date_str = pres.get('release_date', '')
-            if not date_str:
-                return ''
-            try:
-                # Parse date in format "Month DD, YYYY"
-                dt = datetime.strptime(date_str, '%B %d, %Y')
-                return dt.strftime('%Y-%m-%d')
-            except Exception:
-                return date_str
-        
-        ai_presentations = sorted(ai_presentations, key=lambda x: parse_ai_presentation_date(x), reverse=True)
-        ai_news = sorted(ai_news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
+        ai_publications = sort_items_by_date(ai_publications, ('release_date_raw', 'release_date'))
+        ai_presentations = sort_items_by_date(ai_presentations, ('release_date',))
+        ai_news = sort_items_by_date(ai_news, ('publish_date_raw', 'publish_date'))
 
         new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
         new_ai_pres = storage.get_new_items('ai_presentations', ai_presentations)
@@ -718,21 +594,16 @@ def main():
         # Filter to only AI notifications
         week_1_ai = [n for n in week_1_notifications if n.get('type', '').startswith('ai_')]
         week_2_ai = [n for n in week_2_notifications if n.get('type', '').startswith('ai_')]
-        
-        # Separate by type for each week
-        week_1_ai_pub = [n for n in week_1_ai if n.get('type') == 'ai_publication']
-        week_1_ai_pres = [n for n in week_1_ai if n.get('type') == 'ai_presentation']
-        week_1_ai_news = [n for n in week_1_ai if n.get('type') == 'ai_news']
-        
-        week_2_ai_pub = [n for n in week_2_ai if n.get('type') == 'ai_publication']
-        week_2_ai_pres = [n for n in week_2_ai if n.get('type') == 'ai_presentation']
-        week_2_ai_news = [n for n in week_2_ai if n.get('type') == 'ai_news']
-        
-        # Week 1 section (0-7 days)
-        st.sidebar.subheader("📅 Week 1 (0-7 days)")
-        
-        # Week 2 section (8-14 days)
-        st.sidebar.subheader("📅 Week 2 (8-14 days)")
+
+        render_two_week_notification_sidebar(
+            week_1_ai,
+            week_2_ai,
+            [
+                ('ai_publication', '🤖 AI Publications', 'document_name', None),
+                ('ai_presentation', '🤖 AI Presentations', 'document_name', None),
+                ('ai_news', '🤖 AI News', 'title', 'summary'),
+            ],
+        )
 
         col1, col2, col3 = st.columns(3)
         with col1:

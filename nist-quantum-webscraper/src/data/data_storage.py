@@ -2,16 +2,138 @@ import json
 import os
 from datetime import datetime
 from typing import List, Dict, Any
+from urllib.parse import urlsplit, urlunsplit
 
 class DataStorage:
     def __init__(self, storage_dir="data_storage"):
         self.storage_dir = storage_dir
         if not os.path.exists(storage_dir):
             os.makedirs(storage_dir)
+
+    def _normalize_text(self, value: str) -> str:
+        return ' '.join((value or '').strip().lower().split())
+
+    def _normalize_link(self, value: str) -> str:
+        raw = (value or '').strip()
+        if not raw:
+            return ''
+        try:
+            parts = urlsplit(raw)
+            return urlunsplit((parts.scheme.lower(), parts.netloc.lower(), parts.path.rstrip('/'), '', ''))
+        except Exception:
+            return raw.lower().rstrip('/')
+
+    def _get_item_label(self, item: Dict[str, Any]) -> str:
+        return self._normalize_text(
+            item.get('document_name')
+            or item.get('title')
+            or item.get('document_number')
+            or ''
+        )
+
+    def _get_item_date_token(self, item: Dict[str, Any]) -> str:
+        return self._normalize_text(
+            item.get('release_date_raw')
+            or item.get('publish_date_raw')
+            or item.get('release_date')
+            or item.get('publish_date')
+            or ''
+        )
+
+    def _build_item_identity(self, item: Dict[str, Any]) -> str:
+        """Build a stable identity for scraped items across alternate hosts/links."""
+        label = self._get_item_label(item)
+        date_token = self._get_item_date_token(item)
+        document_number = self._normalize_text(item.get('document_number') or '')
+        link = self._normalize_link(item.get('link', ''))
+
+        if label and date_token:
+            return f"label::{label}::date::{date_token}"
+        if document_number and date_token:
+            return f"document::{document_number}::date::{date_token}"
+        if label:
+            return f"label::{label}"
+        if link:
+            return f"link::{link}"
+        if date_token:
+            return f"date::{date_token}"
+        return 'empty-item'
+
+    def _score_item_link(self, link: str) -> int:
+        """Prefer links that look like canonical content pages over homepages or weak aliases."""
+        normalized = self._normalize_link(link)
+        if not normalized:
+            return 0
+
+        try:
+            parsed = urlsplit(normalized)
+        except Exception:
+            return 0
+
+        hostname = parsed.netloc.lower()
+        path = parsed.path.rstrip('/')
+        score = 0
+
+        if path not in {'', '/'}:
+            score += 10
+        if path.count('/') > 1:
+            score += 10
+
+        if hostname == 'www.nist.gov' and '/publications/' in path:
+            score += 25
+        if hostname == 'www.nist.gov' and '/news-events/news/' in path:
+            score += 25
+        if hostname == 'csrc.nist.gov' and '/pubs/' in path:
+            score += 25
+        if hostname == 'csrc.nist.gov' and '/presentations/' in path:
+            score += 25
+
+        if path in {'', '/'}:
+            score -= 50
+
+        return score
+
+    def _merge_item_data(self, existing_item: Dict[str, Any], incoming_item: Dict[str, Any]) -> Dict[str, Any]:
+        """Merge duplicate item records, keeping the richer/better-linked version."""
+        existing_item = existing_item or {}
+        incoming_item = incoming_item or {}
+
+        existing_score = self._score_item_link(existing_item.get('link', ''))
+        incoming_score = self._score_item_link(incoming_item.get('link', ''))
+
+        if incoming_score > existing_score:
+            primary = dict(incoming_item)
+            secondary = existing_item
+        else:
+            primary = dict(existing_item)
+            secondary = incoming_item
+
+        for key, value in secondary.items():
+            if primary.get(key) in (None, '', []):
+                primary[key] = value
+
+        return primary
+
+    def _deduplicate_items(self, items: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Deduplicate items and preserve the best available link/details."""
+        selected = {}
+        order = []
+
+        for item in items:
+            identity = self._build_item_identity(item)
+            if identity not in selected:
+                selected[identity] = dict(item)
+                order.append(identity)
+                continue
+
+            selected[identity] = self._merge_item_data(selected[identity], item)
+
+        return [selected[identity] for identity in order]
     
     def save_data(self, data_type: str, data: List[Dict[str, Any]]):
         """Save scraped data to JSON file"""
         filename = f"{self.storage_dir}/{data_type}.json"
+        data = self._deduplicate_items(data)
         with open(filename, 'w') as f:
             json.dump({
                 'data': data,
@@ -25,7 +147,10 @@ class DataStorage:
         if os.path.exists(filename):
             try:
                 with open(filename, 'r') as f:
-                    return json.load(f)
+                    payload = json.load(f)
+                    if isinstance(payload.get('data'), list):
+                        payload['data'] = self._deduplicate_items(payload['data'])
+                    return payload
             except (json.JSONDecodeError, FileNotFoundError):
                 # Return empty data if file is corrupted or empty
                 return {'data': [], 'timestamp': None, 'count': 0}
@@ -39,6 +164,11 @@ class DataStorage:
     def save_pqc_data(self, data: Dict[str, List[Dict[str, Any]]]):
         """Save Post-Quantum Cryptography data to JSON file"""
         filename = f"{self.storage_dir}/pqc_data.json"
+        data = {
+            'publications': self._deduplicate_items(data.get('publications', [])),
+            'presentations': self._deduplicate_items(data.get('presentations', [])),
+            'news': self._deduplicate_items(data.get('news', [])),
+        }
         with open(filename, 'w') as f:
             json.dump({
                 'data': data,
@@ -53,6 +183,11 @@ class DataStorage:
     def save_ai_data(self, data: Dict[str, List[Dict[str, Any]]]):
         """Save Artificial Intelligence data to JSON file"""
         filename = f"{self.storage_dir}/ai_data.json"
+        data = {
+            'publications': self._deduplicate_items(data.get('publications', [])),
+            'presentations': self._deduplicate_items(data.get('presentations', [])),
+            'news': self._deduplicate_items(data.get('news', [])),
+        }
         with open(filename, 'w') as f:
             json.dump({
                 'data': data,
@@ -114,7 +249,14 @@ class DataStorage:
         filename = f"{self.storage_dir}/pqc_data.json"
         if os.path.exists(filename):
             with open(filename, 'r') as f:
-                return json.load(f)
+                payload = json.load(f)
+                data = payload.get('data', {})
+                payload['data'] = {
+                    'publications': self._deduplicate_items(data.get('publications', [])),
+                    'presentations': self._deduplicate_items(data.get('presentations', [])),
+                    'news': self._deduplicate_items(data.get('news', [])),
+                }
+                return payload
         return {'data': {'publications': [], 'presentations': [], 'news': []}, 'timestamp': None, 'counts': {'publications': 0, 'presentations': 0, 'news': 0}}
     
     def get_previous_pqc_data(self) -> Dict[str, List[Dict[str, Any]]]:
@@ -127,29 +269,20 @@ class DataStorage:
         previous_data = self.get_previous_pqc_data()
         
         new_items = {'publications': [], 'presentations': [], 'news': []}
-        
-        # Check publications
-        previous_pubs = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('publications', [])}
-        for item in current_data.get('publications', []):
-            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
-            if item_key not in previous_pubs:
+
+        previous_pubs = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('publications', []))}
+        for item in self._deduplicate_items(current_data.get('publications', [])):
+            if self._build_item_identity(item) not in previous_pubs:
                 new_items['publications'].append(item)
-        
-        # Check presentations
-        previous_pres = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('presentations', [])}
-        for item in current_data.get('presentations', []):
-            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
-            if item_key not in previous_pres:
+
+        previous_pres = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('presentations', []))}
+        for item in self._deduplicate_items(current_data.get('presentations', [])):
+            if self._build_item_identity(item) not in previous_pres:
                 new_items['presentations'].append(item)
-        
-        # Check news
-        previous_news = {(item.get('title', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('news', [])}
-        for item in current_data.get('news', []):
-            item_key = (item.get('title', '') + item.get('link', '')).lower()
-            if item_key not in previous_news:
+
+        previous_news = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('news', []))}
+        for item in self._deduplicate_items(current_data.get('news', [])):
+            if self._build_item_identity(item) not in previous_news:
                 new_items['news'].append(item)
         
         return new_items
@@ -159,7 +292,14 @@ class DataStorage:
         filename = f"{self.storage_dir}/ai_data.json"
         if os.path.exists(filename):
             with open(filename, 'r') as f:
-                return json.load(f)
+                payload = json.load(f)
+                data = payload.get('data', {})
+                payload['data'] = {
+                    'publications': self._deduplicate_items(data.get('publications', [])),
+                    'presentations': self._deduplicate_items(data.get('presentations', [])),
+                    'news': self._deduplicate_items(data.get('news', [])),
+                }
+                return payload
         return {'data': {'publications': [], 'presentations': [], 'news': []}, 'timestamp': None, 'counts': {'publications': 0, 'presentations': 0, 'news': 0}}
     
     def get_previous_ai_data(self) -> Dict[str, List[Dict[str, Any]]]:
@@ -172,29 +312,20 @@ class DataStorage:
         previous_data = self.get_previous_ai_data()
         
         new_items = {'publications': [], 'presentations': [], 'news': []}
-        
-        # Check publications
-        previous_pubs = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('publications', [])}
-        for item in current_data.get('publications', []):
-            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
-            if item_key not in previous_pubs:
+
+        previous_pubs = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('publications', []))}
+        for item in self._deduplicate_items(current_data.get('publications', [])):
+            if self._build_item_identity(item) not in previous_pubs:
                 new_items['publications'].append(item)
-        
-        # Check presentations
-        previous_pres = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('presentations', [])}
-        for item in current_data.get('presentations', []):
-            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
-            if item_key not in previous_pres:
+
+        previous_pres = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('presentations', []))}
+        for item in self._deduplicate_items(current_data.get('presentations', [])):
+            if self._build_item_identity(item) not in previous_pres:
                 new_items['presentations'].append(item)
-        
-        # Check news
-        previous_news = {(item.get('title', '') + item.get('link', '')).lower() 
-                        for item in previous_data.get('news', [])}
-        for item in current_data.get('news', []):
-            item_key = (item.get('title', '') + item.get('link', '')).lower()
-            if item_key not in previous_news:
+
+        previous_news = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('news', []))}
+        for item in self._deduplicate_items(current_data.get('news', [])):
+            if self._build_item_identity(item) not in previous_news:
                 new_items['news'].append(item)
         
         return new_items
@@ -202,27 +333,26 @@ class DataStorage:
     def has_data_changed(self, data_type: str, current_data: List[Dict[str, Any]]) -> bool:
         """Check if data has changed since last save"""
         previous_data = self.get_previous_data(data_type)
-        
+
+        previous_data = self._deduplicate_items(previous_data)
+        current_data = self._deduplicate_items(current_data)
+
         if len(previous_data) != len(current_data):
             return True
-        
-        # Compare based on unique identifiers (title + link)
-        current_items = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                         for item in current_data}
-        previous_items = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                          for item in previous_data}
+
+        current_items = {self._build_item_identity(item) for item in current_data}
+        previous_items = {self._build_item_identity(item) for item in previous_data}
         
         return current_items != previous_items
     
     def get_new_items(self, data_type: str, current_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
         """Get only the new items since last save"""
         previous_data = self.get_previous_data(data_type)
-        previous_items = {(item.get('document_name', '') + item.get('link', '')).lower() 
-                          for item in previous_data}
+        previous_items = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data)}
         
         new_items = []
-        for item in current_data:
-            item_key = (item.get('document_name', '') + item.get('link', '')).lower()
+        for item in self._deduplicate_items(current_data):
+            item_key = self._build_item_identity(item)
             if item_key not in previous_items:
                 new_items.append(item)
         
@@ -231,6 +361,18 @@ class DataStorage:
     def add_notification(self, item_type: str, item: Dict[str, Any]):
         """Add a new item to the persistent notifications"""
         notifications = self.load_notifications()
+
+        # Avoid storing duplicate notifications for the same document.
+        new_identity = self._build_notification_identity(item_type, item)
+        for index, existing in enumerate(notifications):
+            existing_identity = self._build_notification_identity(
+                existing.get('type', ''),
+                existing.get('item', {})
+            )
+            if existing_identity == new_identity:
+                notifications[index]['item'] = self._merge_item_data(existing.get('item', {}), item)
+                self.save_notifications(notifications)
+                return
         
         # Create notification entry with enhanced metadata
         notification = {
@@ -242,6 +384,11 @@ class DataStorage:
         
         notifications.append(notification)
         self.save_notifications(notifications)
+
+    def _build_notification_identity(self, item_type: str, item: Dict[str, Any]) -> str:
+        """Build a stable identity key for deduplicating notifications."""
+        item_type_norm = self._normalize_text(item_type)
+        return f"{item_type_norm}::{self._build_item_identity(item)}"
     
     def get_notifications_by_week(self) -> Dict[str, List[Dict[str, Any]]]:
         """Get notifications categorized by week (Week 1: 0-7 days, Week 2: 8-14 days)"""
@@ -252,34 +399,65 @@ class DataStorage:
             'week_2': [],  # 8-14 days
             'archived': []  # older than 14 days
         }
+        seen_identities = set()
+
+        def _parse_notification_date(notification: Dict[str, Any]) -> datetime:
+            """Parse the best available date on a notification item."""
+            item = notification.get('item', {})
+
+            # Prefer source document dates first.
+            for key in ('release_date_raw', 'publish_date_raw'):
+                value = item.get(key)
+                if value:
+                    try:
+                        parsed = datetime.fromisoformat(value)
+                        return parsed.replace(tzinfo=None) if parsed.tzinfo else parsed
+                    except Exception:
+                        pass
+
+            # Some scraped items store dates like "March 01, 2026".
+            for key in ('release_date', 'publish_date'):
+                value = item.get(key)
+                if value:
+                    try:
+                        return datetime.strptime(value, '%B %d, %Y')
+                    except Exception:
+                        pass
+
+            # Fall back to when the item was first seen.
+            for key in ('timestamp', 'scrape_date'):
+                value = notification.get(key)
+                if value:
+                    try:
+                        parsed = datetime.fromisoformat(value)
+                        return parsed.replace(tzinfo=None) if parsed.tzinfo else parsed
+                    except Exception:
+                        pass
+
+            return None
         
         for n in notifications:
-            item = n.get('item', {})
-            item_date_str = None
-            
-            # Try to get the item's release/publish date
-            if item.get('release_date_raw'):
-                item_date_str = item['release_date_raw']  # ISO format date
-            elif item.get('publish_date_raw'):
-                item_date_str = item['publish_date_raw']  # ISO format date
-            
-            if item_date_str:
-                try:
-                    # Parse the ISO date
-                    item_date = datetime.fromisoformat(item_date_str)
-                    age_days = (now - item_date).days
-                    
-                    # Categorize based on age
-                    if 0 <= age_days <= 7:
-                        categorized['week_1'].append(n)
-                    elif 8 <= age_days <= 14:
-                        categorized['week_2'].append(n)
-                    else:
-                        categorized['archived'].append(n)
-                        
-                except Exception:
-                    # If parsing fails, skip this notification
-                    pass
+            identity = self._build_notification_identity(
+                n.get('type', ''),
+                n.get('item', {})
+            )
+            if identity in seen_identities:
+                continue
+            seen_identities.add(identity)
+
+            item_date = _parse_notification_date(n)
+            if not item_date:
+                continue
+
+            age_days = (now - item_date).days
+
+            # Categorize based on age.
+            if 0 <= age_days <= 7:
+                categorized['week_1'].append(n)
+            elif 8 <= age_days <= 14:
+                categorized['week_2'].append(n)
+            else:
+                categorized['archived'].append(n)
         
         return categorized
     
@@ -360,9 +538,42 @@ class DataStorage:
                     pass
         
         return active
+
+    def _deduplicate_notifications(self, notifications: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """Keep one notification per identity, preserving the newest entry and best item data."""
+        selected = {}
+        order = []
+
+        for notification in notifications:
+            identity = self._build_notification_identity(
+                notification.get('type', ''),
+                notification.get('item', {})
+            )
+            if identity not in selected:
+                selected[identity] = dict(notification)
+                order.append(identity)
+                continue
+
+            existing = selected[identity]
+            existing['item'] = self._merge_item_data(existing.get('item', {}), notification.get('item', {}))
+
+            existing_timestamp = existing.get('timestamp')
+            incoming_timestamp = notification.get('timestamp')
+            if isinstance(existing_timestamp, datetime):
+                existing_timestamp = existing_timestamp.isoformat()
+            if isinstance(incoming_timestamp, datetime):
+                incoming_timestamp = incoming_timestamp.isoformat()
+
+            if incoming_timestamp and (not existing_timestamp or incoming_timestamp > existing_timestamp):
+                existing['timestamp'] = notification.get('timestamp')
+                if notification.get('scrape_date'):
+                    existing['scrape_date'] = notification.get('scrape_date')
+
+        return [selected[identity] for identity in order]
     
     def save_notifications(self, notifications: List[Dict[str, Any]]):
         filename = f"{self.storage_dir}/notifications.json"
+        notifications = self._deduplicate_notifications(notifications)
         with open(filename, 'w') as f:
             json.dump(notifications, f, indent=2, default=str)
     
@@ -371,7 +582,19 @@ class DataStorage:
         if os.path.exists(filename):
             with open(filename, 'r') as f:
                 data = json.load(f)
+                if not isinstance(data, list):
+                    return []
+
+                # Self-heal duplicates from historical runs.
+                data = self._deduplicate_notifications(data)
+
                 for n in data:
-                    n['timestamp'] = datetime.fromisoformat(n['timestamp'])
+                    ts = n.get('timestamp')
+                    if isinstance(ts, str):
+                        try:
+                            n['timestamp'] = datetime.fromisoformat(ts)
+                        except Exception:
+                            pass
+
                 return data
         return []
