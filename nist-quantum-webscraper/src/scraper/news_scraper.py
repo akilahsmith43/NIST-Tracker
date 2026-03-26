@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import re
+from concurrent.futures import ThreadPoolExecutor
 
 
 def format_date(date_str: str) -> str:
@@ -133,13 +134,14 @@ def scrape_news():
     news_data = []
     next_url = base_url
     while next_url:
-        response = session.get(next_url)
+        response = session.get(next_url, timeout=10)
         soup = BeautifulSoup(response.content, 'html.parser')
 
         articles = soup.find_all('article')
         if not articles:
             break
 
+        page_entries = []
         for article in articles:
             # Safely extract title
             title_el = article.find('h3')
@@ -158,32 +160,37 @@ def scrape_news():
             # Safely extract date
             date_el = article.find('time')
             date = date_el['datetime'] if date_el else ""
-        
-            # Try to fetch real summary from the article page
+
+            page_entries.append({
+                'title': title,
+                'link': link,
+                'date': date,
+            })
+
+        def _build_news_item(entry):
+            title = entry['title']
+            link = entry['link']
+            date = entry['date']
+
             summary = ""
             article_soup = None
             try:
                 article_response = session.get(link, timeout=5)
                 article_soup = BeautifulSoup(article_response.content, 'html.parser')
-                
-                # First try meta description
+
                 meta = article_soup.select_one('meta[name="description"]')
                 if meta and meta.get('content'):
                     summary = meta['content'].strip()
-                
-                # If no meta description, try to extract first paragraph from content
+
                 if not summary:
-                    # Look for main content area
                     content = article_soup.select_one('main') or article_soup.select_one('[role="main"]') or article_soup.select_one('.field-type-text-long')
                     if content:
                         p = content.find('p')
                         if p:
                             summary = p.get_text(strip=True)
             except Exception:
-                # If fetching fails, fall back to empty summary
                 pass
-        
-            # Parse final published/last-edited dates from article metadata.
+
             publish_date = format_date(date)
             publish_date_raw = date
             last_edited_date = ""
@@ -203,17 +210,20 @@ def scrape_news():
                 if extracted_last_edited_raw:
                     last_edited_date_raw = extracted_last_edited_raw
 
-            final_summary = generate_news_summary(title, summary)
-
-            news_data.append({
+            return {
                 'title': title,
                 'link': link,
                 'publish_date': publish_date,
                 'publish_date_raw': publish_date_raw,
                 'last_edited_date': last_edited_date,
                 'last_edited_date_raw': last_edited_date_raw,
-                'summary': final_summary
-            })
+                'summary': generate_news_summary(title, summary),
+            }
+
+        if page_entries:
+            max_workers = min(8, len(page_entries)) or 1
+            with ThreadPoolExecutor(max_workers=max_workers) as executor:
+                news_data.extend(executor.map(_build_news_item, page_entries))
         # find next page link
         next_link = soup.select_one('a[rel="next"]')
         if next_link and next_link.get('href'):

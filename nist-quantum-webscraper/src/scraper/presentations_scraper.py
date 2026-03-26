@@ -8,15 +8,19 @@ def scrape_presentations():
     presentations = []
     cutoff_date = datetime.now() - timedelta(days=365)
     
-    # Try multiple pages to find recent presentations - go deeper if needed
-    for page in range(50):  # Check up to 50 pages to find recent content
+    session = requests.Session()
+    stale_pages = 0
+
+    # Try multiple pages to find recent presentations.
+    for page in range(50):
         if page == 0:
             url = base_url
         else:
             url = f"{base_url}&page={page}"
         
         try:
-            response = requests.get(url)
+            response = session.get(url, timeout=10)
+            response.raise_for_status()
             soup = BeautifulSoup(response.content, 'html.parser')
             
             # Check if there are any results on this page
@@ -24,8 +28,8 @@ def scrape_presentations():
             
             if not items:
                 break  # No more results
-            
-            page_has_any = False
+
+            added_this_page = 0
             
             # Find presentation items
             for item in items:
@@ -69,26 +73,26 @@ def scrape_presentations():
                             if presentation['link'] and not presentation['link'].startswith('http'):
                                 presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                             presentations.append(presentation)
-                            page_has_any = True
-                        elif parsed_date:
-                            # If we find old dates, we can continue but don't stop
-                            page_has_any = True
+                            added_this_page += 1
                     except Exception:
                         # If we can't parse the date, include it anyway
                         if presentation['link'] and not presentation['link'].startswith('http'):
                             presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                         presentations.append(presentation)
-                        page_has_any = True
+                        added_this_page += 1
                 else:
                     # If no date available, include the presentation
                     if presentation['link'] and not presentation['link'].startswith('http'):
                         presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                     presentations.append(presentation)
-                    page_has_any = True
-            
-            # Continue crawling even if no recent presentations found
-            # Only stop if we've found some presentations and this page has no items at all
-            if not page_has_any:
+                    added_this_page += 1
+
+            if added_this_page == 0:
+                stale_pages += 1
+            else:
+                stale_pages = 0
+
+            if stale_pages >= 3:
                 break
                 
         except Exception:

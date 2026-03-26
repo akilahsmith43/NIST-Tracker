@@ -572,10 +572,15 @@ def main():
         
         # Scrape data
         with st.spinner('Scraping NIST data...'):
-            # use the helper that runs all relevant queries (final/draft/open)
-            publications = scrape_all_publications()
-            presentations = scrape_presentations()
-            news = scrape_news()
+            # Run independent scrapers concurrently to reduce page-load latency.
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                publications_future = executor.submit(scrape_all_publications)
+                presentations_future = executor.submit(scrape_presentations)
+                news_future = executor.submit(scrape_news)
+
+                publications = publications_future.result()
+                presentations = presentations_future.result()
+                news = news_future.result()
     
     elif page == "Post-Quantum Cryptography":
         st.title("🔐 NIST Post-Quantum Cryptography Tracker")
@@ -589,11 +594,9 @@ def main():
         
         # Scrape PQC data - use ONLY the PQC-specific URLs
         with st.spinner('Scraping Post-Quantum Cryptography data...'):
-            # Get publications ONLY from PQC-specific URLs (past year only)
-            pqc_publications = scrape_all_pqc_data().get('publications', [])
-            
-            # Get PQC presentations and news from the general PQC scraper
+            # Run one PQC scrape pass and reuse all sections from the same result.
             pqc_data = scrape_all_pqc_data()
+            pqc_publications = pqc_data.get('publications', [])
             pqc_presentations = pqc_data.get('presentations', [])
             pqc_news = pqc_data.get('news', [])
 

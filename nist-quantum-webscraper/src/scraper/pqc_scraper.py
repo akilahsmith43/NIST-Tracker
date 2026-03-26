@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import re
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
+from concurrent.futures import ThreadPoolExecutor
 
 
 def clean_text(text: str) -> str:
@@ -361,8 +362,10 @@ def scrape_pqc_presentations():
     
     print(f"Scraping PQC presentations from {base_url}")
     
-    # Try multiple pages to find recent presentations - go deeper if needed
-    for page in range(50):  # Check up to 50 pages to find recent content
+    stale_pages = 0
+
+    # Try multiple pages to find recent presentations.
+    for page in range(50):
         if page == 0:
             url = base_url
         else:
@@ -380,8 +383,8 @@ def scrape_pqc_presentations():
             if not items:
                 print(f"No more results found after page {page + 1}")
                 break  # No more results
-            
-            page_has_any = False
+
+            added_this_page = 0
             
             # Find presentation items
             for item in items:
@@ -425,29 +428,30 @@ def scrape_pqc_presentations():
                             if presentation['link'] and not presentation['link'].startswith('http'):
                                 presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                             presentations.append(presentation)
-                            page_has_any = True
-                        elif parsed_date:
-                            # If we find old dates, we can continue but don't stop
-                            page_has_any = True
+                            added_this_page += 1
                     except Exception:
                         # If we can't parse the date, include it anyway
                         if presentation['link'] and not presentation['link'].startswith('http'):
                             presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                         presentations.append(presentation)
-                        page_has_any = True
+                        added_this_page += 1
                 else:
                     # If no date available, include the presentation
                     if presentation['link'] and not presentation['link'].startswith('http'):
                         presentation['link'] = f"https://csrc.nist.gov{presentation['link']}"
                     presentations.append(presentation)
-                    page_has_any = True
-            
-            print(f"  Page {page + 1} has_any: {page_has_any}, total presentations so far: {len(presentations)}")
-            
-            # Continue crawling even if no recent presentations found
-            # Only stop if we've found some presentations and this page has no items at all
-            if not page_has_any:
-                print(f"Stopping at page {page + 1} - no items found")
+
+                    added_this_page += 1
+
+            print(f"  Page {page + 1} added: {added_this_page}, total presentations so far: {len(presentations)}")
+
+            if added_this_page == 0:
+                stale_pages += 1
+            else:
+                stale_pages = 0
+
+            if stale_pages >= 3:
+                print(f"Stopping at page {page + 1} - no in-range additions for 3 consecutive pages")
                 break
                 
         except Exception as e:
@@ -564,23 +568,34 @@ def scrape_pqc_news():
             else:
                 print(f"DEBUG: Including news '{title}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
 
-            # Keep all news items; dashboard filtering applies strict 1-year window with fallback
-            article_dates = _extract_news_dates_from_article(session, link, publish_date_raw)
-            if article_dates.get('publish_date'):
-                publish_date = article_dates['publish_date']
-            if article_dates.get('publish_date_raw'):
-                publish_date_raw = article_dates['publish_date_raw']
-
             news.append({
                 "title": title,
                 "summary": summary,
                 "publish_date": publish_date,
                 "publish_date_raw": publish_date_raw,
-                "last_edited_date": article_dates.get('last_edited_date', ''),
-                "last_edited_date_raw": article_dates.get('last_edited_date_raw', ''),
+                "last_edited_date": "",
+                "last_edited_date_raw": "",
                 "link": link,
                 "resource_type": "Post-Quantum Cryptography News"
             })
+
+    # Enrich article publish/edited dates concurrently to reduce end-to-end scrape time.
+    def _enrich_news_item(item):
+        link = item.get('link', '')
+        publish_date_raw = item.get('publish_date_raw', '')
+        article_dates = _extract_news_dates_from_article(session, link, publish_date_raw)
+        if article_dates.get('publish_date'):
+            item['publish_date'] = article_dates['publish_date']
+        if article_dates.get('publish_date_raw'):
+            item['publish_date_raw'] = article_dates['publish_date_raw']
+        item['last_edited_date'] = article_dates.get('last_edited_date', '')
+        item['last_edited_date_raw'] = article_dates.get('last_edited_date_raw', '')
+        return item
+
+    if news:
+        max_workers = min(8, len(news)) or 1
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            news = list(executor.map(_enrich_news_item, news))
     
     print(f"DEBUG: Retrieved {len(news)} PQC news items")
     return news
@@ -593,10 +608,15 @@ def scrape_all_pqc_data():
     print("Starting Post-Quantum Cryptography data scraping...")
     print("=" * 50)
     
-    # Scrape all PQC data
-    publications = scrape_pqc_publications()
-    presentations = scrape_pqc_presentations()
-    news = scrape_pqc_news()
+    # Scrape independent sections concurrently.
+    with ThreadPoolExecutor(max_workers=3) as executor:
+        publications_future = executor.submit(scrape_pqc_publications)
+        presentations_future = executor.submit(scrape_pqc_presentations)
+        news_future = executor.submit(scrape_pqc_news)
+
+        publications = publications_future.result()
+        presentations = presentations_future.result()
+        news = news_future.result()
     
     print("=" * 50)
     print(f"PQC Scraping complete!")
