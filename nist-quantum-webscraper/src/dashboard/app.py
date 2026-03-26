@@ -730,55 +730,9 @@ def main():
         
         # Week 1 section (0-7 days)
         st.sidebar.subheader("📅 Week 1 (0-7 days)")
-        if week_1_ai:
-            if week_1_ai_pub:
-                st.sidebar.write("**🤖 AI Publications:**")
-                for notif in week_1_ai_pub:
-                    from html import escape
-                    pub = notif.get('item', {})
-                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                    title = f"<span style=\"color:black\">{title}</span>"
-                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-            
-            if week_1_ai_pres:
-                st.sidebar.write("**🤖 AI Presentations:**")
-                for notif in week_1_ai_pres:
-                    pres = notif.get('item', {})
-                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-            
-            if week_1_ai_news:
-                st.sidebar.write("**🤖 AI News:**")
-                for notif in week_1_ai_news:
-                    article = notif.get('item', {})
-                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                    if article.get('summary'):
-                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
         
         # Week 2 section (8-14 days)
         st.sidebar.subheader("📅 Week 2 (8-14 days)")
-        if week_2_ai:
-            if week_2_ai_pub:
-                st.sidebar.write("**🤖 AI Publications:**")
-                for notif in week_2_ai_pub:
-                    from html import escape
-                    pub = notif.get('item', {})
-                    title = escape(pub.get('document_name', 'Untitled')).replace('_','&#95;')
-                    title = f"<span style=\"color:black\">{title}</span>"
-                    st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
-            
-            if week_2_ai_pres:
-                st.sidebar.write("**🤖 AI Presentations:**")
-                for notif in week_2_ai_pres:
-                    pres = notif.get('item', {})
-                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
-            
-            if week_2_ai_news:
-                st.sidebar.write("**🤖 AI News:**")
-                for notif in week_2_ai_news:
-                    article = notif.get('item', {})
-                    st.sidebar.write(f"• {article.get('title', 'Untitled')}")
-                    if article.get('summary'):
-                        st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
 
         col1, col2, col3 = st.columns(3)
         with col1:

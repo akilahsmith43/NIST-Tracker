@@ -49365,7 +49365,7 @@
   },
   {
     "type": "ai_news",
-    "timestamp": "2026-03-26T15:44:59.723658",
+    "timestamp": "2026-03-26 15:44:59.723658",
     "item": {
       "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
       "summary": "",
@@ -49375,5 +49375,397 @@
       "resource_type": "Artificial Intelligence News"
     },
     "scrape_date": "2026-03-26T15:44:59.723665"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.646465",
+    "item": {
+      "document_name": "On the Use of Machine Learning for the Development of an Acoustic-based Detection System for Early-Stage Thermal Runaway",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 15, 2026",
+      "release_date_raw": "2026-03-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/use-machine-learning-development-acoustic-based-detection-system-early-stage-thermal",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:03:38.646470"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.677623",
+    "item": {
+      "document_name": "Challenges to the monitoring of deployed AI systems: Center for AI Standards and Innovation",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 06, 2026",
+      "release_date_raw": "2026-03-06",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:03:38.677628"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.703709",
+    "item": {
+      "document_name": "TREC 2025 Ad-hoc Video Search (AVS) Track Overview",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 15, 2026",
+      "release_date_raw": "2026-02-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/trec-2025-ad-hoc-video-search-avs-track-overview",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:03:38.703712"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.728289",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "February 12, 2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:03:38.728292"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.753630",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "February 12, 2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-26T16:03:38.753632"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.780132",
+    "item": {
+      "document_name": "Application of Artificial Intelligence in Supply Chain Management - Opportunities and Challenges, a Workshop Report",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 09, 2026",
+      "release_date_raw": "2026-02-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/application-artificial-intelligence-supply-chain-management-opportunities-and",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:03:38.780136"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.804326",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "February 05, 2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:03:38.804328"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.829453",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "February 05, 2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-26T16:03:38.829455"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:03:38.854618",
+    "item": {
+      "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "January 30, 2026",
+      "release_date_raw": "2026-01-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/01/30/on-the-assessment-of-sensitivity-of-autonomous-veh/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:03:38.854621"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 16:03:38.880164",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/oscal-hub-open-source-visual-tools",
+      "release_date": "February 18, 2026"
+    },
+    "scrape_date": "2026-03-26T16:03:38.880167"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 16:03:38.904521",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/ai-agent-for-oscal-instant-oscal-expertise-for-all",
+      "release_date": "February 04, 2026"
+    },
+    "scrape_date": "2026-03-26T16:03:38.904524"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-26 16:03:38.929841",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-26T16:03:38.929842"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-26 16:03:38.954820",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "summary": "",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-26T16:03:38.954823"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.426844",
+    "item": {
+      "document_name": "On the Use of Machine Learning for the Development of an Acoustic-based Detection System for Early-Stage Thermal Runaway",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 15, 2026",
+      "release_date_raw": "2026-03-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/use-machine-learning-development-acoustic-based-detection-system-early-stage-thermal",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:08:51.426851"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.454677",
+    "item": {
+      "document_name": "Challenges to the monitoring of deployed AI systems: Center for AI Standards and Innovation",
+      "document_number": "",
+      "series": "",
+      "release_date": "March 06, 2026",
+      "release_date_raw": "2026-03-06",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:08:51.454681"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.481061",
+    "item": {
+      "document_name": "TREC 2025 Ad-hoc Video Search (AVS) Track Overview",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 15, 2026",
+      "release_date_raw": "2026-02-15",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/trec-2025-ad-hoc-video-search-avs-track-overview",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:08:51.481065"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.508776",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "February 12, 2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:08:51.508780"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.535145",
+    "item": {
+      "document_name": "Data Classification Practices",
+      "document_number": "",
+      "series": "SP",
+      "release_date": "February 12, 2026",
+      "release_date_raw": "2026-02-12",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-26T16:08:51.535149"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.596173",
+    "item": {
+      "document_name": "Application of Artificial Intelligence in Supply Chain Management - Opportunities and Challenges, a Workshop Report",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 09, 2026",
+      "release_date_raw": "2026-02-09",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://www.nist.gov/publications/application-artificial-intelligence-supply-chain-management-opportunities-and",
+      "summary": "",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-03-26T16:08:51.596181"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.622395",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "February 05, 2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:08:51.622399"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.649127",
+    "item": {
+      "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "February 05, 2026",
+      "release_date_raw": "2026-02-05",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
+      "summary": "",
+      "category": "Drafts"
+    },
+    "scrape_date": "2026-03-26T16:08:51.649133"
+  },
+  {
+    "type": "ai_publication",
+    "timestamp": "2026-03-26 16:08:51.675822",
+    "item": {
+      "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
+      "document_number": "",
+      "series": "Other",
+      "release_date": "January 30, 2026",
+      "release_date_raw": "2026-01-30",
+      "resource_type": "Artificial Intelligence Publication",
+      "link": "https://csrc.nist.gov/pubs/other/2026/01/30/on-the-assessment-of-sensitivity-of-autonomous-veh/final",
+      "summary": "",
+      "category": "Drafts Open for Comment"
+    },
+    "scrape_date": "2026-03-26T16:08:51.675826"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 16:08:51.702490",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/oscal-hub-open-source-visual-tools",
+      "release_date": "February 18, 2026"
+    },
+    "scrape_date": "2026-03-26T16:08:51.702494"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-03-26 16:08:51.728450",
+    "item": {
+      "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/ai-agent-for-oscal-instant-oscal-expertise-for-all",
+      "release_date": "February 04, 2026"
+    },
+    "scrape_date": "2026-03-26T16:08:51.728454"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-26 16:08:51.754581",
+    "item": {
+      "title": "Announcing the \"AI Agent Standards Initiative\" for Interoperable and Secure Innovation",
+      "summary": "",
+      "publish_date": "February 17, 2026",
+      "publish_date_raw": "2026-02-17",
+      "link": "https://www.nist.gov/news-events/news/2026/02/announcing-ai-agent-standards-initiative-interoperable-and-secure",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-26T16:08:51.754585"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-03-26T16:08:51.780670",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "summary": "",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-03-26T16:08:51.780674"
   }
 ]
