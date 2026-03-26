@@ -277,10 +277,18 @@ NEWS_DATE_KEYS = ('last_edited_date_raw', 'last_edited_date', 'publish_date_raw'
 
 def render_news_dates(article):
     """Render news dates while preserving both updated and original publish date."""
-    last_edited = article.get('last_edited_date')
-    published = article.get('publish_date')
+    last_edited = (article.get('last_edited_date') or '').strip()
+    published = (article.get('publish_date') or '').strip()
+    last_edited_raw = (article.get('last_edited_date_raw') or '').strip()
+    published_raw = (article.get('publish_date_raw') or '').strip()
 
-    if last_edited:
+    has_last_edited = bool(last_edited or last_edited_raw)
+    matches_published = (
+        (last_edited_raw and published_raw and last_edited_raw == published_raw)
+        or (last_edited and published and last_edited == published)
+    )
+
+    if has_last_edited and not matches_published:
         st.write(f"**Last Edited:** {last_edited}")
     if published:
         st.write(f"**Published:** {published}")
