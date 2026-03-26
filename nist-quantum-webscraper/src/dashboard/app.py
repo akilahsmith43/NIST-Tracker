@@ -454,6 +454,16 @@ def get_item_date(item, date_keys):
             return parsed
     return None
 
+
+def is_comment_period_current(item, reference_datetime=None):
+    """Return True when an item's comment due date is today or in the future."""
+    due_date = get_item_date(item, ('comment_due_date_raw', 'comment_due_date'))
+    if not due_date:
+        return False
+
+    today = (reference_datetime or datetime.now()).date()
+    return due_date.date() >= today
+
 def filter_items_since(items, cutoff, date_keys):
     """Keep only items whose configured date fields are on or after cutoff."""
     output = []
@@ -800,7 +810,10 @@ def main():
     if page == "Post-Quantum Cryptography":
         # Drafts Open for Comment — PQC
         pqc_publications = enrich_comment_due_dates(pqc_publications)
-        pqc_comment_drafts = [pub for pub in pqc_publications if is_draft_open_for_comment(pub)]
+        pqc_comment_drafts = [
+            pub for pub in pqc_publications
+            if is_draft_open_for_comment(pub) and is_comment_period_current(pub)
+        ]
         pqc_comment_drafts = sorted(
             pqc_comment_drafts,
             key=lambda item: get_item_date(item, ('comment_due_date_raw', 'comment_due_date')) or datetime.max,
@@ -966,7 +979,10 @@ def main():
 
         # Drafts Open for Comment — AI
         ai_publications = enrich_comment_due_dates(ai_publications)
-        ai_comment_drafts = [pub for pub in ai_publications if is_draft_open_for_comment(pub)]
+        ai_comment_drafts = [
+            pub for pub in ai_publications
+            if is_draft_open_for_comment(pub) and is_comment_period_current(pub)
+        ]
         ai_comment_drafts = sorted(
             ai_comment_drafts,
             key=lambda item: get_item_date(item, ('comment_due_date_raw', 'comment_due_date')) or datetime.max,
@@ -1030,7 +1046,10 @@ def main():
 
     else:
         # Display regular Quantum Information Science data sections
-        comment_drafts = [pub for pub in publications if is_draft_open_for_comment(pub)]
+        comment_drafts = [
+            pub for pub in publications
+            if is_draft_open_for_comment(pub) and is_comment_period_current(pub)
+        ]
         comment_drafts = sorted(
             comment_drafts,
             key=lambda item: get_item_date(item, ('comment_due_date_raw', 'comment_due_date')) or datetime.max,
