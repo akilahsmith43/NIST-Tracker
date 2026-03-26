@@ -5,6 +5,8 @@
       "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
       "publish_date": "February 10, 2026",
       "publish_date_raw": "2026-02-10",
+      "last_edited_date": "February 17, 2026",
+      "last_edited_date_raw": "2026-02-17",
       "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
     },
     {
@@ -12,6 +14,8 @@
       "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
       "publish_date": "September 24, 2025",
       "publish_date_raw": "2025-09-24",
+      "last_edited_date": "September 24, 2025",
+      "last_edited_date_raw": "2025-09-24",
       "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States."
     },
     {
@@ -19,6 +23,8 @@
       "link": "https://www.nist.gov/news-events/news/2025/09/quantum-sensing-what-beats-beating-noise-meeting-noise-halfway",
       "publish_date": "September 10, 2025",
       "publish_date_raw": "2025-09-10",
+      "last_edited_date": "September 12, 2025",
+      "last_edited_date_raw": "2025-09-12",
       "summary": "A team including scientists at NIST may have found a new way of dealing with noise at the microscopic scales where quantum physics reigns."
     },
     {
@@ -26,9 +32,20 @@
       "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
       "publish_date": "June 11, 2025",
       "publish_date_raw": "2025-06-11",
+      "last_edited_date": "June 23, 2025",
+      "last_edited_date_raw": "2025-06-23",
       "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
+    },
+    {
+      "title": "First Observation of Spin Hall Effect in a Quantum Gas Is Step Toward 'Atomtronics'",
+      "link": "https://www.nist.gov/news-events/news/2013/06/first-observation-spin-hall-effect-quantum-gas-step-toward-atomtronics",
+      "publish_date": "June 05, 2013",
+      "publish_date_raw": "2013-06-05",
+      "last_edited_date": "May 09, 2025",
+      "last_edited_date_raw": "2025-05-09",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have reported the first observation of the \"spin Hall effect\" in a Bose-Einstein con"
     }
   ],
-  "timestamp": "2026-03-26T18:30:59.674139",
-  "count": 4
+  "timestamp": "2026-03-26T18:57:31.578781",
+  "count": 5
 }

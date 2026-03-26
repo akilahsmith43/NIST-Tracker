@@ -34,8 +34,12 @@ class DataStorage:
     def _get_item_date_token(self, item: Dict[str, Any]) -> str:
         return self._normalize_text(
             item.get('release_date_raw')
+            or item.get('edited_date_raw')
+            or item.get('last_edited_date_raw')
             or item.get('publish_date_raw')
             or item.get('release_date')
+            or item.get('edited_date')
+            or item.get('last_edited_date')
             or item.get('publish_date')
             or ''
         )
@@ -93,6 +97,31 @@ class DataStorage:
 
         return score
 
+    def _parse_item_date(self, value: Any):
+        """Parse known item date formats into naive datetime for comparisons."""
+        if not value:
+            return None
+
+        if isinstance(value, datetime):
+            return value.replace(tzinfo=None) if value.tzinfo else value
+
+        text = str(value).strip()
+        if not text:
+            return None
+
+        for parser in (
+            datetime.fromisoformat,
+            lambda raw: datetime.strptime(raw, '%B %d, %Y'),
+            lambda raw: datetime.strptime(raw, '%Y-%m-%d'),
+        ):
+            try:
+                parsed = parser(text)
+                return parsed.replace(tzinfo=None) if parsed.tzinfo else parsed
+            except Exception:
+                continue
+
+        return None
+
     def _merge_item_data(self, existing_item: Dict[str, Any], incoming_item: Dict[str, Any]) -> Dict[str, Any]:
         """Merge duplicate item records, keeping the richer/better-linked version."""
         existing_item = existing_item or {}
@@ -111,6 +140,20 @@ class DataStorage:
         for key, value in secondary.items():
             if primary.get(key) in (None, '', []):
                 primary[key] = value
+
+        # Keep the most recent last-edited timestamp when both records have values.
+        existing_last = self._parse_item_date(existing_item.get('last_edited_date_raw') or existing_item.get('last_edited_date'))
+        incoming_last = self._parse_item_date(incoming_item.get('last_edited_date_raw') or incoming_item.get('last_edited_date'))
+        if incoming_last and (not existing_last or incoming_last > existing_last):
+            if incoming_item.get('last_edited_date_raw'):
+                primary['last_edited_date_raw'] = incoming_item['last_edited_date_raw']
+            if incoming_item.get('last_edited_date'):
+                primary['last_edited_date'] = incoming_item['last_edited_date']
+        elif existing_last:
+            if existing_item.get('last_edited_date_raw'):
+                primary['last_edited_date_raw'] = existing_item['last_edited_date_raw']
+            if existing_item.get('last_edited_date'):
+                primary['last_edited_date'] = existing_item['last_edited_date']
 
         return primary
 
@@ -406,7 +449,7 @@ class DataStorage:
             item = notification.get('item', {})
 
             # Prefer source document dates first.
-            for key in ('release_date_raw', 'publish_date_raw'):
+            for key in ('release_date_raw', 'edited_date_raw', 'last_edited_date_raw', 'publish_date_raw'):
                 value = item.get(key)
                 if value:
                     try:
@@ -416,7 +459,7 @@ class DataStorage:
                         pass
 
             # Some scraped items store dates like "March 01, 2026".
-            for key in ('release_date', 'publish_date'):
+            for key in ('release_date', 'edited_date', 'last_edited_date', 'publish_date'):
                 value = item.get(key)
                 if value:
                     try:
@@ -520,9 +563,13 @@ class DataStorage:
             item = n.get('item', {})
             item_date_str = None
             
-            # Try to get the item's release/publish date
+            # Try to get the item's release/last-edited/publish date
             if item.get('release_date_raw'):
                 item_date_str = item['release_date_raw']  # ISO format date
+            elif item.get('edited_date_raw'):
+                item_date_str = item['edited_date_raw']  # ISO format date
+            elif item.get('last_edited_date_raw'):
+                item_date_str = item['last_edited_date_raw']  # ISO format date
             elif item.get('publish_date_raw'):
                 item_date_str = item['publish_date_raw']  # ISO format date
             

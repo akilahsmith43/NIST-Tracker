@@ -17769,5 +17769,136 @@
       "release_date_raw": "2026-02-04"
     },
     "scrape_date": "2026-03-26T18:22:10.968577"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-26 18:49:35.881123",
+    "item": {
+      "title": "NIST Releases First 3 Finalized Post-Quantum Encryption Standards",
+      "summary": "",
+      "publish_date": "August 13, 2024",
+      "publish_date_raw": "2024-08-13",
+      "last_edited_date": "August 29, 2025",
+      "last_edited_date_raw": "2025-08-29",
+      "link": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-26T18:49:35.881128"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-26 18:49:35.917995",
+    "item": {
+      "title": "NIST to Standardize Encryption Algorithms That Can Resist Attack by Quantum Computers",
+      "summary": "",
+      "publish_date": "August 24, 2023",
+      "publish_date_raw": "2023-08-24",
+      "last_edited_date": "November 06, 2025",
+      "last_edited_date_raw": "2025-11-06",
+      "link": "https://www.nist.gov/news-events/news/2023/08/nist-standardize-encryption-algorithms-can-resist-attack-quantum-computers",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-26T18:49:35.917999"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-26 18:49:35.954102",
+    "item": {
+      "title": "NIST Announces First Four Quantum-Resistant Cryptographic Algorithms",
+      "summary": "",
+      "publish_date": "July 05, 2022",
+      "publish_date_raw": "2022-07-05",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-26T18:49:35.954105"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-26 18:49:35.982423",
+    "item": {
+      "title": "NIST\u2019s Post-Quantum Cryptography Program Enters \u2018Selection Round\u2019",
+      "summary": "",
+      "publish_date": "July 22, 2020",
+      "publish_date_raw": "2020-07-22",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2020/07/nists-post-quantum-cryptography-program-enters-selection-round",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-26T18:49:35.982429"
+  },
+  {
+    "type": "pqc_news",
+    "timestamp": "2026-03-26 18:49:36.009968",
+    "item": {
+      "title": "NIST Reveals 26 Algorithms Advancing to the Post-Quantum Crypto \u2018Semifinals\u2019",
+      "summary": "",
+      "publish_date": "January 30, 2019",
+      "publish_date_raw": "2019-01-30",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2019/01/nist-reveals-26-algorithms-advancing-post-quantum-crypto-semifinals",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    "scrape_date": "2026-03-26T18:49:36.009970"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:57:31.468237",
+    "item": {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10",
+      "last_edited_date": "February 17, 2026",
+      "last_edited_date_raw": "2026-02-17",
+      "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
+    },
+    "scrape_date": "2026-03-26T18:57:31.468242"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:57:31.499257",
+    "item": {
+      "title": "In Quantum Sensing, What Beats Beating Noise? Meeting Noise Halfway.",
+      "link": "https://www.nist.gov/news-events/news/2025/09/quantum-sensing-what-beats-beating-noise-meeting-noise-halfway",
+      "publish_date": "September 10, 2025",
+      "publish_date_raw": "2025-09-10",
+      "last_edited_date": "September 12, 2025",
+      "last_edited_date_raw": "2025-09-12",
+      "summary": "A team including scientists at NIST may have found a new way of dealing with noise at the microscopic scales where quantum physics reigns."
+    },
+    "scrape_date": "2026-03-26T18:57:31.499261"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26 18:57:31.525841",
+    "item": {
+      "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
+      "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
+      "publish_date": "June 11, 2025",
+      "publish_date_raw": "2025-06-11",
+      "last_edited_date": "June 23, 2025",
+      "last_edited_date_raw": "2025-06-23",
+      "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
+    },
+    "scrape_date": "2026-03-26T18:57:31.525844"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-03-26T18:57:31.552338",
+    "item": {
+      "title": "First Observation of Spin Hall Effect in a Quantum Gas Is Step Toward 'Atomtronics'",
+      "link": "https://www.nist.gov/news-events/news/2013/06/first-observation-spin-hall-effect-quantum-gas-step-toward-atomtronics",
+      "publish_date": "June 05, 2013",
+      "publish_date_raw": "2013-06-05",
+      "last_edited_date": "May 09, 2025",
+      "last_edited_date_raw": "2025-05-09",
+      "summary": "Researchers at the National Institute of Standards and Technology (NIST) have reported the first observation of the \"spin Hall effect\" in a Bose-Einstein con"
+    },
+    "scrape_date": "2026-03-26T18:57:31.552340"
   }
 ]

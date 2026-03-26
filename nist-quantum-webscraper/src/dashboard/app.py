@@ -305,6 +305,27 @@ def parse_dashboard_date(raw_value):
     return None
 
 
+NEWS_DATE_KEYS = ('last_edited_date_raw', 'last_edited_date', 'publish_date_raw', 'publish_date')
+
+
+def render_news_dates(article):
+    """Render news dates while preserving both updated and original publish date."""
+    last_edited = article.get('last_edited_date')
+    published = article.get('publish_date')
+
+    if last_edited:
+        st.write(f"**Last Edited:** {last_edited}")
+    if published:
+        st.write(f"**Published:** {published}")
+
+
+def render_new_items_banner(new_count, is_first_scrape, _item_label):
+    """Show a green new-items banner except on first-ever scrape for that page dataset."""
+    if is_first_scrape or new_count < 1:
+        return
+    st.success(f"🆕 New: {new_count}")
+
+
 def normalize_item_dates(items, date_field_pairs):
     """Normalize item date fields to display and raw formats.
 
@@ -446,7 +467,10 @@ def filter_notifications_since(notifications, cutoff):
     """Keep only notifications whose underlying item date is on or after cutoff."""
     output = []
     for notification in notifications:
-        item_date = get_item_date(notification.get('item', {}), ('release_date_raw', 'publish_date_raw', 'release_date', 'publish_date'))
+        item_date = get_item_date(
+            notification.get('item', {}),
+            ('release_date_raw', 'release_date', 'last_edited_date_raw', 'last_edited_date', 'publish_date_raw', 'publish_date'),
+        )
         if item_date and item_date >= cutoff:
             output.append(notification)
     return output
@@ -531,6 +555,10 @@ def main():
     # Sidebar navigation
     st.sidebar.title("🔬 Navigation")
     page = st.sidebar.selectbox("Choose a page:", ["Quantum Information Science", "Post-Quantum Cryptography", "Artificial Intelligence"])
+
+    is_first_qis_scrape = False
+    is_first_pqc_scrape = False
+    is_first_ai_scrape = False
     
     if page == "Quantum Information Science":
         st.title("🔬 NIST Quantum Information Science Tracker")
@@ -571,17 +599,17 @@ def main():
 
         cutoff = datetime.now() - timedelta(days=365)
         pqc_presentations = filter_items_since(pqc_presentations, cutoff, ('release_date',))
-        recent_pqc_news = filter_items_since(pqc_news, cutoff, ('publish_date_raw', 'publish_date'))
+        recent_pqc_news = filter_items_since(pqc_news, cutoff, NEWS_DATE_KEYS)
         
         # If nothing is found in strict 1-year window, fall back to 2 years to provide a populated view
         if not recent_pqc_news:
             fallback_cutoff = datetime.now() - timedelta(days=730)
-            recent_pqc_news = filter_items_since(pqc_news, fallback_cutoff, ('publish_date_raw', 'publish_date'))
+            recent_pqc_news = filter_items_since(pqc_news, fallback_cutoff, NEWS_DATE_KEYS)
 
         pqc_news = recent_pqc_news
         pqc_publications = dedupe_items_for_display(pqc_publications, ('document_name',), ('release_date_raw', 'release_date'))
         pqc_presentations = dedupe_items_for_display(pqc_presentations, ('document_name',), ('release_date_raw', 'release_date'))
-        pqc_news = dedupe_items_for_display(pqc_news, ('title',), ('publish_date_raw', 'publish_date'))
+        pqc_news = dedupe_items_for_display(pqc_news, ('title',), ('last_edited_date_raw', 'publish_date_raw', 'publish_date'))
         pqc_publications = normalize_item_dates(
             pqc_publications,
             (('release_date', 'release_date_raw'), ('comment_due_date', 'comment_due_date_raw')),
@@ -592,7 +620,7 @@ def main():
         )
         pqc_news = normalize_item_dates(
             pqc_news,
-            (('publish_date', 'publish_date_raw'),),
+            (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
         pqc_data['publications'] = pqc_publications
         pqc_data['presentations'] = pqc_presentations
@@ -601,7 +629,10 @@ def main():
         # Sort by date - newest first
         pqc_publications = sort_items_by_date(pqc_publications, ('release_date_raw', 'release_date'))
         pqc_presentations = sort_items_by_date(pqc_presentations, ('release_date',))
-        pqc_news = sort_items_by_date(pqc_news, ('publish_date_raw', 'publish_date'))
+        pqc_news = sort_items_by_date(pqc_news, NEWS_DATE_KEYS)
+
+        previous_pqc_snapshot = storage.load_pqc_data()
+        is_first_pqc_scrape = not previous_pqc_snapshot.get('timestamp')
         
         # Check for new PQC items and save data
         new_pqc_items = storage.get_new_pqc_items(pqc_data)
@@ -648,10 +679,10 @@ def main():
     if page == "Quantum Information Science":
         publications = filter_items_since(publications, cutoff, ('release_date_raw', 'release_date'))
         presentations = filter_items_since(presentations, cutoff, ('release_date',))
-        news = filter_items_since(news, cutoff, ('publish_date_raw', 'publish_date'))
+        news = filter_items_since(news, cutoff, NEWS_DATE_KEYS)
         publications = dedupe_items_for_display(publications, ('document_name',), ('release_date_raw', 'release_date'))
         presentations = dedupe_items_for_display(presentations, ('document_name',), ('release_date_raw', 'release_date'))
-        news = dedupe_items_for_display(news, ('title',), ('publish_date_raw', 'publish_date'))
+        news = dedupe_items_for_display(news, ('title',), ('last_edited_date_raw', 'publish_date_raw', 'publish_date'))
         publications = enrich_comment_due_dates(publications)
         publications = normalize_item_dates(
             publications,
@@ -663,7 +694,7 @@ def main():
         )
         news = normalize_item_dates(
             news,
-            (('publish_date', 'publish_date_raw'),),
+            (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
 
     # Only process Quantum Information Science data if we're on that page
@@ -671,7 +702,15 @@ def main():
         # Sort by date - newest first
         publications = sort_items_by_date(publications, ('release_date_raw', 'release_date'))
         presentations = sort_items_by_date(presentations, ('release_date',))
-        news = sort_items_by_date(news, ('publish_date_raw', 'publish_date'))
+        news = sort_items_by_date(news, NEWS_DATE_KEYS)
+
+        previous_publications = storage.load_data('publications')
+        previous_presentations = storage.load_data('presentations')
+        previous_news = storage.load_data('news')
+        is_first_qis_scrape = not any(
+            payload.get('timestamp')
+            for payload in (previous_publications, previous_presentations, previous_news)
+        )
         
         # Check for new items and save data
         new_publications = storage.get_new_items('publications', publications)
@@ -777,8 +816,7 @@ def main():
         with col1:
             st.header("📄 Publications")
             st.write(f"Total: {len(pqc_publications)} items")
-            if new_pqc_publications:
-                st.success(f"🆕 {len(new_pqc_publications)} new publication(s)")
+            render_new_items_banner(len(new_pqc_publications), is_first_pqc_scrape, "publication(s)")
             
             from html import escape
             for pub in pqc_publications:
@@ -810,8 +848,7 @@ def main():
         with col2:
             st.header("🎤 Presentations")
             st.write(f"Total: {len(pqc_presentations)} items")
-            if new_pqc_presentations:
-                st.success(f"🆕 {len(new_pqc_presentations)} new presentation(s)")
+            render_new_items_banner(len(new_pqc_presentations), is_first_pqc_scrape, "presentation(s)")
             
             for pres in pqc_presentations:
                 header = pres['document_name']
@@ -828,16 +865,14 @@ def main():
         with col3:
             st.header("📰 News")
             st.write(f"Total: {len(pqc_news)} items")
-            if new_pqc_news:
-                st.success(f"🆕 {len(new_pqc_news)} new news item(s)")
+            render_new_items_banner(len(new_pqc_news), is_first_pqc_scrape, "news item(s)")
             
             for article in pqc_news:
                 with st.expander(f"{article['title']}"):
                     if article['summary']:
                         st.info(f"**Summary:** {article['summary']}")
                         st.divider()
-                    if article['publish_date']:
-                        st.write(f"**Published:** {article['publish_date']}")
+                    render_news_dates(article)
                     if article['link']:
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
@@ -861,10 +896,10 @@ def main():
         cutoff = datetime.now() - timedelta(days=60)
         ai_publications = filter_items_since(ai_publications, cutoff, ('release_date_raw', 'release_date'))
         ai_presentations = filter_items_since(ai_presentations, cutoff, ('release_date',))
-        ai_news = filter_items_since(ai_news, cutoff, ('publish_date_raw', 'publish_date'))
+        ai_news = filter_items_since(ai_news, cutoff, NEWS_DATE_KEYS)
         ai_publications = dedupe_items_for_display(ai_publications, ('document_name',), ('release_date_raw', 'release_date'))
         ai_presentations = dedupe_items_for_display(ai_presentations, ('document_name',), ('release_date_raw', 'release_date'))
-        ai_news = dedupe_items_for_display(ai_news, ('title',), ('publish_date_raw', 'publish_date'))
+        ai_news = dedupe_items_for_display(ai_news, ('title',), ('last_edited_date_raw', 'publish_date_raw', 'publish_date'))
         ai_publications = normalize_item_dates(
             ai_publications,
             (('release_date', 'release_date_raw'), ('comment_due_date', 'comment_due_date_raw')),
@@ -875,7 +910,7 @@ def main():
         )
         ai_news = normalize_item_dates(
             ai_news,
-            (('publish_date', 'publish_date_raw'),),
+            (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
         ai_data['publications'] = ai_publications
         ai_data['presentations'] = ai_presentations
@@ -884,7 +919,10 @@ def main():
         # Sort by date - newest first
         ai_publications = sort_items_by_date(ai_publications, ('release_date_raw', 'release_date'))
         ai_presentations = sort_items_by_date(ai_presentations, ('release_date',))
-        ai_news = sort_items_by_date(ai_news, ('publish_date_raw', 'publish_date'))
+        ai_news = sort_items_by_date(ai_news, NEWS_DATE_KEYS)
+
+        previous_ai_snapshot = storage.load_ai_data()
+        is_first_ai_scrape = not previous_ai_snapshot.get('timestamp')
 
         new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
         new_ai_pres = storage.get_new_items('ai_presentations', ai_presentations)
@@ -942,6 +980,7 @@ def main():
         with col1:
             st.header("📄 AI Publications")
             st.write(f"Total: {len(ai_publications)}")
+            render_new_items_banner(len(new_ai_pubs), is_first_ai_scrape, "publication(s)")
             for pub in ai_publications:
                 title = pub.get('document_name', 'AI Publication')
                 category = pub.get('category', '')
@@ -958,6 +997,7 @@ def main():
         with col2:
             st.header("🎤 AI Presentations")
             st.write(f"Total: {len(ai_presentations)}")
+            render_new_items_banner(len(new_ai_pres), is_first_ai_scrape, "presentation(s)")
             for pres in ai_presentations:
                 label = pres.get('document_name', 'AI Presentation')
                 with st.expander(label):
@@ -971,13 +1011,13 @@ def main():
         with col3:
             st.header("📰 AI News")
             st.write(f"Total: {len(ai_news)}")
+            render_new_items_banner(len(new_ai_news), is_first_ai_scrape, "news item(s)")
             for article in ai_news:
                 title = article.get('title', 'AI News')
                 with st.expander(title):
                     if article.get('summary'):
                         st.info(f"**Summary:** {article['summary']}")
-                    if article.get('publish_date'):
-                        st.write(f"**Published:** {article['publish_date']}")
+                    render_news_dates(article)
                     if article.get('link'):
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
@@ -1005,8 +1045,7 @@ def main():
         with col1:
             st.header("📄 Publications")
             st.write(f"Total: {len(publications)} items")
-            if new_publications:
-                st.success(f"🆕 {len(new_publications)} new publication(s)")
+            render_new_items_banner(len(new_publications), is_first_qis_scrape, "publication(s)")
             
             from html import escape
             for pub in publications:
@@ -1033,8 +1072,7 @@ def main():
         with col2:
             st.header("🎤 Presentations")
             st.write(f"Total: {len(presentations)} items")
-            if new_presentations:
-                st.success(f"🆕 {len(new_presentations)} new presentation(s)")
+            render_new_items_banner(len(new_presentations), is_first_qis_scrape, "presentation(s)")
             
             for pres in presentations:
                 header = pres['document_name']
@@ -1051,16 +1089,14 @@ def main():
         with col3:
             st.header("📰 News")
             st.write(f"Total: {len(news)} items")
-            if new_news:
-                st.success(f"🆕 {len(new_news)} new news item(s)")
+            render_new_items_banner(len(new_news), is_first_qis_scrape, "news item(s)")
             
             for article in news:
                 with st.expander(f"{article['title']}"):
                     if article['summary']:
                         st.info(f"**Summary:** {article['summary']}")
                         st.divider()
-                    if article['publish_date']:
-                        st.write(f"**Published:** {article['publish_date']}")
+                    render_news_dates(article)
                     if article['link']:
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")

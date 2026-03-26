@@ -67,8 +67,98 @@ def parse_nist_date(date_str: str) -> datetime:
         except ValueError:
             continue
     
+    # Try ISO datetime values such as 2025-08-29T11:34-04:00
+    try:
+        return datetime.fromisoformat(date_str)
+    except Exception:
+        pass
+
     # If no format worked, return None
     return None
+
+
+def _extract_meta_date_value(soup: BeautifulSoup, selectors: List[str]) -> str:
+    for selector in selectors:
+        node = soup.select_one(selector)
+        if not node:
+            continue
+        value = (node.get('content') or node.get('datetime') or node.get_text(' ', strip=True) or '').strip()
+        if value:
+            return value
+    return ""
+
+
+def _extract_news_dates_from_article(session: requests.Session, link: str, fallback_publish_raw: str) -> Dict[str, str]:
+    """Extract published and last-edited dates from article metadata."""
+    result = {
+        'publish_date': '',
+        'publish_date_raw': fallback_publish_raw or '',
+        'last_edited_date': '',
+        'last_edited_date_raw': '',
+    }
+
+    if not link:
+        if result['publish_date_raw']:
+            parsed = parse_nist_date(result['publish_date_raw'])
+            if parsed:
+                result['publish_date'] = parsed.strftime('%B %d, %Y')
+        return result
+
+    try:
+        resp = session.get(link, timeout=10)
+        resp.raise_for_status()
+        soup = BeautifulSoup(resp.content, 'html.parser')
+    except Exception:
+        if result['publish_date_raw']:
+            parsed = parse_nist_date(result['publish_date_raw'])
+            if parsed:
+                result['publish_date'] = parsed.strftime('%B %d, %Y')
+        return result
+
+    published_candidate = _extract_meta_date_value(
+        soup,
+        [
+            'meta[property="article:published_time"]',
+            'meta[property="article:published"]',
+            'meta[name="publish_date"]',
+            'meta[name="date"]',
+            '[itemprop="datePublished"]',
+        ],
+    )
+
+    modified_candidate = _extract_meta_date_value(
+        soup,
+        [
+            'meta[property="article:modified_time"]',
+            'meta[property="og:updated_time"]',
+            'meta[name="last-updated"]',
+            'meta[name="last_modified"]',
+            '[itemprop="dateModified"]',
+        ],
+    )
+
+    if not modified_candidate:
+        for time_node in soup.select('time[datetime]'):
+            label = clean_text(time_node.get_text(' ', strip=True)).lower()
+            if any(token in label for token in ('updated', 'edited', 'modified', 'last')):
+                modified_candidate = (time_node.get('datetime') or '').strip()
+                if modified_candidate:
+                    break
+
+    publish_raw_candidate = published_candidate or result['publish_date_raw']
+    if publish_raw_candidate:
+        parsed_publish = parse_nist_date(publish_raw_candidate)
+        if parsed_publish:
+            result['publish_date_raw'] = parsed_publish.strftime('%Y-%m-%d')
+            result['publish_date'] = parsed_publish.strftime('%B %d, %Y')
+
+    if modified_candidate:
+        parsed_modified = parse_nist_date(modified_candidate)
+        if parsed_modified:
+            result['last_edited_date_raw'] = parsed_modified.strftime('%Y-%m-%d')
+            result['last_edited_date'] = parsed_modified.strftime('%B %d, %Y')
+
+    return result
 
 
 def scrape_pqc_publications():
@@ -475,11 +565,19 @@ def scrape_pqc_news():
                 print(f"DEBUG: Including news '{title}' - date: {parsed_date.strftime('%Y-%m-%d')} (within past year)")
 
             # Keep all news items; dashboard filtering applies strict 1-year window with fallback
+            article_dates = _extract_news_dates_from_article(session, link, publish_date_raw)
+            if article_dates.get('publish_date'):
+                publish_date = article_dates['publish_date']
+            if article_dates.get('publish_date_raw'):
+                publish_date_raw = article_dates['publish_date_raw']
+
             news.append({
                 "title": title,
                 "summary": summary,
                 "publish_date": publish_date,
                 "publish_date_raw": publish_date_raw,
+                "last_edited_date": article_dates.get('last_edited_date', ''),
+                "last_edited_date_raw": article_dates.get('last_edited_date_raw', ''),
                 "link": link,
                 "resource_type": "Post-Quantum Cryptography News"
             })
