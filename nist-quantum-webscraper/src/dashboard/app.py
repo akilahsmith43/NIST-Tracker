@@ -782,8 +782,6 @@ def main():
         with col1:
             st.header("📄 AI Publications")
             st.write(f"Total: {len(ai_publications)}")
-            if new_ai_pubs:
-                st.success(f"🆕 {len(new_ai_pubs)} new publication(s)")
             for pub in ai_publications:
                 title = pub.get('document_name', 'AI Publication')
                 category = pub.get('category', '')
@@ -800,8 +798,6 @@ def main():
         with col2:
             st.header("🎤 AI Presentations")
             st.write(f"Total: {len(ai_presentations)}")
-            if new_ai_pres:
-                st.success(f"🆕 {len(new_ai_pres)} new presentation(s)")
             for pres in ai_presentations:
                 label = pres.get('document_name', 'AI Presentation')
                 with st.expander(label):
@@ -815,8 +811,6 @@ def main():
         with col3:
             st.header("📰 AI News")
             st.write(f"Total: {len(ai_news)}")
-            if new_ai_news:
-                st.success(f"🆕 {len(new_ai_news)} new news item(s)")
             for article in ai_news:
                 title = article.get('title', 'AI News')
                 with st.expander(title):
