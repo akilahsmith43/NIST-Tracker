@@ -326,18 +326,6 @@ def main():
         else:
             st.sidebar.info("No new PQC items found since last check.")
         
-        # Display last scrape information
-        scrape_info = storage.get_last_scrape_info()
-        st.sidebar.divider()
-        st.sidebar.subheader("📊 Scrape Session Info")
-        if scrape_info['last_scrape']:
-            from datetime import datetime
-            last_scrape_dt = datetime.fromisoformat(scrape_info['last_scrape'])
-            st.sidebar.write(f"**Last Scrape:** {last_scrape_dt.strftime('%Y-%m-%d %H:%M:%S')}")
-            st.sidebar.write(f"**Total Notifications:** {scrape_info['scrape_count']}")
-            st.sidebar.write(f"**New Items This Session:** {scrape_info['new_items_this_session']}")
-        else:
-            st.sidebar.write("**No scrape data available**")
     
     # keep only publications from the past year
     from datetime import datetime, timedelta
@@ -894,8 +882,8 @@ def main():
                     st.write("---")
     
     # Last update info
-    st.sidebar.divider()
-    st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        st.sidebar.divider()
+        st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     main()
