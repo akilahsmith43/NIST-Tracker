@@ -676,7 +676,20 @@ def main():
         
         # Sort by date - newest first
         ai_publications = sorted(ai_publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
-        ai_presentations = sorted(ai_presentations, key=lambda x: x.get('release_date', ''), reverse=True)
+        
+        # Sort AI presentations by parsing the date string properly
+        def parse_ai_presentation_date(pres):
+            date_str = pres.get('release_date', '')
+            if not date_str:
+                return ''
+            try:
+                # Parse date in format "Month DD, YYYY"
+                dt = datetime.strptime(date_str, '%B %d, %Y')
+                return dt.strftime('%Y-%m-%d')
+            except Exception:
+                return date_str
+        
+        ai_presentations = sorted(ai_presentations, key=lambda x: parse_ai_presentation_date(x), reverse=True)
         ai_news = sorted(ai_news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
 
         new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
@@ -883,8 +896,8 @@ def main():
                     st.write("---")
     
     # Last update info
-        st.sidebar.divider()
-        st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    st.sidebar.divider()
+    st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
 if __name__ == "__main__":
     main()
