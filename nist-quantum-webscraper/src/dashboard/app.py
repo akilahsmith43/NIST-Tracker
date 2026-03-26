@@ -452,6 +452,38 @@ def main():
         storage.save_data('publications', publications)
         storage.save_data('presentations', presentations)
         storage.save_data('news', news)
+        
+        # Save general publications to dashboard data storage
+        dashboard_dir = os.path.join(os.path.dirname(__file__), 'data_storage')
+        if not os.path.exists(dashboard_dir):
+            os.makedirs(dashboard_dir)
+        
+        # Save publications to dashboard data storage
+        filename = f"{dashboard_dir}/publications.json"
+        with open(filename, 'w') as f:
+            json.dump({
+                'data': publications,
+                'timestamp': datetime.now().isoformat(),
+                'count': len(publications)
+            }, f, indent=2)
+        
+        # Save presentations to dashboard data storage
+        filename = f"{dashboard_dir}/presentations.json"
+        with open(filename, 'w') as f:
+            json.dump({
+                'data': presentations,
+                'timestamp': datetime.now().isoformat(),
+                'count': len(presentations)
+            }, f, indent=2)
+        
+        # Save news to dashboard data storage
+        filename = f"{dashboard_dir}/news.json"
+        with open(filename, 'w') as f:
+            json.dump({
+                'data': news,
+                'timestamp': datetime.now().isoformat(),
+                'count': len(news)
+            }, f, indent=2)
     else:
         # For PQC page, set empty values to avoid undefined variable errors
         publications = []

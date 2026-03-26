@@ -58,7 +58,11 @@ def _parse_link(href: str, base: str = "") -> str:
     if href.startswith('http'):
         return href
     if href.startswith('/'):
-        return f"https://{base}{href}" if base else f"https://csrc.nist.gov{href}"
+        # For General Publications category, use www.nist.gov instead of csrc.nist.gov
+        if base == "www.nist.gov":
+            return f"https://{base}{href}"
+        else:
+            return f"https://{base}{href}" if base else f"https://csrc.nist.gov{href}"
     return href
 
 
@@ -92,6 +96,7 @@ def scrape_ai_publications() -> List[Dict[str, Any]]:
     for info in urls:
         url = info['url']
         cat = info['category']
+        base_domain = 'www.nist.gov' if 'www.nist.gov' in url else 'csrc.nist.gov'
         print(f"Scraping AI publications {cat}: {url}")
         try:
             soup = _fetch(url)
@@ -116,7 +121,7 @@ def scrape_ai_publications() -> List[Dict[str, Any]]:
             name = clean_text(title_el.get_text(strip=True))
             if not name:
                 continue
-            link = _parse_link(title_el.get('href', ''), base='csrc.nist.gov')
+            link = _parse_link(title_el.get('href', ''), base=base_domain)
 
             series = ""
             for sel in ["td[id*='pub-series']", ".sub-title strong", ".series", "[class*='series']"]:
