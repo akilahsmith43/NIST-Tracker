@@ -236,14 +236,17 @@ def render_two_week_notification_sidebar(week_1_notifications, week_2_notificati
     week_1_has_items = any(week_1_grouped[notification_type] for notification_type, _, _, _ in section_specs)
     week_2_has_items = any(week_2_grouped[notification_type] for notification_type, _, _, _ in section_specs)
 
-    with st.sidebar.expander("📅 Past 1 Week (0-7 days)", expanded=False):
+    week_1_title = "📅 Past 1 Week (0-7 days)" + (" 🔔" if week_1_has_items else "")
+    week_2_title = "📅 Past 2 Weeks (8-14 days)" + (" 🔔" if week_2_has_items else "")
+
+    with st.sidebar.expander(week_1_title, expanded=False):
         render_weekly_notifications(
             [(heading, week_1_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
             empty_week_1_message,
             container=st,
         )
 
-    with st.sidebar.expander("📅 Past 2 Weeks (8-14 days)", expanded=False):
+    with st.sidebar.expander(week_2_title, expanded=False):
         render_weekly_notifications(
             [(heading, week_2_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
             empty_week_2_message,
@@ -876,9 +879,10 @@ def main():
         previous_ai_snapshot = storage.load_ai_data()
         is_first_ai_scrape = not previous_ai_snapshot.get('timestamp')
 
-        new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
-        new_ai_pres = storage.get_new_items('ai_presentations', ai_presentations)
-        new_ai_news = storage.get_new_items('ai_news', ai_news)
+        new_ai_items = storage.get_new_ai_items(ai_data)
+        new_ai_pubs = new_ai_items.get('publications', [])
+        new_ai_pres = new_ai_items.get('presentations', [])
+        new_ai_news = new_ai_items.get('news', [])
 
         for pub in new_ai_pubs:
             storage.add_notification('ai_publication', pub)
