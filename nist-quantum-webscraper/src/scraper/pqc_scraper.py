@@ -564,7 +564,7 @@ def main():
         print(f"Publication: {pub['document_name']}")
     
     for pres in all_pqc_data['presentations'][:3]:  # Print first 3 as example
-        print(f"Presentation: {pres['document_name']}")
+        print(f"{pres['document_name']}")
     
     for article in all_pqc_data['news'][:3]:  # Print first 3 as example
         print(f"News: {article['title']}")

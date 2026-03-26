@@ -616,7 +616,7 @@ def main():
                 st.success(f"🆕 {len(new_pqc_presentations)} new presentation(s)")
             
             for pres in pqc_presentations:
-                header = f"{pres['series']}: {pres['document_name']}"
+                header = pres['document_name']
                 with st.expander(header):
                     st.write(f"**Status:** {pres['status']}")
                     st.write(f"**Type:** {pres['resource_type']}")
@@ -864,7 +864,7 @@ def main():
                 st.success(f"🆕 {len(new_presentations)} new presentation(s)")
             
             for pres in presentations:
-                header = f"{pres['series']}: {pres['document_name']}"
+                header = pres['document_name']
                 with st.expander(header):
                     st.write(f"**Status:** {pres['status']}")
                     st.write(f"**Type:** {pres['resource_type']}")
