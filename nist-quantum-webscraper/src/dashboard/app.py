@@ -673,6 +673,11 @@ def main():
         ai_publications = _keep_recent(ai_publications, 'release_date_raw')
         ai_presentations = _keep_recent(ai_presentations, 'release_date')
         ai_news = _keep_recent(ai_news, 'publish_date_raw')
+        
+        # Sort by date - newest first
+        ai_publications = sorted(ai_publications, key=lambda x: x.get('release_date_raw', '') or x.get('release_date', ''), reverse=True)
+        ai_presentations = sorted(ai_presentations, key=lambda x: x.get('release_date', ''), reverse=True)
+        ai_news = sorted(ai_news, key=lambda x: x.get('publish_date_raw', ''), reverse=True)
 
         new_ai_pubs = storage.get_new_items('ai_publications', ai_publications)
         new_ai_pres = storage.get_new_items('ai_presentations', ai_presentations)
