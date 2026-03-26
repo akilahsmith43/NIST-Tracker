@@ -162,14 +162,15 @@ def dedupe_notifications_for_sidebar(notifications):
 
     return list(selected.values())
 
-def render_sidebar_notification_item(label, link):
+def render_sidebar_notification_item(label, link, container=None):
     """Render a sidebar notification as a clickable bullet when a link exists."""
+    container = container or st.sidebar
     safe_label = (label or 'Untitled')
     safe_label = safe_label.replace('\\', '\\\\').replace('[', '\\[').replace(']', '\\]').replace('_', '\\_')
     if link:
-        st.sidebar.markdown(f"• [{safe_label}]({sanitize_link(link)})")
+        container.markdown(f"• [{safe_label}]({sanitize_link(link)})")
     else:
-        st.sidebar.markdown(f"• {safe_label}")
+        container.markdown(f"• {safe_label}")
 
 def group_notifications_for_sidebar(notifications, section_specs):
     """Group and deduplicate notifications for sidebar rendering."""
@@ -180,39 +181,50 @@ def group_notifications_for_sidebar(notifications, section_specs):
         )
     return grouped
 
-def render_weekly_notifications(grouped_notifications, empty_message=None):
+def render_weekly_notifications(grouped_notifications, empty_message=None, container=None):
     """Render a weekly notifications block in the sidebar."""
+    container = container or st.sidebar
     has_items = False
     for heading, notifications, label_key, summary_key in grouped_notifications:
         if not notifications:
             continue
         has_items = True
-        st.sidebar.write(f"**{heading}:**")
+        container.write(f"**{heading}:**")
         for notif in notifications:
             item = notif.get('item', {})
-            render_sidebar_notification_item(item.get(label_key, 'Untitled'), item.get('link'))
+            render_sidebar_notification_item(item.get(label_key, 'Untitled'), item.get('link'), container=container)
             if summary_key and item.get(summary_key):
-                st.sidebar.caption(f"   Summary: {item[summary_key][:100]}...")
+                container.caption(f"   Summary: {item[summary_key][:100]}...")
 
     if not has_items and empty_message:
-        st.sidebar.write(empty_message)
+        container.info(empty_message)
+
+    return has_items
 
 def render_two_week_notification_sidebar(week_1_notifications, week_2_notifications, section_specs, empty_week_1_message=None, empty_week_2_message=None):
     """Render Past 1 Week and Past 2 Weeks notification sections."""
+    empty_week_1_message = empty_week_1_message or "No updates in this time period."
+    empty_week_2_message = empty_week_2_message or "No updates in this time period."
+
     week_1_grouped = group_notifications_for_sidebar(week_1_notifications, section_specs)
     week_2_grouped = group_notifications_for_sidebar(week_2_notifications, section_specs)
 
-    st.sidebar.subheader("📅 Past 1 Week (0-7 days)")
-    render_weekly_notifications(
-        [(heading, week_1_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
-        empty_week_1_message,
-    )
+    week_1_has_items = any(week_1_grouped[notification_type] for notification_type, _, _, _ in section_specs)
+    week_2_has_items = any(week_2_grouped[notification_type] for notification_type, _, _, _ in section_specs)
 
-    st.sidebar.subheader("📅 Past 2 Weeks (8-14 days)")
-    render_weekly_notifications(
-        [(heading, week_2_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
-        empty_week_2_message,
-    )
+    with st.sidebar.expander("📅 Past 1 Week (0-7 days)", expanded=week_1_has_items):
+        render_weekly_notifications(
+            [(heading, week_1_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
+            empty_week_1_message,
+            container=st,
+        )
+
+    with st.sidebar.expander("📅 Past 2 Weeks (8-14 days)", expanded=week_2_has_items):
+        render_weekly_notifications(
+            [(heading, week_2_grouped[notification_type], label_key, summary_key) for notification_type, heading, label_key, summary_key in section_specs],
+            empty_week_2_message,
+            container=st,
+        )
 
 def parse_dashboard_date(raw_value):
     """Parse supported dashboard date formats into a naive datetime."""
@@ -342,27 +354,19 @@ def main():
         storage.save_pqc_data(pqc_data)
         
         # Display PQC notifications with two-tier system
-        pqc_notification_count = len(all_pqc_notifications)
-        
-        if pqc_notification_count > 0:
-            # Get categorized notifications using the new method
-            categorized_notifications = storage.get_notifications_by_week()
-            week_1_notifications = categorized_notifications.get('week_1', [])
-            week_2_notifications = categorized_notifications.get('week_2', [])
+        categorized_notifications = storage.get_notifications_by_week()
+        week_1_notifications = categorized_notifications.get('week_1', [])
+        week_2_notifications = categorized_notifications.get('week_2', [])
 
-            render_two_week_notification_sidebar(
-                week_1_notifications,
-                week_2_notifications,
-                [
-                    ('pqc_publication', '🔐 PQC Publications', 'document_name', None),
-                    ('pqc_presentation', '🔐 PQC Presentations', 'document_name', None),
-                    ('pqc_news', '🔐 PQC News', 'title', 'summary'),
-                ],
-                empty_week_1_message="No new PQC items in Week 1.",
-                empty_week_2_message="No new PQC items in Week 2.",
-            )
-        else:
-            st.sidebar.info("No new PQC items found since last check.")
+        render_two_week_notification_sidebar(
+            week_1_notifications,
+            week_2_notifications,
+            [
+                ('pqc_publication', '🔐 PQC Publications', 'document_name', None),
+                ('pqc_presentation', '🔐 PQC Presentations', 'document_name', None),
+                ('pqc_news', '🔐 PQC News', 'title', 'summary'),
+            ],
+        )
         
     
     cutoff = datetime.now() - timedelta(days=365)
@@ -446,10 +450,7 @@ def main():
         all_notifications = []
     
     # Display notifications
-    notification_count = len(all_notifications)
-    
-    if notification_count > 0:
-        # Get categorized notifications using the new method
+    if page == "Quantum Information Science":
         categorized_notifications = storage.get_notifications_by_week()
         week_1_notifications = categorized_notifications.get('week_1', [])
         week_2_notifications = categorized_notifications.get('week_2', [])
@@ -462,11 +463,7 @@ def main():
                 ('presentation', '🎤 Presentations', 'document_name', None),
                 ('news', '📰 News', 'title', 'summary'),
             ],
-            empty_week_1_message="No new items in Week 1.",
-            empty_week_2_message="No new items in Week 2.",
         )
-    else:
-        pass
     
     # Display data sections
     if page == "Post-Quantum Cryptography":

@@ -33,6 +33,28 @@
         "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
         "summary": "",
         "category": "Drafts Open for Comment"
+      },
+      {
+        "document_name": "Data Classification Practices",
+        "document_number": "",
+        "series": "SP",
+        "release_date": "2/12/2026",
+        "release_date_raw": "2026-02-12",
+        "resource_type": "Post-Quantum Cryptography Publication",
+        "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
+        "summary": "",
+        "category": "Drafts"
+      },
+      {
+        "document_name": "Mappings of Migration to PQC Project Capabilities to NIST Cybersecurity Framework 2.0 and to Security and Privacy Controls for Information Systems and Organizations",
+        "document_number": "",
+        "series": "CSWP",
+        "release_date": "9/18/2025",
+        "release_date_raw": "2025-09-18",
+        "resource_type": "Post-Quantum Cryptography Publication",
+        "link": "https://csrc.nist.gov/pubs/cswp/48/mapping-migration-to-pqc-project-capabilities-to-r/ipd",
+        "summary": "",
+        "category": "Drafts"
       }
     ],
     "presentations": [
@@ -113,9 +135,9 @@
       }
     ]
   },
-  "timestamp": "2026-03-26T16:48:14.546374",
+  "timestamp": "2026-03-26T17:03:15.582324",
   "counts": {
-    "publications": 3,
+    "publications": 5,
     "presentations": 1,
     "news": 8
   }
