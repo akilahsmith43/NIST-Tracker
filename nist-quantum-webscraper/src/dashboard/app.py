@@ -525,11 +525,11 @@ def main():
                     title = f"<span style=\"color:black\">{title}</span>"
                     st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
             
-            if week_1_pres:
-                st.sidebar.write("**🎤 Presentations:**")
-                for notif in week_1_pres:
-                    pres = notif.get('item', {})
-                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+                if week_1_pres:
+                    st.sidebar.write("**🎤 Presentations:**")
+                    for notif in week_1_pres:
+                        pres = notif.get('item', {})
+                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
             
             if week_1_news:
                 st.sidebar.write("**📰 News:**")
@@ -553,11 +553,11 @@ def main():
                     title = f"<span style=\"color:black\">{title}</span>"
                     st.sidebar.markdown(f"• {title}", unsafe_allow_html=True)
             
-            if week_2_pres:
-                st.sidebar.write("**🎤 Presentations:**")
-                for notif in week_2_pres:
-                    pres = notif.get('item', {})
-                    st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
+                if week_2_pres:
+                    st.sidebar.write("**🎤 Presentations:**")
+                    for notif in week_2_pres:
+                        pres = notif.get('item', {})
+                        st.sidebar.write(f"• {pres.get('document_name', 'Untitled')}")
             
             if week_2_news:
                 st.sidebar.write("**📰 News:**")
@@ -588,7 +588,7 @@ def main():
                 title = pub.get('document_name','PQC Publication')
                 category = pub.get('category', '')
                 if category:
-                    header = f"{category}: {title}"
+                    header = title
                 else:
                     header = title
                 
