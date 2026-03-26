@@ -557,7 +557,7 @@ def main():
         else:
             st.sidebar.write("No new items in Week 2.")
     else:
-        st.sidebar.info("No new items found since last check.")
+        pass
     
     # Display data sections
     if page == "Post-Quantum Cryptography":
@@ -740,8 +740,6 @@ def main():
                     st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                     if article.get('summary'):
                         st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-        else:
-            st.sidebar.write("No new AI items in Week 1.")
         
         # Week 2 section (8-14 days)
         st.sidebar.subheader("📅 Week 2 (8-14 days)")
@@ -768,8 +766,6 @@ def main():
                     st.sidebar.write(f"• {article.get('title', 'Untitled')}")
                     if article.get('summary'):
                         st.sidebar.caption(f"   Summary: {article['summary'][:100]}...")
-        else:
-            st.sidebar.write("No new AI items in Week 2.")
 
         col1, col2, col3 = st.columns(3)
         with col1:
