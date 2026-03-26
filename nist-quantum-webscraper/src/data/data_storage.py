@@ -23,8 +23,12 @@ class DataStorage:
         """Load previously saved data"""
         filename = f"{self.storage_dir}/{data_type}.json"
         if os.path.exists(filename):
-            with open(filename, 'r') as f:
-                return json.load(f)
+            try:
+                with open(filename, 'r') as f:
+                    return json.load(f)
+            except (json.JSONDecodeError, FileNotFoundError):
+                # Return empty data if file is corrupted or empty
+                return {'data': [], 'timestamp': None, 'count': 0}
         return {'data': [], 'timestamp': None, 'count': 0}
     
     def get_previous_data(self, data_type: str) -> List[Dict[str, Any]]:

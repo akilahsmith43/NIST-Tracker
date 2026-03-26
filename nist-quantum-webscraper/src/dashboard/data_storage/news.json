@@ -1,5 +1,34 @@
 {
-  "data": [],
-  "timestamp": "2026-03-25T20:28:57.040835",
-  "count": 0
+  "data": [
+    {
+      "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
+      "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
+      "publish_date": "February 10, 2026",
+      "publish_date_raw": "2026-02-10T12:00:00Z",
+      "summary": "NIST is allocating funding to eight small businesses in seven states under the Small Business Innovation Research (SBIR) program."
+    },
+    {
+      "title": "NIST Issues Broad Agency Announcement for Proposals to Advance Microelectronics Technologies",
+      "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
+      "publish_date": "September 24, 2025",
+      "publish_date_raw": "2025-09-24T12:00:00Z",
+      "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States."
+    },
+    {
+      "title": "In Quantum Sensing, What Beats Beating Noise? Meeting Noise Halfway.",
+      "link": "https://www.nist.gov/news-events/news/2025/09/quantum-sensing-what-beats-beating-noise-meeting-noise-halfway",
+      "publish_date": "September 10, 2025",
+      "publish_date_raw": "2025-09-10T12:00:00Z",
+      "summary": "A team including scientists at NIST may have found a new way of dealing with noise at the microscopic scales where quantum physics reigns."
+    },
+    {
+      "title": "NIST and Partners Use Quantum Mechanics to Make a Factory for Random Numbers",
+      "link": "https://www.nist.gov/news-events/news/2025/06/nist-and-partners-use-quantum-mechanics-make-factory-random-numbers",
+      "publish_date": "June 11, 2025",
+      "publish_date_raw": "2025-06-11T12:00:00Z",
+      "summary": "Broadcast as a free public service, the beacon can be used anywhere an independent source of random numbers would be useful, such as selecting jury candidates or assigning resources through a lottery."
+    }
+  ],
+  "timestamp": "2026-03-25T21:20:14.913193",
+  "count": 4
 }

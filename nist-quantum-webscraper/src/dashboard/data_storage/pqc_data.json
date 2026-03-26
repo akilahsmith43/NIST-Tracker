@@ -59,15 +59,6 @@
     ],
     "presentations": [
       {
-        "document_name": "NIST PQC: The Road Ahead",
-        "document_number": "",
-        "series": "Presentation",
-        "status": "Available",
-        "release_date": "March 25, 2025",
-        "resource_type": "Post-Quantum Cryptography Presentation",
-        "link": "https://csrc.nist.gov/presentations/2025/nist-pqc-the-road-ahead"
-      },
-      {
         "document_name": "Certified Randomness via Random Circuit Sampling",
         "document_number": "",
         "series": "Presentation",
@@ -144,10 +135,10 @@
       }
     ]
   },
-  "timestamp": "2026-03-20T23:34:31.211561",
+  "timestamp": "2026-03-25T21:21:46.875616",
   "counts": {
     "publications": 5,
-    "presentations": 2,
+    "presentations": 1,
     "news": 8
   }
 }
