@@ -400,7 +400,73 @@ class DataStorage:
                 new_items.append(item)
         
         return new_items
-    
+
+    def save_qis_data(self, data: Dict[str, List[Dict[str, Any]]]):
+        """Save Quantum Information Science data to a single JSON file."""
+        filename = f"{self.storage_dir}/qis_data.json"
+        data = {
+            'publications': self._deduplicate_items(data.get('publications', [])),
+            'presentations': self._deduplicate_items(data.get('presentations', [])),
+            'news': self._deduplicate_items(data.get('news', [])),
+        }
+        with open(filename, 'w') as f:
+            json.dump({
+                'data': data,
+                'timestamp': datetime.now().isoformat(),
+                'counts': {
+                    'publications': len(data.get('publications', [])),
+                    'presentations': len(data.get('presentations', [])),
+                    'news': len(data.get('news', [])),
+                },
+            }, f, indent=2)
+
+    def load_qis_data(self) -> Dict[str, Any]:
+        """Load previously saved QIS data."""
+        filename = f"{self.storage_dir}/qis_data.json"
+        if os.path.exists(filename):
+            with open(filename, 'r') as f:
+                payload = json.load(f)
+                data = payload.get('data', {})
+                payload['data'] = {
+                    'publications': self._deduplicate_items(data.get('publications', [])),
+                    'presentations': self._deduplicate_items(data.get('presentations', [])),
+                    'news': self._deduplicate_items(data.get('news', [])),
+                }
+                return payload
+        return {
+            'data': {'publications': [], 'presentations': [], 'news': []},
+            'timestamp': None,
+            'counts': {'publications': 0, 'presentations': 0, 'news': 0},
+        }
+
+    def get_previous_qis_data(self) -> Dict[str, List[Dict[str, Any]]]:
+        """Get previously saved QIS data."""
+        saved_data = self.load_qis_data()
+        return saved_data.get('data', {'publications': [], 'presentations': [], 'news': []})
+
+    def get_new_qis_items(self, current_data: Dict[str, List[Dict[str, Any]]]) -> Dict[str, List[Dict[str, Any]]]:
+        """Get only the new QIS items since last save."""
+        previous_data = self.get_previous_qis_data()
+
+        new_items = {'publications': [], 'presentations': [], 'news': []}
+
+        previous_pubs = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('publications', []))}
+        for item in self._deduplicate_items(current_data.get('publications', [])):
+            if self._build_item_identity(item) not in previous_pubs:
+                new_items['publications'].append(item)
+
+        previous_pres = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('presentations', []))}
+        for item in self._deduplicate_items(current_data.get('presentations', [])):
+            if self._build_item_identity(item) not in previous_pres:
+                new_items['presentations'].append(item)
+
+        previous_news = {self._build_item_identity(item) for item in self._deduplicate_items(previous_data.get('news', []))}
+        for item in self._deduplicate_items(current_data.get('news', [])):
+            if self._build_item_identity(item) not in previous_news:
+                new_items['news'].append(item)
+
+        return new_items
+
     def add_notification(self, item_type: str, item: Dict[str, Any]):
         """Add a new item to the persistent notifications"""
         notifications = self.load_notifications()

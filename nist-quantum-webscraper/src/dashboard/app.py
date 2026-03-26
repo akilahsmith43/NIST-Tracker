@@ -19,14 +19,7 @@ if src_dir not in sys.path:
 # Import from the scraper modules
 try:
     # Try importing with the src directory in path
-    from scraper.publications_scraper import (
-        scrape_publications,
-        scrape_all_publications,
-        scrape_publications_past_year,
-        filter_publications,
-    )
-    from scraper.presentations_scraper import scrape_presentations
-    from scraper.news_scraper import scrape_news
+    from scraper.qis_scraper import scrape_all_qis_data
     from scraper.pqc_scraper import scrape_all_pqc_data
     from scraper.ai_scraper import scrape_all_ai_data
     from data.data_storage import DataStorage
@@ -34,14 +27,7 @@ except ImportError as e:
     print(f"Import error: {e}")
     # Try absolute imports
     try:
-        from src.scraper.publications_scraper import (
-            scrape_publications,
-            scrape_all_publications,
-            scrape_publications_past_year,
-            filter_publications,
-        )
-        from src.scraper.presentations_scraper import scrape_presentations
-        from src.scraper.news_scraper import scrape_news
+        from src.scraper.qis_scraper import scrape_all_qis_data
         from src.scraper.pqc_scraper import scrape_all_pqc_data
         from src.scraper.ai_scraper import scrape_all_ai_data
         from src.data.data_storage import DataStorage
@@ -50,32 +36,13 @@ except ImportError as e:
         # Final attempt - check if we can import the module directly
         import importlib.util
         import os
-        
-        # Try to load the module directly
-        publications_scraper_path = os.path.join(src_dir, 'scraper', 'publications_scraper.py')
-        spec = importlib.util.spec_from_file_location("publications_scraper", publications_scraper_path)
-        publications_scraper = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(publications_scraper)
-        
-        # Get the functions we need
-        scrape_publications = publications_scraper.scrape_publications
-        scrape_all_publications = publications_scraper.scrape_all_publications
-        scrape_publications_past_year = publications_scraper.scrape_publications_past_year
-        filter_publications = publications_scraper.filter_publications
-        
-        # Load other modules similarly
-        presentations_scraper_path = os.path.join(src_dir, 'scraper', 'presentations_scraper.py')
-        spec2 = importlib.util.spec_from_file_location("presentations_scraper", presentations_scraper_path)
-        presentations_scraper = importlib.util.module_from_spec(spec2)
-        spec2.loader.exec_module(presentations_scraper)
-        scrape_presentations = presentations_scraper.scrape_presentations
-        
-        news_scraper_path = os.path.join(src_dir, 'scraper', 'news_scraper.py')
-        spec3 = importlib.util.spec_from_file_location("news_scraper", news_scraper_path)
-        news_scraper = importlib.util.module_from_spec(spec3)
-        spec3.loader.exec_module(news_scraper)
-        scrape_news = news_scraper.scrape_news
-        
+
+        qis_scraper_path = os.path.join(src_dir, 'scraper', 'qis_scraper.py')
+        spec_qis = importlib.util.spec_from_file_location("qis_scraper", qis_scraper_path)
+        qis_scraper = importlib.util.module_from_spec(spec_qis)
+        spec_qis.loader.exec_module(qis_scraper)
+        scrape_all_qis_data = qis_scraper.scrape_all_qis_data
+
         pqc_scraper_path = os.path.join(src_dir, 'scraper', 'pqc_scraper.py')
         spec4 = importlib.util.spec_from_file_location("pqc_scraper", pqc_scraper_path)
         pqc_scraper = importlib.util.module_from_spec(spec4)
@@ -87,7 +54,7 @@ except ImportError as e:
         ai_scraper = importlib.util.module_from_spec(spec_ai)
         spec_ai.loader.exec_module(ai_scraper)
         scrape_all_ai_data = ai_scraper.scrape_all_ai_data
-        
+
         data_storage_path = os.path.join(src_dir, 'data', 'data_storage.py')
         spec5 = importlib.util.spec_from_file_location("data_storage", data_storage_path)
         data_storage = importlib.util.module_from_spec(spec5)
@@ -582,15 +549,10 @@ def main():
         
         # Scrape data
         with st.spinner('Scraping Quantum Information Science Data...'):
-            # Run independent scrapers concurrently to reduce page-load latency.
-            with ThreadPoolExecutor(max_workers=3) as executor:
-                publications_future = executor.submit(scrape_all_publications)
-                presentations_future = executor.submit(scrape_presentations)
-                news_future = executor.submit(scrape_news)
-
-                publications = publications_future.result()
-                presentations = presentations_future.result()
-                news = news_future.result()
+            qis_data = scrape_all_qis_data()
+            publications = qis_data.get('publications', [])
+            presentations = qis_data.get('presentations', [])
+            news = qis_data.get('news', [])
     
     elif page == "Post-Quantum Cryptography":
         st.title("🔐 NIST Post-Quantum Cryptography Tracker")
@@ -717,19 +679,19 @@ def main():
         presentations = sort_items_by_date(presentations, ('release_date',))
         news = sort_items_by_date(news, NEWS_DATE_KEYS)
 
-        previous_publications = storage.load_data('publications')
-        previous_presentations = storage.load_data('presentations')
-        previous_news = storage.load_data('news')
-        is_first_qis_scrape = not any(
-            payload.get('timestamp')
-            for payload in (previous_publications, previous_presentations, previous_news)
-        )
-        
-        # Check for new items and save data
-        new_publications = storage.get_new_items('publications', publications)
-        new_presentations = storage.get_new_items('presentations', presentations)
-        new_news = storage.get_new_items('news', news)
-        
+        previous_qis_snapshot = storage.load_qis_data()
+        is_first_qis_scrape = not previous_qis_snapshot.get('timestamp')
+
+        # Build consolidated dict and check for new items
+        qis_data['publications'] = publications
+        qis_data['presentations'] = presentations
+        qis_data['news'] = news
+
+        new_qis_items = storage.get_new_qis_items(qis_data)
+        new_publications = new_qis_items.get('publications', [])
+        new_presentations = new_qis_items.get('presentations', [])
+        new_news = new_qis_items.get('news', [])
+
         # Add new items to persistent notifications
         for pub in new_publications:
             storage.add_notification('publication', pub)
@@ -743,43 +705,9 @@ def main():
         
         # Filter notifications to only show items from the past year
         all_notifications = filter_notifications_since(all_notifications, cutoff)
-        
-        # Save current data
-        storage.save_data('publications', publications)
-        storage.save_data('presentations', presentations)
-        storage.save_data('news', news)
-        
-        # Save general publications to dashboard data storage
-        dashboard_dir = os.path.join(os.path.dirname(__file__), 'data_storage')
-        if not os.path.exists(dashboard_dir):
-            os.makedirs(dashboard_dir)
-        
-        # Save publications to dashboard data storage
-        filename = f"{dashboard_dir}/publications.json"
-        with open(filename, 'w') as f:
-            json.dump({
-                'data': publications,
-                'timestamp': datetime.now().isoformat(),
-                'count': len(publications)
-            }, f, indent=2)
-        
-        # Save presentations to dashboard data storage
-        filename = f"{dashboard_dir}/presentations.json"
-        with open(filename, 'w') as f:
-            json.dump({
-                'data': presentations,
-                'timestamp': datetime.now().isoformat(),
-                'count': len(presentations)
-            }, f, indent=2)
-        
-        # Save news to dashboard data storage
-        filename = f"{dashboard_dir}/news.json"
-        with open(filename, 'w') as f:
-            json.dump({
-                'data': news,
-                'timestamp': datetime.now().isoformat(),
-                'count': len(news)
-            }, f, indent=2)
+
+        # Save consolidated QIS data
+        storage.save_qis_data(qis_data)
     else:
         # For PQC page, set empty values to avoid undefined variable errors
         publications = []

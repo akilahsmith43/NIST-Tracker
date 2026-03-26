@@ -16706,7 +16706,8 @@
       "release_date_raw": "2026-03-12",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/robust-phase-stabilization-dark-quantum-channel-over-120-km-deployed-fiber-link",
-      "summary": "We present a scalable solution for phase stabilization of dark metropolitan-scale fiber links using wavelength division multiplexing (WDM)."
+      "summary": "We present a scalable solution for phase stabilization of dark metropolitan-scale fiber links using wavelength division multiplexing (WDM).",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.468615"
   },
@@ -16721,7 +16722,8 @@
       "release_date_raw": "2026-03-10",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/low-frequency-cryocoolers-are-compressed-inefficiently",
-      "summary": "Millikelvin refrigerators are enabling tools for many fields of modern science, including quantum information processing."
+      "summary": "Millikelvin refrigerators are enabling tools for many fields of modern science, including quantum information processing.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.497224"
   },
@@ -16736,7 +16738,8 @@
       "release_date_raw": "2026-03-03",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/qdflow-python-package-physics-simulations-quantum-dot-devices",
-      "summary": "Recent advances in machine learning (ML) have accelerated progress in calibrating and operating quantum dot (QD) devices."
+      "summary": "Recent advances in machine learning (ML) have accelerated progress in calibrating and operating quantum dot (QD) devices.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.520294"
   },
@@ -16751,7 +16754,8 @@
       "release_date_raw": "2026-02-02",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/electrical-interconnects-silicon-spin-qubits",
-      "summary": "Scalable spin qubit devices will likely require long-range qubit interconnects. We propose to create such an interconnect with a resistive topgate."
+      "summary": "Scalable spin qubit devices will likely require long-range qubit interconnects. We propose to create such an interconnect with a resistive topgate.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.542051"
   },
@@ -16766,7 +16770,8 @@
       "release_date_raw": "2026-01-20",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/bootstrapping-autonomous-testing-and-initialization-system-sisixge1-x-multi-quantum-dot",
-      "summary": "Semiconductor quantum dot (QD) devices have become central to advancements in spin-based quantum computing."
+      "summary": "Semiconductor quantum dot (QD) devices have become central to advancements in spin-based quantum computing.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.565009"
   },
@@ -16781,7 +16786,8 @@
       "release_date_raw": "2025-12-12",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/chirped-magneto-optical-trap-molybdenum",
-      "summary": "We have directly loaded a cryogenic beam of molybdenum atoms into a magneto-optical trap."
+      "summary": "We have directly loaded a cryogenic beam of molybdenum atoms into a magneto-optical trap.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.590364"
   },
@@ -16796,7 +16802,8 @@
       "release_date_raw": "2025-12-09",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/observation-fault-tolerance-threshold-concatenated-codes",
-      "summary": "We introduce a fault-tolerant protocol for code concatenation using a butterfly network architecture with high noise thresholds and low ancilla overhead to allo"
+      "summary": "We introduce a fault-tolerant protocol for code concatenation using a butterfly network architecture with high noise thresholds and low ancilla overhead to allo",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.613278"
   },
@@ -16811,7 +16818,8 @@
       "release_date_raw": "2025-12-08",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/broadband-pulsed-quadrature-measurements-calorimeters",
-      "summary": "A general one-dimensional quantum optical mode is described by a shape in the time or frequency domain."
+      "summary": "A general one-dimensional quantum optical mode is described by a shape in the time or frequency domain.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.635481"
   },
@@ -16826,7 +16834,8 @@
       "release_date_raw": "2025-12-01",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/detection-surface-spins-causing-flux-noise-quantum-devices-using-electron-spin",
-      "summary": "The improvement of quantum computing technologies relies on the reduction of flux noise that contributes to decoherence."
+      "summary": "The improvement of quantum computing technologies relies on the reduction of flux noise that contributes to decoherence.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.657708"
   },
@@ -16841,7 +16850,8 @@
       "release_date_raw": "2025-11-28",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/argon-ion-treatment-multi-material-layered-surface-electrode-traps-noise-mitigation",
-      "summary": "Electric-field noise near ion-trap electrodes limits motional coherence and represents a key obstacle to scaling trapped-ion quantum systems."
+      "summary": "Electric-field noise near ion-trap electrodes limits motional coherence and represents a key obstacle to scaling trapped-ion quantum systems.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.679471"
   },
@@ -16856,7 +16866,8 @@
       "release_date_raw": "2025-11-18",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/robust-two-qubit-geometric-phase-gates-using-amplitude-and-frequency-ramping",
-      "summary": "We demonstrate a method for generating entanglement between trapped atomic ions based on adiabatically ramped state-dependent forces."
+      "summary": "We demonstrate a method for generating entanglement between trapped atomic ions based on adiabatically ramped state-dependent forces.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.701493"
   },
@@ -16871,7 +16882,8 @@
       "release_date_raw": "2025-11-18",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/towards-quantum-repeater-using-surface-trap-integrated-microcavity-and-trapped-ions",
-      "summary": "Trapped ions are a leading candidate for the \"stationary qubits\" of a quantum network."
+      "summary": "Trapped ions are a leading candidate for the \"stationary qubits\" of a quantum network.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.724023"
   },
@@ -16886,7 +16898,8 @@
       "release_date_raw": "2025-11-17",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/compatibility-trapped-ions-and-dielectrics-cryogenic-temperatures",
-      "summary": "We study the impact of an unshielded dielectric\\textemdash here, a bare optical fiber\\textemdash on a $^40}$Ca$^+}$ ion held several hundred $\\mu$m away in a cr"
+      "summary": "We study the impact of an unshielded dielectric\\textemdash here, a bare optical fiber\\textemdash on a $^40}$Ca$^+}$ ion held several hundred $\\mu$m away in a cr",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.746314"
   },
@@ -16901,7 +16914,8 @@
       "release_date_raw": "2025-11-14",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/single-photon-time-flight-measurements-benchmarking-time-transfer-quantum-networks",
-      "summary": "We propose a single-photon time-of-flight (ToF) measurement method to benchmark fiber-path delay estimation in optical two-way time and frequency transfer (OTWT"
+      "summary": "We propose a single-photon time-of-flight (ToF) measurement method to benchmark fiber-path delay estimation in optical two-way time and frequency transfer (OTWT",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.768117"
   },
@@ -16916,7 +16930,8 @@
       "release_date_raw": "2025-11-10",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/fault-tolerant-neutral-atom-architecture-universal-quantum-computation",
-      "summary": "Quantum error correction (QEC) is believed to be essential for the realization of large-scale quantum computers."
+      "summary": "Quantum error correction (QEC) is believed to be essential for the realization of large-scale quantum computers.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.789925"
   },
@@ -16931,7 +16946,8 @@
       "release_date_raw": "2025-11-07",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/clock-precision-beyond-standard-quantum-limit-10-18-level",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.811691"
   },
@@ -16946,7 +16962,8 @@
       "release_date_raw": "2025-10-31",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/unraveling-spin-entanglement-using-quantum-gates-scanning-tunneling-microscopy-driven",
-      "summary": "Quantum entanglement is a fundamental resource for quantum information processing, and its controlled generation and detection remain key challenges in scalable"
+      "summary": "Quantum entanglement is a fundamental resource for quantum information processing, and its controlled generation and detection remain key challenges in scalable",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.834194"
   },
@@ -16961,7 +16978,8 @@
       "release_date_raw": "2025-10-21",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/solitons-thermal-gas-stabilized-photon-mediated-interactions-optical-cavity",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.855994"
   },
@@ -16976,7 +16994,8 @@
       "release_date_raw": "2025-10-14",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/temperature-compensated-multi-level-cmos-modulators-operating-10-k-300-k-cryogenic",
-      "summary": "This work presents temperature-compensated cryogenic CMOS modulators operating over a 10-300 K temperature range, suitable for intra- and inter-thermal cryogeni"
+      "summary": "This work presents temperature-compensated cryogenic CMOS modulators operating over a 10-300 K temperature range, suitable for intra- and inter-thermal cryogeni",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.877883"
   },
@@ -16991,7 +17010,8 @@
       "release_date_raw": "2025-10-03",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/scalable-and-fault-tolerant-preparation-encoded-k-uniform-states",
-      "summary": "k-uniform states are valuable resources in quantum information, enabling tasks such as teleporta- tion, error correction, and accelerated quantum simulations."
+      "summary": "k-uniform states are valuable resources in quantum information, enabling tasks such as teleporta- tion, error correction, and accelerated quantum simulations.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.900806"
   },
@@ -17006,7 +17026,8 @@
       "release_date_raw": "2025-09-10",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/efficient-production-sodium-bose-einstein-condensates-hybrid-trap",
-      "summary": "We describe an apparatus that efficiently produces $^23}$Na Bose-Einstein condensates (BECs) in a hybrid trap that combines a quadrupole magnetic field with a f"
+      "summary": "We describe an apparatus that efficiently produces $^23}$Na Bose-Einstein condensates (BECs) in a hybrid trap that combines a quadrupole magnetic field with a f",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.922919"
   },
@@ -17021,7 +17042,8 @@
       "release_date_raw": "2025-09-05",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/accurate-unsupervised-photon-counting-transition-edge-sensor-signals",
-      "summary": "We compare methods for signal classification applied to voltage traces from transition edge sensors (TES) which are photon-number resolving detectors fundamenta"
+      "summary": "We compare methods for signal classification applied to voltage traces from transition edge sensors (TES) which are photon-number resolving detectors fundamenta",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.944717"
   },
@@ -17036,7 +17058,8 @@
       "release_date_raw": "2025-09-05",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/fault-tolerant-hyperbolic-floquet-quantum-error-correcting-codes",
-      "summary": "A central goal in quantum error correction is to reduce the overhead of fault-tolerant quantum computing by increasing noise thresholds and reducing the number"
+      "summary": "A central goal in quantum error correction is to reduce the overhead of fault-tolerant quantum computing by increasing noise thresholds and reducing the number",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.967053"
   },
@@ -17051,7 +17074,8 @@
       "release_date_raw": "2025-09-03",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/atomic-coherence-over-100-s-and-1-s-instability-15x10-18-wannier-stark-lattice-clock",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:37.988950"
   },
@@ -17066,7 +17090,8 @@
       "release_date_raw": "2025-08-28",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/atomistic-tight-binding-hartree-fock-calculations-multielectron-configurations-p-doped",
-      "summary": "Donor-based quantum devices in silicon are attractive platforms for universal quantum computing and analog quantum simulations."
+      "summary": "Donor-based quantum devices in silicon are attractive platforms for universal quantum computing and analog quantum simulations.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.011167"
   },
@@ -17081,7 +17106,8 @@
       "release_date_raw": "2025-08-25",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/error-corrected-fermionic-quantum-processors-neutral-atoms",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.033252"
   },
@@ -17096,7 +17122,8 @@
       "release_date_raw": "2025-08-22",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/emergent-unitary-designs-encoded-qubits-coherent-errors-and-syndrome-measurements",
-      "summary": "Unitary k-designs are distributions of unitary gates that match the Haar distribution up to its k-th statistical moments."
+      "summary": "Unitary k-designs are distributions of unitary gates that match the Haar distribution up to its k-th statistical moments.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.055426"
   },
@@ -17111,7 +17138,8 @@
       "release_date_raw": "2025-08-06",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/symmetry-protected-toplological-optical-lattice-clock",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.077910"
   },
@@ -17126,7 +17154,8 @@
       "release_date_raw": "2025-08-04",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/benchqc-benchmarking-toolkit-quantum-computation",
-      "summary": "The Variational Quantum Eigensolver (VQE) is a widely studied hybrid classical-quantum algorithm for approximating ground-state energies in molecular and materi"
+      "summary": "The Variational Quantum Eigensolver (VQE) is a widely studied hybrid classical-quantum algorithm for approximating ground-state energies in molecular and materi",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.139966"
   },
@@ -17141,7 +17170,8 @@
       "release_date_raw": "2025-08-04",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/single-photon-sources-and-detectors-dictionary-0",
-      "summary": "The intention of this dictionary is to define relevant terms and metrics used in the characterization of single-photon detectors and sources with the goal to pr"
+      "summary": "The intention of this dictionary is to define relevant terms and metrics used in the characterization of single-photon detectors and sources with the goal to pr",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.163978"
   },
@@ -17156,7 +17186,8 @@
       "release_date_raw": "2025-08-01",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/measurable-improvement-multi-qubit-readout-using-kinetic-inductance-traveling-wave",
-      "summary": "Superconducting quantum computing benefits significantly from readout chains operating very near the Quantum Limit (QL) of added noise."
+      "summary": "Superconducting quantum computing benefits significantly from readout chains operating very near the Quantum Limit (QL) of added noise.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.186172"
   },
@@ -17171,7 +17202,8 @@
       "release_date_raw": "2025-07-25",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/error-mitigation-thresholds-noisy-random-quantum-circuits",
-      "summary": "Extracting useful information from noisy near-term quantum simulations requires error mitigation strategies."
+      "summary": "Extracting useful information from noisy near-term quantum simulations requires error mitigation strategies.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.208390"
   },
@@ -17186,7 +17218,8 @@
       "release_date_raw": "2025-07-14",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/high-stability-single-ion-clock-55-x-10-19-systematic-uncertainty",
-      "summary": "We report a single-ion optical atomic clock with fractional frequency uncertainty of 5.5 x 10^-19 and frequency stability of 3.5 x 10^-16/sqrttau/s}, based on q"
+      "summary": "We report a single-ion optical atomic clock with fractional frequency uncertainty of 5.5 x 10^-19 and frequency stability of 3.5 x 10^-16/sqrttau/s}, based on q",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.235064"
   },
@@ -17201,7 +17234,8 @@
       "release_date_raw": "2025-07-14",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/variable-bell-states-polarization-entangled-photon-source",
-      "summary": "Bell states are fundamental resources in quantum optics, underpinning a range of applications in quantum computation and communication."
+      "summary": "Bell states are fundamental resources in quantum optics, underpinning a range of applications in quantum computation and communication.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.267955"
   },
@@ -17216,7 +17250,8 @@
       "release_date_raw": "2025-06-11",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/radial-polarization-imaging-entangled-biphoton-state",
-      "summary": "Polarization entanglement of single photons is a key element to enable quantum 2.0 applications such as quantum computing, quantum networks, and quantum sensing"
+      "summary": "Polarization entanglement of single photons is a key element to enable quantum 2.0 applications such as quantum computing, quantum networks, and quantum sensing",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.297983"
   },
@@ -17231,7 +17266,8 @@
       "release_date_raw": "2025-05-28",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/fault-tolerant-compiling-classically-hard-instantaneous-quantum-polynomial-circuits",
-      "summary": "Quantum computational advantage is challenging to maintain asymptotically in the presence of noise."
+      "summary": "Quantum computational advantage is challenging to maintain asymptotically in the presence of noise.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.323620"
   },
@@ -17246,7 +17282,8 @@
       "release_date_raw": "2025-05-04",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/dynamics-single-photon-emission-quantum-dot-emitting-photons-telecom-wavelength",
-      "summary": "We investigate the dynamics of single-photon emission from a near C-band quantum dot using a time-resolved Hanbury Brown and Twiss experiment."
+      "summary": "We investigate the dynamics of single-photon emission from a near C-band quantum dot using a time-resolved Hanbury Brown and Twiss experiment.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.351962"
   },
@@ -17261,7 +17298,8 @@
       "release_date_raw": "2025-05-01",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/memsduino-arduino-based-mems-switch-controller",
-      "summary": "Radio frequency cryogenic switches are a critical enabling technology for quantum information science, both for calibration and high throughput testing of sampl"
+      "summary": "Radio frequency cryogenic switches are a critical enabling technology for quantum information science, both for calibration and high throughput testing of sampl",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.374484"
   },
@@ -17276,7 +17314,8 @@
       "release_date_raw": "2025-04-30",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/modular-autonomous-virtualization-system-two-dimensional-semiconductor-quantum-dot",
-      "summary": "Arrays of gate-defined semiconductor quantum dots are among the leading candidates for building scalable quantum processors."
+      "summary": "Arrays of gate-defined semiconductor quantum dots are among the leading candidates for building scalable quantum processors.",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.396596"
   },
@@ -17291,7 +17330,8 @@
       "release_date_raw": "2025-04-24",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/measurement-induced-phase-transitions-monitored-infinite-range-interacting-systems",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.419278"
   },
@@ -17306,7 +17346,8 @@
       "release_date_raw": "2025-04-23",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/enabling-phase-stabilization-quantum-networks-displacement-enhanced-photon-counting",
-      "summary": "Optical phase stabilization, tracking, and locking in long fiber links are pivotal for the functionality of many communication protocols and distributed sensors"
+      "summary": "Optical phase stabilization, tracking, and locking in long fiber links are pivotal for the functionality of many communication protocols and distributed sensors",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.441953"
   },
@@ -17321,7 +17362,8 @@
       "release_date_raw": "2025-03-31",
       "resource_type": "Publication",
       "link": "https://www.nist.gov/publications/autoionization-enhanced-rydberg-dressing-fast-contaminant-removal",
-      "summary": ""
+      "summary": "",
+      "category": "General Publications"
     },
     "scrape_date": "2026-03-25T21:13:38.464418"
   },
@@ -17699,7 +17741,9 @@
       "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
       "publish_date": "September 24, 2025",
       "publish_date_raw": "2025-09-24",
-      "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States."
+      "summary": "The CHIPS for America funding opportunity will support critical research, prototyping and commercial solutions that advance microelectronics technology in the United States.",
+      "last_edited_date": "September 24, 2025",
+      "last_edited_date_raw": "2025-09-24"
     },
     "scrape_date": "2026-03-26T18:21:09.820977"
   },
@@ -17889,7 +17933,7 @@
   },
   {
     "type": "news",
-    "timestamp": "2026-03-26T18:57:31.552338",
+    "timestamp": "2026-03-26 18:57:31.552338",
     "item": {
       "title": "First Observation of Spin Hall Effect in a Quantum Gas Is Step Toward 'Atomtronics'",
       "link": "https://www.nist.gov/news-events/news/2013/06/first-observation-spin-hall-effect-quantum-gas-step-toward-atomtronics",
@@ -17900,5 +17944,35 @@
       "summary": "Researchers at the National Institute of Standards and Technology (NIST) have reported the first observation of the \"spin Hall effect\" in a Bose-Einstein con"
     },
     "scrape_date": "2026-03-26T18:57:31.552340"
+  },
+  {
+    "type": "presentation",
+    "timestamp": "2026-03-26 19:41:54.930522",
+    "item": {
+      "document_name": "Initial Public Draft NIST IR 8587: Protecting Tokens and Assertions from Forgery, Theft, and Misuse: Implementation Recommendations for Agencies and Cloud Service Providers",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "January 22, 2026",
+      "resource_type": "Quantum Information Science Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/draft-nist-ir-8587",
+      "release_date_raw": "2026-01-22"
+    },
+    "scrape_date": "2026-03-26T19:41:54.930529"
+  },
+  {
+    "type": "presentation",
+    "timestamp": "2026-03-26 19:41:54.963084",
+    "item": {
+      "document_name": "NCCoE Roadmap and Select Project Overviews",
+      "document_number": "",
+      "series": "Presentation",
+      "status": "Available",
+      "release_date": "July 16, 2025",
+      "resource_type": "Quantum Information Science Presentation",
+      "link": "https://csrc.nist.gov/presentations/2025/nccoe-roadmap-and-select-project-overviews",
+      "release_date_raw": "2025-07-16"
+    },
+    "scrape_date": "2026-03-26T19:41:54.963089"
   }
 ]
