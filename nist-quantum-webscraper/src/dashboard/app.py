@@ -649,7 +649,7 @@ def main():
             ai_presentations = ai_data.get('presentations', [])
             ai_news = ai_data.get('news', [])
 
-        cutoff = datetime.now() - timedelta(days=365)
+        cutoff = datetime.now() - timedelta(days=60)
         def _keep_recent(items, date_key):
             output = []
             for item in items:
