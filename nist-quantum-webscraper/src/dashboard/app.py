@@ -842,11 +842,10 @@ def main():
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
                     st.write("---")
-        
-        # PQC Last update info
-        st.sidebar.divider()
-        st.sidebar.caption(f"PQC Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
+        st.sidebar.divider()
+        st.sidebar.caption(f"PQC Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        
     elif page == "Artificial Intelligence":
         st.title("🤖 NIST Artificial Intelligence Tracker")
         storage_dir = os.path.join(os.path.dirname(__file__), 'data_storage')
@@ -984,7 +983,7 @@ def main():
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
 
         st.sidebar.divider()
-        st.sidebar.caption(f"AI Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+        st.sidebar.caption(f"AI Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
     else:
         # Display regular Quantum Information Science data sections
@@ -1066,10 +1065,9 @@ def main():
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
                     st.write("---")
-    
-    # Last update info
-    st.sidebar.divider()
-    st.sidebar.caption(f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
 
+        st.sidebar.divider()
+        st.sidebar.caption(f"QIS Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    
 if __name__ == "__main__":
     main()
