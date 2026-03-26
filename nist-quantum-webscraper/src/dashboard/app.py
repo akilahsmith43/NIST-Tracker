@@ -785,7 +785,7 @@ def main():
             for pub in ai_publications:
                 title = pub.get('document_name', 'AI Publication')
                 category = pub.get('category', '')
-                header = f"{category}: {title}" if category else title
+                header = title if category else title
                 with st.expander(header):
                     if pub.get('summary'):
                         st.info(f"**Summary:** {pub['summary']}")
