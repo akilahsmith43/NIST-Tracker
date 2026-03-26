@@ -581,7 +581,7 @@ def main():
         st.sidebar.header("Notifications")
         
         # Scrape data
-        with st.spinner('Scraping NIST data...'):
+        with st.spinner('Scraping Quantum Information Science Data...'):
             # Run independent scrapers concurrently to reduce page-load latency.
             with ThreadPoolExecutor(max_workers=3) as executor:
                 publications_future = executor.submit(scrape_all_publications)
