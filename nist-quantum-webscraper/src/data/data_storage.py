@@ -1,8 +1,12 @@
 import json
 import os
+import logging
 from datetime import datetime
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from urllib.parse import urlsplit, urlunsplit
+
+# Set up logging
+logger = logging.getLogger(__name__)
 
 class DataStorage:
     def __init__(self, storage_dir="data_storage"):
@@ -172,6 +176,49 @@ class DataStorage:
             selected[identity] = self._merge_item_data(selected[identity], item)
 
         return [selected[identity] for identity in order]
+    
+    def save_item_summary(self, item_type: str, item_identity: str, summary: str):
+        """Save AI summary for a specific item."""
+        summary_file = f"{self.storage_dir}/summaries.json"
+        
+        # Load existing summaries
+        summaries = {}
+        if os.path.exists(summary_file):
+            try:
+                with open(summary_file, 'r') as f:
+                    summaries = json.load(f)
+            except Exception:
+                summaries = {}
+        
+        # Save summary with timestamp
+        summaries[item_identity] = {
+            'summary': summary,
+            'timestamp': datetime.now().isoformat(),
+            'item_type': item_type
+        }
+        
+        # Save back to file
+        try:
+            with open(summary_file, 'w') as f:
+                json.dump(summaries, f, indent=2)
+        except Exception as e:
+            logger.warning(f"Failed to save summary: {e}")
+    
+    def load_item_summary(self, item_identity: str) -> Optional[str]:
+        """Load AI summary for a specific item."""
+        summary_file = f"{self.storage_dir}/summaries.json"
+        
+        if not os.path.exists(summary_file):
+            return None
+        
+        try:
+            with open(summary_file, 'r') as f:
+                summaries = json.load(f)
+            
+            summary_data = summaries.get(item_identity, {})
+            return summary_data.get('summary')
+        except Exception:
+            return None
     
     def save_data(self, data_type: str, data: List[Dict[str, Any]]):
         """Save scraped data to JSON file"""

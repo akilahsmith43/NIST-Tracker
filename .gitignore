@@ -7,3 +7,10 @@ data_storage/*.json
 # Python bytecode
 __pycache__/
 *.py[cod]
+
+# Summary runtime cache
+src/data_storage/summaries/*.json
+
+# Scraped page cache
+data_storage/cache/*
+

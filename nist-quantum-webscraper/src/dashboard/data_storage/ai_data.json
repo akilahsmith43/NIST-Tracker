@@ -13,17 +13,6 @@
         "category": "Drafts Open for Comment"
       },
       {
-        "document_name": "On the Assessment of Sensitivity of Autonomous Vehicle Perception",
-        "document_number": "",
-        "series": "Other",
-        "release_date": "January 30, 2026",
-        "release_date_raw": "2026-01-30",
-        "resource_type": "Artificial Intelligence Publication",
-        "link": "https://csrc.nist.gov/pubs/other/2026/01/30/on-the-assessment-of-sensitivity-of-autonomous-veh/final",
-        "summary": "",
-        "category": "Drafts Open for Comment"
-      },
-      {
         "document_name": "Data Classification Practices",
         "document_number": "",
         "series": "SP",
@@ -81,15 +70,6 @@
     ],
     "presentations": [
       {
-        "document_name": "OSCAL Monthly Workshop Series - Event #39: AI Agent for OSCAL: Instant OSCAL Expertise for All",
-        "series": "",
-        "status": "",
-        "resource_type": "Artificial Intelligence Presentation",
-        "link": "https://csrc.nist.gov/presentations/2026/ai-agent-for-oscal-instant-oscal-expertise-for-all",
-        "release_date": "February 04, 2026",
-        "release_date_raw": "2026-02-04"
-      },
-      {
         "document_name": "OSCAL Monthly Workshop Series: Event #40 - OSCAL Hub - Open Source Visual Tools for Rapid Authorizations and Content Sharing using OSCAL",
         "series": "",
         "status": "",
@@ -122,10 +102,10 @@
       }
     ]
   },
-  "timestamp": "2026-03-26T19:58:48.968165",
+  "timestamp": "2026-04-05T22:50:45.857192",
   "counts": {
-    "publications": 7,
-    "presentations": 2,
+    "publications": 6,
+    "presentations": 1,
     "news": 2
   }
 }

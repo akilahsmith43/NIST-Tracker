@@ -18004,5 +18004,21 @@
       "resource_type": "Artificial Intelligence News"
     },
     "scrape_date": "2026-03-26T19:54:33.474613"
+  },
+  {
+    "type": "publication",
+    "timestamp": "2026-04-05T23:16:57.651573",
+    "item": {
+      "document_name": "Localized quasiparticles in a quasi-two-dimensional fluxonium",
+      "document_number": "",
+      "series": "",
+      "release_date": "February 21, 2026",
+      "release_date_raw": "2026-02-21",
+      "resource_type": "Publication",
+      "link": "https://www.nist.gov/publications/localized-quasiparticles-quasi-two-dimensional-fluxonium",
+      "summary": "Disordered superconducting materials with high kinetic inductance are an important resource for generating nonlinearity in quantum circuits and creating high-im",
+      "category": "General Publications"
+    },
+    "scrape_date": "2026-04-05T23:16:57.651580"
   }
 ]

@@ -1,0 +1,86 @@
+{
+  "data": [
+    {
+      "title": "NIST Selects HQC as Fifth Algorithm for Post-Quantum Encryption",
+      "summary": "",
+      "publish_date": "March 11, 2025",
+      "publish_date_raw": "2025-03-11",
+      "last_edited_date": "March 20, 2025",
+      "last_edited_date_raw": "2025-03-20",
+      "link": "https://www.nist.gov/news-events/news/2025/03/nist-selects-hqc-fifth-algorithm-post-quantum-encryption",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST Releases First 3 Finalized Post-Quantum Encryption Standards",
+      "summary": "",
+      "publish_date": "August 13, 2024",
+      "publish_date_raw": "2024-08-13",
+      "last_edited_date": "August 29, 2025",
+      "last_edited_date_raw": "2025-08-29",
+      "link": "https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST to Standardize Encryption Algorithms That Can Resist Attack by Quantum Computers",
+      "summary": "",
+      "publish_date": "August 24, 2023",
+      "publish_date_raw": "2023-08-24",
+      "last_edited_date": "November 06, 2025",
+      "last_edited_date_raw": "2025-11-06",
+      "link": "https://www.nist.gov/news-events/news/2023/08/nist-standardize-encryption-algorithms-can-resist-attack-quantum-computers",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST Selects \u2018Lightweight Cryptography\u2019 Algorithms to Protect Small Devices",
+      "summary": "",
+      "publish_date": "February 07, 2023",
+      "publish_date_raw": "2023-02-07",
+      "last_edited_date": "February 03, 2025",
+      "last_edited_date_raw": "2025-02-03",
+      "link": "https://www.nist.gov/news-events/news/2023/02/nist-selects-lightweight-cryptography-algorithms-protect-small-devices",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST Announces First Four Quantum-Resistant Cryptographic Algorithms",
+      "summary": "",
+      "publish_date": "July 05, 2022",
+      "publish_date_raw": "2022-07-05",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2022/07/nist-announces-first-four-quantum-resistant-cryptographic-algorithms",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST\u2019s Post-Quantum Cryptography Program Enters \u2018Selection Round\u2019",
+      "summary": "",
+      "publish_date": "July 22, 2020",
+      "publish_date_raw": "2020-07-22",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2020/07/nists-post-quantum-cryptography-program-enters-selection-round",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST Reveals 26 Algorithms Advancing to the Post-Quantum Crypto \u2018Semifinals\u2019",
+      "summary": "",
+      "publish_date": "January 30, 2019",
+      "publish_date_raw": "2019-01-30",
+      "last_edited_date": "April 10, 2025",
+      "last_edited_date_raw": "2025-04-10",
+      "link": "https://www.nist.gov/news-events/news/2019/01/nist-reveals-26-algorithms-advancing-post-quantum-crypto-semifinals",
+      "resource_type": "Post-Quantum Cryptography News"
+    },
+    {
+      "title": "NIST\u2019s New Quantum Method GeneratesReallyRandom Numbers",
+      "summary": "",
+      "publish_date": "April 11, 2018",
+      "publish_date_raw": "2018-04-11",
+      "last_edited_date": "February 03, 2025",
+      "last_edited_date_raw": "2025-02-03",
+      "link": "https://www.nist.gov/news-events/news/2018/04/nists-new-quantum-method-generates-really-random-numbers",
+      "resource_type": "Post-Quantum Cryptography News"
+    }
+  ],
+  "timestamp": "2026-03-27T15:56:28.697472",
+  "count": 8
+}

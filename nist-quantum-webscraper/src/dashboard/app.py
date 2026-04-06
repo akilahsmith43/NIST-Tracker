@@ -23,6 +23,7 @@ try:
     from scraper.pqc_scraper import scrape_all_pqc_data
     from scraper.ai_scraper import scrape_all_ai_data
     from data.data_storage import DataStorage
+    from utils.summary_manager import SummaryManager
 except ImportError as e:
     print(f"Import error: {e}")
     # Try absolute imports
@@ -31,6 +32,7 @@ except ImportError as e:
         from src.scraper.pqc_scraper import scrape_all_pqc_data
         from src.scraper.ai_scraper import scrape_all_ai_data
         from src.data.data_storage import DataStorage
+        from src.utils.summary_manager import SummaryManager
     except ImportError as e2:
         print(f"Absolute import error: {e2}")
         # Final attempt - check if we can import the module directly
@@ -60,6 +62,91 @@ except ImportError as e:
         data_storage = importlib.util.module_from_spec(spec5)
         spec5.loader.exec_module(data_storage)
         DataStorage = data_storage.DataStorage
+        
+        summary_manager_path = os.path.join(src_dir, 'utils', 'summary_manager.py')
+        spec6 = importlib.util.spec_from_file_location("summary_manager", summary_manager_path)
+        summary_manager = importlib.util.module_from_spec(spec6)
+        spec6.loader.exec_module(summary_manager)
+        SummaryManager = summary_manager.SummaryManager
+        
+        # Import AI summary modules
+        try:
+            from src.utils.summary_manager import SummaryManager as SummaryManagerAI
+            AI_AVAILABLE = True
+            print("✅ AI summary modules imported successfully")
+        except ImportError as e:
+            print(f"❌ Import error: {e}")
+            AI_AVAILABLE = False
+
+def get_ai_summary(item):
+    """Return the best available summary for an item.
+
+    Priority order (handled inside SummaryManager):
+      1. Scraped summary already on the item (meta description / abstract)
+      2. Live fetch of the item page meta description / abstract
+      3. Ollama local model via DSPy (if running)
+      4. Claude API via DSPy (if ANTHROPIC_API_KEY is set)
+      5. Empty string — never None, never a warning message
+    """
+    if not item:
+        return ""
+
+    # Try multiple import paths so this works regardless of how Streamlit
+    # was launched (from project root, from src/, or from dashboard/).
+    _sm = None
+    for mod_name in (
+        'utils.summary_manager',
+        'src.utils.summary_manager',
+        'summary_manager',
+    ):
+        try:
+            import importlib
+            mod = importlib.import_module(mod_name)
+            _sm = mod.SummaryManager()
+            break
+        except Exception:
+            continue
+
+    if _sm is None:
+        # SummaryManager not importable — fall back to scraped summary directly
+        existing = (item.get('summary') or '').strip()
+        title = (item.get('document_name') or item.get('title') or '').strip()
+        if existing and existing.lower() != title.lower() and len(existing) > 30:
+            return existing
+        # Try a quick live fetch
+        link = item.get('link', '')
+        if link:
+            try:
+                resp = requests.get(link, timeout=8)
+                resp.raise_for_status()
+                from bs4 import BeautifulSoup as _BS
+                soup = _BS(resp.content, 'html.parser')
+                meta = soup.select_one('meta[name="description"]')
+                if meta and (meta.get('content') or '').strip():
+                    return meta['content'].strip()
+                main = soup.select_one('main') or soup.select_one('[role="main"]')
+                if main:
+                    for p in main.find_all('p'):
+                        text = p.get_text(separator=' ').strip()
+                        if len(text) > 80:
+                            return text[:500]
+            except Exception:
+                pass
+        return ""
+
+    try:
+        # Do not generate AI summary for presentation items in dashboard
+        if item.get('resource_type', '').strip().lower() in ('presentation', 'presentations'):
+            return ""
+
+        result = _sm.generate_summary(item)
+        if result:
+            result = re.sub(r'\bNIST\b', '', result, flags=re.IGNORECASE).strip()
+            result = re.sub(r'\s{2,}', ' ', result).strip()
+        return result or ""
+    except Exception as e:
+        print(f"Summary generation error: {e}")
+        return ""
 
 def sanitize_link(link):
     """Sanitize links to prevent corruption in markdown rendering"""
@@ -786,12 +873,12 @@ def main():
                 # escape any HTML characters and replace underscores so markdown won't style
                 safe_header = escape(header).replace('_','&#95;')
                 with st.expander(safe_header):
-                    # inside dropdown we no longer re-show the title
-                    if pub.get('summary'):
-                        st.info(f"**Summary:** {pub['summary']}")
-                    else:
-                        st.warning("No summary available for this publication.")
-                    st.divider()
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(pub)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
                     st.write(f"**Type:** {pub['resource_type']}")
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")
@@ -808,6 +895,12 @@ def main():
             for pres in pqc_presentations:
                 header = pres['document_name']
                 with st.expander(header):
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(pres)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
                     st.write(f"**Status:** {pres['status']}")
                     st.write(f"**Type:** {pres['resource_type']}")
                     if pres.get('release_date'):
@@ -824,7 +917,12 @@ def main():
             
             for article in pqc_news:
                 with st.expander(f"{article['title']}"):
-                    if article['summary']:
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(article)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+                    elif article['summary']:
                         st.info(f"**Summary:** {article['summary']}")
                         st.divider()
                     render_news_dates(article)
@@ -945,8 +1043,13 @@ def main():
                 category = pub.get('category', '')
                 header = title if category else title
                 with st.expander(header):
-                    if pub.get('summary'):
-                        st.info(f"**Summary:** {pub['summary']}")
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(pub)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
+                    
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")
                     if pub.get('link'):
@@ -960,6 +1063,13 @@ def main():
             for pres in ai_presentations:
                 label = pres.get('document_name', 'AI Presentation')
                 with st.expander(label):
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(pres)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
+                    
                     st.write(f"**Status:** {pres.get('status', '')}")
                     if pres.get('release_date'):
                         st.write(f"**Published:** {pres['release_date']}")
@@ -974,16 +1084,22 @@ def main():
             for article in ai_news:
                 title = article.get('title', 'AI News')
                 with st.expander(title):
-                    if article.get('summary'):
-                        st.info(f"**Summary:** {article['summary']}")
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(article)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
+                    
                     render_news_dates(article)
                     if article.get('link'):
                         sanitized_link = sanitize_link(article['link'])
                         st.markdown(f"[📰 Read Article]({sanitized_link})")
+                    st.write("---")
 
         st.sidebar.divider()
         st.sidebar.caption(f"AI Last Updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
-
+    
     else:
         # Display regular Quantum Information Science data sections
         comment_drafts = [
@@ -1017,12 +1133,12 @@ def main():
                 safe_title = escape(title).replace('_','&#95;')
                 header = safe_title
                 with st.expander(header):
-                    # inside dropdown we no longer re-show the title
-                    if pub.get('summary'):
-                        st.info(f"**Summary:** {pub['summary']}")
-                    else:
-                        st.warning("No summary available for this publication.")
-                    st.divider()
+                    # Generate and display AI summary
+                    ai_summary = get_ai_summary(pub)
+                    if ai_summary:
+                        st.info(f"**Summary:** {ai_summary}")
+                        st.divider()
+
                     st.write(f"**Type:** {pub['resource_type']}")
                     if pub.get('release_date'):
                         st.write(f"**Published:** {pub['release_date']}")

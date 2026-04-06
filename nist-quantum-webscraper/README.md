@@ -64,7 +64,7 @@ To set up the project, follow these steps:
 
 ## Goals
 
-The primary goal of this project is to facilitate access to NIST's quantum information science resources by providing a user-friendly dashboard that displays organized data on publications, presentations, and news articles.
+The primary goal of this project is to facilitate access to NIST's quantum information science, post quantum crytography, and AI resources by providing a user-friendly dashboard that displays organized data on publications, presentations, and news articles.
 
 ## Contributing
 
