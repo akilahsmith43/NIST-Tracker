@@ -3,12 +3,45 @@ import sys
 import os
 import re
 import json
+import builtins
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta
 from urllib.parse import urlsplit
 
 import requests
 from bs4 import BeautifulSoup
+
+
+def _suppress_debug_prints():
+    """Hide noisy scraper/debug console prints unless explicitly enabled."""
+    if os.getenv('NIST_SHOW_DEBUG', '').lower() in {'1', 'true', 'yes', 'on'}:
+        return
+
+    original_print = builtins.print
+    suppressed_patterns = (
+        r'^DEBUG:',
+        r'^Scraped https?://',
+        r'^QIS publications complete:',
+        r'^QIS Scraping complete!$',
+        r'^Starting QIS publication scraping\.\.\.$',
+        r'^Starting Quantum Information Science data scraping\.\.\.$',
+        r'^Publications:\s+\d+$',
+        r'^Presentations:\s+\d+$',
+        r'^News:\s+\d+$',
+        r'^={10,}$',
+    )
+
+    def filtered_print(*args, **kwargs):
+        if args:
+            message = str(args[0]).lstrip()
+            if any(re.match(pattern, message) for pattern in suppressed_patterns):
+                return
+        return original_print(*args, **kwargs)
+
+    builtins.print = filtered_print
+
+
+_suppress_debug_prints()
 
 # Add the src directory to the Python path
 current_dir = os.path.dirname(os.path.abspath(__file__))
