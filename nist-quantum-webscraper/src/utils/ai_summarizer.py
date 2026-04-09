@@ -72,7 +72,7 @@ class TechnicalExtractionSignature(dspy.Signature):
 
 
 # ---------------------------------------------------------------------------
-# Cache — one JSON file per topic (ai_publications, qis, pqc)
+# Cache — one JSON file for AI summaries 
 # ---------------------------------------------------------------------------
 
 def _find_project_root() -> str:
@@ -671,7 +671,7 @@ class AISummarizer:
                 # Production silent mode
                 return cleaned
             # Cached value is bad — regenerate
-            # Production silent mode
+            pass
 
         # Truncate content
         if len(content) > max_content_length:
@@ -697,7 +697,7 @@ class AISummarizer:
             if self._validate_summary(summary):
                 break
             else:
-                # Production silent mode
+                pass
         
         if not summary or not self._validate_summary(summary):
             logger.warning("All generation attempts failed.")
@@ -732,7 +732,7 @@ class AISummarizer:
                 # Production silent mode
                 return km_data
             except:
-                # Production silent mode
+                pass
 
         # Truncate content
         if len(content) > max_content_length:
@@ -787,7 +787,7 @@ class AISummarizer:
                 # Production silent mode
                 return te_data
             except:
-                # Production silent mode
+                pass
 
         # Truncate content
         if len(content) > max_content_length:

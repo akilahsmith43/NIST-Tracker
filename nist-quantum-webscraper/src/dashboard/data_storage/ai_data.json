@@ -2,17 +2,6 @@
   "data": {
     "publications": [
       {
-        "document_name": "[Concept Paper] Accelerating the Adoption of Software and Artificial Intelligence Agent Identity and Authorization",
-        "document_number": "",
-        "series": "Other",
-        "release_date": "February 05, 2026",
-        "release_date_raw": "2026-02-05",
-        "resource_type": "Artificial Intelligence Publication",
-        "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
-        "summary": "",
-        "category": "Drafts Open for Comment"
-      },
-      {
         "document_name": "Data Classification Practices",
         "document_number": "",
         "series": "SP",
@@ -102,9 +91,9 @@
       }
     ]
   },
-  "timestamp": "2026-04-05T22:50:45.857192",
+  "timestamp": "2026-04-07T21:45:12.616307",
   "counts": {
-    "publications": 6,
+    "publications": 5,
     "presentations": 1,
     "news": 2
   }
