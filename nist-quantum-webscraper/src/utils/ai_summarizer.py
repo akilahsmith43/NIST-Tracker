@@ -247,6 +247,27 @@ def _is_complete_sentences(text: str) -> bool:
     
     return True
 
+
+def _has_mid_phrase_start(text: str) -> bool:
+    """Detect summaries that appear to start mid-phrase."""
+    if not text:
+        return False
+
+    cleaned = ' '.join((text or '').strip().split())
+    if not cleaned:
+        return False
+
+    first_sentence = re.split(r'(?<=[.!?])\s+', cleaned, maxsplit=1)[0].strip()
+    first_sentence = first_sentence.lstrip('"\'([{').strip()
+    if not first_sentence:
+        return False
+
+    bad_start_pattern = (
+        r'^(is|are|was|were|be|being|been|has|have|had|can|could|should|would|may|might|must|will|'
+        r'do|does|did|using|based|focused|designed|aimed|intended|developed|built|created)\b'
+    )
+    return bool(re.match(bad_start_pattern, first_sentence.lower()))
+
 # ---------------------------------------------------------------------------
 # Text cleanup
 # ---------------------------------------------------------------------------
@@ -456,7 +477,11 @@ def _truncate_to_full_sentence(text: str, max_chars: int = 800) -> str:
 
 
 def _limit_to_two_sentences(text: str) -> str:
-    sentences = [s.strip() for s in re.split(r'(?<=[.!?])\s+', text) if s.strip()]
+    text = ' '.join((text or '').strip().split())
+    if not text:
+        return ''
+
+    sentences = [s.strip() for s in re.findall(r'[^.!?]*[.!?]', text, flags=re.DOTALL) if s.strip()]
     if not sentences:
         return ''
     text = ' '.join(sentences[:2])
@@ -553,6 +578,10 @@ class AISummarizer:
         # Check for complete sentences
         if not _is_complete_sentences(summary):
             logger.warning(f"Rejecting incomplete sentences: {summary[:60]}")
+            return False
+
+        if _has_mid_phrase_start(summary):
+            logger.warning(f"Rejecting mid-phrase start: {summary[:60]}")
             return False
         
         if _is_uninformative(summary):

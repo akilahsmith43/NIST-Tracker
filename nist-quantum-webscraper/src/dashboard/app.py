@@ -181,6 +181,80 @@ def get_ai_summary(item):
         print(f"Summary generation error: {e}")
         return ""
 
+
+def get_display_summary(item):
+    """Return summary text suitable for display with fallback to scraped text."""
+    if not item or not isinstance(item, dict):
+        return ""
+
+    def _to_max_two_full_sentences(text):
+        cleaned = ' '.join((text or '').strip().split())
+        if not cleaned:
+            return ""
+        sentences = [s.strip() for s in re.findall(r'[^.!?]*[.!?]', cleaned, flags=re.DOTALL) if s.strip()]
+        if not sentences:
+            return ""
+        return ' '.join(sentences[:2]).strip()
+
+    ai_summary = get_ai_summary(item)
+    if ai_summary:
+        return _to_max_two_full_sentences(ai_summary)
+
+    existing = (item.get('summary') or '').strip()
+    title = (item.get('document_name') or item.get('title') or '').strip()
+    if existing and existing.lower() != title.lower():
+        return _to_max_two_full_sentences(existing)
+
+    return ""
+
+
+def populate_missing_publication_summaries(publications):
+    """Populate or repair publication summaries so they can be persisted to disk."""
+    bad_start_pattern = (
+        r'^(is|are|was|were|be|being|been|has|have|had|can|could|should|would|may|might|must|will|'
+        r'do|does|did|using|based|focused|designed|aimed|intended|developed|built|created)\b'
+    )
+
+    def _to_max_two_full_sentences(text):
+        cleaned = ' '.join((text or '').strip().split())
+        if not cleaned:
+            return ""
+        sentences = [s.strip() for s in re.findall(r'[^.!?]*[.!?]', cleaned, flags=re.DOTALL) if s.strip()]
+        if not sentences:
+            return ""
+        return ' '.join(sentences[:2]).strip()
+
+    def _looks_mid_phrase(summary_text):
+        cleaned = ' '.join((summary_text or '').strip().split())
+        if not cleaned:
+            return False
+        first_sentence = re.split(r'(?<=[.!?])\s+', cleaned, maxsplit=1)[0].strip().lstrip('"\'([{').strip()
+        if not first_sentence:
+            return False
+        return bool(re.match(bad_start_pattern, first_sentence.lower()))
+
+    output = []
+    for publication in publications or []:
+        if not isinstance(publication, dict):
+            continue
+
+        item = dict(publication)
+        current_summary = (item.get('summary') or '').strip()
+        normalized_current = _to_max_two_full_sentences(current_summary)
+        needs_repair = (not current_summary) or _looks_mid_phrase(current_summary) or (normalized_current != current_summary)
+
+        if needs_repair:
+            summary_text = get_display_summary(item)
+            summary_text = _to_max_two_full_sentences(summary_text)
+            if summary_text and not _looks_mid_phrase(summary_text):
+                item['summary'] = summary_text
+            elif normalized_current and not _looks_mid_phrase(normalized_current):
+                item['summary'] = normalized_current
+
+        output.append(item)
+
+    return output
+
 def sanitize_link(link):
     """Sanitize links to prevent corruption in markdown rendering"""
     if not link:
@@ -728,6 +802,7 @@ def main():
             pqc_news,
             (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
+        pqc_publications = populate_missing_publication_summaries(pqc_publications)
         pqc_data['publications'] = pqc_publications
         pqc_data['presentations'] = pqc_presentations
         pqc_data['news'] = pqc_news
@@ -802,6 +877,7 @@ def main():
             news,
             (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
+        publications = populate_missing_publication_summaries(publications)
 
     # Only process Quantum Information Science data if we're on that page
     if page == "Quantum Information Science":
@@ -906,10 +982,9 @@ def main():
                 # escape any HTML characters and replace underscores so markdown won't style
                 safe_header = escape(header).replace('_','&#95;')
                 with st.expander(safe_header):
-                    # Generate and display AI summary
-                    ai_summary = get_ai_summary(pub)
-                    if ai_summary:
-                        st.info(f"**Summary:** {ai_summary}")
+                    summary_text = (pub.get('summary') or '').strip()
+                    if summary_text:
+                        st.info(f"**Summary:** {summary_text}")
                         st.divider()
 
                     st.write(f"**Type:** {pub['resource_type']}")
@@ -998,6 +1073,7 @@ def main():
             ai_news,
             (('last_edited_date', 'last_edited_date_raw'), ('publish_date', 'publish_date_raw')),
         )
+        ai_publications = populate_missing_publication_summaries(ai_publications)
         ai_data['publications'] = ai_publications
         ai_data['presentations'] = ai_presentations
         ai_data['news'] = ai_news
@@ -1076,10 +1152,9 @@ def main():
                 category = pub.get('category', '')
                 header = title if category else title
                 with st.expander(header):
-                    # Generate and display AI summary
-                    ai_summary = get_ai_summary(pub)
-                    if ai_summary:
-                        st.info(f"**Summary:** {ai_summary}")
+                    summary_text = (pub.get('summary') or '').strip()
+                    if summary_text:
+                        st.info(f"**Summary:** {summary_text}")
                         st.divider()
 
                     
@@ -1166,10 +1241,9 @@ def main():
                 safe_title = escape(title).replace('_','&#95;')
                 header = safe_title
                 with st.expander(header):
-                    # Generate and display AI summary
-                    ai_summary = get_ai_summary(pub)
-                    if ai_summary:
-                        st.info(f"**Summary:** {ai_summary}")
+                    summary_text = (pub.get('summary') or '').strip()
+                    if summary_text:
+                        st.info(f"**Summary:** {summary_text}")
                         st.divider()
 
                     st.write(f"**Type:** {pub['resource_type']}")

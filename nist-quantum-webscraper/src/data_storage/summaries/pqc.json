@@ -1,1 +1,14 @@
-{}
+{
+  "a9b3490f087ab90d8bd7642d59e5bc2f": {
+    "timestamp": "2026-04-08T21:46:01.220966",
+    "summary": "A key-encapsulation mechanism is a cryptographic protocol enabling secure key exchange between parties through public channels, facilitating the use of symmetric-key algorithms for encryption and authentication. The constraints include the need for both parties to adhere to specific conditions and protocols to ensure the security and integrity of the shared secret key establishment process."
+  },
+  "ef5e53b5affb1f2e54f2701d33121715": {
+    "timestamp": "2026-04-08T21:46:16.088468",
+    "summary": "The NCCoE Migration to Post-Quantum Cryptography project showcases enhanced security measures aligned with the Cybersecurity Framework and SP 800-53 requirements. These enhancements significantly impact the resilience of cryptographic systems against quantum computing threats while ensuring compatibility across diverse organizational information infrastructures."
+  },
+  "98b3ce8b8621505aaedd84c6a25ea0c2": {
+    "timestamp": "2026-04-08T21:46:16.226209",
+    "summary": "Organizations can utilize data classification practices to discover and label unstructured data, ensuring the identification of valuable or sensitive information. These practices are constrained by the need for accuracy and consistency across large datasets."
+  }
+}

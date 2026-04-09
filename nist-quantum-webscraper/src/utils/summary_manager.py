@@ -273,21 +273,40 @@ def _split_into_full_sentences(text: str) -> list:
         return []
     # Include punctuation as sentence terminator
     sentences = re.findall(r'[^.!?]*[.!?]', text, flags=re.DOTALL)
-    if not sentences:
-        return [text.strip() + ('.' if not text.strip().endswith(('.', '!', '?')) else '')]
     return [s.strip() for s in sentences if s.strip()]
 
 
 def _format_two_sentences(text: str) -> str:
     sentences = _split_into_full_sentences(text)
     if not sentences:
-        return text.strip() + ('.' if not text.strip().endswith(('.', '!', '?')) else '')  # Return single sentence if only one exists
+        return ''
     
     selected = sentences[:2]
     result = ' '.join(selected)
     if result and result[-1] not in '.!?':
         result += '.'
     return result.strip()
+
+
+def _has_mid_phrase_start(text: str) -> bool:
+    """Detect summaries that begin mid-phrase (e.g., 'is developing ...')."""
+    if not text:
+        return False
+
+    cleaned = _clean_text(text)
+    if not cleaned:
+        return False
+
+    first_sentence = _split_into_full_sentences(cleaned)[0] if _split_into_full_sentences(cleaned) else cleaned
+    first_sentence = first_sentence.strip().lstrip('"\'([{').strip()
+    if not first_sentence:
+        return False
+
+    bad_start_pattern = (
+        r'^(is|are|was|were|be|being|been|has|have|had|can|could|should|would|may|might|must|will|'
+        r'do|does|did|using|based|focused|designed|aimed|intended|developed|built|created)\b'
+    )
+    return bool(re.match(bad_start_pattern, first_sentence.lower()))
 
 
 def _clean_summary_output(text: str) -> str:
@@ -297,7 +316,7 @@ def _clean_summary_output(text: str) -> str:
         return ''
     clean = _ensure_third_person(text)
     formatted = _format_two_sentences(clean)
-    if _is_uninformative_summary(formatted):
+    if _is_uninformative_summary(formatted) or _has_mid_phrase_start(formatted):
         return ''
     return formatted
 
@@ -565,7 +584,7 @@ class SummaryManager:
             return None
 
         summary = entry.get('summary', '')
-        if summary and _is_uninformative_summary(summary):
+        if summary and (_is_uninformative_summary(summary) or _has_mid_phrase_start(summary)):
             return None
 
         return summary
@@ -603,7 +622,9 @@ class SummaryManager:
         cached = self._load_cache(cache_key)
         if cached:
             out = _ensure_third_person(cached)
-            return _format_two_sentences(out)
+            out = _format_two_sentences(out)
+            if not _has_mid_phrase_start(out):
+                return out
 
         if abstract:
             # Clean contact info from abstract first
@@ -627,7 +648,7 @@ class SummaryManager:
                 summary = _ensure_third_person(summary)
                 summary = _format_two_sentences(summary)
                 
-                if summary and not _is_uninformative_summary(summary):
+                if summary and not _is_uninformative_summary(summary) and not _has_mid_phrase_start(summary):
                     self._save_cache(cache_key, summary)
                     return summary
             
@@ -645,7 +666,7 @@ class SummaryManager:
                 # RULE 5: Fallback to cleaned abstract if no AI summary generated
                 out = _format_two_sentences(_ensure_third_person(trimmed))
 
-            if out:
+            if out and not _has_mid_phrase_start(out):
                 self._save_cache(cache_key, out)
                 return out
             
@@ -654,7 +675,7 @@ class SummaryManager:
                 fallback = _split_into_full_sentences(cleaned_abstract)
                 if fallback:
                     summary = fallback[0].strip()
-                    if summary and not _is_uninformative_summary(summary):
+                    if summary and not _is_uninformative_summary(summary) and not _has_mid_phrase_start(summary):
                         self._save_cache(cache_key, summary)
                         return summary
             
@@ -673,7 +694,7 @@ class SummaryManager:
                 except Exception:
                     out = _format_two_sentences(_ensure_third_person(scraped))
 
-                if out and not _is_uninformative_summary(out):
+                if out and not _is_uninformative_summary(out) and not _has_mid_phrase_start(out):
                     self._save_cache(cache_key, out)
                     return out
             
@@ -704,7 +725,7 @@ class SummaryManager:
                             summary = _ensure_third_person(summary)
                             summary = _format_two_sentences(summary)
                             
-                            if summary and not _is_uninformative_summary(summary):
+                            if summary and not _is_uninformative_summary(summary) and not _has_mid_phrase_start(summary):
                                 self._save_cache(cache_key, summary)
                                 return summary
                     except Exception as e:

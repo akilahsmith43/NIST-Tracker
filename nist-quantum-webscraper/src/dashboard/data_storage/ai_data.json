@@ -9,7 +9,7 @@
         "release_date_raw": "2026-02-12",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
-        "summary": "",
+        "summary": "Organizations can utilize data classification practices to discover and label unstructured data, ensuring the identification of valuable or sensitive information. These practices are constrained by the need for accuracy and consistency across large datasets.",
         "category": "Drafts Open for Comment"
       },
       {
@@ -20,7 +20,7 @@
         "release_date_raw": "2026-03-15",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/use-machine-learning-development-acoustic-based-detection-system-early-stage-thermal",
-        "summary": "",
+        "summary": "a machine learning-based system designed to detect early-stage thermal runaway using acoustic signals, which aims to prevent potential safety hazards by enabling timely intervention.",
         "category": "General Publications"
       },
       {
@@ -31,7 +31,7 @@
         "release_date_raw": "2026-03-06",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
-        "summary": "",
+        "summary": "Artificial intelligence systems are being developed and tested for broader integration into commercial and government sectors. These systems must operate within strict constraints to ensure reliability and security, impacting their design and functionality significantly.",
         "category": "General Publications"
       },
       {
@@ -42,7 +42,7 @@
         "release_date_raw": "2026-02-15",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/trec-2025-ad-hoc-video-search-avs-track-overview",
-        "summary": "",
+        "summary": "This technology focuses on developing advanced communication methods to ensure enhanced cybersecurity and privacy, enabling secure and real-time data transmission without sacrificing resource efficiency.",
         "category": "General Publications"
       },
       {
@@ -53,7 +53,7 @@
         "release_date_raw": "2026-02-09",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/application-artificial-intelligence-supply-chain-management-opportunities-and",
-        "summary": "",
+        "summary": "Artificial Intelligence (AI) has advanced substantially, influencing numerous areas of daily life through its predictive capabilities. By handling vast and diverse datasets, AI enables effective risk assessment and management systems to be developed.",
         "category": "General Publications"
       }
     ],
