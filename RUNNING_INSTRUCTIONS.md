@@ -35,6 +35,29 @@ pip install -r nist-quantum-webscraper/requirements.txt
 streamlit run nist-quantum-webscraper/src/dashboard/app.py
 ```
 
+### Windows Setup
+
+**Create the virtual environment:**
+```powershell
+python -m venv .venv
+```
+
+**If you get an execution policy error, run this in PowerShell first:**
+```powershell
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+```
+
+**Then activate the virtual environment:**
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**Install dependencies:**
+```powershell
+pip install -r nist-quantum-webscraper/requirements.txt
+```
+
+> Note: The Set-ExecutionPolicy command must be re-run each new PowerShell session. It does not permanently change system settings.
 ### 3. **What You'll See**
 
 #### Terminal Output:

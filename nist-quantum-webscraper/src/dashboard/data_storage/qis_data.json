@@ -207,7 +207,7 @@
         "release_date_raw": "2025-10-21",
         "resource_type": "Publication",
         "link": "https://www.nist.gov/publications/solitons-thermal-gas-stabilized-photon-mediated-interactions-optical-cavity",
-        "summary": "This research focuses on stabilizing solitons in a thermal gas through photon-mediated interactions within an optical cavity, addressing challenges related to thermal fluctuations.",
+        "summary": "",
         "category": "General Publications"
       },
       {
@@ -534,7 +534,7 @@
       }
     ]
   },
-  "timestamp": "2026-04-08T22:12:34.564954",
+  "timestamp": "2026-04-13T12:18:03.819686",
   "counts": {
     "publications": 42,
     "presentations": 2,

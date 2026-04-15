@@ -9,7 +9,7 @@
         "release_date_raw": "2026-02-12",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
-        "summary": "Organizations can utilize data classification practices to discover and label unstructured data, ensuring the identification of valuable or sensitive information. These practices are constrained by the need for accuracy and consistency across large datasets.",
+        "summary": "Data classification practices enable organizations to manage their unstructured data effectively by identifying and labeling it, thus reducing risks associated with data loss or mismanagement. This process is constrained by the need for thorough and accurate categorization to ensure compliance and effective risk mitigation.",
         "category": "Drafts Open for Comment"
       },
       {
@@ -20,7 +20,7 @@
         "release_date_raw": "2026-03-15",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/use-machine-learning-development-acoustic-based-detection-system-early-stage-thermal",
-        "summary": "a machine learning-based system designed to detect early-stage thermal runaway using acoustic signals, which aims to prevent potential safety hazards by enabling timely intervention.",
+        "summary": "The paper addresses developing an early-stage thermal runaway detection system using machine learning techniques based on acoustic signals, aiming to predict potential battery safety issues before they become critical.",
         "category": "General Publications"
       },
       {
@@ -31,7 +31,7 @@
         "release_date_raw": "2026-03-06",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
-        "summary": "Artificial intelligence systems are being developed and tested for broader integration into commercial and government sectors. These systems must operate within strict constraints to ensure reliability and security, impacting their design and functionality significantly.",
+        "summary": "AI systems are being developed and deployed across multiple sectors, requiring robust mechanisms for ongoing performance evaluation. These systems must operate within strict regulatory constraints impacting their design and deployment.",
         "category": "General Publications"
       },
       {
@@ -42,7 +42,7 @@
         "release_date_raw": "2026-02-15",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/trec-2025-ad-hoc-video-search-avs-track-overview",
-        "summary": "This technology focuses on developing advanced communication methods to ensure enhanced cybersecurity and privacy, enabling secure and real-time data transmission without sacrificing resource efficiency.",
+        "summary": "The primary problem addressed is enhancing video search capabilities in ad-hoc settings through artificial intelligence, specifically by improving relevance ranking and retrieval speed. The specific solution involves developing machine learning models tailored to handle dynamic query processing and large-scale video datasets.",
         "category": "General Publications"
       },
       {
@@ -53,7 +53,7 @@
         "release_date_raw": "2026-02-09",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/application-artificial-intelligence-supply-chain-management-opportunities-and",
-        "summary": "Artificial Intelligence (AI) has advanced substantially, influencing numerous areas of daily life through its predictive capabilities. By handling vast and diverse datasets, AI enables effective risk assessment and management systems to be developed.",
+        "summary": "Artificial Intelligence is being developed for enhanced risk assessment through comprehensive data analysis. This system faces significant challenges including ensuring data accuracy and managing computational complexity during real-time operations.",
         "category": "General Publications"
       }
     ],
@@ -91,7 +91,7 @@
       }
     ]
   },
-  "timestamp": "2026-04-07T21:45:12.616307",
+  "timestamp": "2026-04-09T19:12:44.432778",
   "counts": {
     "publications": 5,
     "presentations": 1,

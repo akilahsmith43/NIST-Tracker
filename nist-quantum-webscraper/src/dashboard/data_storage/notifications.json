@@ -16402,7 +16402,7 @@
       "release_date_raw": "2026-01-09",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://www.nist.gov/publications/machine-learning-based-forecasting-building-fires",
-      "summary": "",
+      "summary": "Artificial intelligence technologies are being developed to provide firefighters with real-time, actionable data to assist in decision-making during rapid fire progressions. These systems must operate under severe environmental conditions and meet stringent reliability requirements to ensure effective emergency response.",
       "category": "General Publications"
     },
     "scrape_date": "2026-03-26T15:41:57.201329"
@@ -16418,7 +16418,7 @@
       "release_date_raw": "2025-12-29",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://www.nist.gov/publications/ai-driven-antimicrobial-peptide-characterization-unveils-novel-motifs-drug-design",
-      "summary": "",
+      "summary": "The research uses AI to characterize antimicrobial peptides, identifying new motifs that can be used in drug design to combat antibiotic resistance.",
       "category": "General Publications"
     },
     "scrape_date": "2026-03-26T15:41:57.233233"
@@ -16450,7 +16450,7 @@
       "release_date_raw": "2025-12-12",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://www.nist.gov/publications/robust-ai-security-and-alignment-sisyphean-endeavor",
-      "summary": "",
+      "summary": "This work establishes information-theoretic boundaries for AI security and alignment through an extension of G\u00f6del's theorem. These constraints are essential for preparing researchers and practitioners for the inherent challenges in developing robust AI systems.",
       "category": "General Publications"
     },
     "scrape_date": "2026-03-26T15:41:57.369868"
@@ -16466,7 +16466,7 @@
       "release_date_raw": "2025-12-02",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://www.nist.gov/publications/advancing-technical-language-processing-and-large-language-models-industrial",
-      "summary": "",
+      "summary": "AI and NLP technologies are being developed for integration into sophisticated engineering systems, but they must overcome substantial technical hurdles. These systems require precise and reliable performance which complicates their implementation.",
       "category": "General Publications"
     },
     "scrape_date": "2026-03-26T15:41:57.402147"
@@ -17426,7 +17426,7 @@
       "release_date_raw": "2025-12-16",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://csrc.nist.gov/pubs/ir/8596/iprd",
-      "summary": "",
+      "summary": "The Cybersecurity Framework Profile for Artificial Intelligence is designed to manage cybersecurity risk within AI systems while leveraging AI to improve security capabilities. It operates under the Cybersecurity Framework structure, imposing constraints on how AI can be effectively applied to enhance overall security measures.",
       "category": "Drafts"
     },
     "scrape_date": "2026-03-26T15:41:57.334769"
@@ -17563,7 +17563,9 @@
       "publish_date": "January 12, 2026",
       "publish_date_raw": "2026-01-12",
       "link": "https://www.nist.gov/news-events/news/2026/01/caisi-issues-request-information-about-securing-ai-agent-systems",
-      "resource_type": "Artificial Intelligence News"
+      "resource_type": "Artificial Intelligence News",
+      "last_edited_date": "January 12, 2026",
+      "last_edited_date_raw": "2026-01-12"
     },
     "scrape_date": "2026-03-26T15:41:58.484631"
   },
@@ -17576,7 +17578,9 @@
       "publish_date": "December 22, 2025",
       "publish_date_raw": "2025-12-22",
       "link": "https://www.nist.gov/news-events/news/2025/12/nist-launches-centers-ai-manufacturing-and-critical-infrastructure",
-      "resource_type": "Artificial Intelligence News"
+      "resource_type": "Artificial Intelligence News",
+      "last_edited_date": "December 22, 2025",
+      "last_edited_date_raw": "2025-12-22"
     },
     "scrape_date": "2026-03-26T15:41:58.519946"
   },
@@ -17615,7 +17619,9 @@
       "publish_date": "September 24, 2025",
       "publish_date_raw": "2025-09-24",
       "link": "https://www.nist.gov/news-events/news/2025/09/nist-issues-broad-agency-announcement-proposals-advance-microelectronics",
-      "resource_type": "Artificial Intelligence News"
+      "resource_type": "Artificial Intelligence News",
+      "last_edited_date": "September 24, 2025",
+      "last_edited_date_raw": "2025-09-24"
     },
     "scrape_date": "2026-03-26T15:41:58.626774"
   },
@@ -17646,7 +17652,7 @@
       "release_date_raw": "2026-02-05",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://csrc.nist.gov/pubs/other/2026/02/05/accelerating-the-adoption-of-software-and-ai-agent/ipd",
-      "summary": "",
+      "summary": "This paper aims to address the challenge of integrating software and artificial intelligence agents into identity and authorization systems, proposing a methodology that accelerates their adoption while ensuring secure access control.",
       "category": "Drafts"
     },
     "scrape_date": "2026-03-26T16:22:31.571589"
@@ -17662,7 +17668,7 @@
       "release_date_raw": "2026-01-30",
       "resource_type": "Artificial Intelligence Publication",
       "link": "https://csrc.nist.gov/pubs/other/2026/01/30/on-the-assessment-of-sensitivity-of-autonomous-veh/final",
-      "summary": "",
+      "summary": "Automated driving systems rely on perception technologies to deliver precise and dependable data for effective decision-making and vehicle maneuvers in real-time. The robustness of these systems is critically tested under various conditions, including natural challenges such as weather and light changes, as well as adversarial factors designed to simulate malicious interference.",
       "category": "Drafts Open for Comment"
     },
     "scrape_date": "2026-03-26T16:22:31.626283"
@@ -18007,7 +18013,7 @@
   },
   {
     "type": "publication",
-    "timestamp": "2026-04-05T23:16:57.651573",
+    "timestamp": "2026-04-05 23:16:57.651573",
     "item": {
       "document_name": "Localized quasiparticles in a quasi-two-dimensional fluxonium",
       "document_number": "",
@@ -18020,5 +18026,49 @@
       "category": "General Publications"
     },
     "scrape_date": "2026-04-05T23:16:57.651580"
+  },
+  {
+    "type": "ai_presentation",
+    "timestamp": "2026-04-09 16:17:00.566098",
+    "item": {
+      "document_name": "Agentic AI: Emerging Threats, Mitigations, and Challenges",
+      "series": "",
+      "status": "",
+      "resource_type": "Artificial Intelligence Presentation",
+      "link": "https://csrc.nist.gov/presentations/2026/agentic-ai-emerging-threats-mitigations-and-cha",
+      "release_date": "January 21, 2026",
+      "release_date_raw": "2026-01-21"
+    },
+    "scrape_date": "2026-04-09T16:17:00.566105"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-04-09 16:19:43.964427",
+    "item": {
+      "title": "Draft NIST Guidelines Rethink Cybersecurity for the AI Era",
+      "summary": "",
+      "publish_date": "December 16, 2025",
+      "publish_date_raw": "2025-12-16",
+      "last_edited_date": "December 17, 2025",
+      "last_edited_date_raw": "2025-12-17",
+      "link": "https://www.nist.gov/news-events/news/2025/12/draft-nist-guidelines-rethink-cybersecurity-ai-era",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-04-09T16:19:43.964432"
+  },
+  {
+    "type": "ai_news",
+    "timestamp": "2026-04-09 16:19:43.989264",
+    "item": {
+      "title": "CAISI Evaluation of DeepSeek AI Models Finds Shortcomings and Risks",
+      "summary": "",
+      "publish_date": "September 30, 2025",
+      "publish_date_raw": "2025-09-30",
+      "last_edited_date": "November 20, 2025",
+      "last_edited_date_raw": "2025-11-20",
+      "link": "https://www.nist.gov/news-events/news/2025/09/caisi-evaluation-deepseek-ai-models-finds-shortcomings-and-risks",
+      "resource_type": "Artificial Intelligence News"
+    },
+    "scrape_date": "2026-04-09T16:19:43.989268"
   }
 ]
