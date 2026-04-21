@@ -83,6 +83,23 @@ pip install -r requirements.txt
 
 > Note: The Set-ExecutionPolicy command must be re-run each new PowerShell session. It does not permanently change system settings.
 
+### macOS Setup
+
+**Create the virtual environment:**
+```bash
+python -m venv .venv
+```
+
+**Activate the virtual environment:**
+```bash
+source .venv/bin/activate
+```
+
+**Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
 ## Usage
 
 1. Run the individual scrapers to collect data:
