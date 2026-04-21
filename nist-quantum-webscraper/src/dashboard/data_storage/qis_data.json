@@ -488,6 +488,15 @@
     ],
     "news": [
       {
+        "title": "Any Color You Like: NIST Scientists Create \u2018Any Wavelength\u2019 Lasers in Tiny Circuits for Light",
+        "link": "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits",
+        "publish_date": "April 15, 2026",
+        "publish_date_raw": "2026-04-15",
+        "last_edited_date": "April 16, 2026",
+        "last_edited_date_raw": "2026-04-16",
+        "summary": "NIST scientists and collaborators have pioneered a way to make integrated circuits for light by depositing complex patterns of specialized materials onto silicon wafers."
+      },
+      {
         "title": "NIST Allocates Over $3 Million to Small Businesses Advancing AI, Biotechnology, Semiconductors, Quantum and More",
         "link": "https://www.nist.gov/news-events/news/2026/02/nist-allocates-over-3-million-small-businesses-advancing-ai-biotechnology",
         "publish_date": "February 10, 2026",
@@ -534,10 +543,10 @@
       }
     ]
   },
-  "timestamp": "2026-04-13T12:18:03.819686",
+  "timestamp": "2026-04-16T16:12:11.995797",
   "counts": {
     "publications": 42,
     "presentations": 2,
-    "news": 5
+    "news": 6
   }
 }

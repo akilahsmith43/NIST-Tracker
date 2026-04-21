@@ -2,17 +2,6 @@
   "data": {
     "publications": [
       {
-        "document_name": "Data Classification Practices",
-        "document_number": "",
-        "series": "SP",
-        "release_date": "February 12, 2026",
-        "release_date_raw": "2026-02-12",
-        "resource_type": "Artificial Intelligence Publication",
-        "link": "https://csrc.nist.gov/pubs/sp/1800/39/ipd",
-        "summary": "Data classification practices enable organizations to manage their unstructured data effectively by identifying and labeling it, thus reducing risks associated with data loss or mismanagement. This process is constrained by the need for thorough and accurate categorization to ensure compliance and effective risk mitigation.",
-        "category": "Drafts Open for Comment"
-      },
-      {
         "document_name": "On the Use of Machine Learning for the Development of an Acoustic-based Detection System for Early-Stage Thermal Runaway",
         "document_number": "",
         "series": "",
@@ -31,29 +20,7 @@
         "release_date_raw": "2026-03-06",
         "resource_type": "Artificial Intelligence Publication",
         "link": "https://www.nist.gov/publications/challenges-monitoring-deployed-ai-systems-center-ai-standards-and-innovation",
-        "summary": "AI systems are being developed and deployed across multiple sectors, requiring robust mechanisms for ongoing performance evaluation. These systems must operate within strict regulatory constraints impacting their design and deployment.",
-        "category": "General Publications"
-      },
-      {
-        "document_name": "TREC 2025 Ad-hoc Video Search (AVS) Track Overview",
-        "document_number": "",
-        "series": "",
-        "release_date": "February 15, 2026",
-        "release_date_raw": "2026-02-15",
-        "resource_type": "Artificial Intelligence Publication",
-        "link": "https://www.nist.gov/publications/trec-2025-ad-hoc-video-search-avs-track-overview",
-        "summary": "The primary problem addressed is enhancing video search capabilities in ad-hoc settings through artificial intelligence, specifically by improving relevance ranking and retrieval speed. The specific solution involves developing machine learning models tailored to handle dynamic query processing and large-scale video datasets.",
-        "category": "General Publications"
-      },
-      {
-        "document_name": "Application of Artificial Intelligence in Supply Chain Management - Opportunities and Challenges, a Workshop Report",
-        "document_number": "",
-        "series": "",
-        "release_date": "February 09, 2026",
-        "release_date_raw": "2026-02-09",
-        "resource_type": "Artificial Intelligence Publication",
-        "link": "https://www.nist.gov/publications/application-artificial-intelligence-supply-chain-management-opportunities-and",
-        "summary": "Artificial Intelligence is being developed for enhanced risk assessment through comprehensive data analysis. This system faces significant challenges including ensuring data accuracy and managing computational complexity during real-time operations.",
+        "summary": "The primary problem lies in effectively monitoring deployed AI systems, which often lacks robust standards; a specific solution involves establishing guidelines by the Center for AI Standards and Innovation to address these challenges.",
         "category": "General Publications"
       }
     ],
@@ -91,9 +58,9 @@
       }
     ]
   },
-  "timestamp": "2026-04-09T19:12:44.432778",
+  "timestamp": "2026-04-16T17:17:41.246378",
   "counts": {
-    "publications": 5,
+    "publications": 2,
     "presentations": 1,
     "news": 2
   }

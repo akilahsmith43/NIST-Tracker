@@ -1,6 +1,6 @@
-# NIST Quantum Web Scraper
+# NIST Web Scraper
 
-This project is a web scraper designed to collect information related to quantum information science from various NIST websites. The scraper gathers data on publications, presentations, and news articles, organizing the information into structured formats for easy access and analysis.
+This project is a web scraper designed to collect information related to quantum information science (QIS), post-quantum cryptography (PQC), and artificial intelligence (AI) from various NIST websites. The scraper gathers data on publications, presentations, and news articles, organizing the information into structured formats for easy access and analysis.
 
 ## Project Structure
 
@@ -111,7 +111,7 @@ pip install -r requirements.txt
 
 ## Goals
 
-The primary goal of this project is to facilitate access to NIST's quantum information science resources by providing a user-friendly dashboard that displays organized data on publications, presentations, and news articles.
+The primary goal of this project is to facilitate access to NIST's quantum information science (QIS), post-quantum cryptography (PQC), and artificial intelligence (AI) resources by providing a user-friendly dashboard that displays organized data on publications, presentations, and news articles.
 
 ## Contributing
 

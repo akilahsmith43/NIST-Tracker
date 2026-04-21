@@ -18070,5 +18070,33 @@
       "resource_type": "Artificial Intelligence News"
     },
     "scrape_date": "2026-04-09T16:19:43.989268"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-04-15 21:43:55.148348",
+    "item": {
+      "title": "Any Color You Like: NIST Scientists Create \u2018Any Wavelength\u2019 Lasers in Tiny Circuits for Light",
+      "link": "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits",
+      "publish_date": "April 15, 2026",
+      "publish_date_raw": "2026-04-15",
+      "last_edited_date": "April 15, 2026",
+      "last_edited_date_raw": "2026-04-15",
+      "summary": "NIST scientists and collaborators have pioneered a way to make integrated circuits for light by depositing complex patterns of specialized materials onto silicon wafers."
+    },
+    "scrape_date": "2026-04-15T21:43:55.148361"
+  },
+  {
+    "type": "news",
+    "timestamp": "2026-04-16T15:58:49.964417",
+    "item": {
+      "title": "Any Color You Like: NIST Scientists Create \u2018Any Wavelength\u2019 Lasers in Tiny Circuits for Light",
+      "link": "https://www.nist.gov/news-events/news/2026/04/any-color-you-nist-scientists-create-any-wavelength-lasers-tiny-circuits",
+      "publish_date": "April 15, 2026",
+      "publish_date_raw": "2026-04-15",
+      "last_edited_date": "April 16, 2026",
+      "last_edited_date_raw": "2026-04-16",
+      "summary": "NIST scientists and collaborators have pioneered a way to make integrated circuits for light by depositing complex patterns of specialized materials onto silicon wafers."
+    },
+    "scrape_date": "2026-04-16T15:58:49.964420"
   }
 ]

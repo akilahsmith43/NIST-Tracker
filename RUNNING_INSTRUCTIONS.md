@@ -3,7 +3,7 @@
 ## How to Run the Application
 
 ### 1. **Prerequisites**
-- Python 3.8 or higher
+- Download Python 3.8 or higher on operating system & Extension on vscode
 - pip (Python package installer)
 
 ### 2. **Setup Instructions**
